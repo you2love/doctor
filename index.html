@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医学学习平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>医学学习平台</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html" class="active">首页</a></li>
+                <li class="menu-category">基础学科</li>
+                <li><a href="anatomy.html">解剖学</a></li>
+                <li><a href="pathology.html">病理学</a></li>
+                <li><a href="physiology.html">生理学</a></li>
+                <li><a href="pathophysiology.html">病理生理学</a></li>
+                <li><a href="system.html">人体系统</a></li>
+                <li class="menu-category">临床学科</li>
+                <li><a href="internal-medicine.html">内科学</a></li>
+                <li><a href="diagnostics.html">诊断学</a></li>
+                <li><a href="common_disease.html">常见病</a></li>
+                <li><a href="symptoms.html">常见症状</a></li>
+                <li class="menu-category">实用指南</li>
+                <li><a href="check_up.html">体检指标</a></li>
+                <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="medicine.html">家庭用药</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <main class="main-content">
+        <!-- 基础学科 -->
+        <section class="subjects">
+            <h2 id="basic">基础学科</h2>
+            <p class="section-desc">医学的基础理论，为后续学习打下坚实基础</p>
+            <div class="subject-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">🫀</div>
+                    <h3>解剖学</h3>
+                    <p>研究人体器官结构、位置及相互关系的科学</p>
+                    <a href="anatomy.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">🔬</div>
+                    <h3>病理学</h3>
+                    <p>研究疾病发生发展规律及其形态学改变的科学</p>
+                    <a href="pathology.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">⚡</div>
+                    <h3>生理学</h3>
+                    <p>研究机体生命活动规律及正常功能的科学</p>
+                    <a href="physiology.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">🧪</div>
+                    <h3>病理生理学</h3>
+                    <p>研究疾病发生发展规律及机制的科学</p>
+                    <a href="pathophysiology.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">🧬</div>
+                    <h3>人体系统</h3>
+                    <p>了解人体各系统的核心功能、结构组成与运行原理</p>
+                    <a href="system.html" class="btn">开始学习 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 临床学科 -->
+        <section class="subjects">
+            <h2 id="clinical">临床学科</h2>
+            <p class="section-desc">临床医学核心课程，直接应用于疾病诊断与治疗</p>
+            <div class="subject-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">💊</div>
+                    <h3>内科学</h3>
+                    <p>研究内科疾病诊断、治疗和预防的临床学科</p>
+                    <a href="internal-medicine.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">🩺</div>
+                    <h3>诊断学</h3>
+                    <p>研究疾病诊断方法和技术的科学</p>
+                    <a href="diagnostics.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">🏥</div>
+                    <h3>常见病</h3>
+                    <p>日常生活中常见疾病的症状、原因与治疗指南</p>
+                    <a href="common_disease.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">🔍</div>
+                    <h3>常见症状</h3>
+                    <p>了解常见症状的生理原理、发展过程与引发原因</p>
+                    <a href="symptoms.html" class="btn">开始学习 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实用指南 -->
+        <section class="subjects">
+            <h2 id="practical">实用指南</h2>
+            <p class="section-desc">实用的医疗知识，帮助您更好地管理健康</p>
+            <div class="subject-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">🩺</div>
+                    <h3>体检指标</h3>
+                    <p>全面了解体检指标含义与正常范围</p>
+                    <a href="check_up.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">🏥</div>
+                    <h3>省钱就医</h3>
+                    <p>科学就医，合理利用医疗资源，有效降低医疗支出</p>
+                    <a href="doctor.html" class="btn">开始学习 →</a>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">💊</div>
+                    <h3>家庭用药</h3>
+                    <p>科学用药，安全有效，合理节省医疗开支</p>
+                    <a href="medicine.html" class="btn">开始学习 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

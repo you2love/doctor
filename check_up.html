@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体检指标 - 医学学习平台</title>
+    <script>
+        function toggleSidebar() {
+            document.querySelector(.sidebar).classList.toggle(open);
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>医学学习平台</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li class="menu-category">基础学科</li>
+                <li><a href="anatomy.html">解剖学</a></li>
+                <li><a href="pathology.html">病理学</a></li>
+                <li><a href="physiology.html">生理学</a></li>
+                <li><a href="pathophysiology.html">病理生理学</a></li>
+                <li><a href="system.html">人体系统</a></li>
+                <li class="menu-category">临床学科</li>
+                <li><a href="internal-medicine.html">内科学</a></li>
+                <li><a href="diagnostics.html">诊断学</a></li>
+                <li><a href="common_disease.html">常见病</a></li>
+                <li><a href="symptoms.html">常见症状</a></li>
+                <li class="menu-category">实用指南</li>
+                <li><a href="check_up.html" class="active">体检指标</a></li>
+                <li><a href="doctor.html">省钱就医</a></li>
+ <li><a href="medicine.html">家庭用药</a></li>
+            </ul>
+        </nav>
+    
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    </div>
+
+    <main class="main-content">
+    
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <main class="container">
+        <section class="subject-header">
+            <div class="subject-icon">🩺</div>
+            <h1>体检指标核心指标参考表</h1>
+            <p class="subject-description">全面了解体检指标含义与正常范围</p>
+        </section>
+
+        <!-- 一般体格检查 -->
+        <section class="content-section">
+            <h2>一般体格检查</h2>
+            
+            <div class="table-responsive">
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>指标名称</th>
+                            <th>理想范围</th>
+                            <th>异常说明</th>
+                            <th>关键备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>身高体重（BMI）</td>
+                            <td>18.5~23.9 kg/m²</td>
+                            <td>&lt;18.5=体重过低；24~27.9=超重；&gt;28=肥胖</td>
+                            <td>BMI=体重(kg)/身高(m)²，亚洲人标准</td>
+                        </tr>
+                        <tr>
+                            <td>心率</td>
+                            <td>60~100次/分</td>
+                            <td>&lt;60=心动过缓；&gt;100次/分=心动过速（贫血、甲亢、感染等可能）</td>
+                            <td>静息状态测量</td>
+                        </tr>
+                        <tr>
+                            <td>血压</td>
+                            <td>&lt;120/80 mmHg</td>
+                            <td>120~139/80~89=正常高值；&gt;140/90=高血压</td>
+                            <td>需多次测量，避免紧张影响</td>
+                        </tr>
+                        <tr>
+                            <td>血氧饱和度</td>
+                            <td>95%~98%</td>
+                            <td>&lt;95%=低氧血症（心肺功能异常）</td>
+                            <td>指夹式血氧仪测量</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 血液常规检查 -->
+        <section class="content-section">
+            <h2>血液常规检查</h2>
+            
+            <div class="table-responsive">
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>指标名称</th>
+                            <th>理想范围</th>
+                            <th>异常说明</th>
+                            <th>关键备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>白细胞计数（WBC）</td>
+                            <td>4.0~10.0×10⁹/L</td>
+                            <td>升高=感染、炎症；降低=免疫力低下、药物影响</td>
+                            <td>感染时中性粒细胞比例升高</td>
+                        </tr>
+                        <tr>
+                            <td>红细胞计数（RBC）</td>
+                            <td>男性4.0~5.5×10¹²/L；女性3.5~5.0×10¹²/L</td>
+                            <td>升高=脱水、红细胞增多症；降低=贫血</td>
+                            <td>结合血红蛋白综合判断</td>
+                        </tr>
+                        <tr>
+                            <td>血红蛋白（Hb）</td>
+                            <td>男性120~160g/L；女性110~150g/L</td>
+                            <td>降低=贫血（缺铁性、地中海贫血等）；升高=脱水、红细胞增多症</td>
+                            <td>贫血需进一步查明原因</td>
+                        </tr>
+                        <tr>
+                            <td>血小板计数（PLT）</td>
+                            <td>100~300×10⁹/L</td>
+                            <td>降低=出血风险、血小板减少症；升高=血栓风险、骨髓增生异常</td>
+                            <td>异常时需复查并做凝血功能检查</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 生化指标 -->
+        <section class="content-section">
+            <h2>生化指标</h2>
+            
+            <div class="table-responsive">
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>指标名称</th>
+                            <th>理想范围</th>
+                            <th>异常说明</th>
+                            <th>关键备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>空腹血糖（FPG）</td>
+                            <td>3.9~6.1 mmol/L</td>
+                            <td>6.1~7.0=空腹血糖受损；&gt;7.0=糖尿病可能</td>
+                            <td>需空腹8小时以上测量</td>
+                        </tr>
+                        <tr>
+                            <td>糖化血红蛋白（HbA1c）</td>
+                            <td>&lt;5.7%</td>
+                            <td>5.7%~6.4%=糖尿病前期；&gt;6.5%=糖尿病</td>
+                            <td>反映近2-3个月平均血糖水平</td>
+                        </tr>
+                        <tr>
+                            <td>总胆固醇（TC）</td>
+                            <td>&lt;5.2 mmol/L</td>
+                            <td>5.2~6.2=边缘升高；&gt;6.2=升高（心血管疾病风险增加）</td>
+                            <td>需结合低密度脂蛋白综合评估</td>
+                        </tr>
+                        <tr>
+                            <td>高密度脂蛋白（HDL-C）</td>
+                            <td>男性&gt;1.04 mmol/L；女性&gt;1.29 mmol/L</td>
+                            <td>降低=心血管疾病风险升高（"好胆固醇"不足）</td>
+                            <td>适量运动可升高该指标</td>
+                        </tr>
+                        <tr>
+                            <td>低密度脂蛋白（LDL-C）</td>
+                            <td>&lt;3.4 mmol/L</td>
+                            <td>升高=心血管疾病风险显著升高（"坏胆固醇"过高）</td>
+                            <td>是降脂治疗的核心靶标</td>
+                        </tr>
+                        <tr>
+                            <td>甘油三酯（TG）</td>
+                            <td>&lt;1.7 mmol/L</td>
+                            <td>1.7~2.3=边缘升高；&gt;2.3=升高（胰腺炎、心血管疾病风险）</td>
+                            <td>受饮食影响大，需空腹检测</td>
+                        </tr>
+                        <tr>
+                            <td>谷丙转氨酶（ALT）</td>
+                            <td>&lt;40 U/L</td>
+                            <td>升高=肝细胞损伤（脂肪肝、肝炎、药物性肝损伤等）</td>
+                            <td>需结合谷草转氨酶综合判断</td>
+                        </tr>
+                        <tr>
+                            <td>谷草转氨酶（AST）</td>
+                            <td>&lt;40 U/L</td>
+                            <td>升高=肝细胞或心肌损伤；AST/ALT&gt;1提示酒精性肝损伤</td>
+                            <td>肌肉量多者可能偏高（生理性差异）</td>
+                        </tr>
+                        <tr>
+                            <td>血肌酐（Cr）</td>
+                            <td>男性53~106 μmol/L；女性44~97 μmol/L</td>
+                            <td>升高=肾小球滤过功能下降（肾功能受损），需结合尿素氮综合判断</td>
+                            <td>肌肉量多者可能偏高（生理性差异）</td>
+                        </tr>
+                        <tr>
+                            <td>血尿素氮（BUN）</td>
+                            <td>3.2~7.1 mmol/L</td>
+                            <td>升高=肾功能受损、脱水、高蛋白饮食；降低=营养不良、肝病</td>
+                            <td>需空腹，避免大量摄入肉类</td>
+                        </tr>
+                        <tr>
+                            <td>血尿酸（UA）</td>
+                            <td>男性208~428 μmol/L；女性155~357 μmol/L</td>
+                            <td>升高=高尿酸血症（痛风、肾结石风险）；降低=罕见（营养不良、肝病）</td>
+                            <td>避免高嘌呤饮食（海鲜、动物内脏、啤酒）</td>
+                        </tr>
+                        <tr>
+                            <td>血同型半胱氨酸（HCY）</td>
+                            <td>5~15 μmol/L</td>
+                            <td>15~30=轻度升高；30~100=中度升高；&gt;100=重度升高（心脑血管疾病、认知障碍风险）</td>
+                            <td>2025新增必查项目，叶酸可降低该指标</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 甲状腺功能 -->
+        <section class="content-section">
+            <h2>甲状腺功能</h2>
+            
+            <div class="table-responsive">
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>指标名称</th>
+                            <th>理想范围</th>
+                            <th>异常说明</th>
+                            <th>关键备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>促甲状腺激素（TSH）</td>
+                            <td>0.27~4.2 μIU/ml</td>
+                            <td>升高=甲状腺功能减退（乏力、体重增加）；降低=甲状腺功能亢进（心慌、消瘦）</td>
+                            <td>甲状腺功能筛查核心指标</td>
+                        </tr>
+                        <tr>
+                            <td>游离甲状腺素（FT4）</td>
+                            <td>12~22 pmol/L</td>
+                            <td>升高=甲亢；降低=甲减，需结合TSH确诊</td>
+                            <td>不受甲状腺结合球蛋白影响，结果更准确</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 尿常规核心指标 -->
+        <section class="content-section">
+            <h2>尿常规核心指标</h2>
+            
+            <div class="table-responsive">
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>指标名称</th>
+                            <th>理想范围</th>
+                            <th>异常说明</th>
+                            <th>关键备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>尿蛋白</td>
+                            <td>阴性</td>
+                            <td>弱阳性=生理性波动（劳累、高蛋白饮食）；阳性=肾小球损伤、肾炎、高血压肾损害</td>
+                            <td>建议复查尿常规+尿微量白蛋白</td>
+                        </tr>
+                        <tr>
+                            <td>尿糖</td>
+                            <td>阴性</td>
+                            <td>阳性=糖尿病可能（需结合血糖）或肾性糖尿（肾小管功能异常）</td>
+                            <td>大量摄入甜食可能导致假性阳性</td>
+                        </tr>
+                        <tr>
+                            <td>尿潜血</td>
+                            <td>阴性</td>
+                            <td>阳性=泌尿系统出血（结石、炎症、肿瘤）或红细胞破坏（溶血）</td>
+                            <td>女性需避开月经期检查</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 辅助检查 -->
+        <section class="content-section">
+            <h2>辅助检查</h2>
+            
+            <div class="table-responsive">
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>指标名称</th>
+                            <th>理想范围</th>
+                            <th>异常说明</th>
+                            <th>关键备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>心电图</td>
+                            <td>窦性心律，无明显ST-T改变</td>
+                            <td>非窦性心律=心律失常；ST-T段异常=心肌缺血、心梗可能</td>
+                            <td>静息状态下检查，避免运动后立即检测</td>
+                        </tr>
+                        <tr>
+                            <td>甲状腺超声</td>
+                            <td>甲状腺大小正常，无结节/钙化</td>
+                            <td>出现结节=需分级（4级及以上需穿刺活检）；钙化=恶性风险升高</td>
+                            <td>甲状腺癌筛查首选项目</td>
+                        </tr>
+                        <tr>
+                            <td>腹部超声（肝脾肾）</td>
+                            <td>脏器形态正常，无占位性病变</td>
+                            <td>肝实质回声增强=脂肪肝；占位性病变=囊肿、肿瘤等需进一步检查</td>
+                            <td>需空腹8小时以上（避免气体干扰）</td>
+                        </tr>
+                        <tr>
+                            <td>胸部低剂量CT（40岁+）</td>
+                            <td>无结节/肿块，肺纹理清晰</td>
+                            <td>肺纹理增粗=炎症；结节/肿块=需进一步检查明确性质</td>
+                            <td>肺癌筛查灵敏度优于胸片，40岁以上建议每年1次</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>体检建议</h2>
+            
+            <div class="highlight-box">
+                <h3>不同年龄段体检重点</h3>
+                <ul>
+                    <li><strong>20-30岁：</strong>基础体检，关注血压、血糖、血常规</li>
+                    <li><strong>30-40岁：</strong>增加血脂、肝功能、甲状腺功能检查</li>
+                    <li><strong>40-50岁：</strong>增加胸部CT、肿瘤标志物、心血管检查</li>
+                    <li><strong>50岁以上：</strong>全面体检，重点关注心脑血管疾病、肿瘤筛查</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>体检注意事项</h3>
+                <ul>
+                    <li><strong>空腹要求：</strong>血液检查需空腹8-12小时，可少量饮水</li>
+                    <li><strong>饮食注意：</strong>体检前3天清淡饮食，避免高脂高蛋白食物</li>
+                    <li><strong>休息充足：</strong>体检前一晚保证充足睡眠，避免熬夜</li>
+                    <li><strong>女性注意：</strong>月经期避免尿液检查，孕期避免X线检查</li>
+                    <li><strong>携带证件：</strong>携带身份证、医保卡、既往检查报告</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="related-subjects">
+            <h2>相关学科</h2>
+            <div class="subject-links">
+                <a href="diagnostics.html" class="related-link">诊断学 - 深入学习检查方法</a>
+                <a href="internal-medicine.html" class="related-link">内科学 - 了解疾病诊断</a>
+                <a href="common_disease.html" class="related-link">常见病 - 了解常见疾病</a>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .reference-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .reference-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .reference-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        .reference-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .reference-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .reference-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        @media (max-width: 768px) {
+            .reference-table {
+                font-size: 0.8em;
+            }
+            
+            .reference-table th,
+            .reference-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</body>
+</html>

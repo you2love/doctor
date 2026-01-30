@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见病 - 医学学习平台</title>
+    <script>
+        function toggleSidebar() {
+            document.querySelector(.sidebar).classList.toggle(open);
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>医学学习平台</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li class="menu-category">基础学科</li>
+                <li><a href="anatomy.html">解剖学</a></li>
+                <li><a href="pathology.html">病理学</a></li>
+                <li><a href="physiology.html">生理学</a></li>
+                <li><a href="pathophysiology.html">病理生理学</a></li>
+                <li><a href="system.html">人体系统</a></li>
+                <li class="menu-category">临床学科</li>
+                <li><a href="internal-medicine.html">内科学</a></li>
+                <li><a href="diagnostics.html">诊断学</a></li>
+                <li><a href="common_disease.html" class="active">常见病</a></li>
+                <li><a href="symptoms.html">常见症状</a></li>
+                <li class="menu-category">实用指南</li>
+                <li><a href="check_up.html">体检指标</a></li>
+                <li><a href="doctor.html">省钱就医</a></li>
+ <li><a href="medicine.html">家庭用药</a></li>
+            </ul>
+        </nav>
+    
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    </div>
+
+    <main class="main-content">
+    
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <main class="container">
+        <section class="subject-header">
+            <div class="subject-icon">🏥</div>
+            <h1>常见病</h1>
+            <p class="subject-description">日常生活中常见疾病的症状、原因与治疗指南</p>
+        </section>
+
+        <!-- 呼吸系统疾病 -->
+        <section class="content-section">
+            <h2>呼吸系统疾病</h2>
+            
+            <div class="topic-card">
+                <img src="images/common-cold.jpg" alt="普通感冒" class="topic-image">
+                <h3>普通感冒</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>鼻塞、流清水样鼻涕（后期可转为黄稠涕）、咽痛、轻度干咳或伴少量白痰，可伴低热（37.5-38℃）、头痛、乏力，病程3-7天，自限性。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>以病毒感染为主，鼻病毒占30%-50%，其次为冠状病毒（非新冠）、腺病毒等；少数合并细菌感染。诱因包括受凉、过度劳累、熬夜等导致免疫力下降。</p>
+                </div>
+                <div class="mechanism-box">
+                    <h4>发病原理</h4>
+                    <p>病毒侵入呼吸道黏膜上皮细胞并复制，导致上皮细胞损伤、脱落，黏膜完整性破坏；引发局部炎症反应，刺激血管扩张、腺体分泌亢进。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以支持治疗和对症治疗为主，无需常规使用抗生素（仅合并细菌感染时用）。</p>
+                    <ul>
+                        <li><strong>支持治疗：</strong>每日饮水1500-2000ml、保证睡眠、清淡饮食</li>
+                        <li><strong>对症治疗：</strong>生理盐水洗鼻缓解鼻塞，润喉片改善咽痛，发热＞38.5℃用对乙酰氨基酚/布洛芬</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="images/common-bronchitis.jpg" alt="急性支气管炎" class="topic-image">
+                <h3>急性支气管炎</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>初期为刺激性干咳，后期咳黄白色黏痰或脓痰，伴胸闷、气短、胸骨后隐痛，可伴低热（37.5-38.5℃）、乏力，病程1-2周。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>病毒感染占多数，如流感病毒、鼻病毒等；细菌感染多为继发。诱因包括上呼吸道感染未控制、吸烟、空气污染、冷空气刺激等。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>对症治疗为主，合并细菌感染时抗感染治疗。</p>
+                    <ul>
+                        <li><strong>止咳祛痰：</strong>痰多者用氨溴索，干咳无痰者用右美沙芬</li>
+                        <li><strong>抗感染治疗：</strong>细菌感染证据明确时，选用头孢类、大环内酯类</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="images/common-pneumonia.jpg" alt="社区获得性肺炎" class="topic-image">
+                <h3>社区获得性肺炎</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>高热（38.5℃以上）、寒战，咳嗽（初期干咳，后期咳黄脓痰），胸痛（深呼吸、咳嗽时加重），呼吸困难，可伴乏力、食欲减退。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>主要致病菌为肺炎链球菌（占40%-70%），其次为支原体、衣原体等；病毒感染也可引发或混合感染。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以抗感染治疗为核心，兼顾对症支持治疗。</p>
+                    <ul>
+                        <li><strong>抗感染治疗：</strong>肺炎链球菌感染首选青霉素类，过敏者用头孢类；支原体、衣原体感染首选大环内酯类</li>
+                        <li><strong>对症治疗：</strong>高热用退热药物，咳嗽咳痰用氨溴索，胸痛明显用布洛芬</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="images/common-asthma.jpg" alt="支气管哮喘" class="topic-image">
+                <h3>支气管哮喘</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>反复发作的喘息、胸闷、咳嗽，夜间或凌晨加重，接触花粉、尘螨等诱因后发作；发作时双肺可闻及哮鸣音，缓解后症状可完全消失。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>遗传与环境因素共同作用。遗传因素：过敏体质基因；环境因素：过敏原暴露、空气污染、呼吸道感染、冷空气刺激等。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以控制炎症、缓解症状、预防发作为核心。</p>
+                    <ul>
+                        <li><strong>急性发作期：</strong>短效β₂受体激动剂（沙丁胺醇气雾剂）快速舒张气道</li>
+                        <li><strong>慢性持续期：</strong>吸入性糖皮质激素（布地奈德）为首选，联合长效β₂受体激动剂</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="images/common-copd.jpg" alt="慢性阻塞性肺疾病（COPD）" class="topic-image">
+                <h3>慢性阻塞性肺疾病（COPD）</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>长期慢性咳嗽（晨起明显），气短或呼吸困难（早期活动后出现，后期静息时也可出现），喘息、胸闷，冬季或受凉后易急性加重。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>主要危险因素为长期吸烟（占80%-90%），其次为空气污染、职业暴露、反复呼吸道感染等。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以戒烟为核心，长期综合治疗。</p>
+                    <ul>
+                        <li><strong>病因治疗：</strong>戒烟，避免接触刺激物</li>
+                        <li><strong>支气管舒张剂：</strong>长效抗胆碱能药物、长效β₂受体激动剂</li>
+                        <li><strong>氧疗：</strong>重症患者给予长期家庭氧疗</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 消化系统疾病 -->
+        <section class="content-section">
+            <h2>消化系统疾病</h2>
+            
+            <div class="topic-card">
+                <img src="images/common-gastroenteritis.jpg" alt="急性胃肠炎" class="topic-image">
+                <h3>急性胃肠炎</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>突发腹痛（阵发性绞痛）、腹泻（水样便或稀便）、恶心呕吐；严重者可出现脱水、电解质紊乱，少数伴低热。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>分为感染性与非感染性两类。感染性：病毒（诺如、轮状病毒等）、细菌（沙门氏菌、大肠杆菌等）；非感染性：暴饮暴食、食用刺激食物、酗酒等。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以补液、对症治疗为主，感染性合并细菌感染时加用抗感染治疗。</p>
+                    <ul>
+                        <li><strong>补液治疗：</strong>轻度脱水者口服补液盐，严重脱水者静脉补液</li>
+                        <li><strong>对症治疗：</strong>蒙脱石散保护黏膜，洛哌丁胺止泻（急性感染性腹泻早期慎用）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="images/common-gastritis.jpg" alt="慢性胃炎" class="topic-image">
+                <h3>慢性胃炎</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>上腹部隐痛、胀痛、灼痛，腹胀、嗳气、反酸、烧心，食欲减退；病程迁延，反复发作者可出现消瘦、乏力、贫血。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>最主要原因是幽门螺杆菌（Hp）感染（占70%-80%），其次为理化刺激（饮食不规律、吸烟饮酒、服用非甾体抗炎药等）。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>去除病因，对症治疗，Hp感染者根除治疗。</p>
+                    <ul>
+                        <li><strong>根除Hp治疗：</strong>四联疗法（质子泵抑制剂+两种抗生素+铋剂），疗程10-14天</li>
+                        <li><strong>对症治疗：</strong>抑酸药抑制胃酸，胃黏膜保护剂促进修复</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="images/common-ulcer.jpg" alt="消化性溃疡" class="topic-image">
+                <h3>消化性溃疡（胃溃疡/十二指肠溃疡）</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>胃溃疡：餐后半小时至1小时上腹痛（餐后痛），进食后加重，空腹时缓解；十二指肠溃疡：空腹时或夜间上腹痛（空腹痛、夜间痛），进食后缓解。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>核心病因是Hp感染（占90%以上），其次为长期服用非甾体抗炎药；此外，遗传因素、精神压力大、吸烟饮酒等均为诱因。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>根除Hp、抑制胃酸、保护黏膜，预防并发症。</p>
+                    <ul>
+                        <li><strong>根除Hp治疗：</strong>四联疗法，疗程10-14天</li>
+                        <li><strong>抑酸治疗：</strong>质子泵抑制剂强效抑酸，疗程胃溃疡6-8周，十二指肠溃疡4-6周</li>
+                        <li><strong>胃黏膜保护剂：</strong>枸橼酸铋钾、硫糖铝等保护溃疡面</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 心血管系统疾病 -->
+        <section class="content-section">
+            <h2>心血管系统疾病</h2>
+            
+            <div class="topic-card">
+                <img src="images/common-hypertension.jpg" alt="原发性高血压" class="topic-image">
+                <h3>原发性高血压</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>早期多无症状，仅体检时发现血压升高；血压持续升高（收缩压≥140mmHg和/或舒张压≥90mmHg）后，可出现头晕、头痛、耳鸣、失眠、乏力。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>遗传与环境因素共同作用，遗传因素占40%，环境因素占60%。环境因素：高盐饮食、肥胖、长期熬夜、精神紧张、缺乏运动、吸烟、过量饮酒等。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以控制血压、保护靶器官、预防并发症为核心，长期综合治疗。</p>
+                    <ul>
+                        <li><strong>生活方式干预：</strong>低盐饮食，低脂低糖饮食，控制体重，规律运动，戒烟限酒</li>
+                        <li><strong>药物治疗：</strong>血压≥160/100mmHg启动药物治疗，常用钙通道阻滞剂、ARB、ACEI等</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="images/common-coronary.jpg" alt="冠状动脉粥样硬化性心脏病（冠心病）" class="topic-image">
+                <h3>冠状动脉粥样硬化性心脏病（冠心病）</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>心绞痛型：劳累、情绪激动后出现胸骨后压榨性、紧缩性胸痛，可放射至左肩、左臂等，休息3-5分钟后缓解。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>核心病因是冠状动脉粥样硬化，血管内脂质沉积形成粥样硬化斑块，导致冠脉管腔狭窄或闭塞。危险因素包括高血压、高血脂、糖尿病、吸烟、肥胖等。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以改善心肌供血、减轻心肌耗氧、稳定斑块、预防心肌梗死和猝死为核心。</p>
+                    <ul>
+                        <li><strong>药物治疗：</strong>抗血小板药物预防血栓，他汀类调脂药稳定斑块，硝酸酯类药物扩张冠脉</li>
+                        <li><strong>介入治疗（PCI）：</strong>"放支架"，适用于药物治疗无效的心绞痛或急性心肌梗死患者</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 神经系统疾病 -->
+        <section class="content-section">
+            <h2>神经系统疾病</h2>
+            
+            <div class="topic-card">
+                <img src="images/common-stroke.jpg" alt="脑梗死" class="topic-image">
+                <h3>脑梗死（缺血性脑卒中）</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>突发肢体偏瘫、偏身感觉障碍、同向性偏盲、言语障碍、头晕、头痛、饮水呛咳、吞咽困难，严重者可出现意识模糊、昏迷。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>核心病因是动脉粥样硬化，其他病因：房颤（心源性栓塞）、颈动脉夹层、小血管病变、血液高凝状态等。危险因素：高血压（最主要）、高血脂、糖尿病、吸烟、肥胖等。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以尽早恢复脑部供血、挽救缺血半暗带、减轻神经功能缺损、预防复发为核心。</p>
+                    <ul>
+                        <li><strong>急性期治疗：</strong>发病4.5-6小时内静脉溶栓治疗，动脉取栓术</li>
+                        <li><strong>恢复期治疗：</strong>抗血小板治疗、他汀类调脂药，控制危险因素，尽早启动康复治疗</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="images/common-migraine.jpg" alt="偏头痛" class="topic-image">
+                <h3>偏头痛</h3>
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>单侧头部搏动性疼痛，中等至剧烈程度，可伴恶心、呕吐、畏光、畏声，活动后疼痛加重；发作持续4-72小时。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <p>遗传因素（家族史阳性者风险升高3-6倍），内分泌因素（女性雌激素波动），环境因素（强光、噪音、睡眠异常、精神压力大）。</p>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>分为发作期治疗与预防性治疗。</p>
+                    <ul>
+                        <li><strong>发作期治疗：</strong>轻度疼痛用布洛芬、萘普生；中重度疼痛用曲坦类</li>
+                        <li><strong>预防性治疗：</strong>适用于发作频繁者，常用β受体阻滞剂、钙离子拮抗剂等</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-subjects">
+            <h2>相关学科</h2>
+            <div class="subject-links">
+                <a href="internal-medicine.html" class="related-link">内科学 - 深入学习</a>
+                <a href="diagnostics.html" class="related-link">诊断学 - 了解诊断方法</a>
+                <a href="system.html" class="related-link">人体系统 - 了解身体结构</a>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        .symptom-box, .detail-box, .mechanism-box, .treatment-box {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .symptom-box h4, .detail-box h4, .mechanism-box h4, .treatment-box h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .symptom-box p, .detail-box p, .mechanism-box p, .treatment-box p {
+            margin-bottom: 0;
+        }
+        
+        .treatment-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .treatment-box li {
+            margin-bottom: 5px;
+        }
+        
+        .treatment-box strong {
+            color: #e74c3c;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人体系统 - 医学学习平台</title>
+    <script>
+        function toggleSidebar() {
+            document.querySelector(.sidebar).classList.toggle(open);
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>医学学习平台</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li class="menu-category">基础学科</li>
+                <li><a href="anatomy.html">解剖学</a></li>
+                <li><a href="pathology.html">病理学</a></li>
+                <li><a href="physiology.html">生理学</a></li>
+                <li><a href="pathophysiology.html">病理生理学</a></li>
+                <li><a href="system.html" class="active">人体系统</a></li>
+                <li class="menu-category">临床学科</li>
+                <li><a href="internal-medicine.html">内科学</a></li>
+                <li><a href="diagnostics.html">诊断学</a></li>
+                <li><a href="common_disease.html">常见病</a></li>
+                <li><a href="symptoms.html">常见症状</a></li>
+                <li class="menu-category">实用指南</li>
+                <li><a href="check_up.html">体检指标</a></li>
+                <li><a href="doctor.html">省钱就医</a></li>
+ <li><a href="medicine.html">家庭用药</a></li>
+            </ul>
+        </nav>
+    
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    </div>
+
+    <main class="main-content">
+    
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <main class="container">
+        <section class="subject-header">
+            <div class="subject-icon">🧬</div>
+            <h1>人体系统详解</h1>
+            <p class="subject-description">了解人体各系统的核心功能、结构组成与运行原理</p>
+        </section>
+
+        <!-- 一、循环系统 -->
+        <section class="content-section">
+            <div class="topic-card">
+                <h2>一、循环系统（详细版）</h2>
+                
+                <div class="core-function">
+                    <h3>核心功能</h3>
+                    <p>不仅是物质运输，更兼具免疫防御（白细胞、抗体运输）、体温调节（血液传导热量）功能，通过体循环、肺循环双回路，维持全身细胞的营养供应与代谢平衡，是机体功能联动的"核心枢纽"。</p>
+                </div>
+                
+                <div class="key-organs">
+                    <h3>关键器官及细分结构</h3>
+                    <ul>
+                        <li><strong>心脏：</strong>分为左心房、左心室、右心房、右心室四腔，心腔内有二尖瓣、三尖瓣、主动脉瓣、肺动脉瓣，防止血液倒流</li>
+                        <li><strong>血管：</strong>动脉（从心脏出发，逐级分支）、毛细血管（管壁仅1层内皮细胞，是物质交换核心场所）、静脉（从全身回流，含静脉瓣防倒流）</li>
+                        <li><strong>血液：</strong>由血浆（占55%，含水分、蛋白质、电解质等）和血细胞（占45%，含红细胞、白细胞、血小板）组成</li>
+                    </ul>
+                </div>
+                
+                <div class="operation-principle">
+                    <h3>运行原理（双循环联动）</h3>
+                    <ol>
+                        <li><strong>肺循环（换气）：</strong>右心室→肺动脉→肺部毛细血管→肺泡（O₂入血、CO₂出）→肺静脉→左心房，完成血液"充氧"</li>
+                        <li><strong>体循环（供能）：</strong>左心房→左心室（高压泵血）→主动脉→全身各级动脉→组织毛细血管（O₂、营养入细胞，废物入血）→各级静脉→上/下腔静脉→右心房，完成血液"供能与废物收集"</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- 二、呼吸系统 -->
+        <section class="content-section">
+            <div class="topic-card">
+                <h2>二、呼吸系统（详细版）</h2>
+                
+                <div class="core-function">
+                    <h3>核心功能</h3>
+                    <p>除气体交换外，还能调节体内酸碱平衡（通过排出CO₂调节血液pH）、过滤吸入气体（防御异物），同时发声（喉内声带振动），是机体与外界沟通的"气体桥梁"。</p>
+                </div>
+                
+                <div class="key-organs">
+                    <h3>关键器官及细分结构</h3>
+                    <ul>
+                        <li><strong>上呼吸道：</strong>鼻（鼻毛过滤、鼻黏膜湿润加温）、咽（呼吸与消化共用通道）、喉（有声带，兼具通气与发声功能）</li>
+                        <li><strong>下呼吸道：</strong>气管→支气管→细支气管→终末细支气管（逐级分支），最终连接肺泡</li>
+                        <li><strong>肺：</strong>由无数肺泡组成（成人肺泡总数约3亿个，表面积达70-80㎡），肺泡壁薄，外缠绕毛细血管，利于气体扩散</li>
+                        <li><strong>呼吸肌：</strong>主要为膈肌（核心动力）、肋间肌（辅助），还有腹肌（用力呼气时参与）</li>
+                    </ul>
+                </div>
+                
+                <div class="operation-principle">
+                    <h3>运行原理（呼吸运动+气体交换）</h3>
+                    <ol>
+                        <li><strong>吸气（主动）：</strong>膈肌收缩（膈顶下降）、肋间外肌收缩（肋骨上提）→胸腔容积扩大→肺内气压低于外界→空气经呼吸道入肺</li>
+                        <li><strong>气体交换：</strong>肺泡内O₂浓度高于血液，CO₂浓度低于血液→O₂经肺泡壁、毛细血管壁扩散入血，CO₂从血液扩散入肺泡</li>
+                        <li><strong>呼气（被动，平静时）：</strong>膈肌、肋间外肌舒张→胸腔容积缩小→肺内气压高于外界→肺泡内CO₂经呼吸道排出体外</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三、消化系统 -->
+        <section class="content-section">
+            <div class="topic-card">
+                <h2>三、消化系统（详细版）</h2>
+                
+                <div class="core-function">
+                    <h3>核心功能</h3>
+                    <p>分"机械消化"（物理研磨）和"化学消化"（酶解分解），将大分子食物（淀粉、蛋白质、脂肪）分解为小分子可吸收物质，同时排出未消化残渣，为机体供能、供原料。</p>
+                </div>
+                
+                <div class="key-organs">
+                    <h3>关键器官及细分结构</h3>
+                    <ul>
+                        <li><strong>消化道：</strong>口→咽→食道→胃→小肠（十二指肠、空肠、回肠）→大肠（盲肠、结肠、直肠）→肛门</li>
+                        <li><strong>消化腺：</strong>唾液腺（分泌唾液，含淀粉酶）、胃腺（分泌胃液，含胃酸、胃蛋白酶）、肝脏（最大消化腺，分泌胆汁）、胰腺（分泌胰液，含多种消化酶）、肠腺（分泌肠液）</li>
+                    </ul>
+                </div>
+                
+                <div class="operation-principle">
+                    <h3>运行原理（分段消化+吸收）</h3>
+                    <ol>
+                        <li><strong>口腔消化：</strong>牙齿咀嚼（机械消化），唾液淀粉酶将淀粉初步分解为麦芽糖</li>
+                        <li><strong>食道运输：</strong>食团经食道蠕动入胃</li>
+                        <li><strong>胃内消化：</strong>胃壁平滑肌蠕动，将食团变为食糜；胃酸杀菌、激活胃蛋白酶</li>
+                        <li><strong>小肠消化（核心）：</strong>十二指肠接收胃内食糜、胆汁、胰液，最终将淀粉→葡萄糖、蛋白质→氨基酸、脂肪→甘油+脂肪酸</li>
+                        <li><strong>吸收与排泄：</strong>葡萄糖、氨基酸经肠绒毛入血；未吸收残渣入大肠，形成粪便，经直肠、肛门排出</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- 四、泌尿系统 -->
+        <section class="content-section">
+            <div class="topic-card">
+                <h2>四、泌尿系统（详细版）</h2>
+                
+                <div class="core-function">
+                    <h3>核心功能</h3>
+                    <p>精准过滤血液中废物（尿素、肌酐）、多余水分及电解质，通过尿液排出，同时重吸收有用物质（葡萄糖、氨基酸、部分电解质），维持体内水、电解质、酸碱平衡。</p>
+                </div>
+                
+                <div class="key-organs">
+                    <h3>关键器官及细分结构</h3>
+                    <ul>
+                        <li><strong>肾：</strong>实质分为皮质和髓质；每个肾约100万个肾单位（基本功能单位），肾单位=肾小体（肾小球+肾小囊）+肾小管</li>
+                        <li><strong>输尿管：</strong>左右各一，管壁含平滑肌，通过蠕动将尿液输送至膀胱</li>
+                        <li><strong>膀胱：</strong>平滑肌构成的囊性器官，容量约300-500ml</li>
+                        <li><strong>尿道：</strong>男性尿道长（16-22cm），兼具排尿、排精功能；女性尿道短（3-5cm），易发生尿路感染</li>
+                    </ul>
+                </div>
+                
+                <div class="operation-principle">
+                    <h3>运行原理（尿液生成+排泄）</h3>
+                    <ol>
+                        <li><strong>滤过（肾小体）：</strong>血液流经肾小球，除血细胞、大分子蛋白质外，其余物质经滤过膜入肾小囊，形成原尿（每日约180L）</li>
+                        <li><strong>重吸收（肾小管）：</strong>原尿流经肾小管，重吸收葡萄糖、氨基酸、大部分水和电解质，最终剩余物质形成终尿（每日约1.5-2.0L）</li>
+                        <li><strong>排泄：</strong>终尿经集合管汇入肾盂→输尿管→膀胱→尿道排出</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- 五、神经系统 -->
+        <section class="content-section">
+            <div class="topic-card">
+                <h2>五、神经系统（详细版）</h2>
+                
+                <div class="core-function">
+                    <h3>核心功能</h3>
+                    <p>作为机体"指挥调控中心"，接收内、外环境刺激，整合分析后发出指令，调节运动、内分泌、内脏活动等，同时实现意识、思维、记忆、情感等高级功能。</p>
+                </div>
+                
+                <div class="key-organs">
+                    <h3>关键器官及细分结构</h3>
+                    <ul>
+                        <li><strong>中枢神经系统（CNS）：</strong>脑（位于颅腔，含大脑、小脑、脑干）、脊髓（位于椎管内）</li>
+                        <li><strong>大脑：</strong>分左右半球，表面为大脑皮层（灰质），内部为白质（神经纤维）；皮层功能区：躯体运动区、躯体感觉区、视觉区、听觉区、语言区</li>
+                        <li><strong>小脑：</strong>维持躯体平衡与运动精准性</li>
+                        <li><strong>脑干：</strong>连接大脑、小脑、脊髓，分中脑、脑桥、延髓（"生命中枢"）</li>
+                        <li><strong>周围神经系统（PNS）：</strong>由脑神经（12对）、脊神经（31对）、自主神经（交感神经、副交感神经）组成</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 六、内分泌系统 -->
+        <section class="content-section">
+            <div class="topic-card">
+                <h2>六、内分泌系统（详细版）</h2>
+                
+                <div class="core-function">
+                    <h3>核心功能</h3>
+                    <p>与神经系统协同（神经-体液调节），通过分泌激素（微量、高效），精准调控机体生长发育、新陈代谢、生殖功能、免疫反应等，维持内环境稳态。</p>
+                </div>
+                
+                <div class="key-organs">
+                    <h3>关键器官（内分泌腺）及功能</h3>
+                    <ul>
+                        <li><strong>甲状腺：</strong>分泌甲状腺激素（T3、T4），调节新陈代谢、生长发育</li>
+                        <li><strong>胰岛：</strong>A细胞分泌胰高血糖素（升血糖），B细胞分泌胰岛素（降血糖），两者拮抗，维持血糖稳定</li>
+                        <li><strong>垂体：</strong>是"内分泌之王"，分腺垂体（分泌生长激素、促甲状腺激素等）和神经垂体（释放抗利尿激素、催产素）</li>
+                        <li><strong>肾上腺：</strong>分皮质（分泌糖皮质激素、盐皮质激素）和髓质（分泌肾上腺素、去甲肾上腺素，应对应激）</li>
+                        <li><strong>性腺：</strong>男性睾丸（分泌雄性激素），女性卵巢（分泌雌性激素、孕激素）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 七、运动系统 -->
+        <section class="content-section">
+            <div class="topic-card">
+                <h2>七、运动系统（详细版）</h2>
+                
+                <div class="core-function">
+                    <h3>核心功能</h3>
+                    <p>构成人体支架（支撑躯体）、保护内脏（如颅骨护脑、肋骨护心肺、骨盆护盆腔脏器）、完成躯体运动（屈伸、旋转、行走等），同时骨骼是钙、磷储存库。</p>
+                </div>
+                
+                <div class="key-organs">
+                    <h3>关键器官及细分结构</h3>
+                    <ul>
+                        <li><strong>骨：</strong>成人约206块，分长骨、短骨、扁骨、不规则骨；由骨质、骨膜、骨髓组成</li>
+                        <li><strong>关节：</strong>骨与骨的连接部位，分不动关节、半活动关节、动关节；动关节结构：关节面、关节囊、关节腔、韧带</li>
+                        <li><strong>骨骼肌：</strong>附着于骨骼，约600余块，由肌腹（肌肉主体，收缩部分）和肌腱（两端，附着于骨）组成</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 八、生殖系统 -->
+        <section class="content-section">
+            <div class="topic-card">
+                <h2>八、生殖系统（详细版）</h2>
+                
+                <div class="core-function">
+                    <h3>核心功能</h3>
+                    <p>产生生殖细胞（精子/卵子）、分泌性激素（调节生殖发育与第二性征）、完成受精与孕育（女性），实现物种繁衍。</p>
+                </div>
+                
+                <div class="key-organs">
+                    <h3>关键器官及细分结构（男/女）</h3>
+                    <ul>
+                        <li><strong>男性生殖系统：</strong>睾丸（生殖腺，产生精子）、附睾（储存精子并促进精子成熟）、输精管（输送精子）、附属腺（前列腺、精囊腺、尿道球腺）、尿道（排尿与排精共用通道）</li>
+                        <li><strong>女性生殖系统：</strong>卵巢（生殖腺，产生卵子）、输卵管（连接卵巢与子宫，受精主要部位）、子宫（受精卵着床、胎儿发育的场所）、阴道（性交器官、月经排出通道、胎儿分娩通道）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-subjects">
+            <h2>相关学科</h2>
+            <div class="subject-links">
+                <a href="anatomy.html" class="related-link">解剖学 - 深入学习结构</a>
+                <a href="physiology.html" class="related-link">生理学 - 了解功能机制</a>
+                <a href="pathophysiology.html" class="related-link">病理生理学 - 了解疾病机制</a>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        .core-function, .key-organs, .operation-principle {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .core-function h3, .key-organs h3, .operation-principle h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .core-function p, .key-organs p, .operation-principle p {
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+        
+        .key-organs ul, .operation-principle ol {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .key-organs li, .operation-principle li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .key-organs strong {
+            color: #e74c3c;
+        }
+    </style>
+</body>
+</html>
