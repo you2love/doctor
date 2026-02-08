@@ -50,8 +50,8 @@
         }
 
         .anatomy-diagrams {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 40px;
             margin-bottom: 60px;
         }
@@ -65,7 +65,7 @@
         }
 
         .diagram-title {
-            font-size: 1.6em;
+            font-size: 2em;
             font-weight: 700;
             color: #2c3e50;
             margin-bottom: 20px;
@@ -75,10 +75,54 @@
 
         .body-canvas {
             width: 100%;
-            height: 1000px;
+            height: 1600px;
             border: 2px solid #e8f4f8;
             border-radius: 15px;
             background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .organs-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .organs-info h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f4f8;
+        }
+
+        .organs-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .organ-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .organ-name {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .organ-desc {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.5;
         }
 
         .mnemonic-section {
@@ -167,12 +211,12 @@
                 margin-left: 0;
             }
 
-            .anatomy-diagrams {
-                grid-template-columns: 1fr;
+            .body-canvas {
+                height: 900px;
             }
 
-            .body-canvas {
-                height: 800px;
+            .organs-list {
+                grid-template-columns: 1fr;
             }
 
             .local-diagrams {
@@ -211,8 +255,6 @@
     </div>
 
     <main class="index-container">
-        <h2 class="section-title">整体解剖图</h2>
-
         <div class="anatomy-diagrams">
             <!-- 正面解剖图 -->
             <div class="diagram-card">
@@ -241,6 +283,156 @@
                         肾脏藏在腰中间，<br>
                         臀腿支撑稳如山！
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="organs-info">
+            <h3>📖 人体器官详解</h3>
+            <div class="organs-list">
+                <div class="organ-item">
+                    <div class="organ-name">👁️ 眼睛</div>
+                    <div class="organ-desc">视觉器官，由角膜、瞳孔、晶状体、视网膜组成，负责光线接收和视觉成像</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">👃 鼻子</div>
+                    <div class="organ-desc">嗅觉和呼吸器官，鼻腔内有鼻毛过滤空气，鼻甲加温加湿</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">👄 嘴巴</div>
+                    <div class="organ-desc">语言、进食、呼吸器官，含牙齿咀嚼、舌头搅拌、唾液初步消化</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">👂 耳朵</div>
+                    <div class="organ-desc">听觉和平衡器官，外耳收集声波，中耳传导，内耳感受</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🧠 后脑勺</div>
+                    <div class="organ-desc">头骨后部，保护小脑和脑干，容纳枕叶</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🫁 气管</div>
+                    <div class="organ-desc">呼吸道通道，由软骨环支撑，连接喉和支气管</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🔥 甲状腺</div>
+                    <div class="organ-desc">内分泌腺，分泌甲状腺激素，调节新陈代谢、生长发育</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 锁骨</div>
+                    <div class="organ-desc">上肢带骨，连接胸骨和肩胛骨，支撑手臂活动</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 胸骨</div>
+                    <div class="organ-desc">胸前正中骨，保护心脏和肺部，连接肋骨</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 肋骨</div>
+                    <div class="organ-desc">胸廓组成部分，12对，保护胸腔器官，参与呼吸运动</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 脊柱</div>
+                    <div class="organ-desc">身体中轴骨，由椎骨组成，保护脊髓，支撑身体</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 颈椎</div>
+                    <div class="organ-desc">7块，支撑头部，保护颈髓，参与颈部活动</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 胸椎</div>
+                    <div class="organ-desc">12块，连接肋骨，保护胸髓，参与胸廓组成</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 腰椎</div>
+                    <div class="organ-desc">5块，承重最大，保护腰髓，参与躯干活动</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 骶骨</div>
+                    <div class="organ-desc">5块骶椎融合而成，连接骨盆，支撑脊柱</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 肩胛骨</div>
+                    <div class="organ-desc">背部三角形骨，连接锁骨和上臂骨，参与肩关节</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🫁 肺</div>
+                    <div class="organ-desc">呼吸器官，左肺2叶，右肺3叶，负责气体交换</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">❤️ 心脏</div>
+                    <div class="organ-desc">循环系统核心，四腔两房两室，泵血维持血液循环</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🫀 膈肌</div>
+                    <div class="organ-desc">分隔胸腹的肌肉，收缩时增加胸腔容积，帮助吸气</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🍔 胃</div>
+                    <div class="organ-desc">消化器官，分泌胃液消化蛋白质，储存和研磨食物</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🍃 肝脏</div>
+                    <div class="organ-desc">最大消化腺，解毒、代谢、分泌胆汁、储存营养</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">💛 胆囊</div>
+                    <div class="organ-desc">储存和浓缩胆汁，协助脂肪消化</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🔥 胰腺</div>
+                    <div class="organ-desc">重要消化腺和外分泌腺，分泌胰液助消化，胰岛素调节血糖</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🔴 脾脏</div>
+                    <div class="organ-desc">免疫器官，过滤血液、清除衰老红细胞、储存血小板</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">💛 肾上腺</div>
+                    <div class="organ-desc">内分泌腺，位于肾脏上方，分泌肾上腺素、皮质激素</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">💧 肾脏</div>
+                    <div class="organ-desc">泌尿器官，蚕豆状，过滤血液、产生尿液、调节水盐平衡</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🥗 小肠</div>
+                    <div class="organ-desc">主要消化吸收场所，包括十二指肠、空肠、回肠</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🥩 大肠</div>
+                    <div class="organ-desc">吸收水分、形成粪便，包括盲肠、结肠、直肠</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🔴 阑尾</div>
+                    <div class="organ-desc">淋巴器官，位于盲肠末端，免疫功能</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">💧 膀胱</div>
+                    <div class="organ-desc">储存尿液的器官，肌肉壁可收缩排尿</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🔶 前列腺</div>
+                    <div class="organ-desc">男性生殖腺，分泌前列腺液，参与精液组成</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">💪 手臂</div>
+                    <div class="organ-desc">上肢，包括上臂、前臂、手，由骨骼、肌肉、血管神经组成</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🍑 臀部</div>
+                    <div class="organ-desc">由臀大肌、臀中肌、臀小肌组成，连接骨盆和下肢</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦵 腿部</div>
+                    <div class="organ-desc">下肢，包括大腿、小腿、脚，支撑身体、行走奔跑</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">🦴 膝盖</div>
+                    <div class="organ-desc">膝关节连接股骨和胫骨，含髌骨，是人体最大关节</div>
+                </div>
+                <div class="organ-item">
+                    <div class="organ-name">👣 脚</div>
+                    <div class="organ-desc">行走器官，由跗骨、跖骨、趾骨组成，支撑身体重量</div>
                 </div>
             </div>
         </div>
@@ -366,6 +558,14 @@
             const width = canvas.offsetWidth;
             const height = canvas.offsetHeight;
             const centerX = width / 2;
+
+            // 放大人体图形到1.8倍，让人体在画布中占极大比例
+            // 人体绘制范围：头部 y=10，脚部 y=830，总高度820px
+            ctx.save();
+            ctx.translate(centerX, 420);
+            ctx.scale(1.8, 1.8);
+            ctx.translate(-centerX, -420);
+            ctx.translate(0, 150); // 向下移动150像素
 
             // 绘制身体轮廓
             ctx.fillStyle = '#f8f9fa';
@@ -738,12 +938,91 @@
 
             // 手
             ctx.fillStyle = '#f8f9fa';
-            ctx.beginPath();
-            ctx.ellipse(centerX - 135, 550, 18, 12, 0, 0, 2 * Math.PI);
-            ctx.ellipse(centerX + 135, 550, 18, 12, 0, 0, 2 * Math.PI);
-            ctx.fill();
             ctx.strokeStyle = '#3498db';
             ctx.lineWidth = 2;
+
+            // 左手腕
+            ctx.beginPath();
+            ctx.ellipse(centerX - 135, 535, 12, 10, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 左手掌
+            ctx.beginPath();
+            ctx.ellipse(centerX - 135, 548, 16, 12, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 左手拇指
+            ctx.beginPath();
+            ctx.ellipse(centerX - 150, 548, 8, 5, -0.5, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 左手食指
+            ctx.beginPath();
+            ctx.ellipse(centerX - 148, 538, 5, 12, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 左手中指
+            ctx.beginPath();
+            ctx.ellipse(centerX - 138, 536, 5, 13, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 左手无名指
+            ctx.beginPath();
+            ctx.ellipse(centerX - 128, 538, 5, 12, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 左手小指
+            ctx.beginPath();
+            ctx.ellipse(centerX - 118, 543, 4, 10, 0.3, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 右手腕
+            ctx.beginPath();
+            ctx.ellipse(centerX + 135, 535, 12, 10, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 右手掌
+            ctx.beginPath();
+            ctx.ellipse(centerX + 135, 548, 16, 12, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 右手拇指
+            ctx.beginPath();
+            ctx.ellipse(centerX + 120, 548, 8, 5, 0.5, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 右手食指
+            ctx.beginPath();
+            ctx.ellipse(centerX + 122, 538, 5, 12, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 右手中指
+            ctx.beginPath();
+            ctx.ellipse(centerX + 132, 536, 5, 13, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 右手无名指
+            ctx.beginPath();
+            ctx.ellipse(centerX + 142, 538, 5, 12, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // 右手小指
+            ctx.beginPath();
+            ctx.ellipse(centerX + 152, 543, 4, 10, -0.3, 0, 2 * Math.PI);
+            ctx.fill();
             ctx.stroke();
 
             // 腿部（左）
@@ -799,43 +1078,142 @@
 
             // 添加标签
             ctx.fillStyle = '#2c3e50';
-            ctx.font = 'bold 12px Arial';
+            ctx.font = 'bold 10px Arial';
+            
+            // 面部区域
             ctx.fillText('头部', centerX - 12, 30);
+            ctx.fillText('额头', centerX - 12, 50);
+            ctx.fillText('眉毛', centerX - 28, 58);
+            ctx.fillText('眉毛', centerX + 12, 58);
             ctx.fillText('眼睛', centerX - 22, 65);
             ctx.fillText('眼睛', centerX + 8, 65);
             ctx.fillText('鼻子', centerX - 10, 78);
             ctx.fillText('嘴巴', centerX - 12, 93);
+            ctx.fillText('下巴', centerX - 12, 105);
+            ctx.fillText('面颊', centerX - 55, 85);
+            ctx.fillText('面颊', centerX + 35, 85);
             ctx.fillText('耳朵', centerX - 62, 73);
             ctx.fillText('耳朵', centerX + 38, 73);
+            
+            // 颈部区域
             ctx.fillText('颈部', centerX - 12, 150);
+            ctx.fillText('喉结', centerX - 12, 175);
             ctx.fillText('气管', centerX - 12, 195);
+            ctx.fillText('食管', centerX + 15, 200);
             ctx.fillText('甲状腺', centerX - 20, 160);
+            ctx.fillText('颈动脉', centerX - 80, 160);
+            ctx.fillText('颈静脉', centerX + 55, 165);
+            
+            // 胸部区域
             ctx.fillText('锁骨', centerX - 60, 182);
             ctx.fillText('锁骨', centerX + 40, 182);
             ctx.fillText('胸骨', centerX - 15, 230);
             ctx.fillText('肋骨', centerX - 15, 280);
+            ctx.fillText('胸膜', centerX - 75, 195);
+            ctx.fillText('胸膜', centerX + 55, 195);
             ctx.fillText('左肺', centerX - 65, 220);
             ctx.fillText('右肺', centerX + 40, 220);
             ctx.fillText('心脏', centerX - 18, 240);
+            ctx.fillText('主动脉', centerX - 18, 215);
+            ctx.fillText('上腔静脉', centerX - 40, 225);
+            ctx.fillText('下腔静脉', centerX + 10, 250);
+            
+            // 腹部区域
             ctx.fillText('膈肌', centerX - 12, 335);
+            ctx.fillText('腹直肌', centerX - 12, 360);
+            ctx.fillText('腹外斜肌', centerX - 85, 360);
+            ctx.fillText('腹外斜肌', centerX + 70, 360);
+            ctx.fillText('脐', centerX - 8, 425);
+            ctx.fillText('腹股沟', centerX - 35, 485);
+            ctx.fillText('腹股沟', centerX + 20, 485);
+            
+            // 腹腔器官
             ctx.fillText('胃', centerX - 5, 395);
             ctx.fillText('肝', centerX - 38, 378);
             ctx.fillText('胆囊', centerX - 15, 395);
             ctx.fillText('胰', centerX + 18, 403);
             ctx.fillText('脾', centerX + 58, 398);
+            ctx.fillText('十二指肠', centerX + 32, 420);
             ctx.fillText('小肠', centerX + 8, 435);
             ctx.fillText('大肠', centerX + 10, 455);
             ctx.fillText('阑尾', centerX - 78, 452);
+            ctx.fillText('盲肠', centerX - 65, 440);
+            ctx.fillText('直肠', centerX + 8, 468);
+            
+            // 盆腔区域
             ctx.fillText('膀胱', centerX - 15, 478);
             ctx.fillText('前列腺', centerX - 20, 498);
-            ctx.fillText('手臂', centerX - 165, 380);
-            ctx.fillText('手臂', centerX + 125, 380);
-            ctx.fillText('腿部', centerX - 95, 550);
-            ctx.fillText('腿部', centerX + 65, 550);
+            ctx.fillText('阴茎', centerX - 12, 510);
+            
+            // 骨骼结构
+            ctx.fillText('肱骨', centerX - 145, 300);
+            ctx.fillText('肱骨', centerX + 130, 300);
+            
+            // 盆腔骨骼
+            ctx.fillText('骨盆', centerX - 12, 505);
+            ctx.fillText('髂骨', centerX - 65, 505);
+            ctx.fillText('髂骨', centerX + 50, 505);
+            ctx.fillText('坐骨', centerX - 65, 520);
+            ctx.fillText('坐骨', centerX + 50, 520);
+            
+            // 下肢骨骼
+            ctx.fillText('髋关节', centerX - 75, 525);
+            ctx.fillText('髋关节', centerX + 65, 525);
+            ctx.fillText('股骨', centerX - 85, 600);
+            ctx.fillText('股骨', centerX + 70, 600);
+            ctx.fillText('股动脉', centerX - 90, 570);
+            ctx.fillText('股动脉', centerX + 75, 570);
+            ctx.fillText('髌骨', centerX - 75, 675);
+            ctx.fillText('髌骨', centerX + 55, 675);
             ctx.fillText('膝盖', centerX - 90, 673);
             ctx.fillText('膝盖', centerX + 58, 673);
+            ctx.fillText('腘动脉', centerX - 75, 695);
+            ctx.fillText('腘动脉', centerX + 55, 695);
+            ctx.fillText('胫骨', centerX - 80, 750);
+            ctx.fillText('胫骨', centerX + 62, 750);
+            ctx.fillText('腓骨', centerX - 100, 750);
+            ctx.fillText('腓骨', centerX + 42, 750);
+            ctx.fillText('踝关节', centerX - 75, 810);
+            ctx.fillText('踝关节', centerX + 48, 810);
+            ctx.fillText('跟骨', centerX - 90, 840);
+            ctx.fillText('跟骨', centerX + 72, 840);
+            ctx.fillText('足弓', centerX - 70, 850);
+            ctx.fillText('足弓', centerX + 50, 850);
+            
+            // 肢体
+            ctx.fillText('手臂', centerX - 165, 380);
+            ctx.fillText('手臂', centerX + 125, 380);
+            
+            // 手部标识
+            ctx.fillText('手腕', centerX - 155, 530);
+            ctx.fillText('手腕', centerX + 115, 530);
+            ctx.fillText('手掌', centerX - 150, 560);
+            ctx.fillText('手掌', centerX + 120, 560);
+            ctx.fillText('拇指', centerX - 158, 558);
+            ctx.fillText('拇指', centerX + 112, 558);
+            ctx.fillText('食指', centerX - 155, 525);
+            ctx.fillText('食指', centerX + 115, 525);
+            ctx.fillText('中指', centerX - 145, 522);
+            ctx.fillText('中指', centerX + 125, 522);
+            ctx.fillText('无名指', centerX - 135, 525);
+            ctx.fillText('无名指', centerX + 135, 525);
+            ctx.fillText('小指', centerX - 125, 535);
+            ctx.fillText('小指', centerX + 145, 535);
+            ctx.fillText('指关节', centerX - 155, 545);
+            ctx.fillText('指关节', centerX + 115, 545);
+            ctx.fillText('掌骨', centerX - 148, 552);
+            ctx.fillText('掌骨', centerX + 122, 552);
+            ctx.fillText('指骨', centerX - 150, 528);
+            ctx.fillText('指骨', centerX + 120, 528);
+            
+            // 下肢
+            ctx.fillText('腿部', centerX - 95, 550);
+            ctx.fillText('腿部', centerX + 65, 550);
             ctx.fillText('脚', centerX - 80, 825);
             ctx.fillText('脚', centerX + 58, 825);
+            
+            // 恢复缩放变换
+            ctx.restore();
         }
 
         // 绘制详细的人体背面解剖图
@@ -850,6 +1228,14 @@
             const width = canvas.offsetWidth;
             const height = canvas.offsetHeight;
             const centerX = width / 2;
+
+            // 放大人体图形到1.8倍，让人体在画布中占极大比例
+            // 人体绘制范围：头部 y=10，脚部 y=830，总高度820px
+            ctx.save();
+            ctx.translate(centerX, 420);
+            ctx.scale(1.8, 1.8);
+            ctx.translate(-centerX, -420);
+            ctx.translate(0, 150); // 向下移动150像素
 
             // 身体轮廓
             ctx.fillStyle = '#f8f9fa';
@@ -1157,12 +1543,31 @@
 
             // 添加标签
             ctx.fillStyle = '#2c3e50';
-            ctx.font = 'bold 12px Arial';
+            ctx.font = 'bold 10px Arial';
+            
+            // 头部区域
             ctx.fillText('头部', centerX - 12, 30);
             ctx.fillText('后脑勺', centerX - 18, 45);
+            ctx.fillText('额头', centerX - 18, 20);
+            ctx.fillText('眉毛', centerX - 28, 55);
+            ctx.fillText('眉毛', centerX + 18, 55);
+            ctx.fillText('鼻子', centerX - 10, 78);
+            ctx.fillText('下巴', centerX - 12, 120);
+            ctx.fillText('面颊', centerX - 65, 75);
+            ctx.fillText('面颊', centerX + 48, 75);
             ctx.fillText('耳朵', centerX - 62, 73);
             ctx.fillText('耳朵', centerX + 38, 73);
+            
+            // 颈部区域
             ctx.fillText('颈部', centerX - 12, 150);
+            ctx.fillText('喉结', centerX - 10, 170);
+            ctx.fillText('食管', centerX - 12, 195);
+            ctx.fillText('颈动脉', centerX - 60, 185);
+            ctx.fillText('颈动脉', centerX + 40, 185);
+            ctx.fillText('颈静脉', centerX - 58, 198);
+            ctx.fillText('颈静脉', centerX + 42, 198);
+            
+            // 胸部区域
             ctx.fillText('锁骨', centerX - 60, 182);
             ctx.fillText('锁骨', centerX + 40, 182);
             ctx.fillText('脊椎', centerX - 12, 305);
@@ -1172,18 +1577,98 @@
             ctx.fillText('骶骨', centerX - 12, 515);
             ctx.fillText('肩胛骨', centerX - 92, 235);
             ctx.fillText('肩胛骨', centerX + 42, 235);
+            
+            // 背部肌肉
+            ctx.fillText('斜方肌', centerX - 75, 200);
+            ctx.fillText('斜方肌', centerX + 55, 200);
+            ctx.fillText('背阔肌', centerX - 88, 300);
+            ctx.fillText('背阔肌', centerX + 68, 300);
+            ctx.fillText('胸大肌', centerX - 82, 245);
+            ctx.fillText('胸大肌', centerX + 62, 245);
+            ctx.fillText('肋间肌', centerX - 72, 265);
+            ctx.fillText('肋间肌', centerX + 52, 265);
+            
+            // 腹部区域
             ctx.fillText('肾上腺', centerX - 80, 353);
             ctx.fillText('肾上腺', centerX + 52, 353);
             ctx.fillText('肾', centerX - 45, 363);
             ctx.fillText('肾', centerX + 27, 363);
-            ctx.fillText('手臂', centerX - 165, 380);
-            ctx.fillText('手臂', centerX + 125, 380);
+            ctx.fillText('腹直肌', centerX - 15, 390);
+            ctx.fillText('腹外斜肌', centerX - 95, 395);
+            ctx.fillText('腹外斜肌', centerX + 75, 395);
+            ctx.fillText('盆腔肌', centerX - 50, 485);
+            ctx.fillText('盆腔肌', centerX + 35, 485);
+            
+            // 盆腔和臀部
+            ctx.fillText('骨盆', centerX - 12, 510);
+            ctx.fillText('髂骨', centerX - 70, 500);
+            ctx.fillText('髂骨', centerX + 45, 500);
+            ctx.fillText('坐骨', centerX - 70, 530);
+            ctx.fillText('坐骨', centerX + 45, 530);
             ctx.fillText('臀部', centerX - 75, 473);
             ctx.fillText('臀部', centerX + 25, 473);
+            ctx.fillText('臀大肌', centerX - 80, 470);
+            ctx.fillText('臀大肌', centerX + 50, 470);
+            ctx.fillText('臀中肌', centerX - 70, 485);
+            ctx.fillText('臀中肌', centerX + 40, 485);
+            
+            // 上肢
+            ctx.fillText('手臂', centerX - 165, 380);
+            ctx.fillText('手臂', centerX + 125, 380);
+            ctx.fillText('肱二头肌', centerX - 158, 280);
+            ctx.fillText('肱二头肌', centerX + 128, 280);
+            ctx.fillText('肱三头肌', centerX - 160, 300);
+            ctx.fillText('肱三头肌', centerX + 126, 300);
+            ctx.fillText('尺骨', centerX - 135, 340);
+            ctx.fillText('尺骨', centerX + 105, 340);
+            ctx.fillText('桡骨', centerX - 138, 355);
+            ctx.fillText('桡骨', centerX + 108, 355);
+            
+            // 下肢
             ctx.fillText('腿部', centerX - 105, 550);
             ctx.fillText('腿部', centerX + 55, 550);
+            ctx.fillText('髋关节', centerX - 80, 520);
+            ctx.fillText('髋关节', centerX + 60, 520);
+            ctx.fillText('股骨', centerX - 85, 600);
+            ctx.fillText('股骨', centerX + 70, 600);
+            ctx.fillText('股动脉', centerX - 90, 570);
+            ctx.fillText('股动脉', centerX + 75, 570);
+            ctx.fillText('股二头肌', centerX - 95, 620);
+            ctx.fillText('股二头肌', centerX + 65, 620);
+            
+            // 膝盖和小腿
             ctx.fillText('膝盖', centerX - 100, 673);
             ctx.fillText('膝盖', centerX + 48, 673);
+            ctx.fillText('髌骨', centerX - 85, 680);
+            ctx.fillText('髌骨', centerX + 50, 680);
+            ctx.fillText('腘动脉', centerX - 75, 695);
+            ctx.fillText('腘动脉', centerX + 55, 695);
+            ctx.fillText('胫骨', centerX - 80, 750);
+            ctx.fillText('胫骨', centerX + 62, 750);
+            ctx.fillText('腓骨', centerX - 100, 750);
+            ctx.fillText('腓骨', centerX + 42, 750);
+            ctx.fillText('腓肠肌', centerX - 90, 700);
+            ctx.fillText('腓肠肌', centerX + 58, 700);
+            ctx.fillText('比目鱼肌', centerX - 88, 760);
+            ctx.fillText('比目鱼肌', centerX + 56, 760);
+            
+            // 足部
+            ctx.fillText('踝关节', centerX - 75, 810);
+            ctx.fillText('踝关节', centerX + 48, 810);
+            ctx.fillText('踝骨', centerX - 82, 815);
+            ctx.fillText('踝骨', centerX + 60, 815);
+            ctx.fillText('跟骨', centerX - 90, 840);
+            ctx.fillText('跟骨', centerX + 72, 840);
+            ctx.fillText('跟腱', centerX - 75, 795);
+            ctx.fillText('跟腱', centerX + 50, 795);
+            ctx.fillText('跗骨', centerX - 68, 830);
+            ctx.fillText('跗骨', centerX + 54, 830);
+            ctx.fillText('跖骨', centerX - 62, 845);
+            ctx.fillText('跖骨', centerX + 48, 845);
+            ctx.fillText('足底', centerX - 65, 855);
+            ctx.fillText('足底', centerX + 55, 855);
+            ctx.fillText('足趾', centerX - 58, 825);
+            ctx.fillText('足趾', centerX + 52, 825);
             ctx.fillText('脚', centerX - 90, 825);
             ctx.fillText('脚', centerX + 48, 825);
         }
