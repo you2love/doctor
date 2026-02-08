@@ -57,7 +57,6 @@
             <h2>呼吸系统疾病</h2>
             
             <div class="topic-card">
-                <img src="images/common-cold.jpg" alt="普通感冒" class="topic-image">
                 <h3>普通感冒</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -69,7 +68,23 @@
                 </div>
                 <div class="mechanism-box">
                     <h4>发病原理</h4>
-                    <p>病毒侵入呼吸道黏膜上皮细胞并复制，导致上皮细胞损伤、脱落，黏膜完整性破坏；引发局部炎症反应，刺激血管扩张、腺体分泌亢进。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">病毒入侵<br><small>鼻病毒/冠状病毒/腺病毒</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">侵入呼吸道黏膜<br><small>上皮细胞</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">病毒复制<br><small>细胞损伤、脱落</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">炎症反应</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">血管扩张</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">腺体分泌亢进</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">感冒症状<br><small>鼻塞、流涕、咽痛、咳嗽</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -82,7 +97,6 @@
             </div>
 
             <div class="topic-card">
-                <img src="images/common-bronchitis.jpg" alt="急性支气管炎" class="topic-image">
                 <h3>急性支气管炎</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -90,7 +104,21 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>病毒感染占多数，如流感病毒、鼻病毒等；细菌感染多为继发。诱因包括上呼吸道感染未控制、吸烟、空气污染、冷空气刺激等。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">病毒感染<br><small>流感病毒/鼻病毒</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">上呼吸道感染<br><small>未控制</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">吸烟</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">空气污染</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">冷空气</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">急性支气管炎<br><small>干咳→咳痰</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -103,7 +131,6 @@
             </div>
 
             <div class="topic-card">
-                <img src="images/common-pneumonia.jpg" alt="社区获得性肺炎" class="topic-image">
                 <h3>社区获得性肺炎</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -111,7 +138,15 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>主要致病菌为肺炎链球菌（占40%-70%），其次为支原体、衣原体等；病毒感染也可引发或混合感染。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">致病菌入侵<br><small>肺炎链球菌40-70%</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">进入肺泡<br><small>大量繁殖</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">炎症反应<br><small>渗出物增多</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">肺炎症状<br><small>高热、咳嗽、胸痛、呼吸困难</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -124,7 +159,6 @@
             </div>
 
             <div class="topic-card">
-                <img src="images/common-asthma.jpg" alt="支气管哮喘" class="topic-image">
                 <h3>支气管哮喘</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -132,7 +166,19 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>遗传与环境因素共同作用。遗传因素：过敏体质基因；环境因素：过敏原暴露、空气污染、呼吸道感染、冷空气刺激等。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素<br><small>过敏体质基因</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">环境因素<br><small>过敏原暴露</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">接触诱因<br><small>花粉、尘螨等</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">气道高反应<br><small>支气管痉挛</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">哮喘发作<br><small>喘息、胸闷、咳嗽</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -145,7 +191,6 @@
             </div>
 
             <div class="topic-card">
-                <img src="images/common-copd.jpg" alt="慢性阻塞性肺疾病（COPD）" class="topic-image">
                 <h3>慢性阻塞性肺疾病（COPD）</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -153,7 +198,23 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>主要危险因素为长期吸烟（占80%-90%），其次为空气污染、职业暴露、反复呼吸道感染等。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">长期吸烟<br><small>占80-90%</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">空气污染</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">职业暴露</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">反复感染</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">气道慢性炎症<br><small>支气管狭窄</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">气流受限<br><small>不完全可逆</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">COPD症状<br><small>咳嗽、气短、喘息</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -172,7 +233,6 @@
             <h2>消化系统疾病</h2>
             
             <div class="topic-card">
-                <img src="images/common-gastroenteritis.jpg" alt="急性胃肠炎" class="topic-image">
                 <h3>急性胃肠炎</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -180,7 +240,19 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>分为感染性与非感染性两类。感染性：病毒（诺如、轮状病毒等）、细菌（沙门氏菌、大肠杆菌等）；非感染性：暴饮暴食、食用刺激食物、酗酒等。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">感染性<br><small>病毒/细菌</small></div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">非感染性<br><small>暴饮暴食/刺激物</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">胃肠黏膜受损<br><small>炎症反应</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">消化功能紊乱<br><small>水电解质失衡</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">急性胃肠炎症状<br><small>腹痛、腹泻、恶心呕吐</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -193,7 +265,6 @@
             </div>
 
             <div class="topic-card">
-                <img src="images/common-gastritis.jpg" alt="慢性胃炎" class="topic-image">
                 <h3>慢性胃炎</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -201,7 +272,21 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>最主要原因是幽门螺杆菌（Hp）感染（占70%-80%），其次为理化刺激（饮食不规律、吸烟饮酒、服用非甾体抗炎药等）。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">幽门螺杆菌感染<br><small>占70-80%</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">饮食不规律</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">吸烟饮酒</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">服用NSAIDs</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">胃黏膜慢性炎症<br><small>屏障受损</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">慢性胃炎症状<br><small>腹痛、腹胀、反酸</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -214,7 +299,6 @@
             </div>
 
             <div class="topic-card">
-                <img src="images/common-ulcer.jpg" alt="消化性溃疡" class="topic-image">
                 <h3>消化性溃疡（胃溃疡/十二指肠溃疡）</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -222,7 +306,21 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>核心病因是Hp感染（占90%以上），其次为长期服用非甾体抗炎药；此外，遗传因素、精神压力大、吸烟饮酒等均为诱因。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">Hp感染<br><small>占90%以上</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">长期服用NSAIDs</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">遗传因素</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">精神压力/吸烟饮酒</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">胃酸+胃蛋白酶<br><small>黏膜防御失衡</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">消化性溃疡<br><small>餐后痛/空腹痛</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -241,7 +339,6 @@
             <h2>心血管系统疾病</h2>
             
             <div class="topic-card">
-                <img src="images/common-hypertension.jpg" alt="原发性高血压" class="topic-image">
                 <h3>原发性高血压</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -249,7 +346,19 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>遗传与环境因素共同作用，遗传因素占40%，环境因素占60%。环境因素：高盐饮食、肥胖、长期熬夜、精神紧张、缺乏运动、吸烟、过量饮酒等。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素<br><small>占40%</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">环境因素<br><small>占60%</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">多种危险因素<br><small>高盐/肥胖/熬夜/压力/吸烟/饮酒</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">血管阻力升高<br><small>心输出量增加</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">血压持续升高<br><small>收缩压≥140/舒张压≥90</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -262,7 +371,6 @@
             </div>
 
             <div class="topic-card">
-                <img src="images/common-coronary.jpg" alt="冠状动脉粥样硬化性心脏病（冠心病）" class="topic-image">
                 <h3>冠状动脉粥样硬化性心脏病（冠心病）</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -270,7 +378,21 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>核心病因是冠状动脉粥样硬化，血管内脂质沉积形成粥样硬化斑块，导致冠脉管腔狭窄或闭塞。危险因素包括高血压、高血脂、糖尿病、吸烟、肥胖等。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">高血压</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">高血脂</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">糖尿病/吸烟/肥胖</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">冠状动脉粥样硬化<br><small>脂质沉积形成斑块</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">管腔狭窄或闭塞<br><small>心肌供血不足</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">冠心病症状<br><small>劳累后胸骨后压榨性胸痛</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -288,7 +410,6 @@
             <h2>神经系统疾病</h2>
             
             <div class="topic-card">
-                <img src="images/common-stroke.jpg" alt="脑梗死" class="topic-image">
                 <h3>脑梗死（缺血性脑卒中）</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -296,7 +417,19 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>核心病因是动脉粥样硬化，其他病因：房颤（心源性栓塞）、颈动脉夹层、小血管病变、血液高凝状态等。危险因素：高血压（最主要）、高血脂、糖尿病、吸烟、肥胖等。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">动脉粥样硬化</div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">房颤（心源性栓塞）</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">血管狭窄/闭塞<br><small>血栓形成/栓塞</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">脑部供血中断<br><small>脑组织缺血坏死</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">脑梗死症状<br><small>偏瘫、感觉障碍、言语障碍</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -309,7 +442,6 @@
             </div>
 
             <div class="topic-card">
-                <img src="images/common-migraine.jpg" alt="偏头痛" class="topic-image">
                 <h3>偏头痛</h3>
                 <div class="symptom-box">
                     <h4>核心症状</h4>
@@ -317,7 +449,19 @@
                 </div>
                 <div class="detail-box">
                     <h4>详细原因</h4>
-                    <p>遗传因素（家族史阳性者风险升高3-6倍），内分泌因素（女性雌激素波动），环境因素（强光、噪音、睡眠异常、精神压力大）。</p>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素<br><small>家族史阳性</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">内分泌因素<br><small>雌激素波动</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">环境因素<br><small>强光/噪音/压力</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">三叉神经血管系统激活<br><small>血管扩张+神经炎症</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">偏头痛发作<br><small>单侧搏动性疼痛+伴随症状</small></div>
+                    </div>
                 </div>
                 <div class="treatment-box">
                     <h4>治疗原理</h4>
@@ -330,28 +474,92 @@
             </div>
         </section>
 
-        <section class="related-subjects">
-            <h2>相关学科</h2>
-            <div class="subject-links">
-                <a href="internal-medicine.html" class="related-link">内科学 - 深入学习</a>
-                <a href="diagnostics.html" class="related-link">诊断学 - 了解诊断方法</a>
-                <a href="system.html" class="related-link">人体系统 - 了解身体结构</a>
-            </div>
-        </section>
+
     </main>
 
     <style>
-        .symptom-box, .detail-box, .mechanism-box, .treatment-box {
-            background: #f0f8ff;
+        /* Disease Flowchart Styles */
+        .disease-flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0;
             padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .disease-flowchart .flow-node {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 10px 15px;
             border-radius: 6px;
+            text-align: center;
+            font-size: 0.9em;
+            max-width: 280px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+        
+        .disease-flowchart .flow-node small {
+            display: block;
+            font-size: 0.75em;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+        
+        .disease-flowchart .flow-node.start {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+        
+        .disease-flowchart .flow-node.warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+        }
+        
+        .disease-flowchart .flow-node.end {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+        
+        .disease-flowchart .flow-node.small {
+            padding: 8px 12px;
+            font-size: 0.8em;
+            max-width: 120px;
+        }
+        
+        .disease-flowchart .flow-arrow {
+            font-size: 1.3em;
+            color: #3498db;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .disease-flowchart .flow-branch {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .disease-flowchart .flow-divider {
+            font-size: 1.1em;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .symptom-box, .detail-box, .mechanism-box, .treatment-box {
+            background: transparent;
+            padding: 10px 0;
+            border-radius: 0;
             margin-bottom: 15px;
-            border-left: 3px solid #3498db;
+            border-left: none;
+            box-shadow: none;
         }
         
         .symptom-box h4, .detail-box h4, .mechanism-box h4, .treatment-box h4 {
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-size: 1.1em;
         }
         

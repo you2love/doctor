@@ -326,7 +326,7 @@
         </section>
 
         <section class="content-section">
-            <h2>五、医保 & 集采药终极省钱攻略（省最多）</h2>
+            <h2 class="highlight-title">五、医保 & 集采药终极省钱攻略（省最多）</h2>
             
             <div class="strategy-cards">
                 <div class="strategy-card">
@@ -351,17 +351,21 @@
             </div>
         </section>
 
-        <section class="related-subjects">
-            <h2>相关学科</h2>
-            <div class="subject-links">
-                <a href="diagnostics.html" class="related-link">诊断学 - 了解用药诊断</a>
-                <a href="common_disease.html" class="related-link">常见病 - 了解疾病治疗</a>
-                <a href="doctor.html" class="related-link">省钱就医 - 了解就医指南</a>
-            </div>
-        </section>
     </main>
 
     <style>
+        .highlight-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white !important;
+            font-weight: 700 !important;
+            font-size: 1.9em !important;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            border: none !important;
+        }
+
         .medicine-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -425,7 +429,7 @@
         
         .warning-card.danger {
             border-left-color: #e74c3c;
-            background: #fff5f5;
+            background: white;
         }
         
         .warning-icon {
@@ -459,10 +463,11 @@
         }
         
         .strategy-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: white;
+            color: #2c3e50;
             border-radius: 10px;
             padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .strategy-card h3 {

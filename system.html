@@ -6,11 +6,259 @@
     <title>人体系统 - 医学学习平台</title>
     <script>
         function toggleSidebar() {
-            document.querySelector(.sidebar).classList.toggle(open);
+            document.querySelector('.sidebar').classList.toggle('open');
         }
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        .system-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-left: 250px;
+            padding: 20px 20px 80px 20px;
+        }
+
+        .system-intro {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .system-intro h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .system-intro p {
+            margin: 0;
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .systems-grid {
+            margin-bottom: 40px;
+        }
+
+        .system-card {
+            margin-bottom: 30px;
+        }
+
+        .system-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #f0f0f0;
+        }
+
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: #667eea;
+        }
+
+        .system-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .system-icon {
+            font-size: 2.5em;
+            margin-right: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .system-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .system-number {
+            display: inline-block;
+            background: #e8f4f8;
+            color: #3498db;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .system-content {
+            margin-bottom: 20px;
+        }
+
+        .system-description {
+            color: #7f8c8d;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .info-section {
+            margin-bottom: 18px;
+        }
+
+        .info-title {
+            font-weight: 700;
+            color: #34495e;
+            font-size: 1em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-title::before {
+            content: '▸';
+            color: #667eea;
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .info-content {
+            color: #555;
+            line-height: 1.6;
+            padding-left: 25px;
+            font-size: 0.9em;
+        }
+
+        .info-content ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+
+        .info-content li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .flowchart {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .flowchart-title {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.05em;
+        }
+
+        .flowchart-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .flow-step {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            max-width: 280px;
+            font-size: 0.85em;
+            color: #34495e;
+            line-height: 1.4;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s ease;
+        }
+
+        .flow-step:hover {
+            transform: scale(1.02);
+        }
+
+        .flow-arrow {
+            color: #667eea;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .related-subjects {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .related-subjects h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .subject-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .related-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 0.95em;
+        }
+
+        .related-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .system-intro {
+                padding: 30px 20px;
+            }
+
+            .system-intro h1 {
+                font-size: 2em;
+            }
+
+            .systems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .system-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 2em;
+            }
+
+            .flow-step {
+                max-width: 100%;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -34,276 +282,392 @@
                 <li class="menu-category">实用指南</li>
                 <li><a href="check_up.html">体检指标</a></li>
                 <li><a href="doctor.html">省钱就医</a></li>
- <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="medicine.html">家庭用药</a></li>
             </ul>
         </nav>
-    
-    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
     </div>
 
-    <main class="main-content">
-    
-    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    <main class="system-container">
 
-    <main class="container">
-        <section class="subject-header">
-            <div class="subject-icon">🧬</div>
+        <div class="system-intro">
             <h1>人体系统详解</h1>
-            <p class="subject-description">了解人体各系统的核心功能、结构组成与运行原理</p>
-        </section>
+            <p>深入了解人体八大系统的核心功能、结构组成与运行原理</p>
+        </div>
 
-        <!-- 一、循环系统 -->
-        <section class="content-section">
-            <div class="topic-card">
-                <h2>一、循环系统（详细版）</h2>
-                
-                <div class="core-function">
-                    <h3>核心功能</h3>
-                    <p>不仅是物质运输，更兼具免疫防御（白细胞、抗体运输）、体温调节（血液传导热量）功能，通过体循环、肺循环双回路，维持全身细胞的营养供应与代谢平衡，是机体功能联动的"核心枢纽"。</p>
+        <div class="systems-grid">
+
+            <!-- 循环系统 -->
+            <div class="system-card">
+                <div class="system-header">
+                    <div class="system-icon">❤️</div>
+                    <h2 class="system-title">循环系统 <span class="system-number">1</span></h2>
                 </div>
-                
-                <div class="key-organs">
-                    <h3>关键器官及细分结构</h3>
-                    <ul>
-                        <li><strong>心脏：</strong>分为左心房、左心室、右心房、右心室四腔，心腔内有二尖瓣、三尖瓣、主动脉瓣、肺动脉瓣，防止血液倒流</li>
-                        <li><strong>血管：</strong>动脉（从心脏出发，逐级分支）、毛细血管（管壁仅1层内皮细胞，是物质交换核心场所）、静脉（从全身回流，含静脉瓣防倒流）</li>
-                        <li><strong>血液：</strong>由血浆（占55%，含水分、蛋白质、电解质等）和血细胞（占45%，含红细胞、白细胞、血小板）组成</li>
-                    </ul>
-                </div>
-                
-                <div class="operation-principle">
-                    <h3>运行原理（双循环联动）</h3>
-                    <ol>
-                        <li><strong>肺循环（换气）：</strong>右心室→肺动脉→肺部毛细血管→肺泡（O₂入血、CO₂出）→肺静脉→左心房，完成血液"充氧"</li>
-                        <li><strong>体循环（供能）：</strong>左心房→左心室（高压泵血）→主动脉→全身各级动脉→组织毛细血管（O₂、营养入细胞，废物入血）→各级静脉→上/下腔静脉→右心房，完成血液"供能与废物收集"</li>
-                    </ol>
+                <div class="system-content">
+                    <p class="system-description">
+                        不仅是物质运输，更兼具免疫防御（白细胞、抗体运输）、体温调节功能，通过体循环、肺循环双回路，维持全身细胞的营养供应与代谢平衡。
+                    </p>
+
+                    <div class="info-section">
+                        <div class="info-title">核心功能</div>
+                        <div class="info-content">物质运输、免疫防御、体温调节</div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">关键器官</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>心脏：</strong>四腔（左右心房心室）、四瓣膜防倒流</li>
+                                <li><strong>血管：</strong>动脉→毛细血管→静脉</li>
+                                <li><strong>血液：</strong>血浆（55%）+ 血细胞（45%）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flowchart">
+                        <div class="flowchart-title">双循环运行流程</div>
+                        <div class="flowchart-box">
+                            <div class="flow-step">右心室 → 肺动脉 → 肺部毛细血管</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">肺泡O₂入血、CO₂出</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">肺静脉 → 左心房 → 左心室</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">主动脉 → 全身动脉 → 组织毛细血管</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">O₂、营养入细胞，废物入血</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">静脉 → 上下腔静脉 → 右心房</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 二、呼吸系统 -->
-        <section class="content-section">
-            <div class="topic-card">
-                <h2>二、呼吸系统（详细版）</h2>
-                
-                <div class="core-function">
-                    <h3>核心功能</h3>
-                    <p>除气体交换外，还能调节体内酸碱平衡（通过排出CO₂调节血液pH）、过滤吸入气体（防御异物），同时发声（喉内声带振动），是机体与外界沟通的"气体桥梁"。</p>
+            <!-- 呼吸系统 -->
+            <div class="system-card">
+                <div class="system-header">
+                    <div class="system-icon">🫁</div>
+                    <h2 class="system-title">呼吸系统 <span class="system-number">2</span></h2>
                 </div>
-                
-                <div class="key-organs">
-                    <h3>关键器官及细分结构</h3>
-                    <ul>
-                        <li><strong>上呼吸道：</strong>鼻（鼻毛过滤、鼻黏膜湿润加温）、咽（呼吸与消化共用通道）、喉（有声带，兼具通气与发声功能）</li>
-                        <li><strong>下呼吸道：</strong>气管→支气管→细支气管→终末细支气管（逐级分支），最终连接肺泡</li>
-                        <li><strong>肺：</strong>由无数肺泡组成（成人肺泡总数约3亿个，表面积达70-80㎡），肺泡壁薄，外缠绕毛细血管，利于气体扩散</li>
-                        <li><strong>呼吸肌：</strong>主要为膈肌（核心动力）、肋间肌（辅助），还有腹肌（用力呼气时参与）</li>
-                    </ul>
-                </div>
-                
-                <div class="operation-principle">
-                    <h3>运行原理（呼吸运动+气体交换）</h3>
-                    <ol>
-                        <li><strong>吸气（主动）：</strong>膈肌收缩（膈顶下降）、肋间外肌收缩（肋骨上提）→胸腔容积扩大→肺内气压低于外界→空气经呼吸道入肺</li>
-                        <li><strong>气体交换：</strong>肺泡内O₂浓度高于血液，CO₂浓度低于血液→O₂经肺泡壁、毛细血管壁扩散入血，CO₂从血液扩散入肺泡</li>
-                        <li><strong>呼气（被动，平静时）：</strong>膈肌、肋间外肌舒张→胸腔容积缩小→肺内气压高于外界→肺泡内CO₂经呼吸道排出体外</li>
-                    </ol>
+                <div class="system-content">
+                    <p class="system-description">
+                        除气体交换外，还能调节体内酸碱平衡、过滤吸入气体、同时发声，是机体与外界沟通的"气体桥梁"。
+                    </p>
+
+                    <div class="info-section">
+                        <div class="info-title">核心功能</div>
+                        <div class="info-content">气体交换、酸碱平衡、发声</div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">关键器官</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>上呼吸道：</strong>鼻（过滤加温）、咽、喉（声带）</li>
+                                <li><strong>下呼吸道：</strong>气管→支气管→肺泡（3亿个）</li>
+                                <li><strong>呼吸肌：</strong>膈肌、肋间肌</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flowchart">
+                        <div class="flowchart-title">呼吸运动流程</div>
+                        <div class="flowchart-box">
+                            <div class="flow-step">膈肌收缩（下降）+ 肋间外肌收缩</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">胸腔容积扩大</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">肺内气压 < 外界气压</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">空气入肺 → O₂扩散入血、CO₂扩散入肺泡</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">膈肌舒张 → 胸腔容积缩小</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">肺内气压 > 外界气压 → CO₂排出</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 三、消化系统 -->
-        <section class="content-section">
-            <div class="topic-card">
-                <h2>三、消化系统（详细版）</h2>
-                
-                <div class="core-function">
-                    <h3>核心功能</h3>
-                    <p>分"机械消化"（物理研磨）和"化学消化"（酶解分解），将大分子食物（淀粉、蛋白质、脂肪）分解为小分子可吸收物质，同时排出未消化残渣，为机体供能、供原料。</p>
+            <!-- 消化系统 -->
+            <div class="system-card">
+                <div class="system-header">
+                    <div class="system-icon">🍔</div>
+                    <h2 class="system-title">消化系统 <span class="system-number">3</span></h2>
                 </div>
-                
-                <div class="key-organs">
-                    <h3>关键器官及细分结构</h3>
-                    <ul>
-                        <li><strong>消化道：</strong>口→咽→食道→胃→小肠（十二指肠、空肠、回肠）→大肠（盲肠、结肠、直肠）→肛门</li>
-                        <li><strong>消化腺：</strong>唾液腺（分泌唾液，含淀粉酶）、胃腺（分泌胃液，含胃酸、胃蛋白酶）、肝脏（最大消化腺，分泌胆汁）、胰腺（分泌胰液，含多种消化酶）、肠腺（分泌肠液）</li>
-                    </ul>
-                </div>
-                
-                <div class="operation-principle">
-                    <h3>运行原理（分段消化+吸收）</h3>
-                    <ol>
-                        <li><strong>口腔消化：</strong>牙齿咀嚼（机械消化），唾液淀粉酶将淀粉初步分解为麦芽糖</li>
-                        <li><strong>食道运输：</strong>食团经食道蠕动入胃</li>
-                        <li><strong>胃内消化：</strong>胃壁平滑肌蠕动，将食团变为食糜；胃酸杀菌、激活胃蛋白酶</li>
-                        <li><strong>小肠消化（核心）：</strong>十二指肠接收胃内食糜、胆汁、胰液，最终将淀粉→葡萄糖、蛋白质→氨基酸、脂肪→甘油+脂肪酸</li>
-                        <li><strong>吸收与排泄：</strong>葡萄糖、氨基酸经肠绒毛入血；未吸收残渣入大肠，形成粪便，经直肠、肛门排出</li>
-                    </ol>
+                <div class="system-content">
+                    <p class="system-description">
+                        分机械消化（物理研磨）和化学消化（酶解分解），将大分子食物分解为小分子可吸收物质，为机体供能、供原料。
+                    </p>
+
+                    <div class="info-section">
+                        <div class="info-title">核心功能</div>
+                        <div class="info-content">机械消化、化学消化、吸收排泄</div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">关键器官</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>消化道：</strong>口→咽→食道→胃→小肠→大肠→肛门</li>
+                                <li><strong>消化腺：</strong>唾液腺、胃腺、肝、胰、肠腺</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flowchart">
+                        <div class="flowchart-title">消化吸收流程</div>
+                        <div class="flowchart-box">
+                            <div class="flow-step">口腔：牙齿咀嚼 + 唾液淀粉酶</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">胃：蠕动 → 食糜 + 胃酸杀菌</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">十二指肠：胆汁+胰液分解食物</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">淀粉→葡萄糖、蛋白质→氨基酸、脂肪→甘油+脂肪酸</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">小肠：营养物质经肠绒毛入血</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">大肠：水分吸收 + 残渣形成粪便</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 四、泌尿系统 -->
-        <section class="content-section">
-            <div class="topic-card">
-                <h2>四、泌尿系统（详细版）</h2>
-                
-                <div class="core-function">
-                    <h3>核心功能</h3>
-                    <p>精准过滤血液中废物（尿素、肌酐）、多余水分及电解质，通过尿液排出，同时重吸收有用物质（葡萄糖、氨基酸、部分电解质），维持体内水、电解质、酸碱平衡。</p>
+            <!-- 泌尿系统 -->
+            <div class="system-card">
+                <div class="system-header">
+                    <div class="system-icon">💧</div>
+                    <h2 class="system-title">泌尿系统 <span class="system-number">4</span></h2>
                 </div>
-                
-                <div class="key-organs">
-                    <h3>关键器官及细分结构</h3>
-                    <ul>
-                        <li><strong>肾：</strong>实质分为皮质和髓质；每个肾约100万个肾单位（基本功能单位），肾单位=肾小体（肾小球+肾小囊）+肾小管</li>
-                        <li><strong>输尿管：</strong>左右各一，管壁含平滑肌，通过蠕动将尿液输送至膀胱</li>
-                        <li><strong>膀胱：</strong>平滑肌构成的囊性器官，容量约300-500ml</li>
-                        <li><strong>尿道：</strong>男性尿道长（16-22cm），兼具排尿、排精功能；女性尿道短（3-5cm），易发生尿路感染</li>
-                    </ul>
-                </div>
-                
-                <div class="operation-principle">
-                    <h3>运行原理（尿液生成+排泄）</h3>
-                    <ol>
-                        <li><strong>滤过（肾小体）：</strong>血液流经肾小球，除血细胞、大分子蛋白质外，其余物质经滤过膜入肾小囊，形成原尿（每日约180L）</li>
-                        <li><strong>重吸收（肾小管）：</strong>原尿流经肾小管，重吸收葡萄糖、氨基酸、大部分水和电解质，最终剩余物质形成终尿（每日约1.5-2.0L）</li>
-                        <li><strong>排泄：</strong>终尿经集合管汇入肾盂→输尿管→膀胱→尿道排出</li>
-                    </ol>
+                <div class="system-content">
+                    <p class="system-description">
+                        精准过滤血液中废物、多余水分及电解质，通过尿液排出，同时重吸收有用物质，维持体内水、电解质、酸碱平衡。
+                    </p>
+
+                    <div class="info-section">
+                        <div class="info-title">核心功能</div>
+                        <div class="info-content">过滤废物、重吸收有用物质、维持平衡</div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">关键器官</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>肾：</strong>100万个肾单位（肾小球+肾小囊+肾小管）</li>
+                                <li><strong>输尿管：</strong>蠕动输送尿液</li>
+                                <li><strong>膀胱：</strong>储存尿液（300-500ml）</li>
+                                <li><strong>尿道：</strong>排出尿液</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flowchart">
+                        <div class="flowchart-title">尿液生成流程</div>
+                        <div class="flowchart-box">
+                            <div class="flow-step">肾小体：血液 → 滤过膜 → 原尿（180L/日）</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">肾小管：重吸收葡萄糖、氨基酸、水和电解质</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">终尿形成（1.5-2.0L/日）</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">集合管 → 肾盂 → 输尿管</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">膀胱储存 → 尿道排出</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 五、神经系统 -->
-        <section class="content-section">
-            <div class="topic-card">
-                <h2>五、神经系统（详细版）</h2>
-                
-                <div class="core-function">
-                    <h3>核心功能</h3>
-                    <p>作为机体"指挥调控中心"，接收内、外环境刺激，整合分析后发出指令，调节运动、内分泌、内脏活动等，同时实现意识、思维、记忆、情感等高级功能。</p>
+            <!-- 神经系统 -->
+            <div class="system-card">
+                <div class="system-header">
+                    <div class="system-icon">🧠</div>
+                    <h2 class="system-title">神经系统 <span class="system-number">5</span></h2>
                 </div>
-                
-                <div class="key-organs">
-                    <h3>关键器官及细分结构</h3>
-                    <ul>
-                        <li><strong>中枢神经系统（CNS）：</strong>脑（位于颅腔，含大脑、小脑、脑干）、脊髓（位于椎管内）</li>
-                        <li><strong>大脑：</strong>分左右半球，表面为大脑皮层（灰质），内部为白质（神经纤维）；皮层功能区：躯体运动区、躯体感觉区、视觉区、听觉区、语言区</li>
-                        <li><strong>小脑：</strong>维持躯体平衡与运动精准性</li>
-                        <li><strong>脑干：</strong>连接大脑、小脑、脊髓，分中脑、脑桥、延髓（"生命中枢"）</li>
-                        <li><strong>周围神经系统（PNS）：</strong>由脑神经（12对）、脊神经（31对）、自主神经（交感神经、副交感神经）组成</li>
-                    </ul>
+                <div class="system-content">
+                    <p class="system-description">
+                        作为机体"指挥调控中心"，接收内、外环境刺激，整合分析后发出指令，调节运动、内分泌、内脏活动等，实现意识、思维、记忆、情感等高级功能。
+                    </p>
+
+                    <div class="info-section">
+                        <div class="info-title">核心功能</div>
+                        <div class="info-content">指挥调控、感知整合、高级认知</div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">关键器官</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>中枢神经系统：</strong>脑（大脑、小脑、脑干）、脊髓</li>
+                                <li><strong>周围神经系统：</strong>脑神经（12对）、脊神经（31对）</li>
+                                <li><strong>自主神经：</strong>交感神经、副交感神经</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flowchart">
+                        <div class="flowchart-title">神经传导流程</div>
+                        <div class="flowchart-box">
+                            <div class="flow-step">感受器：接收内/外环境刺激</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">传入神经：传入中枢神经系统</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">中枢整合：大脑分析处理信息</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">传出神经：传出指令</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">效应器：执行反应（肌肉收缩/腺体分泌）</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 六、内分泌系统 -->
-        <section class="content-section">
-            <div class="topic-card">
-                <h2>六、内分泌系统（详细版）</h2>
-                
-                <div class="core-function">
-                    <h3>核心功能</h3>
-                    <p>与神经系统协同（神经-体液调节），通过分泌激素（微量、高效），精准调控机体生长发育、新陈代谢、生殖功能、免疫反应等，维持内环境稳态。</p>
+            <!-- 内分泌系统 -->
+            <div class="system-card">
+                <div class="system-header">
+                    <div class="system-icon">🧬</div>
+                    <h2 class="system-title">内分泌系统 <span class="system-number">6</span></h2>
                 </div>
-                
-                <div class="key-organs">
-                    <h3>关键器官（内分泌腺）及功能</h3>
-                    <ul>
-                        <li><strong>甲状腺：</strong>分泌甲状腺激素（T3、T4），调节新陈代谢、生长发育</li>
-                        <li><strong>胰岛：</strong>A细胞分泌胰高血糖素（升血糖），B细胞分泌胰岛素（降血糖），两者拮抗，维持血糖稳定</li>
-                        <li><strong>垂体：</strong>是"内分泌之王"，分腺垂体（分泌生长激素、促甲状腺激素等）和神经垂体（释放抗利尿激素、催产素）</li>
-                        <li><strong>肾上腺：</strong>分皮质（分泌糖皮质激素、盐皮质激素）和髓质（分泌肾上腺素、去甲肾上腺素，应对应激）</li>
-                        <li><strong>性腺：</strong>男性睾丸（分泌雄性激素），女性卵巢（分泌雌性激素、孕激素）</li>
-                    </ul>
+                <div class="system-content">
+                    <p class="system-description">
+                        与神经系统协同（神经-体液调节），通过分泌激素（微量、高效），精准调控机体生长发育、新陈代谢、生殖功能、免疫反应等，维持内环境稳态。
+                    </p>
+
+                    <div class="info-section">
+                        <div class="info-title">核心功能</div>
+                        <div class="info-content">激素调节、生长代谢、生殖调控</div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">关键器官</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>垂体：</strong>内分泌之王（生长激素、促甲状腺激素等）</li>
+                                <li><strong>甲状腺：</strong>新陈代谢、生长发育</li>
+                                <li><strong>胰岛：</strong>A细胞（升血糖）、B细胞（降血糖）</li>
+                                <li><strong>肾上腺：</strong>皮质（激素）、髓质（肾上腺素）</li>
+                                <li><strong>性腺：</strong>睾丸（雄激素）、卵巢（雌激素、孕激素）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flowchart">
+                        <div class="flowchart-title">激素调节流程</div>
+                        <div class="flowchart-box">
+                            <div class="flow-step">下丘脑：释放促激素释放激素</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">垂体：分泌促激素</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">靶腺体（甲状腺/肾上腺等）：分泌特异性激素</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">血液运输：激素到达靶器官/靶细胞</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">发挥作用：调节代谢、生长、生殖等</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">负反馈：激素水平反馈调节下丘脑-垂体</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 七、运动系统 -->
-        <section class="content-section">
-            <div class="topic-card">
-                <h2>七、运动系统（详细版）</h2>
-                
-                <div class="core-function">
-                    <h3>核心功能</h3>
-                    <p>构成人体支架（支撑躯体）、保护内脏（如颅骨护脑、肋骨护心肺、骨盆护盆腔脏器）、完成躯体运动（屈伸、旋转、行走等），同时骨骼是钙、磷储存库。</p>
+            <!-- 运动系统 -->
+            <div class="system-card">
+                <div class="system-header">
+                    <div class="system-icon">💪</div>
+                    <h2 class="system-title">运动系统 <span class="system-number">7</span></h2>
                 </div>
-                
-                <div class="key-organs">
-                    <h3>关键器官及细分结构</h3>
-                    <ul>
-                        <li><strong>骨：</strong>成人约206块，分长骨、短骨、扁骨、不规则骨；由骨质、骨膜、骨髓组成</li>
-                        <li><strong>关节：</strong>骨与骨的连接部位，分不动关节、半活动关节、动关节；动关节结构：关节面、关节囊、关节腔、韧带</li>
-                        <li><strong>骨骼肌：</strong>附着于骨骼，约600余块，由肌腹（肌肉主体，收缩部分）和肌腱（两端，附着于骨）组成</li>
-                    </ul>
+                <div class="system-content">
+                    <p class="system-description">
+                        构成人体支架、保护内脏、完成躯体运动（屈伸、旋转、行走等），同时骨骼是钙、磷储存库，为机体提供结构支撑和运动能力。
+                    </p>
+
+                    <div class="info-section">
+                        <div class="info-title">核心功能</div>
+                        <div class="info-content">结构支撑、内脏保护、运动执行</div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">关键器官</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>骨：</strong>206块，长/短/扁/不规则骨</li>
+                                <li><strong>关节：</strong>骨与骨连接，动关节（关节面、关节囊、关节腔）</li>
+                                <li><strong>骨骼肌：</strong>600余块，肌腹+肌腱</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flowchart">
+                        <div class="flowchart-title">运动执行流程</div>
+                        <div class="flowchart-box">
+                            <div class="flow-step">神经系统：大脑发出运动指令</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">神经传导：运动神经传导至骨骼肌</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">肌肉收缩：神经冲动引发肌纤维收缩</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">肌腱牵拉：肌肉通过肌腱牵拉骨骼</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">关节活动：骨骼以关节为轴产生运动</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">完成动作：实现屈伸、旋转、行走等运动</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 八、生殖系统 -->
-        <section class="content-section">
-            <div class="topic-card">
-                <h2>八、生殖系统（详细版）</h2>
-                
-                <div class="core-function">
-                    <h3>核心功能</h3>
-                    <p>产生生殖细胞（精子/卵子）、分泌性激素（调节生殖发育与第二性征）、完成受精与孕育（女性），实现物种繁衍。</p>
+            <!-- 生殖系统 -->
+            <div class="system-card">
+                <div class="system-header">
+                    <div class="system-icon">👶</div>
+                    <h2 class="system-title">生殖系统 <span class="system-number">8</span></h2>
                 </div>
-                
-                <div class="key-organs">
-                    <h3>关键器官及细分结构（男/女）</h3>
-                    <ul>
-                        <li><strong>男性生殖系统：</strong>睾丸（生殖腺，产生精子）、附睾（储存精子并促进精子成熟）、输精管（输送精子）、附属腺（前列腺、精囊腺、尿道球腺）、尿道（排尿与排精共用通道）</li>
-                        <li><strong>女性生殖系统：</strong>卵巢（生殖腺，产生卵子）、输卵管（连接卵巢与子宫，受精主要部位）、子宫（受精卵着床、胎儿发育的场所）、阴道（性交器官、月经排出通道、胎儿分娩通道）</li>
-                    </ul>
+                <div class="system-content">
+                    <p class="system-description">
+                        产生生殖细胞（精子/卵子）、分泌性激素（调节生殖发育与第二性征）、完成受精与孕育（女性），实现物种繁衍。
+                    </p>
+
+                    <div class="info-section">
+                        <div class="info-title">核心功能</div>
+                        <div class="info-content">生殖细胞产生、性激素分泌、繁衍后代</div>
+                    </div>
+
+                    <div class="info-section">
+                        <div class="info-title">关键器官</div>
+                        <div class="info-content">
+                            <ul>
+                                <li><strong>男性：</strong>睾丸（精子）、附睾（储存）、输精管（输送）、前列腺/精囊腺（分泌物）、尿道</li>
+                                <li><strong>女性：</strong>卵巢（卵子）、输卵管（受精）、子宫（孕育）、阴道（分娩）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flowchart">
+                        <div class="flowchart-title">生殖流程</div>
+                        <div class="flowchart-box">
+                            <div class="flow-step">男性：睾丸产生精子 → 附睾成熟</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">女性：卵巢释放卵子 → 输卵管</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">受精：精子 + 卵子 → 受精卵</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">受精卵分裂 → 移行至子宫</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">着床：受精卵植入子宫内膜</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">胚胎发育 → 胎儿发育</div>
+                            <div class="flow-arrow">↓</div>
+                            <div class="flow-step">分娩：胎儿经阴道娩出</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="related-subjects">
-            <h2>相关学科</h2>
-            <div class="subject-links">
-                <a href="anatomy.html" class="related-link">解剖学 - 深入学习结构</a>
-                <a href="physiology.html" class="related-link">生理学 - 了解功能机制</a>
-                <a href="pathophysiology.html" class="related-link">病理生理学 - 了解疾病机制</a>
-            </div>
-        </section>
+        </div>
+
     </main>
 
-    <style>
-        .core-function, .key-organs, .operation-principle {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #3498db;
-        }
-        
-        .core-function h3, .key-organs h3, .operation-principle h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        
-        .core-function p, .key-organs p, .operation-principle p {
-            margin-bottom: 0;
-            line-height: 1.6;
-        }
-        
-        .key-organs ul, .operation-principle ol {
-            margin-left: 20px;
-            margin-bottom: 0;
-        }
-        
-        .key-organs li, .operation-principle li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        .key-organs strong {
-            color: #e74c3c;
-        }
-    </style>
 </body>
 </html>

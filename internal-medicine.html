@@ -6,7 +6,7 @@
     <title>内科学 - 医学学习平台</title>
     <script>
         function toggleSidebar() {
-            document.querySelector(.sidebar).classList.toggle(open);
+            document.querySelector('.sidebar').classList.toggle('open');
         }
     </script>
     <link rel="stylesheet" href="styles.css">
@@ -48,242 +48,675 @@
     <main class="container">
         <section class="subject-header">
             <div class="subject-icon">💊</div>
-            <h1>内科学</h1>
-            <p class="subject-description">研究内科疾病诊断、治疗和预防的临床学科</p>
+            <h1>内科学核心要点</h1>
+            <p class="subject-description">内科疾病诊断、治疗与预防的实用指南</p>
         </section>
 
+        <!-- 呼吸系统疾病 -->
         <section class="content-section">
-            <h2>学科概述</h2>
-            <p>内科学是临床医学的重要分支，研究内科疾病的病因、发病机制、临床表现、诊断、治疗和预防。它是医学教育中最重要的临床课程之一，为其他临床学科的学习奠定基础。</p>
-        </section>
-
-        <section class="content-section">
-            <h2>主要内容</h2>
+            <h2>呼吸系统疾病</h2>
             
             <div class="topic-card">
-                <h3>1. 呼吸系统疾病</h3>
-                <p>呼吸系统疾病是内科常见病和多发病，主要包括慢性阻塞性肺疾病、支气管哮喘、肺炎、肺结核、肺癌等，严重威胁人类健康。</p>
-                <ul>
-                    <li><strong>慢性阻塞性肺疾病（COPD）：</strong>主要病因是吸烟和空气污染，表现为慢性咳嗽、咳痰、呼吸困难，呈进行性加重。诊断依据肺功能检查，治疗包括戒烟、支气管扩张剂、糖皮质激素、氧疗等，晚期可能需要肺移植。</li>
-                    <li><strong>支气管哮喘：</strong>是一种气道慢性炎症性疾病，表现为反复发作的喘息、气急、胸闷或咳嗽，常在夜间或凌晨发作或加重。治疗目标是达到并维持症状控制，减少急性发作，常用药物包括吸入性糖皮质激素和长效β₂受体激动剂。</li>
-                    <li><strong>肺炎：</strong>按发病场所分为社区获得性肺炎和医院获得性肺炎。社区获得性肺炎常见病原体为肺炎链球菌，医院获得性肺炎常见病原体为革兰阴性杆菌和金黄色葡萄球菌。治疗原则是抗感染治疗和对症支持治疗。</li>
-                    <li><strong>肺结核：</strong>是由结核分枝杆菌引起的慢性传染病，主要表现为低热、盗汗、乏力、消瘦、咳嗽、咳痰、咯血等。诊断依据痰涂片和痰培养抗酸杆菌，治疗采用标准短程化疗方案（2HRZE/4HR），疗程6-9个月。</li>
-                    <li><strong>原发性支气管肺癌：</strong>是最常见的肺部恶性肿瘤，早期常无明显症状，晚期可出现咳嗽、咯血、胸痛、呼吸困难等。诊断依靠影像学检查和病理学检查，治疗根据分期选择手术、放疗、化疗、靶向治疗或免疫治疗。</li>
-                    <li><strong>慢性肺源性心脏病：</strong>是由肺、胸廓或肺动脉血管慢性病变引起的肺循环阻力增加，肺动脉高压，进而引起右心室肥厚、扩大，最终导致右心衰竭。治疗包括控制感染、改善通气、纠正缺氧和二氧化碳潴留、控制心力衰竭等。</li>
-                    <li><strong>呼吸衰竭：</strong>是指各种原因引起的肺通气和（或）换气功能严重障碍，以致在静息状态下不能维持足够的气体交换，导致低氧血症伴（或不伴）高碳酸血症，进而引起一系列病理生理改变和相应临床表现的综合征。治疗原则是保持呼吸道通畅、氧疗、改善通气、纠正酸碱失衡和电解质紊乱、治疗原发病。</li>
-                </ul>
+                <h3>1. 慢性阻塞性肺疾病（COPD）</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>COPD是一种持续进行性的肺部疾病，主要表现为慢性咳嗽、咳痰、呼吸困难。最常见病因是长期吸烟（占80%-90%），其次是空气污染、职业暴露等。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">长期吸烟<br><small>主要危险因素</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">空气污染</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">职业暴露</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">反复感染</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">气道慢性炎症<br><small>支气管狭窄</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">气流受限<br><small>不完全可逆</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">COPD症状<br><small>咳嗽、气短、喘息</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>肺功能检查：FEV1/FVC < 70% 诊断金标准</li>
+                        <li>胸部CT：评估肺气肿、支气管扩张</li>
+                        <li>血气分析：评估低氧血症、高碳酸血症</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>病因治疗：</strong>戒烟是核心，避免接触有害气体</li>
+                        <li><strong>支气管扩张剂：</strong>长效抗胆碱能药物（如异丙托溴铵）、长效β₂受体激动剂（如沙美特罗）</li>
+                        <li><strong>糖皮质激素：</strong>吸入性糖皮质激素（如布地奈德）减轻炎症</li>
+                        <li><strong>氧疗：</strong>重症患者长期家庭氧疗</li>
+                        <li><strong>急性加重期：</strong>使用抗生素、全身糖皮质激素、增加支气管扩张剂剂量</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>2. 循环系统疾病</h3>
-                <p>循环系统疾病包括心脏疾病和血管疾病，是导致死亡的主要原因之一，主要包括心力衰竭、心律失常、高血压、冠心病、心脏瓣膜病等。</p>
-                <ul>
-                    <li><strong>心力衰竭：</strong>是指各种心脏结构或功能疾病导致心室充盈和（或）射血能力受损，心排血量不能满足机体组织代谢需要，以肺循环和（或）体循环淤血，器官、组织血液灌注不足为临床表现的一组综合征。治疗目标是改善症状、提高生活质量、降低再住院率和死亡率，常用药物包括利尿剂、ACEI/ARB、β受体阻滞剂、醛固酮受体拮抗剂等。</li>
-                    <li><strong>心律失常：</strong>是指心脏冲动的频率、节律、起源部位、传导速度或激动次序的异常。常见类型包括房颤、室速、室颤等。治疗包括病因治疗、药物治疗（如抗心律失常药）、电复律、导管消融、植入式心律转复除颤器等。</li>
-                    <li><strong>原发性高血压：</strong>是以体循环动脉压升高为主要临床表现的心血管综合征。治疗目标是将血压控制在目标水平以下，减少心血管事件的发生。治疗包括非药物治疗（生活方式干预）和药物治疗（利尿剂、ACEI、ARB、β受体阻滞剂、钙通道阻滞剂等）。</li>
-                    <li><strong>冠状动脉粥样硬化性心脏病：</strong>是指冠状动脉粥样硬化使管腔狭窄或闭塞，导致心肌缺血、缺氧或坏死而引起的心脏病。包括心绞痛和心肌梗死。心绞痛治疗包括硝酸酯类、β受体阻滞剂、钙通道阻滞剂等；心肌梗死治疗包括再灌注治疗（PCI或溶栓）、抗血小板、抗凝、调脂、β受体阻滞剂、ACEI等。</li>
-                    <li><strong>心脏瓣膜病：</strong>是指心脏瓣膜结构和功能异常，导致瓣膜狭窄或关闭不全。常见病因包括风湿热、退行性病变、感染性心内膜炎等。轻度瓣膜病可随访观察，重度瓣膜病需要手术治疗（瓣膜修复或置换）。</li>
-                    <li><strong>感染性心内膜炎：</strong>是指由细菌、真菌或其他病原微生物直接感染心内膜引起的炎症。临床表现为发热、心脏杂音、栓塞征象等。诊断依靠血培养和超声心动图，治疗包括大剂量抗生素和手术治疗。</li>
-                    <li><strong>心肌疾病：</strong>是指除冠状动脉粥样硬化性心脏病、高血压性心脏病、心脏瓣膜病和先天性心脏病以外的以心肌病变为主要表现的一组疾病。包括扩张型心肌病、肥厚型心肌病、限制型心肌病等。治疗包括对症治疗、病因治疗和心力衰竭治疗。</li>
-                    <li><strong>心包疾病：</strong>包括心包炎和心包积液。急性心包炎主要表现为胸痛、心包摩擦音，治疗包括病因治疗和对症治疗。心包积液大量时可导致心包填塞，需要心包穿刺抽液。</li>
-                </ul>
+                <h3>2. 支气管哮喘</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>哮喘是一种气道慢性炎症性疾病，特点是气道高反应性和可逆性气流受限。典型症状为反复发作的喘息、胸闷、咳嗽，常在夜间或凌晨发作。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素<br><small>过敏体质</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">环境因素<br><small>过敏原暴露</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">接触诱因<br><small>花粉、尘螨、冷空气</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">气道高反应<br><small>支气管痉挛</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">炎症反应<br><small>黏膜水肿</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">哮喘发作<br><small>喘息、胸闷、咳嗽</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>肺功能检查：可逆性气流受限（支气管扩张剂后FEV1改善≥12%）</li>
+                        <li>呼出气一氧化氮（FeNO）：评估气道炎症</li>
+                        <li>过敏原检测：血清总IgE、特异性IgE、皮肤点刺试验</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>急性发作期：</strong>短效β₂受体激动剂（沙丁胺醇气雾剂）快速缓解症状</li>
+                        <li><strong>长期控制：</strong>吸入性糖皮质激素（布地奈德）为首选，联合长效β₂受体激动剂</li>
+                        <li><strong>避免诱因：</strong>识别并避免过敏原，如尘螨、花粉、宠物皮屑等</li>
+                        <li><strong>急性加重管理：</strong>增加支气管扩张剂和糖皮质激素剂量，口服糖皮质激素3-5天</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>3. 消化系统疾病</h3>
-                <p>消化系统疾病包括食管、胃、肠、肝、胆、胰等器官的疾病，常见疾病包括胃炎、消化性溃疡、肝硬化、胰腺炎等。</p>
-                <ul>
-                    <li><strong>胃炎：</strong>是指胃黏膜的炎症，分为急性胃炎和慢性胃炎。急性胃炎多由药物、酒精、应激等因素引起，表现为上腹痛、恶心、呕吐等。慢性胃炎多由幽门螺杆菌感染引起，表现为上腹部不适、饱胀、嗳气等。治疗包括去除病因、抑酸、保护胃黏膜、根除幽门螺杆菌等。</li>
-                    <li><strong>消化性溃疡：</strong>是指胃或十二指肠的慢性溃疡，主要病因是幽门螺杆菌感染和非甾体抗炎药使用。临床表现为节律性上腹痛，胃溃疡多为餐后痛，十二指肠溃疡多为空腹痛。治疗包括抑酸、保护胃黏膜、根除幽门螺杆菌等，并发症包括出血、穿孔、幽门梗阻和癌变。</li>
-                    <li><strong>胃癌：</strong>是起源于胃黏膜上皮的恶性肿瘤，早期常无明显症状，晚期可出现上腹痛、消瘦、呕吐、黑便等。诊断依靠胃镜和病理学检查，治疗以手术为主，辅以化疗、放疗、靶向治疗等。</li>
-                    <li><strong>肝硬化：</strong>是一种由不同病因引起的慢性、进行性、弥漫性肝病。主要表现为肝功能损害和门静脉高压。常见病因包括病毒性肝炎、酒精性肝病、非酒精性脂肪性肝病等。治疗包括病因治疗、保肝治疗、抗纤维化治疗、并发症治疗等，晚期可能需要肝移植。</li>
-                    <li><strong>原发性肝癌：</strong>是指起源于肝细胞或肝内胆管细胞的恶性肿瘤，多在肝硬化基础上发生。临床表现为肝区疼痛、消瘦、黄疸、腹水等。诊断依靠影像学检查和肿瘤标志物（AFP），治疗以手术切除为主，辅以介入治疗、射频消融、靶向治疗等。</li>
-                    <li><strong>肝性脑病：</strong>是严重肝病引起的神经精神综合征，表现为意识障碍、行为失常、昏迷等。诱因包括消化道出血、高蛋白饮食、感染、电解质紊乱等。治疗包括去除诱因、减少肠道氨的吸收、纠正氨基酸失衡等。</li>
-                    <li><strong>胰腺炎：</strong>是指胰腺的炎症，分为急性胰腺炎和慢性胰腺炎。急性胰腺炎主要表现为上腹痛、恶心、呕吐、发热，重症可出现多器官功能衰竭。治疗包括禁食、胃肠减压、补液、抑制胰酶分泌、抗感染等。慢性胰腺炎主要表现为反复发作的上腹痛、脂肪泻、糖尿病等，治疗包括戒酒、止痛、补充胰酶等。</li>
-                    <li><strong>炎症性肠病：</strong>包括溃疡性结肠炎和克罗恩病，是一种慢性非特异性肠道炎症性疾病。溃疡性结肠炎主要表现为腹泻、黏液脓血便、腹痛；克罗恩病主要表现为腹痛、腹泻、腹部包块、瘘管形成等。治疗包括氨基水杨酸类、糖皮质激素、免疫抑制剂、生物制剂等。</li>
-                </ul>
+                <h3>3. 肺炎</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>肺炎是肺部感染的常见疾病，表现为发热、咳嗽、咳痰、胸痛、呼吸困难。按发病场所分为社区获得性肺炎和医院获得性肺炎。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">病原体入侵<br><small>细菌/病毒</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">进入肺泡<br><small>大量繁殖</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">炎症反应<br><small>渗出物增多</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">肺实变<br><small>气体交换障碍</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">肺炎症状<br><small>高热、咳嗽、胸痛、呼吸困难</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>临床症状：发热、咳嗽、咳痰、胸痛、呼吸困难</li>
+                        <li>胸部X线/CT：肺实质浸润影、胸腔积液</li>
+                        <li>实验室检查：白细胞升高、CRP升高、血培养</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>抗感染治疗：</strong>肺炎链球菌首选青霉素类，过敏者用头孢类</li>
+                        <li><strong>支原体/衣原体：</strong>首选大环内酯类（如阿奇霉素）</li>
+                        <li><strong>对症治疗：</strong>高热用退热药物，咳痰用氨溴索，胸痛用布洛芬</li>
+                        <li><strong>重症住院：</strong>低氧血症、呼吸衰竭需住院治疗</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>4. 泌尿系统疾病</h3>
-                <p>泌尿系统疾病包括肾小球疾病、肾小管疾病、肾间质疾病、尿路感染等，常见疾病包括肾小球肾炎、肾病综合征、尿路感染等。</p>
-                <ul>
-                    <li><strong>肾小球肾炎：</strong>是指以肾小球损害为主的变态反应性疾病，分为急性肾小球肾炎和慢性肾小球肾炎。急性肾小球肾炎多见于儿童，表现为血尿、蛋白尿、水肿、高血压；慢性肾小球肾炎多见于成人，表现为蛋白尿、血尿、水肿、高血压、肾功能进行性减退。治疗包括对症治疗、控制血压、减少蛋白尿、延缓肾功能进展等。</li>
-                    <li><strong>肾病综合征：</strong>是指由多种病因引起的肾小球基底膜通透性增加，导致大量蛋白尿、低蛋白血症、水肿、高脂血症的一组临床症候群。治疗包括一般治疗（休息、饮食）、利尿、降压、降脂、抗凝、糖皮质激素和免疫抑制剂等。</li>
-                    <li><strong>IgA肾病：</strong>是指肾小球系膜区以IgA或IgA沉积为主的肾小球疾病，是最常见的原发性肾小球疾病。临床表现为血尿、蛋白尿，部分患者可进展为慢性肾衰竭。治疗包括控制血压、减少蛋白尿、免疫抑制治疗等。</li>
-                    <li><strong>尿路感染：</strong>是指各种病原微生物在尿路中生长、繁殖而引起的尿路感染性疾病，分为上尿路感染（肾盂肾炎）和下尿路感染（膀胱炎、尿道炎）。临床表现为尿频、尿急、尿痛、腰痛、发热等。治疗包括抗菌治疗、对症治疗、去除诱因等。</li>
-                    <li><strong>急性肾损伤：</strong>是指由各种原因引起的肾功能在短时间内（数小时至数天）突然下降，临床表现为少尿或无尿、水肿、高钾血症、代谢性酸中毒、尿毒症症状等。治疗包括病因治疗、支持治疗、替代治疗（血液透析、腹膜透析）等。</li>
-                    <li><strong>慢性肾衰竭：</strong>是指各种慢性肾脏病引起的肾小球滤过率进行性下降，最终发展为尿毒症。临床表现为水钠潴留、电解质紊乱、代谢性酸中毒、贫血、高血压、骨病、尿毒症症状等。治疗包括病因治疗、延缓肾功能进展、并发症治疗、替代治疗（血液透析、腹膜透析、肾移植）等。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>5. 血液系统疾病</h3>
-                <p>血液系统疾病包括红细胞疾病、白细胞疾病、出血性疾病和血栓性疾病，常见疾病包括贫血、白血病、淋巴瘤等。</p>
-                <ul>
-                    <li><strong>贫血：</strong>是指外周血中单位容积内血红蛋白浓度、红细胞计数和（或）血细胞比容低于同年龄、同性别、同地区正常参考值下限的一种症状。常见类型包括缺铁性贫血（铁摄入不足或丢失过多）、巨幼细胞贫血（叶酸或维生素B₁₂缺乏）、再生障碍性贫血（骨髓造血功能衰竭）。治疗包括补充造血原料、刺激造血、免疫抑制治疗等。</li>
-                    <li><strong>白血病：</strong>是一类造血干细胞的恶性克隆性疾病，表现为异常的白细胞及其幼稚细胞在骨髓和其他造血组织中大量增生累积，并浸润其他器官和组织。分为急性白血病和慢性白血病。急性白血病起病急，表现为贫血、出血、感染、浸润症状；慢性白血病起病慢，表现为乏力、消瘦、脾大等。治疗包括化疗、靶向治疗、免疫治疗、造血干细胞移植等。</li>
-                    <li><strong>淋巴瘤：</strong>是起源于淋巴结和淋巴组织的恶性肿瘤，分为霍奇金淋巴瘤和非霍奇金淋巴瘤。临床表现为无痛性淋巴结肿大、发热、盗汗、消瘦等。诊断依靠淋巴结活检和病理学检查，治疗包括化疗、放疗、靶向治疗、免疫治疗、造血干细胞移植等。</li>
-                    <li><strong>多发性骨髓瘤：</strong>是浆细胞恶性增殖性疾病，骨髓中浆细胞异常增生，分泌单克隆免疫球蛋白或其片段（M蛋白），导致相关器官或组织损伤。临床表现为骨痛、贫血、肾功能损害、感染等。治疗包括化疗、靶向治疗、免疫治疗、造血干细胞移植等。</li>
-                    <li><strong>出血性疾病：</strong>是指由于止血机制异常引起的自发性或创伤后出血不止的一组疾病。常见类型包括特发性血小板减少性紫癜（血小板减少）、血友病（凝血因子缺乏）。治疗包括血小板输注、补充凝血因子、免疫抑制治疗等。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>6. 内分泌系统疾病</h3>
-                <p>内分泌系统疾病包括垂体疾病、甲状腺疾病、肾上腺疾病、性腺疾病等，常见疾病包括甲状腺功能亢进症、糖尿病等。</p>
-                <ul>
-                    <li><strong>腺垂体功能减退症：</strong>是指腺垂体分泌激素不足引起的一组临床综合征，常见病因包括肿瘤、炎症、缺血、外伤等。表现为相应靶腺功能减退，如甲状腺功能减退、肾上腺皮质功能减退、性腺功能减退等。治疗包括激素替代治疗。</li>
-                    <li><strong>甲状腺功能亢进症：</strong>是指甲状腺腺体本身产生甲状腺激素过多而引起的甲状腺毒症，最常见病因是格雷夫斯病。临床表现为高代谢症状（怕热、多汗、消瘦）、甲状腺肿大、眼征等。治疗包括抗甲状腺药物、放射性碘治疗、手术治疗。</li>
-                    <li><strong>甲状腺功能减退症：</strong>是指甲状腺激素合成和分泌减少或组织利用不足导致的全身代谢减低综合征。常见病因包括桥本甲状腺炎、甲状腺手术、放射性碘治疗等。临床表现为怕冷、乏力、体重增加、记忆力减退等。治疗包括左甲状腺素替代治疗。</li>
-                    <li><strong>糖尿病：</strong>是一组以慢性高血糖为特征的代谢性疾病，分为1型糖尿病（胰岛素绝对缺乏）、2型糖尿病（胰岛素相对缺乏和胰岛素抵抗）和妊娠期糖尿病。临床表现为多饮、多尿、多食、体重减轻等。治疗包括生活方式干预、口服降糖药、胰岛素治疗，目标是控制血糖、预防并发症。并发症包括微血管并发症（视网膜病变、肾病、神经病变）和大血管并发症（冠心病、脑血管病、外周血管病）。</li>
-                    <li><strong>痛风：</strong>是由于长期嘌呤代谢障碍、血尿酸增高引起组织损伤的一组异质性疾病。临床表现为高尿酸血症、急性关节炎、痛风石、慢性关节炎、尿酸性肾病等。治疗包括急性期抗炎镇痛、间歇期降尿酸治疗、生活方式干预等。</li>
-                    <li><strong>骨质疏松症：</strong>是一种以骨量低下、骨微结构破坏，导致骨脆性增加、易发生骨折为特征的全身性骨病。常见病因包括绝经后雌激素减少、老年性退变、长期使用糖皮质激素等。临床表现为疼痛、身长缩短、驼背、骨折等。治疗包括基础治疗（补充钙剂和维生素D）、抑制骨吸收药物、促进骨形成药物等。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>7. 代谢疾病和营养疾病</h3>
-                <p>代谢疾病和营养疾病包括肥胖症、血脂异常、蛋白质-能量营养不良等，与生活方式密切相关。</p>
-                <ul>
-                    <li><strong>肥胖症：</strong>是指体内脂肪堆积过多和（或）分布异常，体重增加，是一种多因素的慢性代谢性疾病。常见病因包括遗传因素、环境因素、生活方式等。临床表现为体重增加、脂肪堆积、活动受限等。治疗包括生活方式干预（饮食控制、运动）、药物治疗、手术治疗等。</li>
-                    <li><strong>血脂异常：</strong>是指血浆中胆固醇或甘油三酯水平升高，或高密度脂蛋白胆固醇水平降低，是动脉粥样硬化和冠心病的重要危险因素。常见病因包括遗传因素、饮食因素、疾病因素、药物因素等。治疗包括生活方式干预、药物治疗（他汀类、贝特类、胆固醇吸收抑制剂等）。</li>
-                    <li><strong>蛋白质-能量营养不良：</strong>是由于蛋白质和能量摄入不足引起的营养缺乏病，多见于贫困地区、慢性疾病患者、老年人等。临床表现为体重下降、肌肉萎缩、水肿、免疫功能低下等。治疗包括营养支持治疗（口服、肠内、肠外营养）。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>8. 结缔组织病和风湿性疾病</h3>
-                <p>结缔组织病和风湿性疾病是一组累及关节、肌肉、骨骼及周围软组织，或伴有全身多系统损害的疾病。</p>
-                <ul>
-                    <li><strong>类风湿关节炎：</strong>是一种以对称性多关节炎为主要表现的慢性全身性自身免疫性疾病。临床表现为关节肿痛、晨僵、关节畸形和功能障碍，还可累及心、肺、肾等器官。治疗包括非甾体抗炎药、改善病情抗风湿药、生物制剂、糖皮质激素等。</li>
-                    <li><strong>系统性红斑狼疮：</strong>是一种有多系统损害的慢性自身免疫性疾病，血清中出现以抗核抗体为代表的多种自身抗体。临床表现为蝶形红斑、盘状红斑、光过敏、口腔溃疡、关节炎、浆膜炎、肾炎、神经系统损害等。治疗包括糖皮质激素、免疫抑制剂、生物制剂等。</li>
-                    <li><strong>干燥综合征：</strong>是一种主要累及外分泌腺体的慢性炎症性自身免疫病，临床表现为口干、眼干，还可累及肾、肺、肝、血液系统等。治疗包括替代治疗、免疫抑制剂、生物制剂等。</li>
-                    <li><strong>强直性脊柱炎：</strong>是一种慢性炎症性疾病，主要侵犯骶髂关节、脊柱骨突、脊柱旁软组织及外周关节，并可伴发关节外表现。临床表现为下腰背痛、晨僵、脊柱强直等。治疗包括非甾体抗炎药、改善病情抗风湿药、生物制剂、物理治疗等。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>9. 神经系统疾病</h3>
-                <p>神经系统疾病包括脑血管疾病、帕金森病、癫痫、偏头痛等，是导致残疾和死亡的重要原因。</p>
-                <ul>
-                    <li><strong>短暂性脑缺血发作：</strong>是指由于局部脑或视网膜缺血引起的短暂性神经功能缺损，临床症状一般在1小时内恢复，最长不超过24小时，且不遗留神经功能缺损症状。是脑卒中的重要预警信号，需要积极干预以预防脑梗死。</li>
-                    <li><strong>脑梗死：</strong>是指由于脑部血液供应障碍，缺血、缺氧引起的局限性脑组织缺血性坏死或软化。临床表现为偏瘫、失语、感觉障碍等。治疗包括一般治疗、溶栓治疗、抗血小板治疗、抗凝治疗、降纤治疗、扩容治疗、脑保护治疗、康复治疗等。</li>
-                    <li><strong>脑出血：</strong>是指非外伤性脑实质内出血，最常见的病因是高血压合并小动脉硬化。临床表现为头痛、呕吐、意识障碍、肢体瘫痪等。治疗包括一般治疗、控制血压、控制脑水肿、降低颅内压、防治并发症、外科治疗等。</li>
-                    <li><strong>蛛网膜下腔出血：</strong>是指颅内血管破裂，血液流入蛛网膜下腔，最常见的病因是颅内动脉瘤破裂。临床表现为剧烈头痛、恶心、呕吐、脑膜刺激征等。治疗包括一般治疗、控制血压、降低颅内压、防治再出血、防治脑血管痉挛、外科治疗等。</li>
-                    <li><strong>帕金森病：</strong>是一种常见的中老年神经系统变性疾病，临床表现为静止性震颤、肌强直、运动迟缓、姿势步态异常等。治疗包括药物治疗（左旋多巴、多巴胺受体激动剂等）、手术治疗（脑深部电刺激）、康复治疗等。</li>
-                    <li><strong>癫痫：</strong>是一种慢性脑部疾病，以脑神经元过度放电导致反复性、发作性和短暂性的中枢神经系统功能失常为特征。临床表现为意识、运动、感觉、行为和自主神经等不同程度的障碍。治疗包括药物治疗（抗癫痫药）、手术治疗、生酮饮食等。</li>
-                    <li><strong>偏头痛：</strong>是一种常见的原发性头痛，临床表现为反复发作的单侧搏动性头痛，伴有恶心、呕吐、畏光、畏声等。治疗包括急性发作期治疗（非甾体抗炎药、曲普坦类）和预防性治疗（β受体阻滞剂、钙通道阻滞剂、抗抑郁药等）。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>10. 精神疾病</h3>
-                <p>精神疾病包括精神分裂症、抑郁症、焦虑症、失眠症等，严重影响患者的社会功能和生活质量。</p>
-                <ul>
-                    <li><strong>精神分裂症：</strong>是一种慢性精神障碍，临床表现为感知觉障碍（幻觉）、思维障碍（妄想）、情感障碍、意志行为障碍、认知功能障碍等。治疗包括药物治疗（抗精神病药）、心理治疗、社会康复等。</li>
-                    <li><strong>抑郁症：</strong>是一种常见的心境障碍，临床表现为情绪低落、兴趣减退、精力不足、思维迟缓、自我评价过低、自杀观念或行为等。治疗包括药物治疗（抗抑郁药）、心理治疗（认知行为治疗）、物理治疗（电休克治疗）等。</li>
-                    <li><strong>焦虑症：</strong>是以焦虑情绪体验为主要特征的一组疾病，包括广泛性焦虑障碍、惊恐障碍、社交焦虑障碍等。临床表现为过度担忧、紧张不安、心悸、出汗、震颤等。治疗包括药物治疗（抗焦虑药、抗抑郁药）、心理治疗（认知行为治疗）等。</li>
-                    <li><strong>失眠症：</strong>是指对睡眠时间和（或）质量不满足并影响日间社会功能的一种主观体验。临床表现为入睡困难、睡眠维持困难、早醒、睡眠质量下降等。治疗包括睡眠卫生教育、认知行为治疗、药物治疗（镇静催眠药）等。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>11. 感染性疾病</h3>
-                <p>感染性疾病是由各种病原体（细菌、病毒、真菌、寄生虫等）引起的疾病，包括病毒性肝炎、艾滋病、败血症等。</p>
-                <ul>
-                    <li><strong>病毒性肝炎：</strong>是由肝炎病毒引起的肝脏炎症，主要包括甲型、乙型、丙型、丁型、戊型肝炎。临床表现为乏力、食欲减退、恶心、呕吐、黄疸、肝肿大等。治疗包括一般治疗、保肝治疗、抗病毒治疗（乙型肝炎、丙型肝炎）等。</li>
-                    <li><strong>获得性免疫缺陷综合征（AIDS）：</strong>是由人类免疫缺陷病毒（HIV）引起的慢性传染病，主要侵犯CD4⁺T淋巴细胞，导致细胞免疫功能严重缺陷。临床表现为机会性感染、肿瘤等。治疗包括高效抗逆转录病毒治疗（HAART）、机会性感染治疗、支持治疗等。</li>
-                    <li><strong>流行性出血热：</strong>是由汉坦病毒引起的自然疫源性疾病，又称肾综合征出血热。临床表现为发热、出血、肾损害等。治疗包括一般治疗、对症治疗、并发症治疗等。</li>
-                    <li><strong>败血症：</strong>是指病原菌侵入血液循环，并在其中生长繁殖、产生毒素，引起全身性炎症反应综合征。临床表现为高热、寒战、皮疹、关节痛、肝脾肿大等。治疗包括抗感染治疗、对症支持治疗、清除感染灶等。</li>
-                    <li><strong>感染性休克：</strong>是指由病原微生物及其毒素等产物引起的全身微循环障碍、组织灌注不足、细胞代谢紊乱和器官功能受损的综合征。治疗包括抗感染治疗、补充血容量、纠正酸中毒、应用血管活性药物、防治多器官功能障碍综合征等。</li>
-                </ul>
-            </div>
-        </section>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>8. 结缔组织病和风湿性疾病</h3>
-                <p>结缔组织病和风湿性疾病是一组累及关节、肌肉、骨骼及周围软组织，或伴有全身多系统损害的疾病。</p>
-                <ul>
-                    <li><strong>类风湿关节炎：</strong>是一种以对称性多关节炎为主要表现的慢性全身性自身免疫性疾病。临床表现为关节肿痛、晨僵、关节畸形和功能障碍，还可累及心、肺、肾等器官。治疗包括非甾体抗炎药、改善病情抗风湿药、生物制剂、糖皮质激素等。</li>
-                    <li><strong>系统性红斑狼疮：</strong>是一种有多系统损害的慢性自身免疫性疾病，血清中出现以抗核抗体为代表的多种自身抗体。临床表现为蝶形红斑、盘状红斑、光过敏、口腔溃疡、关节炎、浆膜炎、肾炎、神经系统损害等。治疗包括糖皮质激素、免疫抑制剂、生物制剂等。</li>
-                    <li><strong>干燥综合征：</strong>是一种主要累及外分泌腺体的慢性炎症性自身免疫病，临床表现为口干、眼干，还可累及肾、肺、肝、血液系统等。治疗包括替代治疗、免疫抑制剂、生物制剂等。</li>
-                    <li><strong>强直性脊柱炎：</strong>是一种慢性炎症性疾病，主要侵犯骶髂关节、脊柱骨突、脊柱旁软组织及外周关节，并可伴发关节外表现。临床表现为下腰背痛、晨僵、脊柱强直等。治疗包括非甾体抗炎药、改善病情抗风湿药、生物制剂、物理治疗等。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>9. 神经系统疾病</h3>
-                <p>神经系统疾病包括脑血管疾病、帕金森病、癫痫、偏头痛等，是导致残疾和死亡的重要原因。</p>
-                <ul>
-                    <li><strong>短暂性脑缺血发作：</strong>是指由于局部脑或视网膜缺血引起的短暂性神经功能缺损，临床症状一般在1小时内恢复，最长不超过24小时，且不遗留神经功能缺损症状。是脑卒中的重要预警信号，需要积极干预以预防脑梗死。</li>
-                    <li><strong>脑梗死：</strong>是指由于脑部血液供应障碍，缺血、缺氧引起的局限性脑组织缺血性坏死或软化。临床表现为偏瘫、失语、感觉障碍等。治疗包括一般治疗、溶栓治疗、抗血小板治疗、抗凝治疗、降纤治疗、扩容治疗、脑保护治疗、康复治疗等。</li>
-                    <li><strong>脑出血：</strong>是指非外伤性脑实质内出血，最常见的病因是高血压合并小动脉硬化。临床表现为头痛、呕吐、意识障碍、肢体瘫痪等。治疗包括一般治疗、控制血压、控制脑水肿、降低颅内压、防治并发症、外科治疗等。</li>
-                    <li><strong>蛛网膜下腔出血：</strong>是指颅内血管破裂，血液流入蛛网膜下腔，最常见的病因是颅内动脉瘤破裂。临床表现为剧烈头痛、恶心、呕吐、脑膜刺激征等。治疗包括一般治疗、控制血压、降低颅内压、防治再出血、防治脑血管痉挛、外科治疗等。</li>
-                    <li><strong>帕金森病：</strong>是一种常见的中老年神经系统变性疾病，临床表现为静止性震颤、肌强直、运动迟缓、姿势步态异常等。治疗包括药物治疗（左旋多巴、多巴胺受体激动剂等）、手术治疗（脑深部电刺激）、康复治疗等。</li>
-                    <li><strong>癫痫：</strong>是一种慢性脑部疾病，以脑神经元过度放电导致反复性、发作性和短暂性的中枢神经系统功能失常为特征。临床表现为意识、运动、感觉、行为和自主神经等不同程度的障碍。治疗包括药物治疗（抗癫痫药）、手术治疗、生酮饮食等。</li>
-                    <li><strong>偏头痛：</strong>是一种常见的原发性头痛，临床表现为反复发作的单侧搏动性头痛，伴有恶心、呕吐、畏光、畏声等。治疗包括急性发作期治疗（非甾体抗炎药、曲普坦类）和预防性治疗（β受体阻滞剂、钙通道阻滞剂、抗抑郁药等）。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>10. 精神疾病</h3>
-                <p>精神疾病包括精神分裂症、抑郁症、焦虑症、失眠症等，严重影响患者的社会功能和生活质量。</p>
-                <ul>
-                    <li><strong>精神分裂症：</strong>是一种慢性精神障碍，临床表现为感知觉障碍（幻觉）、思维障碍（妄想）、情感障碍、意志行为障碍、认知功能障碍等。治疗包括药物治疗（抗精神病药）、心理治疗、社会康复等。</li>
-                    <li><strong>抑郁症：</strong>是一种常见的心境障碍，临床表现为情绪低落、兴趣减退、精力不足、思维迟缓、自我评价过低、自杀观念或行为等。治疗包括药物治疗（抗抑郁药）、心理治疗（认知行为治疗）、物理治疗（电休克治疗）等。</li>
-                    <li><strong>焦虑症：</strong>是以焦虑情绪体验为主要特征的一组疾病，包括广泛性焦虑障碍、惊恐障碍、社交焦虑障碍等。临床表现为过度担忧、紧张不安、心悸、出汗、震颤等。治疗包括药物治疗（抗焦虑药、抗抑郁药）、心理治疗（认知行为治疗）等。</li>
-                    <li><strong>失眠症：</strong>是指对睡眠时间和（或）质量不满足并影响日间社会功能的一种主观体验。临床表现为入睡困难、睡眠维持困难、早醒、睡眠质量下降等。治疗包括睡眠卫生教育、认知行为治疗、药物治疗（镇静催眠药）等。</li>
-                </ul>
-            </div>
-
-            <div class="topic-card">
-                <h3>11. 感染性疾病</h3>
-                <p>感染性疾病是由各种病原体（细菌、病毒、真菌、寄生虫等）引起的疾病，包括病毒性肝炎、艾滋病、败血症等。</p>
-                <ul>
-                    <li><strong>病毒性肝炎：</strong>是由肝炎病毒引起的肝脏炎症，主要包括甲型、乙型、丙型、丁型、戊型肝炎。临床表现为乏力、食欲减退、恶心、呕吐、黄疸、肝肿大等。治疗包括一般治疗、保肝治疗、抗病毒治疗（乙型肝炎、丙型肝炎）等。</li>
-                    <li><strong>获得性免疫缺陷综合征（AIDS）：</strong>是由人类免疫缺陷病毒（HIV）引起的慢性传染病，主要侵犯CD4⁺T淋巴细胞，导致细胞免疫功能严重缺陷。临床表现为机会性感染、肿瘤等。治疗包括高效抗逆转录病毒治疗（HAART）、机会性感染治疗、支持治疗等。</li>
-                    <li><strong>流行性出血热：</strong>是由汉坦病毒引起的自然疫源性疾病，又称肾综合征出血热。临床表现为发热、出血、肾损害等。治疗包括一般治疗、对症治疗、并发症治疗等。</li>
-                    <li><strong>败血症：</strong>是指病原菌侵入血液循环，并在其中生长繁殖、产生毒素，引起全身性炎症反应综合征。临床表现为高热、寒战、皮疹、关节痛、肝脾肿大等。治疗包括抗感染治疗、对症支持治疗、清除感染灶等。</li>
-                    <li><strong>感染性休克：</strong>是指由病原微生物及其毒素等产物引起的全身微循环障碍、组织灌注不足、细胞代谢紊乱和器官功能受损的综合征。治疗包括抗感染治疗、补充血容量、纠正酸中毒、应用血管活性药物、防治多器官功能障碍综合征等。</li>
-                </ul>
+                <h3>4. 肺结核</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>结核病是由结核分枝杆菌引起的慢性传染病，主要侵犯肺部，也可侵犯肺外器官。典型表现为低热、盗汗、乏力、消瘦、咳嗽、咳痰、咯血。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">吸入结核菌<br><small>飞沫传播</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">肺部感染<br><small>结核肉芽肿形成</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">组织坏死<br><small>干酪样坏死</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">空洞形成<br><small>排菌传播</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">肺结核症状<br><small>低热、盗汗、咯血</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>临床症状：低热、盗汗、乏力、消瘦、咳嗽≥2周</li>
+                        <li>痰涂片/培养：检出抗酸杆菌</li>
+                        <li>胸部X线/CT：上肺尖后段病灶、空洞形成</li>
+                        <li>结核菌素试验（PPD）/γ-干扰素释放试验</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>标准化疗方案：</strong>2HRZE/4HR方案（异烟肼、利福平、吡嗪酰胺、乙胺丁醇），疗程6-9个月</li>
+                        <li><strong>规律用药：</strong>每日顿服，漏服需及时补服</li>
+                        <li><strong>耐药结核：</strong>根据药敏试验调整用药方案，疗程18-24个月</li>
+                        <li><strong>治疗监测：</strong>定期查肝肾功能、血常规、视力（乙胺丁醇副作用）</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
+        <!-- 循环系统疾病 -->
         <section class="content-section">
-            <h2>学习要点</h2>
-            <div class="highlight-box">
-                <h3>重点掌握</h3>
-                <ul>
-                    <li>常见内科疾病的临床表现和诊断要点</li>
-                    <li>重要疾病的治疗原则和方案</li>
-                    <li>危重症的识别和处理</li>
-                    <li>循证医学证据在临床决策中的应用</li>
-                </ul>
+            <h2>循环系统疾病</h2>
+            
+            <div class="topic-card">
+                <h3>1. 高血压</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>高血压是以体循环动脉血压持续升高为主要特征的疾病。血压≥140/90mmHg可诊断高血压。是心脑血管疾病的重要危险因素。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素<br><small>占40%</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">环境因素<br><small>占60%</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">多种危险因素<br><small>高盐/肥胖/压力/吸烟</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">血管阻力升高<br><small>心输出量增加</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">血压持续升高<br><small>收缩压≥140/舒张压≥90</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>规范测量：静息状态，不同日测量3次</li>
+                        <li>血压分级：1级（140-159/90-99）、2级（160-179/100-109）、3级（≥180/110）</li>
+                        <li>靶器官损害评估：心脏、肾脏、血管、视网膜</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>生活方式干预：</strong>低盐饮食（<6g/天）、控制体重、规律运动、戒烟限酒</li>
+                        <li><strong>药物治疗：</strong>血压≥140/90mmHg启动，常用钙通道阻滞剂（氨氯地平）、ARB（缬沙坦）、ACEI（依那普利）</li>
+                        <li><strong>降压目标：</strong>一般患者<140/90mmHg，合并糖尿病/肾病患者<130/80mmHg</li>
+                        <li><strong>长期坚持：</strong>高血压需终身服药，不可随意停药</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3>2. 冠状动脉粥样硬化性心脏病（冠心病）</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>冠心病是由于冠状动脉粥样硬化导致管腔狭窄或闭塞，引起心肌缺血、缺氧或坏死。包括心绞痛和心肌梗死。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">高血压</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">高血脂</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">糖尿病/吸烟/肥胖</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">动脉粥样硬化<br><small>脂质沉积形成斑块</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">管腔狭窄或闭塞<br><small>心肌供血不足</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">冠心病症状<br><small>心绞痛/心肌梗死</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>心电图：ST-T改变（心肌缺血）、病理性Q波（心梗）</li>
+                        <li>心肌标志物：肌钙蛋白（心梗）、BNP（心衰）</li>
+                        <li>冠状动脉造影：诊断冠心病的金标准</li>
+                        <li>运动试验/负荷超声：评估心肌缺血</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>一般治疗：</strong>控制危险因素（降压、降脂、控糖、戒烟）</li>
+                        <li><strong>心绞痛治疗：</strong>硝酸酯类（硝酸甘油）、β受体阻滞剂、钙通道阻滞剂</li>
+                        <li><strong>心肌梗死治疗：</strong>尽快再灌注（PCI或溶栓）、抗血小板、抗凝、调脂、β受体阻滞剂、ACEI</li>
+                        <li><strong>二级预防：</strong>长期服用阿司匹林、他汀类药物</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3>3. 心力衰竭</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>心衰是指各种心脏结构或功能疾病导致心室充盈或射血能力受损，心排血量不能满足机体需要。表现为呼吸困难、水肿、乏力。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">心脏结构异常</div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">功能异常<br><small>心肌收缩力↓</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">心排血量↓<br><small>组织灌注不足</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">神经体液激活<br><small>水钠潴留</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">心脏重构<br><small>心腔扩大/室壁肥厚</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">心衰症状<br><small>呼吸困难/水肿/乏力</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>临床症状：呼吸困难、乏力、水肿</li>
+                        <li>BNP/NT-proBNP：心衰标志物</li>
+                        <li>超声心动图：评估心脏结构和功能（EF值）</li>
+                        <li>X线胸片：心脏扩大、肺淤血</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>利尿剂：</strong>减轻水钠潴留（呋塞米、螺内酯）</li>
+                        <li><strong>ACEI/ARB：</strong>抑制神经体液激活，改善心脏重构（依那普利、缬沙坦）</li>
+                        <li><strong>β受体阻滞剂：</strong>降低心率和心肌耗氧（美托洛尔、比索洛尔）</li>
+                        <li><strong>醛固酮受体拮抗剂：</strong>抑制醛固酮（螺内酯）</li>
+                        <li><strong>洋地黄类：</strong>正性肌力，适用于房颤伴心衰（地高辛）</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
+        <!-- 消化系统疾病 -->
         <section class="content-section">
-            <h2>学习方法</h2>
-            <ol>
-                <li><strong>系统学习：</strong>按系统学习各系统疾病</li>
-                <li><strong>病例分析：</strong>通过临床病例加深理解</li>
-                <li><strong>循证思维：</strong>培养循证医学思维</li>
-                <li><strong>临床实践：</strong>在临床实践中应用所学知识</li>
-            </ol>
-        </section>
+            <h2>消化系统疾病</h2>
+            
+            <div class="topic-card">
+                <h3>1. 消化性溃疡</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>消化性溃疡是指胃或十二指肠的慢性溃疡。主要病因是幽门螺杆菌感染（占90%以上）。典型表现为节律性上腹痛。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">Hp感染<br><small>主要病因</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">胃酸↑</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">胃蛋白酶↑</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">黏膜防御失衡<br><small>攻击因子>防御因子</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">黏膜损伤<br><small>形成溃疡</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">溃疡症状<br><small>餐后痛/空腹痛</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>胃镜检查：直接观察溃疡形态</li>
+                        <li>幽门螺杆菌检测：尿素呼气试验、快速尿素酶试验</li>
+                        <li>鉴别诊断：胃溃疡（餐后痛）vs 十二指肠溃疡（空腹痛）</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>根除Hp：</strong>四联疗法（PPI+2种抗生素+铋剂），疗程10-14天</li>
+                        <li><strong>抑酸治疗：</strong>质子泵抑制剂（奥美拉唑、埃索美拉唑）强效抑酸</li>
+                        <li><strong>胃黏膜保护剂：</strong>硫糖铝、枸橼酸铋钾</li>
+                        <li><strong>避免诱因：</strong>停用NSAIDs，戒烟限酒，避免辛辣刺激食物</li>
+                    </ul>
+                </div>
+            </div>
 
-        <section class="related-subjects">
-            <h2>相关学科</h2>
-            <div class="subject-links">
-                <a href="diagnostics.html" class="related-link">诊断学 - 诊断基础</a>
-                <a href="pathophysiology.html" class="related-link">病理生理学 - 理解疾病机制</a>
-                <a href="pathology.html" class="related-link">病理学 - 了解病理变化</a>
+            <div class="topic-card">
+                <h3>2. 肝硬化</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>肝硬化是慢性肝病的终末阶段，表现为肝功能损害和门静脉高压。常见病因包括病毒性肝炎、酒精性肝病、非酒精性脂肪性肝病等。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">病毒性肝炎</div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">酒精性肝病</div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">非酒精性脂肪肝</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">慢性炎症<br><small>肝细胞反复损伤</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">纤维化<br><small>正常肝组织被瘢痕替代</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">肝硬化<br><small>结构重构+门静脉高压</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">肝硬化症状<br><small>黄疸/腹水/肝性脑病</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>肝功能检查：ALT、AST升高，白蛋白降低，胆红素升高</li>
+                        <li>影像学检查：B超、CT显示肝表面结节、门静脉扩张</li>
+                        <li>内镜检查：食管胃底静脉曲张</li>
+                        <li>Child-Pugh分级：评估肝硬化严重程度</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>病因治疗：</strong>戒酒、抗病毒治疗（乙肝、丙肝）</li>
+                        <li><strong>保肝治疗：</strong>多烯磷脂酰胆碱、还原型谷胱甘肽</li>
+                        <li><strong>抗纤维化：</strong>吡非尼酮等（需循证证据支持）</li>
+                        <li><strong>并发症防治：</strong>利尿剂治疗腹水，乳果糖预防肝性脑病，内镜下套扎或硬化剂治疗静脉曲张出血</li>
+                        <li><strong>晚期治疗：</strong>肝移植</li>
+                    </ul>
+                </div>
             </div>
         </section>
+
+        <!-- 内分泌系统疾病 -->
+        <section class="content-section">
+            <h2>内分泌系统疾病</h2>
+            
+            <div class="topic-card">
+                <h3>1. 糖尿病</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>糖尿病是一组以慢性高血糖为特征的代谢性疾病。分为1型（胰岛素绝对缺乏）、2型（胰岛素抵抗和相对缺乏）和妊娠期糖尿病。典型表现"三多一少"（多饮、多尿、多食、体重减轻）。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制（2型糖尿病）</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">环境因素<br><small>肥胖/缺乏运动</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">胰岛素抵抗<br><small>细胞敏感性↓</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">胰岛素相对不足<br><small>胰岛β细胞功能↓</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">血糖升高<br><small>空腹/餐后血糖↑</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">糖尿病症状<br><small>三多一少+并发症</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>血糖检测：空腹血糖≥7.0mmol/L，随机血糖≥11.1mmol/L</li>
+                        <li>糖化血红蛋白（HbA1c）：≥6.5% 诊断糖尿病，5.7%-6.4% 为糖尿病前期</li>
+                        <li>OGTT（口服葡萄糖耐量试验）：诊断糖耐量受损</li>
+                        <li>并发症筛查：视网膜病变、肾病、神经病变、足病筛查</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>生活方式干预：</strong>糖尿病饮食、控制体重、规律运动</li>
+                        <li><strong>口服降糖药：</strong>二甲双胍（首选）、磺脲类、α-糖苷酶抑制剂、DPP-4抑制剂、SGLT2抑制剂</li>
+                        <li><strong>胰岛素治疗：</strong>1型糖尿病必须胰岛素；2型糖尿病口服药无效或血糖过高时使用</li>
+                        <li><strong>血糖监测：</strong>定期监测空腹血糖、餐后血糖、HbA1c</li>
+                        <li><strong>并发症防治：</strong>控制血压、调脂、抗血小板（阿司匹林）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3>2. 甲状腺功能亢进症（甲亢）</h3>
+                
+                <div class="info-box">
+                    <h4>疾病简介</h4>
+                    <p>甲亢是由于甲状腺激素合成和分泌过多引起的甲状腺毒症。最常见病因是格雷夫斯病。典型表现为高代谢症状（怕热、多汗、消瘦、心悸）、甲状腺肿大。</p>
+                </div>
+                
+                <div class="flowchart-box">
+                    <h4>发病机制</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">格雷夫斯病<br><small>自身免疫性疾病</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">TSH受体抗体<br><small>刺激甲状腺</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">甲状腺激素↑<br><small>T3、T4升高</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">TSH↓<br><small>反馈抑制</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">甲亢症状<br><small>怕热/多汗/消瘦/心悸</small></div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>诊断要点</h4>
+                    <ul>
+                        <li>甲状腺功能：FT3、FT4升高，TSH降低</li>
+                        <li>甲状腺抗体：TRAb、TPOAb、TgAb阳性</li>
+                        <li>甲状腺超声：甲状腺血流丰富、肿大</li>
+                        <li>甲状腺摄碘率：摄取率增高</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>治疗原则</h4>
+                    <ul>
+                        <li><strong>抗甲状腺药物：</strong>甲巯咪唑、丙硫氧嘧啶（首选）</li>
+                        <li><strong>β受体阻滞剂：</strong>普萘洛尔控制心率、缓解症状</li>
+                        <li><strong>放射性碘治疗：</strong>¹³¹I治疗（适用于格雷夫斯病）</li>
+                        <li><strong>手术治疗：</strong>甲状腺次全切除术、甲状腺切除术</li>
+                        <li><strong>甲亢危象：</strong>大剂量抗甲状腺药、β受体阻滞剂、糖皮质激素、补液、降温</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
     </main>
 
+    <style>
+        /* Disease Flowchart Styles */
+        .disease-flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .disease-flowchart .flow-node {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9em;
+            max-width: 280px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+        
+        .disease-flowchart .flow-node small {
+            display: block;
+            font-size: 0.75em;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+        
+        .disease-flowchart .flow-node.start {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+        
+        .disease-flowchart .flow-node.warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+        }
+        
+        .disease-flowchart .flow-node.end {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+        
+        .disease-flowchart .flow-node.small {
+            padding: 8px 12px;
+            font-size: 0.8em;
+            max-width: 120px;
+        }
+        
+        .disease-flowchart .flow-arrow {
+            font-size: 1.3em;
+            color: #3498db;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .disease-flowchart .flow-branch {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .disease-flowchart .flow-divider {
+            font-size: 1.1em;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .info-box, .flowchart-box {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 3px solid #3498db;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-box h3, .info-box h4, .flowchart-box h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .info-box p, .info-box li {
+            color: #555;
+            margin-bottom: 0;
+        }
+        
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .info-box li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .info-box strong {
+            color: #e74c3c;
+        }
+
+        .highlight-box {
+            background: white !important;
+            color: #2c3e50 !important;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-box h3 {
+            color: #2c3e50 !important;
+        }
+
+        .highlight-box ul {
+            margin-left: 20px;
+        }
+
+        .highlight-box li {
+            color: #2c3e50;
+        }
+    </style>
 </body>
 </html>

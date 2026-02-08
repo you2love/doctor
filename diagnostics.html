@@ -6,7 +6,7 @@
     <title>诊断学 - 医学学习平台</title>
     <script>
         function toggleSidebar() {
-            document.querySelector(.sidebar).classList.toggle(open);
+            document.querySelector('.sidebar').classList.toggle('open');
         }
     </script>
     <link rel="stylesheet" href="styles.css">
@@ -48,187 +48,435 @@
     <main class="container">
         <section class="subject-header">
             <div class="subject-icon">🩺</div>
-            <h1>诊断学</h1>
-            <p class="subject-description">研究疾病诊断方法和技术的科学</p>
+            <h1>诊断学核心要点</h1>
+            <p class="subject-description">掌握疾病诊断方法和技术的实用指南</p>
         </section>
 
+        <!-- 问诊流程 -->
         <section class="content-section">
-            <h2>学科概述</h2>
-            <p>诊断学是研究诊断疾病的基本理论、基本技能和临床思维方法的学科。它是基础医学与临床医学之间的桥梁，是医学生必须掌握的基本技能，是临床医师必须熟练运用的工具。</p>
-        </section>
-
-        <section class="content-section">
-            <h2>主要内容</h2>
+            <h2>一、问诊流程</h2>
             
             <div class="topic-card">
-                <img src="images/diagnostics-symptoms.jpg" alt="症状学" class="topic-image">
-                <h3>1. 症状学</h3>
-                <ul>
-                    <li><strong>发热：</strong>病因、临床表现、伴随症状</li>
-                    <li><strong>咳嗽与咳痰：</strong>病因、临床表现、伴随症状</li>
-                    <li><strong>咯血：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>胸痛：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>呼吸困难：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>发绀：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>心悸：</strong>病因、临床表现、伴随症状</li>
-                    <li><strong>水肿：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>恶心与呕吐：</strong>病因、临床表现、伴随症状</li>
-                    <li><strong>腹痛：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>腹泻：</strong>病因、临床表现、伴随症状</li>
-                    <li><strong>便秘：</strong>病因、临床表现、伴随症状</li>
-                    <li><strong>呕血与黑便：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>黄疸：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>血尿：</strong>病因、临床表现、鉴别诊断</li>
-                    <li><strong>意识障碍：</strong>病因、临床表现、鉴别诊断</li>
-                </ul>
+                <h3>问诊流程图</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">患者就诊</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">一般询问</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">主诉</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">现病史</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">既往史、个人史、家族史</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">系统回顾<br><small>各系统症状</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">初步诊断</div>
+                </div>
             </div>
 
-            <div class="topic-card">
-                <img src="images/diagnostics-inquiry.jpg" alt="问诊" class="topic-image">
-                <h3>2. 问诊</h3>
+            <div class="info-box">
+                <h4>问诊要点</h4>
                 <ul>
-                    <li><strong>问诊的重要性：</strong>获取病史的主要方法</li>
-                    <li><strong>问诊的内容：</strong>一般项目、主诉、现病史、既往史、个人史、婚姻史、月经生育史、家族史</li>
-                    <li><strong>问诊的技巧：</strong>态度、方法、注意事项</li>
-                    <li><strong>常见症状的问诊要点：</strong>各症状的问诊重点</li>
+                    <li><strong>态度：</strong>耐心、关怀、尊重患者</li>
+                    <li><strong>方法：</strong>开放式提问、针对性追问</li>
+                    <li><strong>内容：</strong>主诉、现病史、既往史、个人史、家族史</li>
+                    <li><strong>技巧：</strong>避免诱导性提问、注意患者反应</li>
                 </ul>
             </div>
+        </section>
 
+        <!-- 体格检查流程 -->
+        <section class="content-section">
+            <h2>二、体格检查流程</h2>
+            
             <div class="topic-card">
-                <img src="images/diagnostics-physical.jpg" alt="体格检查" class="topic-image">
-                <h3>3. 体格检查</h3>
+                <h3>体格检查步骤</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">准备阶段<br><small>环境、器械准备</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">一般检查<br><small>生命体征+外观</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">视诊</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">触诊</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">叩诊</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">听诊</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">嗅诊</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">系统检查<br><small>各专科检查</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node end">检查完成<br><small>体征记录</small></div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>检查方法</h4>
                 <ul>
-                    <li><strong>基本检查方法：</strong>视诊、触诊、叩诊、听诊、嗅诊</li>
-                    <li><strong>一般检查：</strong>生命体征、发育与体型、营养、意识状态、面容与表情、体位、姿势、步态、皮肤、淋巴结</li>
+                    <li><strong>一般检查：</strong>生命体征（T、P、R、BP）、发育体型、营养状况、意识状态</li>
                     <li><strong>头部检查：</strong>头颅、眼、耳、鼻、口腔</li>
-                    <li><strong>颈部检查：</strong>颈部外形、颈部血管、甲状腺、气管</li>
-                    <li><strong>胸部检查：</strong>胸廓、肺、胸膜、心脏、血管</li>
+                    <li><strong>颈部检查：</strong>颈部外形、血管、甲状腺、气管</li>
+                    <li><strong>胸部检查：</strong>胸廓、肺部、心脏</li>
                     <li><strong>腹部检查：</strong>视诊、触诊、叩诊、听诊</li>
-                    <li><strong>肛门、直肠和生殖器检查：</strong>检查方法、常见体征</li>
-                    <li><strong>脊柱与四肢检查：</strong>脊柱、四肢、关节</li>
-                    <li><strong>神经系统检查：</strong>脑神经、运动功能、感觉功能、神经反射、自主神经功能</li>
                 </ul>
             </div>
+        </section>
 
+        <!-- 实验诊断流程 -->
+        <section class="content-section">
+            <h2>三、实验诊断流程</h2>
+            
             <div class="topic-card">
-                <img src="images/diagnostics-laboratory.jpg" alt="实验诊断" class="topic-image">
-                <h3>4. 实验诊断</h3>
-                <ul>
-                    <li><strong>血液检查：</strong>红细胞、白细胞、血小板、血型</li>
-                    <li><strong>尿液检查：</strong>一般性状、化学检查、显微镜检查</li>
-                    <li><strong>粪便检查：</strong>一般性状、显微镜检查、隐血试验</li>
-                    <li><strong>其他体液检查：</strong>脑脊液、浆膜腔积液、精液、前列腺液</li>
-                    <li><strong>肾功能检查：</strong>血肌酐、血尿素氮、内生肌酐清除率</li>
-                    <li><strong>肝功能检查：</strong>血清酶、胆红素、蛋白质</li>
-                    <li><strong>临床常用生物化学检查：</strong>血糖、血脂、电解质、血气分析</li>
-                    <li><strong>临床免疫学检查：</strong>免疫球蛋白、补体、自身抗体</li>
-                    <li><strong>临床病原学检查：</strong>细菌、病毒、寄生虫</li>
-                </ul>
+                <h3>实验室检查流程</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">标本采集</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">血液</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">尿液</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">粪便</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">实验室检测<br><small>生化/免疫/病原</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">结果分析<br><small>正常值对比</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node end">临床意义判断<br><small>诊断依据</small></div>
+                </div>
             </div>
 
-            <div class="topic-card">
-                <img src="images/diagnostics-imaging.jpg" alt="医学影像诊断" class="topic-image">
-                <h3>5. 医学影像诊断</h3>
+            <div class="info-box">
+                <h4>常用检查项目</h4>
                 <ul>
-                    <li><strong>X线检查：</strong>基本原理、检查方法、正常表现、常见疾病表现</li>
-                    <li><strong>计算机体层成像（CT）：</strong>基本原理、检查方法、临床应用</li>
-                    <li><strong>磁共振成像（MRI）：</strong>基本原理、检查方法、临床应用</li>
-                    <li><strong>超声成像：</strong>基本原理、检查方法、临床应用</li>
-                    <li><strong>核医学：</strong>基本原理、检查方法、临床应用</li>
+                    <li><strong>血液检查：</strong>血常规、生化全项、凝血功能、传染病指标</li>
+                    <li><strong>尿液检查：</strong>尿常规、尿蛋白、尿糖、尿沉渣</li>
+                    <li><strong>粪便检查：</strong>常规、潜血、寄生虫卵</li>
+                    <li><strong>功能检查：</strong>肝功能、肾功能、心肌酶</li>
                 </ul>
             </div>
+        </section>
 
+        <!-- 影像诊断流程 -->
+        <section class="content-section">
+            <h2>四、影像诊断流程</h2>
+            
             <div class="topic-card">
-                <img src="images/diagnostics-ecg.jpg" alt="心电图检查" class="topic-image">
-                <h3>6. 心电图检查</h3>
-                <ul>
-                    <li><strong>心电图基本知识：</strong>导联、正常心电图</li>
-                    <li><strong>心房肥大：</strong>心电图表现</li>
-                    <li><strong>心室肥大：</strong>心电图表现</li>
-                    <li><strong>心肌缺血：</strong>心电图表现</li>
-                    <li><strong>心肌梗死：</strong>心电图表现</li>
-                    <li><strong>心律失常：</strong>心电图表现</li>
-                    <li><strong>电解质紊乱：</strong>心电图表现</li>
-                </ul>
+                <h3>影像学检查流程</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">临床怀疑<br><small>需要影像学评估</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">X线检查</div>
+                        <div class="flow-divider">或</div>
+                        <div class="flow-node small">CT检查</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">初步诊断<br><small>影像学表现</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">MRI检查</div>
+                        <div class="flow-divider">或</div>
+                        <div class="flow-node small">超声检查</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">鉴别诊断<br><small>精确定位</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node end">最终诊断<br><small>综合判断</small></div>
+                </div>
             </div>
 
-            <div class="topic-card">
-                <img src="images/diagnostics-others.jpg" alt="其他检查" class="topic-image">
-                <h3>7. 其他检查</h3>
+            <div class="info-box">
+                <h4>影像学检查</h4>
                 <ul>
-                    <li><strong>肺功能检查：</strong>肺容量、通气功能、换气功能</li>
-                    <li><strong>内镜检查：</strong>胃镜、肠镜、支气管镜、腹腔镜</li>
-                    <li><strong>临床常用诊疗技术：</strong>胸腔穿刺、腹腔穿刺、腰椎穿刺、骨髓穿刺</li>
+                    <li><strong>X线：</strong>骨骼系统、胸部、腹部</li>
+                    <li><strong>CT：</strong>头部、胸部、腹部，分辨率高</li>
+                    <li><strong>MRI：</strong>软组织、神经系统，多方位成像</li>
+                    <li><strong>超声：</strong>腹部、心脏、甲状腺，无辐射</li>
+                    <li><strong>核医学：</strong>甲状腺、骨骼、肿瘤，功能成像</li>
                 </ul>
             </div>
+        </section>
 
+        <!-- 心电图诊断流程 -->
+        <section class="content-section">
+            <h2>五、心电图诊断流程</h2>
+            
             <div class="topic-card">
-                <img src="images/diagnostics-clinical-thinking.jpg" alt="临床思维方法" class="topic-image">
-                <h3>8. 临床思维方法</h3>
+                <h3>心电图检查流程</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">心电信号采集</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">信号处理<br><small>导联采集</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">图形生成<br><small>P波-QRS-T波</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">波形分析<br><small>节律/形态/时限</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node end">诊断判断<br><small>正常/异常识别</small></div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>心电图要点</h4>
                 <ul>
-                    <li><strong>诊断步骤：</strong>收集资料、分析综合、验证诊断</li>
-                    <li><strong>临床思维方法：</strong>演绎推理、归纳推理、类比推理</li>
+                    <li><strong>正常心电图：</strong>窦性心律，P-QRS-T波正常</li>
+                    <li><strong>心肌缺血：</strong>ST段压低或抬高、T波改变</li>
+                    <li><strong>心肌梗死：</strong>病理性Q波、ST段弓背抬高</li>
+                    <li><strong>心律失常：</strong>房颤、室早、室速、传导阻滞</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 临床诊断思维 -->
+        <section class="content-section">
+            <h2>六、临床诊断思维</h2>
+            
+            <div class="topic-card">
+                <h3>诊断思维流程</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">收集资料<br><small>病史+体征+检查</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">资料分析<br><small>整理归类</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">演绎推理</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">归纳推理</div>
+                        <div class="flow-divider">+</div>
+                        <div class="flow-node small">类比推理</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">初步诊断<br><small>最可能疾病</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">验证诊断<br><small>检查/观察</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node end">最终诊断<br><small>确定诊断</small></div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>诊断方法</h4>
+                <ul>
+                    <li><strong>直接诊断：</strong>典型表现直接诊断</li>
+                    <li><strong>鉴别诊断：</strong>多个可能疾病，逐一排除</li>
+                    <li><strong>排除诊断：</strong>排除不可能的诊断</li>
                     <li><strong>诊断原则：</strong>实事求是、主次分明、动态观察</li>
-                    <li><strong>误诊原因分析：</strong>避免误诊的方法</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 常见症状诊断要点 -->
+        <section class="content-section">
+            <h2>七、常见症状诊断要点</h2>
+            
+            <div class="topic-card">
+                <h3>发热诊断流程</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">体温升高</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">判断发热程度<br><small>低热/中热/高热</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">伴随症状<br><small>寒战/头痛/乏力</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">感染性</div>
+                        <div class="flow-divider">或</div>
+                        <div class="flow-node small">非感染性</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">病因推断<br><small>结合病史+检查</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node end">发热诊断<br><small>确定病因</small></div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>发热分类</h4>
+                <ul>
+                    <li><strong>感染性发热：</strong>细菌、病毒、寄生虫感染</li>
+                    <li><strong>非感染性发热：</strong>肿瘤、风湿免疫、代谢异常</li>
+                    <li><strong>常见病因：</strong>感冒、肺炎、结核、风湿热</li>
                 </ul>
             </div>
 
             <div class="topic-card">
-                <img src="images/diagnostics-clinical-diagnosis.jpg" alt="临床诊断" class="topic-image">
-                <h3>9. 临床诊断</h3>
-                <ul>
-                    <li><strong>诊断内容：</strong>病因诊断、病理解剖诊断、病理生理诊断、并发症诊断、伴发症诊断</li>
-                    <li><strong>诊断方法：</strong>直接诊断、鉴别诊断、排除诊断</li>
-                    <li><strong>诊断格式：</strong>规范化的诊断书写</li>
-                </ul>
+                <h3>疼痛诊断流程</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">疼痛主诉</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">疼痛特点分析<br><small>部位/性质/程度/时间</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">定位明确</div>
+                        <div class="flow-divider">→</div>
+                        <div class="flow-node small">躯体痛</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">病因推断<br><small>外伤/炎症/劳损</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node end">躯体痛诊断<br><small>明确诊断</small></div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <img src="images/diagnostics-medical-record.jpg" alt="病历书写" class="topic-image">
-                <h3>10. 病历书写</h3>
-                <ul>
-                    <li><strong>病历的重要性：</strong>医疗文书、法律依据</li>
-                    <li><strong>病历书写的基本要求：</strong>真实、完整、规范</li>
-                    <li><strong>住院病历：</strong>入院记录、病程记录、出院记录、死亡记录</li>
-                    <li><strong>门诊病历：</strong>书写格式、内容要求</li>
-                    <li><strong>电子病历：</strong>特点、要求、注意事项</li>
-                </ul>
+                <h3>咳嗽诊断流程</h3>
+                <div class="disease-flowchart">
+                    <div class="flow-node start">咳嗽主诉</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node warning">咳嗽特点<br><small>干咳/湿痰/时间/诱因</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">伴随症状<br><small>发热/胸痛/气短</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="flow-node small">急性咳嗽</div>
+                        <div class="flow-divider">或</div>
+                        <div class="flow-node small">慢性咳嗽</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node">病因推断<br><small>感染/过敏/胃食管反流</small></div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-node end">咳嗽诊断<br><small>确定病因</small></div>
+                </div>
             </div>
         </section>
 
-        <section class="content-section">
-            <h2>学习要点</h2>
-            <div class="highlight-box">
-                <h3>重点掌握</h3>
-                <ul>
-                    <li>常见症状的特点和鉴别要点</li>
-                    <li>规范的体格检查方法和正常体征</li>
-                    <li>常用实验室检查的正常值和临床意义</li>
-                    <li>心电图、影像学的基本判读能力</li>
-                    <li>临床思维方法和诊断原则</li>
-                </ul>
-            </div>
-        </section>
 
-        <section class="content-section">
-            <h2>学习方法</h2>
-            <ol>
-                <li><strong>理论联系实际：</strong>在临床实践中应用所学知识</li>
-                <li><strong>技能训练：</strong>反复练习体格检查技能</li>
-                <li><strong>病例讨论：</strong>通过病例讨论提高临床思维能力</li>
-                <li><strong>循证医学：</strong>运用循证医学证据指导诊断</li>
-            </ol>
-        </section>
 
-        <section class="related-subjects">
-            <h2>相关学科</h2>
-            <div class="subject-links">
-                <a href="internal-medicine.html" class="related-link">内科学 - 临床应用</a>
-                <a href="pathophysiology.html" class="related-link">病理生理学 - 理解疾病机制</a>
-                <a href="pathology.html" class="related-link">病理学 - 了解病理变化</a>
-            </div>
-        </section>
+
     </main>
 
+    <style>
+        /* Disease Flowchart Styles */
+        .disease-flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .disease-flowchart .flow-node {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.95em;
+            max-width: 280px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+        
+        .disease-flowchart .flow-node small {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+        
+        .disease-flowchart .flow-node.start {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+        
+        .disease-flowchart .flow-node.warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+        }
+        
+        .disease-flowchart .flow-node.end {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+        
+        .disease-flowchart .flow-node.small {
+            padding: 10px 15px;
+            font-size: 0.85em;
+            max-width: 120px;
+        }
+        
+        .disease-flowchart .flow-arrow {
+            font-size: 1.5em;
+            color: #3498db;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .disease-flowchart .flow-branch {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .disease-flowchart .flow-divider {
+            font-size: 1.2em;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .info-box, .topic-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 3px solid #3498db;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .topic-card h3, .info-box h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .info-box li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .info-box strong {
+            color: #e74c3c;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white !important;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-box h3 {
+            color: white !important;
+        }
+
+        .highlight-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .highlight-box li {
+            color: white;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+    </style>
 </body>
 </html>

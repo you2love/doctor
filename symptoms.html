@@ -55,7 +55,6 @@
         <!-- 一、发热 -->
         <section class="content-section">
             <div class="topic-card">
-                <img src="images/symptom-fever.jpg" alt="发热" class="topic-image">
                 <h2>一、发热</h2>
                 
                 <div class="principle-box">
@@ -65,11 +64,23 @@
                 
                 <div class="process-box">
                     <h3>发展过程</h3>
-                    <ol>
-                        <li><strong>升温期：</strong>调定点上移后，机体启动产热（骨骼肌收缩、肝脏代谢增强）、抑制散热（皮肤血管收缩、汗腺分泌减少），表现为畏寒、寒战、皮肤苍白</li>
-                        <li><strong>高热期：</strong>产热与散热在较高水平平衡，患者感燥热，皮肤发红温热，呼吸心率加快</li>
-                        <li><strong>退热期：</strong>调定点恢复正常，机体启动散热（皮肤血管扩张、大量出汗）、抑制产热，体温逐渐回落</li>
-                    </ol>
+                    <div class="flowchart">
+                        <div class="flow-node start">病原体/炎症因子刺激</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">下丘脑POAH调定点上移</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">产热↑<br><small>骨骼肌收缩、肝脏代谢增强</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">散热↓<br><small>血管收缩、汗腺分泌减少</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">体温升高<br><small>畏寒、寒战、皮肤苍白</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">高热期<br><small>产热与散热在高水平平衡</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">退热期<br><small>调定点恢复，大量出汗</small></div>
+                    </div>
                 </div>
                 
                 <div class="causes-box">
@@ -85,7 +96,6 @@
         <!-- 二、疼痛 -->
         <section class="content-section">
             <div class="topic-card">
-                <img src="images/symptom-pain.jpg" alt="疼痛" class="topic-image">
                 <h2>二、疼痛</h2>
                 
                 <div class="principle-box">
@@ -95,11 +105,25 @@
                 
                 <div class="process-box">
                     <h3>发展过程</h3>
-                    <ol>
-                        <li><strong>刺激识别阶段：</strong>伤害性刺激导致组织释放炎症介质，激活或敏化伤害性感受器，产生电信号</li>
-                        <li><strong>信号传导阶段：</strong>电信号经Aδ纤维（快痛）和C纤维（慢痛）传入脊髓，先后引发不同痛感</li>
-                        <li><strong>中枢感知与反应阶段：</strong>信号经丘脑中转后，大脑皮层识别疼痛信息，触发躯体防御反应和情绪反应</li>
-                    </ol>
+                    <div class="flowchart">
+                        <div class="flow-node start">伤害性刺激</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">组织释放炎症介质</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">激活伤害性感受器<br><small>产生电信号</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">Aδ纤维<br><small>快痛（锐痛）</small></div>
+                            <div class="flow-divider">&</div>
+                            <div class="flow-node small">C纤维<br><small>慢痛（钝痛）</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">传入脊髓</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">投射至丘脑</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">大脑皮层识别<br><small>触发防御和情绪反应</small></div>
+                    </div>
                 </div>
                 
                 <div class="causes-box">
@@ -116,7 +140,6 @@
         <!-- 三、咳嗽 -->
         <section class="content-section">
             <div class="topic-card">
-                <img src="images/symptom-cough.jpg" alt="咳嗽" class="topic-image">
                 <h2>三、咳嗽</h2>
                 
                 <div class="principle-box">
@@ -126,11 +149,21 @@
                 
                 <div class="process-box">
                     <h3>发展过程</h3>
-                    <ol>
-                        <li><strong>刺激触发阶段：</strong>咳嗽感受器被机械、化学、病理刺激（异物、烟雾、感染等）激活</li>
-                        <li><strong>反射启动阶段：</strong>信号传入咳嗽中枢，引发深吸气、声门关闭，随后膈肌腹肌收缩、肺内压力骤增，声门开放排出异物/分泌物</li>
-                        <li><strong>后续阶段：</strong>单次咳嗽清除少量异物，阵咳因刺激持续引发，可能伴随胸闷、咽痛</li>
-                    </ol>
+                    <div class="flowchart">
+                        <div class="flow-node start">刺激触发<br><small>异物、烟雾、感染</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">激活咳嗽感受器</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">经迷走神经传入中枢<br><small>延髓咳嗽中枢</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">深吸气+声门关闭</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">膈肌腹肌收缩<br><small>肺内压力骤增</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">声门开放</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">排出异物/分泌物</div>
+                    </div>
                 </div>
                 
                 <div class="causes-box">
@@ -147,12 +180,30 @@
         <!-- 四、头晕 -->
         <section class="content-section">
             <div class="topic-card">
-                <img src="images/symptom-dizziness.jpg" alt="头晕" class="topic-image">
                 <h2>四、头晕</h2>
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
                     <p>头晕是空间定向能力障碍的主观感觉（头重脚轻、站立不稳），核心是平衡系统（前庭、视觉、本体感觉系统）信号整合异常。三者信号传入小脑和大脑皮层维持平衡，任一系统异常或信号不协调，均会引发头晕。</p>
+                </div>
+                
+                <div class="process-box">
+                    <h3>发生机制</h3>
+                    <div class="flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">前庭系统<br><small>内耳前庭</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">视觉系统<br><small>眼睛</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">本体感觉<br><small>肌肉关节</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">小脑+大脑皮层<br><small>整合平衡信号</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">信号异常/不协调</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">头晕症状<br><small>头重脚轻、站立不稳</small></div>
+                    </div>
                 </div>
                 
                 <div class="causes-box">
@@ -170,12 +221,32 @@
         <!-- 五、恶心呕吐 -->
         <section class="content-section">
             <div class="topic-card">
-                <img src="images/symptom-vomit.jpg" alt="恶心呕吐" class="topic-image">
                 <h2>五、恶心与呕吐</h2>
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
                     <p>恶心是上腹部不适、紧迫欲吐的感觉，核心是延髓呕吐中枢或化学感受器触发区（CTZ）被激活。呕吐是胃和部分肠内容物经食管、口腔排出的反射动作，核心是呕吐中枢协调膈肌、腹肌、胃平滑肌等多器官肌肉协同收缩。</p>
+                </div>
+                
+                <div class="process-box">
+                    <h3>发生机制</h3>
+                    <div class="flowchart">
+                        <div class="flow-node start">触发因素<br><small>胃肠道/中枢/前庭等</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">激活呕吐中枢<br><small>延髓</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">恶心感<br><small>上腹部不适</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">膈肌收缩</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">腹肌收缩</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">胃平滑肌收缩</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">呕吐动作<br><small>排出内容物</small></div>
+                    </div>
                 </div>
                 
                 <div class="causes-box">
@@ -193,12 +264,30 @@
         <!-- 六、胸闷气短 -->
         <section class="content-section">
             <div class="topic-card">
-                <img src="images/symptom-breathless.jpg" alt="胸闷气短" class="topic-image">
                 <h2>六、胸闷、气短</h2>
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
                     <p>胸闷是胸部压迫感，气短是呼吸费力，二者常并存，核心是心肺功能异常导致供氧不足、二氧化碳潴留，或胸壁胸膜病变引发机械性呼吸受限。</p>
+                </div>
+                
+                <div class="process-box">
+                    <h3>发生机制</h3>
+                    <div class="flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">心血管系统<br><small>心脏泵血功能下降</small></div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">呼吸系统<br><small>气体交换障碍</small></div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">胸壁/胸膜<br><small>机械性受限</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">供氧不足<br><small>CO₂潴留</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">机体缺氧<br><small>组织代谢异常</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">胸闷+气短<br><small>胸部压迫感、呼吸费力</small></div>
+                    </div>
                 </div>
                 
                 <div class="causes-box">
@@ -216,12 +305,30 @@
         <!-- 七、水肿 -->
         <section class="content-section">
             <div class="topic-card">
-                <img src="images/symptom-edema.jpg" alt="水肿" class="topic-image">
                 <h2>七、水肿</h2>
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
                     <p>水肿是组织间隙液体积聚过多导致的肿胀，核心是血管内外液体交换失衡和水钠潴留。正常情况下，血管内液体与组织间隙液体动态平衡，调控异常则液体渗出至组织间隙，形成水肿。</p>
+                </div>
+                
+                <div class="process-box">
+                    <h3>发生机制</h3>
+                    <div class="flowchart">
+                        <div class="flow-node start">调控异常<br><small>水钠潴留/液体交换失衡</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">静水压↑</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">胶体渗透压↓</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">淋巴回流↓</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">血管内液体外渗<br><small>进入组织间隙</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">组织水肿<br><small>肿胀、凹陷性水肿</small></div>
+                    </div>
                 </div>
                 
                 <div class="causes-box">
@@ -240,12 +347,32 @@
         <!-- 八、心悸 -->
         <section class="content-section">
             <div class="topic-card">
-                <img src="images/symptom-palpitation.jpg" alt="心悸" class="topic-image">
                 <h2>八、心悸</h2>
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
                     <p>心悸是主观上对心脏跳动的异常感知（过快、过慢、不规律等），核心是心脏节律、频率异常或心肌收缩力改变，异常信号经自主神经传入中枢引发不适。</p>
+                </div>
+                
+                <div class="process-box">
+                    <h3>发生机制</h3>
+                    <div class="flowchart">
+                        <div class="flow-node start">触发因素<br><small>心脏/全身/药物/精神</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-branch">
+                            <div class="flow-node small">节律异常</div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">频率异常</div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">收缩力改变</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">心脏跳动异常<br><small>过快/过慢/不规律</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">异常信号传导<br><small>经自主神经</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">中枢感知<br><small>心悸不适感</small></div>
+                    </div>
                 </div>
                 
                 <div class="causes-box">
@@ -260,17 +387,82 @@
             </div>
         </section>
 
-        <section class="related-subjects">
-            <h2>相关学科</h2>
-            <div class="subject-links">
-                <a href="pathophysiology.html" class="related-link">病理生理学 - 了解症状机制</a>
-                <a href="diagnostics.html" class="related-link">诊断学 - 了解症状诊断</a>
-                <a href="common_disease.html" class="related-link">常见病 - 了解相关疾病</a>
-            </div>
-        </section>
     </main>
 
     <style>
+        /* Flowchart Styles */
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flow-node {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.95em;
+            max-width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .flow-node:hover {
+            transform: scale(1.05);
+        }
+        
+        .flow-node small {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        .flow-node.start {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+        
+        .flow-node.warning {
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+        }
+        
+        .flow-node.end {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+        
+        .flow-node.small {
+            padding: 10px 15px;
+            font-size: 0.85em;
+            max-width: 150px;
+        }
+        
+        .flow-arrow {
+            font-size: 1.5em;
+            color: #667eea;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .flow-branch {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .flow-divider {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
         .principle-box, .process-box, .causes-box {
             background: #f8f9fa;
             padding: 20px;

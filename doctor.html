@@ -200,7 +200,7 @@
         </section>
 
         <section class="content-section">
-            <h2>三、挂号省钱：5个关键词！</h2>
+            <h2 class="highlight-title">三、挂号省钱：5个关键词！</h2>
             
             <div class="tips-grid">
                 <div class="tip-card">
@@ -271,17 +271,21 @@
             </div>
         </section>
 
-        <section class="related-subjects">
-            <h2>相关学科</h2>
-            <div class="subject-links">
-                <a href="diagnostics.html" class="related-link">诊断学 - 了解诊断方法</a>
-                <a href="common_disease.html" class="related-link">常见病 - 了解疾病知识</a>
-                <a href="medicine.html" class="related-link">家庭用药 - 了解用药指南</a>
-            </div>
-        </section>
     </main>
 
     <style>
+        .highlight-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white !important;
+            font-weight: 700 !important;
+            font-size: 1.9em !important;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            border: none !important;
+        }
+
         .hospital-levels {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -359,12 +363,13 @@
         }
         
         .tip-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: white;
+            color: #2c3e50;
             padding: 25px;
             border-radius: 10px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .tip-number {
@@ -436,8 +441,9 @@
         }
         
         .reference-table thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: white;
+            color: #2c3e50;
+            border-bottom: 2px solid #667eea;
         }
         
         .reference-table th {
