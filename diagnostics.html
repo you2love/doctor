@@ -8,6 +8,32 @@
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.topic-content');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -32,10 +58,12 @@
                 <li><a href="common_disease.html">常见病</a></li>
                 <li><a href="symptoms.html">常见症状</a></li>
                 <li class="menu-category">实用指南</li>
-                <li><a href="check_up.html">体检指标</a></li>
-                <li><a href="doctor.html">省钱就医</a></li>
- <li><a href="medicine.html">家庭用药</a></li>
-            </ul>
+                                <li><a href="check_up.html">体检指标</a></li>
+                                <li><a href="doctor.html">省钱就医</a></li>
+                                <li><a href="hospitals.html">国内医院</a></li>
+                                <li><a href="medicine.html">家庭用药</a></li>
+                                                <li><a href="healthy-living.html">健康生活</a></li>
+                                            </ul>
         </nav>
     
     <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
@@ -57,7 +85,11 @@
             <h2>一、问诊流程</h2>
             
             <div class="topic-card">
-                <h3>问诊流程图</h3>
+                <h3 onclick="toggleTopicCard('inquiry-flow-content')" style="cursor: pointer;">
+                    问诊流程图
+                    <span class="toggle-icon" id="inquiry-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="inquiry-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">患者就诊</div>
                     <div class="flow-arrow">↓</div>
@@ -73,7 +105,8 @@
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node warning">系统回顾<br><small>各系统症状</small></div>
                     <div class="flow-arrow">↓</div>
-                    <div class="flow-node">初步诊断</div>
+                    <div class="flow-node end">初步诊断</div>
+                </div>
                 </div>
             </div>
 
@@ -93,7 +126,11 @@
             <h2>二、体格检查流程</h2>
             
             <div class="topic-card">
-                <h3>体格检查步骤</h3>
+                <h3 onclick="toggleTopicCard('physical-exam-flow-content')" style="cursor: pointer;">
+                    体格检查步骤
+                    <span class="toggle-icon" id="physical-exam-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="physical-exam-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">准备阶段<br><small>环境、器械准备</small></div>
                     <div class="flow-arrow">↓</div>
@@ -115,6 +152,7 @@
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node end">检查完成<br><small>体征记录</small></div>
                 </div>
+                </div>
             </div>
 
             <div class="info-box">
@@ -134,7 +172,11 @@
             <h2>三、实验诊断流程</h2>
             
             <div class="topic-card">
-                <h3>实验室检查流程</h3>
+                <h3 onclick="toggleTopicCard('lab-exam-flow-content')" style="cursor: pointer;">
+                    实验室检查流程
+                    <span class="toggle-icon" id="lab-exam-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="lab-exam-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">标本采集</div>
                     <div class="flow-arrow">↓</div>
@@ -151,6 +193,7 @@
                     <div class="flow-node">结果分析<br><small>正常值对比</small></div>
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node end">临床意义判断<br><small>诊断依据</small></div>
+                </div>
                 </div>
             </div>
 
@@ -170,7 +213,11 @@
             <h2>四、影像诊断流程</h2>
             
             <div class="topic-card">
-                <h3>影像学检查流程</h3>
+                <h3 onclick="toggleTopicCard('imaging-flow-content')" style="cursor: pointer;">
+                    影像学检查流程
+                    <span class="toggle-icon" id="imaging-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="imaging-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">临床怀疑<br><small>需要影像学评估</small></div>
                     <div class="flow-arrow">↓</div>
@@ -192,6 +239,7 @@
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node end">最终诊断<br><small>综合判断</small></div>
                 </div>
+                </div>
             </div>
 
             <div class="info-box">
@@ -211,7 +259,11 @@
             <h2>五、心电图诊断流程</h2>
             
             <div class="topic-card">
-                <h3>心电图检查流程</h3>
+                <h3 onclick="toggleTopicCard('ecg-flow-content')" style="cursor: pointer;">
+                    心电图检查流程
+                    <span class="toggle-icon" id="ecg-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="ecg-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">心电信号采集</div>
                     <div class="flow-arrow">↓</div>
@@ -222,6 +274,7 @@
                     <div class="flow-node">波形分析<br><small>节律/形态/时限</small></div>
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node end">诊断判断<br><small>正常/异常识别</small></div>
+                </div>
                 </div>
             </div>
 
@@ -241,7 +294,11 @@
             <h2>六、临床诊断思维</h2>
             
             <div class="topic-card">
-                <h3>诊断思维流程</h3>
+                <h3 onclick="toggleTopicCard('clinical-thinking-flow-content')" style="cursor: pointer;">
+                    诊断思维流程
+                    <span class="toggle-icon" id="clinical-thinking-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="clinical-thinking-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">收集资料<br><small>病史+体征+检查</small></div>
                     <div class="flow-arrow">↓</div>
@@ -261,6 +318,7 @@
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node end">最终诊断<br><small>确定诊断</small></div>
                 </div>
+                </div>
             </div>
 
             <div class="info-box">
@@ -279,7 +337,11 @@
             <h2>七、常见症状诊断要点</h2>
             
             <div class="topic-card">
-                <h3>发热诊断流程</h3>
+                <h3 onclick="toggleTopicCard('fever-flow-content')" style="cursor: pointer;">
+                    发热诊断流程
+                    <span class="toggle-icon" id="fever-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="fever-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">体温升高</div>
                     <div class="flow-arrow">↓</div>
@@ -297,6 +359,7 @@
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node end">发热诊断<br><small>确定病因</small></div>
                 </div>
+                </div>
             </div>
 
             <div class="info-box">
@@ -309,7 +372,11 @@
             </div>
 
             <div class="topic-card">
-                <h3>疼痛诊断流程</h3>
+                <h3 onclick="toggleTopicCard('pain-flow-content')" style="cursor: pointer;">
+                    疼痛诊断流程
+                    <span class="toggle-icon" id="pain-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="pain-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">疼痛主诉</div>
                     <div class="flow-arrow">↓</div>
@@ -325,10 +392,15 @@
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node end">躯体痛诊断<br><small>明确诊断</small></div>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>咳嗽诊断流程</h3>
+                <h3 onclick="toggleTopicCard('cough-flow-content')" style="cursor: pointer;">
+                    咳嗽诊断流程
+                    <span class="toggle-icon" id="cough-flow-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="cough-flow-content">
                 <div class="disease-flowchart">
                     <div class="flow-node start">咳嗽主诉</div>
                     <div class="flow-arrow">↓</div>
@@ -345,6 +417,7 @@
                     <div class="flow-node">病因推断<br><small>感染/过敏/胃食管反流</small></div>
                     <div class="flow-arrow">↓</div>
                     <div class="flow-node end">咳嗽诊断<br><small>确定病因</small></div>
+                </div>
                 </div>
             </div>
         </section>
@@ -476,6 +549,24 @@
             color: white;
             margin-bottom: 10px;
             line-height: 1.6;
+        }
+
+        .topic-card h3 {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-content {
+            display: block;
         }
     </style>
 </body>

@@ -8,6 +8,32 @@
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.topic-content[id]');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -64,9 +90,27 @@
         .topic-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 3px solid #e8f4f8;
+            cursor: pointer;
+        }
+
+        .topic-header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-content {
+            display: block;
         }
 
         .topic-icon {
@@ -256,7 +300,9 @@
                 <li class="menu-category">实用指南</li>
                 <li><a href="check_up.html">体检指标</a></li>
                 <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">国内医院</a></li>
                 <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
             </ul>
         </nav>
 
@@ -274,14 +320,18 @@
 
             <!-- 运动系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">💪</div>
-                    <h2 class="topic-title">运动系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('movement-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">💪</div>
+                        <h2 class="topic-title">运动系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="movement-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     由骨、骨连接和骨骼肌组成，占人体体重约60%，支撑人体、保护内脏器官，实现运动功能
                 </div>
 
+                <div class="topic-content" id="movement-content">
                 <div class="info-section">
                     <div class="info-title">骨骼系统</div>
                     <div class="info-content">
@@ -329,17 +379,24 @@
                         <div class="flow-step">完成躯体运动（屈伸、旋转等）</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 消化系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🍔</div>
-                    <h2 class="topic-title">消化系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('digestive-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🍔</div>
+                        <h2 class="topic-title">消化系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="digestive-content-icon">▶</span>
                 </div>
+
                 <div class="topic-intro">
-                    由消化管和消化腺组成，负责食物的摄入、消化、吸收和排泄
+                    由消化管和消化腺组成，完成食物的消化、吸收和排泄功能，为人体提供营养和能量
                 </div>
+
+                <div class="topic-content" id="digestive-content">
 
                 <div class="info-section">
                     <div class="info-title">消化管</div>
@@ -377,20 +434,29 @@
                         <div class="flow-arrow">↓</div>
                         <div class="flow-step">大肠：吸收水分、形成粪便</div>
                         <div class="flow-arrow">↓</div>
+                        <div class="flow-step">肠（下消化道）：吸收营养、储存粪便</div>
+                        <div class="flow-arrow">↓</div>
                         <div class="flow-step">直肠→肛门排出</div>
                     </div>
+                </div>
                 </div>
             </div>
 
             <!-- 呼吸系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🫁</div>
-                    <h2 class="topic-title">呼吸系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('respiratory-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🫁</div>
+                        <h2 class="topic-title">呼吸系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="respiratory-content-icon">▶</span>
                 </div>
+
                 <div class="topic-intro">
                     包括呼吸道和肺，负责气体交换，维持机体氧供和二氧化碳排出
                 </div>
+
+                <div class="topic-content" id="respiratory-content">
 
                 <div class="info-section">
                     <div class="info-title">呼吸道</div>
@@ -430,17 +496,24 @@
                         <div class="flow-step">肺泡（气体交换）</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 泌尿系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">💧</div>
-                    <h2 class="topic-title">泌尿系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('urinary-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">💧</div>
+                        <h2 class="topic-title">泌尿系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="urinary-content-icon">▶</span>
                 </div>
+
                 <div class="topic-intro">
-                    由肾、输尿管、膀胱和尿道组成，产生尿液，维持水、电解质和酸碱平衡
+                    由肾、输尿管、膀胱、尿道组成，排泄代谢废物，调节体液和电解质平衡
                 </div>
+
+                <div class="topic-content" id="urinary-content">
 
                 <div class="info-section">
                     <div class="info-title">肾脏</div>
@@ -480,17 +553,24 @@
                         <div class="flow-step">尿道（排出尿液）</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 生殖系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">👶</div>
-                    <h2 class="topic-title">生殖系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('reproductive-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">👶</div>
+                        <h2 class="topic-title">生殖系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="reproductive-content-icon">▶</span>
                 </div>
+
                 <div class="topic-intro">
-                    分为男性和女性生殖系统，产生生殖细胞，分泌性激素，繁衍后代
+                    产生生殖细胞，分泌性激素，繁殖后代，维持第二性征
                 </div>
+
+                <div class="topic-content" id="reproductive-content">
 
                 <div class="info-section">
                     <div class="info-title">男性生殖系统</div>
@@ -534,19 +614,27 @@
                         <div class="flow-step">子宫（孕育胎儿）</div>
                         <div class="flow-arrow">↓</div>
                         <div class="flow-step">阴道（分娩）</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">维持第二性征和生殖功能</div>
                     </div>
+                </div>
                 </div>
             </div>
 
             <!-- 心血管系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">❤️</div>
-                    <h2 class="topic-title">心血管系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('circulatory-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">❤️</div>
+                        <h2 class="topic-title">心血管系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="circulatory-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     由心脏、动脉、毛细血管和静脉组成，负责血液循环，运输氧气和营养物质
                 </div>
+
+                <div class="topic-content" id="circulatory-content">
 
                 <div class="info-section">
                     <div class="info-title">心脏</div>
@@ -588,15 +676,21 @@
                 </div>
             </div>
 
-            <!-- 淋巴系统 -->
+<!-- 淋巴系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🛡️</div>
-                    <div class="topic-title">淋巴系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('lymphatic-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🛡️</div>
+                        <h2 class="topic-title">淋巴系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="lymphatic-content-icon">▶</span>
                 </div>
+
                 <div class="topic-intro">
                     由淋巴管道、淋巴器官和淋巴组织组成，具有免疫防御和回流组织液的功能
                 </div>
+
+                <div class="topic-content" id="lymphatic-content">
 
                 <div class="info-section">
                     <div class="info-title">淋巴管道</div>
@@ -632,19 +726,27 @@
                         <div class="flow-step">淋巴导管</div>
                         <div class="flow-arrow">↓</div>
                         <div class="flow-step">汇入静脉角（锁骨下静脉）</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">参与免疫防御和体液平衡</div>
                     </div>
                 </div>
             </div>
 
             <!-- 神经系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🧠</div>
-                    <h2 class="topic-title">神经系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('nervous-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🧠</div>
+                        <h2 class="topic-title">神经系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="nervous-content-icon">▶</span>
                 </div>
+
                 <div class="topic-intro">
-                    由中枢神经系统和周围神经系统组成，控制和调节人体各种功能活动
+                    由中枢神经系统和周围神经系统组成，调节和控制机体各种功能活动
                 </div>
+
+                <div class="topic-content" id="nervous-content">
 
                 <div class="info-section">
                     <div class="info-title">中枢神经系统</div>
@@ -682,20 +784,28 @@
                             <div class="flow-step">脊髓</div>
                             <div class="flow-step">脑神经<br>（12对）</div>
                             <div class="flow-step">脊神经<br>（31对）</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 感觉器官 -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                            
+                            
+                                        <!-- 感觉器官 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">👁️</div>
-                    <h2 class="topic-title">感觉器官</h2>
+                <div class="topic-header" onclick="toggleTopicCard('sensory-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">👁️</div>
+                        <h2 class="topic-title">感觉器官</h2>
+                    </div>
+                    <span class="toggle-icon" id="sensory-content-icon">▶</span>
                 </div>
+
                 <div class="topic-intro">
                     包括视觉、听觉、嗅觉、味觉和皮肤感觉等，感受外界刺激
                 </div>
+
+                <div class="topic-content" id="sensory-content">
 
                 <div class="info-section">
                     <div class="info-title">视觉器官（眼）</div>
@@ -735,17 +845,24 @@
                         <div class="flow-step">视辐射→大脑皮层视觉中枢</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 内分泌系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🧬</div>
-                    <h2 class="topic-title">内分泌系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('endocrine-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🔬</div>
+                        <h2 class="topic-title">内分泌系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="endocrine-content-icon">▶</span>
                 </div>
+
                 <div class="topic-intro">
-                    由内分泌腺和内分泌细胞组成，分泌激素调节机体功能
+                    由内分泌腺和散在的内分泌细胞组成，分泌激素，调节新陈代谢、生长、发育等生理功能
                 </div>
+
+                <div class="topic-content" id="endocrine-content">
 
                 <div class="info-section">
                     <div class="info-title">主要内分泌腺</div>
@@ -785,6 +902,7 @@
                             <div class="flow-step">性腺<br>（盆腔/阴囊）</div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
 

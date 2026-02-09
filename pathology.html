@@ -8,6 +8,32 @@
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.topic-content[id]');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -64,9 +90,27 @@
         .topic-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 3px solid #e8f4f8;
+            cursor: pointer;
+        }
+
+        .topic-header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-content {
+            display: block;
         }
 
         .topic-icon {
@@ -256,7 +300,9 @@
                 <li class="menu-category">实用指南</li>
                 <li><a href="check_up.html">体检指标</a></li>
                 <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">国内医院</a></li>
                 <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
             </ul>
         </nav>
 
@@ -274,13 +320,18 @@
 
             <!-- 细胞和组织的适应、损伤与修复 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🔬</div>
-                    <h2 class="topic-title">细胞和组织的适应、损伤与修复</h2>
+                <div class="topic-header" onclick="toggleTopicCard('cell-adaptation-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🔬</div>
+                        <h2 class="topic-title">细胞和组织的适应、损伤与修复</h2>
+                    </div>
+                    <span class="toggle-icon" id="cell-adaptation-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     细胞和组织在受到内外环境刺激时，会发生形态、功能和代谢的改变，是疾病发生发展的基础病理过程
                 </div>
+
+                <div class="topic-content" id="cell-adaptation-content">
 
                 <div class="info-section">
                     <div class="info-title">适应</div>
@@ -336,17 +387,23 @@
                         <div class="flow-step">修复完成或疾病进展</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 局部血液循环障碍 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🩸</div>
-                    <h2 class="topic-title">局部血液循环障碍</h2>
+                <div class="topic-header" onclick="toggleTopicCard('circulation-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🩸</div>
+                        <h2 class="topic-title">局部血液循环障碍</h2>
+                    </div>
+                    <span class="toggle-icon" id="circulation-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     局部血液循环障碍是许多疾病的病理基础，包括充血、出血、血栓形成、栓塞和梗死
                 </div>
+
+                <div class="topic-content" id="circulation-content">
 
                 <div class="info-section">
                     <div class="info-title">主要类型</div>
@@ -386,17 +443,23 @@
                         <div class="flow-step">梗死（组织坏死）</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 炎症 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🔥</div>
-                    <h2 class="topic-title">炎症</h2>
+                <div class="topic-header" onclick="toggleTopicCard('inflammation-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🔥</div>
+                        <h2 class="topic-title">炎症</h2>
+                    </div>
+                    <span class="toggle-icon" id="inflammation-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     机体对损伤因子产生的防御性反应，具有血管反应、细胞渗出和组织增生三个基本特征
                 </div>
+
+                <div class="topic-content" id="inflammation-content">
 
                 <div class="info-section">
                     <div class="info-title">基本病理变化</div>
@@ -444,17 +507,23 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 肿瘤 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🎗️</div>
-                    <h2 class="topic-title">肿瘤</h2>
+                <div class="topic-header" onclick="toggleTopicCard('tumor-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🎗️</div>
+                        <h2 class="topic-title">肿瘤</h2>
+                    </div>
+                    <span class="toggle-icon" id="tumor-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     机体在各种致瘤因素作用下，局部组织细胞增生所形成的新生物
                 </div>
+
+                <div class="topic-content" id="tumor-content">
 
                 <div class="info-section">
                     <div class="info-title">肿瘤特征</div>
@@ -505,17 +574,23 @@
                         <div class="flow-step">远处转移灶形成</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 动脉粥样硬化 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">❤️</div>
-                    <h2 class="topic-title">动脉粥样硬化</h2>
+                <div class="topic-header" onclick="toggleTopicCard('atherosclerosis-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">❤️</div>
+                        <h2 class="topic-title">动脉粥样硬化</h2>
+                    </div>
+                    <span class="toggle-icon" id="atherosclerosis-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     动脉内膜下脂质沉积、纤维组织增生和粥样斑块形成为特征的病变，主要累及大、中动脉
                 </div>
+
+                <div class="topic-content" id="atherosclerosis-content">
 
                 <div class="info-section">
                     <div class="info-title">病变发展过程</div>
@@ -565,17 +640,23 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 肺炎 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🫁</div>
-                    <h2 class="topic-title">肺炎</h2>
+                <div class="topic-header" onclick="toggleTopicCard('pneumonia-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🫁</div>
+                        <h2 class="topic-title">肺炎</h2>
+                    </div>
+                    <span class="toggle-icon" id="pneumonia-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     肺的急性渗出性炎症，不同类型肺炎具有不同的病理特点和临床表现
                 </div>
+
+                <div class="topic-content" id="pneumonia-content">
 
                 <div class="info-section">
                     <div class="info-title">肺炎类型</div>
@@ -604,17 +685,23 @@
                         <div class="flow-step">肺组织结构和功能恢复</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 肝硬化 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🫀</div>
-                    <h2 class="topic-title">肝硬化</h2>
+                <div class="topic-header" onclick="toggleTopicCard('cirrhosis-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🫀</div>
+                        <h2 class="topic-title">肝硬化</h2>
+                    </div>
+                    <span class="toggle-icon" id="cirrhosis-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     肝细胞弥漫性变性坏死、纤维组织增生和肝细胞结节状再生，导致肝小叶结构破坏和假小叶形成
                 </div>
+
+                <div class="topic-content" id="cirrhosis-content">
 
                 <div class="info-section">
                     <div class="info-title">病因类型</div>
@@ -660,17 +747,23 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 肾小球肾炎 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">💧</div>
-                    <h2 class="topic-title">肾小球肾炎</h2>
+                <div class="topic-header" onclick="toggleTopicCard('nephritis-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">💧</div>
+                        <h2 class="topic-title">肾小球肾炎</h2>
+                    </div>
+                    <span class="toggle-icon" id="nephritis-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     以肾小球损害为主的变态反应性疾病，是导致肾衰竭的重要原因
                 </div>
+
+                <div class="topic-content" id="nephritis-content">
 
                 <div class="info-section">
                     <div class="info-title">主要类型</div>
@@ -703,6 +796,7 @@
                         <div class="flow-arrow">↓</div>
                         <div class="flow-step">进展：慢性肾衰竭</div>
                     </div>
+                </div>
                 </div>
             </div>
 

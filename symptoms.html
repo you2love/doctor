@@ -6,8 +6,34 @@
     <title>常见症状 - 医学学习平台</title>
     <script>
         function toggleSidebar() {
-            document.querySelector(.sidebar).classList.toggle(open);
+            document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.topic-content');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -32,10 +58,12 @@
                 <li><a href="common_disease.html">常见病</a></li>
                 <li><a href="symptoms.html" class="active">常见症状</a></li>
                 <li class="menu-category">实用指南</li>
-                <li><a href="check_up.html">体检指标</a></li>
-                <li><a href="doctor.html">省钱就医</a></li>
- <li><a href="medicine.html">家庭用药</a></li>
-            </ul>
+                                <li><a href="check_up.html">体检指标</a></li>
+                                <li><a href="doctor.html">省钱就医</a></li>
+                                <li><a href="hospitals.html">国内医院</a></li>
+                                <li><a href="medicine.html">家庭用药</a></li>
+                                                <li><a href="healthy-living.html">健康生活</a></li>
+                                            </ul>
         </nav>
     
     <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
@@ -55,7 +83,11 @@
         <!-- 一、发热 -->
         <section class="content-section">
             <div class="topic-card">
-                <h2>一、发热</h2>
+                <h2 onclick="toggleTopicCard('fever-content')" style="cursor: pointer;">
+                    一、发热
+                    <span class="toggle-icon" id="fever-content-icon">▶</span>
+                </h2>
+                <div class="topic-content" id="fever-content">
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
@@ -90,13 +122,18 @@
                         <li><strong>非感染性因素：</strong>免疫性疾病（类风湿关节炎、系统性红斑狼疮等）、肿瘤性疾病（淋巴瘤、白血病等）、代谢异常（甲亢危象等）、物理化学因素（中暑、药物热等）</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- 二、疼痛 -->
         <section class="content-section">
             <div class="topic-card">
-                <h2>二、疼痛</h2>
+                <h2 onclick="toggleTopicCard('pain-content')" style="cursor: pointer;">
+                    二、疼痛
+                    <span class="toggle-icon" id="pain-content-icon">▶</span>
+                </h2>
+                <div class="topic-content" id="pain-content">
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
@@ -134,13 +171,18 @@
                         <li><strong>神经痛（烧灼样/刺痛）：</strong>带状疱疹后遗症、坐骨神经痛、糖尿病周围神经病变等</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- 三、咳嗽 -->
         <section class="content-section">
             <div class="topic-card">
-                <h2>三、咳嗽</h2>
+                <h2 onclick="toggleTopicCard('cough-content')" style="cursor: pointer;">
+                    三、咳嗽
+                    <span class="toggle-icon" id="cough-content-icon">▶</span>
+                </h2>
+                <div class="topic-content" id="cough-content">
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
@@ -174,13 +216,18 @@
                         <li><strong>其他系统疾病：</strong>胃食管反流病（反流性咳嗽）、鼻后滴漏综合征、药物副作用</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- 四、头晕 -->
         <section class="content-section">
             <div class="topic-card">
-                <h2>四、头晕</h2>
+                <h2 onclick="toggleTopicCard('dizziness-content')" style="cursor: pointer;">
+                    四、头晕
+                    <span class="toggle-icon" id="dizziness-content-icon">▶</span>
+                </h2>
+                <div class="topic-content" id="dizziness-content">
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
@@ -215,13 +262,18 @@
                         <li><strong>其他诱因：</strong>视疲劳、药物副作用、精神心理因素（焦虑、惊恐发作）</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- 五、恶心呕吐 -->
         <section class="content-section">
             <div class="topic-card">
-                <h2>五、恶心与呕吐</h2>
+                <h2 onclick="toggleTopicCard('nausea-vomiting-content')" style="cursor: pointer;">
+                    五、恶心与呕吐
+                    <span class="toggle-icon" id="nausea-vomiting-content-icon">▶</span>
+                </h2>
+                <div class="topic-content" id="nausea-vomiting-content">
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
@@ -258,13 +310,18 @@
                         <li><strong>其他因素：</strong>药物副作用、内分泌疾病、精神心理因素</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- 六、胸闷气短 -->
         <section class="content-section">
             <div class="topic-card">
-                <h2>六、胸闷、气短</h2>
+                <h2 onclick="toggleTopicCard('chest-tightness-breathlessness-content')" style="cursor: pointer;">
+                    六、胸闷、气短
+                    <span class="toggle-icon" id="chest-tightness-breathlessness-content-icon">▶</span>
+                </h2>
+                <div class="topic-content" id="chest-tightness-breathlessness-content">
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
@@ -299,13 +356,18 @@
                         <li><strong>其他因素：</strong>精神心理因素、贫血、肥胖、药物副作用、环境因素</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- 七、水肿 -->
         <section class="content-section">
             <div class="topic-card">
-                <h2>七、水肿</h2>
+                <h2 onclick="toggleTopicCard('edema-content')" style="cursor: pointer;">
+                    七、水肿
+                    <span class="toggle-icon" id="edema-content-icon">▶</span>
+                </h2>
+                <div class="topic-content" id="edema-content">
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
@@ -341,13 +403,18 @@
                         <li><strong>其他因素：</strong>营养不良性水肿、内分泌因素（甲减等）、药物影响、生理性因素（妊娠期、久坐）</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- 八、心悸 -->
         <section class="content-section">
             <div class="topic-card">
-                <h2>八、心悸</h2>
+                <h2 onclick="toggleTopicCard('palpitation-content')" style="cursor: pointer;">
+                    八、心悸
+                    <span class="toggle-icon" id="palpitation-content-icon">▶</span>
+                </h2>
+                <div class="topic-content" id="palpitation-content">
                 
                 <div class="principle-box">
                     <h3>生理原理</h3>
@@ -383,6 +450,7 @@
                         <li><strong>药物与物质因素：</strong>药物副作用、物质摄入（咖啡因等）、药物过量</li>
                         <li><strong>精神心理与神经因素：</strong>精神心理异常、神经功能失调、中枢神经系统疾病</li>
                     </ul>
+                </div>
                 </div>
             </div>
         </section>
@@ -504,6 +572,24 @@
         
         .causes-box strong {
             color: #e74c3c;
+        }
+
+        .topic-card h2 {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-content {
+            display: block;
         }
     </style>
 </body>

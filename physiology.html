@@ -8,6 +8,32 @@
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.topic-content[id]');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -64,9 +90,27 @@
         .topic-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 3px solid #e8f4f8;
+            cursor: pointer;
+        }
+
+        .topic-header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-content {
+            display: block;
         }
 
         .topic-icon {
@@ -256,7 +300,9 @@
                 <li class="menu-category">实用指南</li>
                 <li><a href="check_up.html">体检指标</a></li>
                 <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">国内医院</a></li>
                 <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
             </ul>
         </nav>
 
@@ -274,13 +320,18 @@
 
             <!-- 细胞的基本功能 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🔬</div>
-                    <h2 class="topic-title">细胞的基本功能</h2>
+                <div class="topic-header" onclick="toggleTopicCard('cell-function-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🔬</div>
+                        <h2 class="topic-title">细胞的基本功能</h2>
+                    </div>
+                    <span class="toggle-icon" id="cell-function-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     细胞是机体结构和功能的基本单位，理解细胞功能是学习生理学的基础
                 </div>
+
+                <div class="topic-content" id="cell-function-content">
 
                 <div class="info-section">
                     <div class="info-title">物质转运</div>
@@ -318,17 +369,23 @@
                         <div class="flow-step">动作电位以局部电流形式传导</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 血液 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🩸</div>
-                    <h2 class="topic-title">血液</h2>
+                <div class="topic-header" onclick="toggleTopicCard('blood-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🩸</div>
+                        <h2 class="topic-title">血液</h2>
+                    </div>
+                    <span class="toggle-icon" id="blood-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     血液在心血管系统中循环流动，运输氧气、营养物质和代谢产物，维持内环境稳态
                 </div>
+
+                <div class="topic-content" id="blood-content">
 
                 <div class="info-section">
                     <div class="info-title">血液组成</div>
@@ -369,17 +426,23 @@
                         <div class="flow-step">形成坚固凝血块（永久性止血）</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 血液循环 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">❤️</div>
-                    <h2 class="topic-title">血液循环</h2>
+                <div class="topic-header" onclick="toggleTopicCard('circulation-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">❤️</div>
+                        <h2 class="topic-title">血液循环</h2>
+                    </div>
+                    <span class="toggle-icon" id="circulation-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     血液在心血管系统中周而复始的流动，是机体进行物质运输、维持内环境稳态的重要生理过程
                 </div>
+
+                <div class="topic-content" id="circulation-content">
 
                 <div class="info-section">
                     <div class="info-title">心脏泵血功能</div>
@@ -418,17 +481,23 @@
                         <div class="flow-step">血液进入体循环/肺循环</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 呼吸 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🫁</div>
-                    <h2 class="topic-title">呼吸</h2>
+                <div class="topic-header" onclick="toggleTopicCard('respiration-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🫁</div>
+                        <h2 class="topic-title">呼吸</h2>
+                    </div>
+                    <span class="toggle-icon" id="respiration-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     机体与外界环境之间的气体交换过程，包括肺通气、肺换气、气体运输和组织换气
                 </div>
+
+                <div class="topic-content" id="respiration-content">
 
                 <div class="info-section">
                     <div class="info-title">呼吸过程</div>
@@ -470,17 +539,23 @@
                         <div class="flow-step">血液恢复正常水平</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 消化与吸收 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🍔</div>
-                    <h2 class="topic-title">消化与吸收</h2>
+                <div class="topic-header" onclick="toggleTopicCard('digestion-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🍔</div>
+                        <h2 class="topic-title">消化与吸收</h2>
+                    </div>
+                    <span class="toggle-icon" id="digestion-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     食物在消化道内被分解为可吸收的小分子物质，并进入血液循环和淋巴系统
                 </div>
+
+                <div class="topic-content" id="digestion-content">
 
                 <div class="info-section">
                     <div class="info-title">消化液</div>
@@ -522,17 +597,23 @@
                         <div class="flow-step">大肠：吸收水分，形成粪便</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 尿的生成与排出 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">💧</div>
-                    <h2 class="topic-title">尿的生成与排出</h2>
+                <div class="topic-header" onclick="toggleTopicCard('urine-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">💧</div>
+                        <h2 class="topic-title">尿的生成与排出</h2>
+                    </div>
+                    <span class="toggle-icon" id="urine-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     通过尿的生成和排出，维持机体水、电解质和酸碱平衡，排出代谢废物
                 </div>
+
+                <div class="topic-content" id="urine-content">
 
                 <div class="info-section">
                     <div class="info-title">尿生成过程</div>
@@ -574,17 +655,23 @@
                         <div class="flow-step">经输尿管→膀胱→尿道排出</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 神经系统 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🧠</div>
-                    <h2 class="topic-title">神经系统</h2>
+                <div class="topic-header" onclick="toggleTopicCard('nervous-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🧠</div>
+                        <h2 class="topic-title">神经系统</h2>
+                    </div>
+                    <span class="toggle-icon" id="nervous-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     机体最重要的调节系统，通过神经反射和神经递质，调节和控制机体各种功能活动
                 </div>
+
+                <div class="topic-content" id="nervous-content">
 
                 <div class="info-section">
                     <div class="info-title">神经系统组成</div>
@@ -622,17 +709,23 @@
                         <div class="flow-step">效应器：执行反应</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 内分泌 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🧬</div>
-                    <h2 class="topic-title">内分泌</h2>
+                <div class="topic-header" onclick="toggleTopicCard('endocrine-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🧬</div>
+                        <h2 class="topic-title">内分泌</h2>
+                    </div>
+                    <span class="toggle-icon" id="endocrine-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     通过激素的作用，调节机体的生长、发育、代谢、生殖等功能，维持内环境稳态
                 </div>
+
+                <div class="topic-content" id="endocrine-content">
 
                 <div class="info-section">
                     <div class="info-title">主要内分泌腺</div>
@@ -662,17 +755,23 @@
                         <div class="flow-step">负反馈：激素水平反馈调节下丘脑-垂体</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 生殖 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">👶</div>
-                    <h2 class="topic-title">生殖</h2>
+                <div class="topic-header" onclick="toggleTopicCard('reproduction-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">👶</div>
+                        <h2 class="topic-title">生殖</h2>
+                    </div>
+                    <span class="toggle-icon" id="reproduction-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     生物产生后代、繁衍种族的过程，包括男性和女性的生殖功能，以及妊娠和分娩
                 </div>
+
+                <div class="topic-content" id="reproduction-content">
 
                 <div class="info-section">
                     <div class="info-title">男性生殖</div>
@@ -709,6 +808,7 @@
                         <div class="flow-arrow">↓</div>
                         <div class="flow-step">分娩：宫颈扩张→胎儿娩出→胎盘娩出</div>
                     </div>
+                </div>
                 </div>
             </div>
 

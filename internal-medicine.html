@@ -8,6 +8,32 @@
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.topic-content');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -32,10 +58,12 @@
                 <li><a href="common_disease.html">常见病</a></li>
                 <li><a href="symptoms.html">常见症状</a></li>
                 <li class="menu-category">实用指南</li>
-                <li><a href="check_up.html">体检指标</a></li>
-                <li><a href="doctor.html">省钱就医</a></li>
- <li><a href="medicine.html">家庭用药</a></li>
-            </ul>
+                                <li><a href="check_up.html">体检指标</a></li>
+                                <li><a href="doctor.html">省钱就医</a></li>
+                                <li><a href="hospitals.html">国内医院</a></li>
+                                <li><a href="medicine.html">家庭用药</a></li>
+                                                <li><a href="healthy-living.html">健康生活</a></li>
+                                            </ul>
         </nav>
     
     <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
@@ -57,7 +85,12 @@
             <h2>呼吸系统疾病</h2>
             
             <div class="topic-card">
-                <h3>1. 慢性阻塞性肺疾病（COPD）</h3>
+                <h3 onclick="toggleTopicCard('copd-content')" style="cursor: pointer;">
+                    1. 慢性阻塞性肺疾病（COPD）
+                    <span class="toggle-icon" id="copd-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="copd-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -104,10 +137,16 @@
                         <li><strong>急性加重期：</strong>使用抗生素、全身糖皮质激素、增加支气管扩张剂剂量</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>2. 支气管哮喘</h3>
+                <h3 onclick="toggleTopicCard('asthma-content')" style="cursor: pointer;">
+                    2. 支气管哮喘
+                    <span class="toggle-icon" id="asthma-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="asthma-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -151,10 +190,16 @@
                         <li><strong>急性加重管理：</strong>增加支气管扩张剂和糖皮质激素剂量，口服糖皮质激素3-5天</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>3. 肺炎</h3>
+                <h3 onclick="toggleTopicCard('pneumonia-content')" style="cursor: pointer;">
+                    3. 肺炎
+                    <span class="toggle-icon" id="pneumonia-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="pneumonia-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -194,10 +239,16 @@
                         <li><strong>重症住院：</strong>低氧血症、呼吸衰竭需住院治疗</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>4. 肺结核</h3>
+                <h3 onclick="toggleTopicCard('tuberculosis-content')" style="cursor: pointer;">
+                    4. 肺结核
+                    <span class="toggle-icon" id="tuberculosis-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="tuberculosis-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -238,6 +289,7 @@
                         <li><strong>治疗监测：</strong>定期查肝肾功能、血常规、视力（乙胺丁醇副作用）</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
@@ -246,7 +298,12 @@
             <h2>循环系统疾病</h2>
             
             <div class="topic-card">
-                <h3>1. 高血压</h3>
+                <h3 onclick="toggleTopicCard('hypertension-content')" style="cursor: pointer;">
+                    1. 高血压
+                    <span class="toggle-icon" id="hypertension-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="hypertension-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -288,10 +345,16 @@
                         <li><strong>长期坚持：</strong>高血压需终身服药，不可随意停药</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>2. 冠状动脉粥样硬化性心脏病（冠心病）</h3>
+                <h3 onclick="toggleTopicCard('cad-content')" style="cursor: pointer;">
+                    2. 冠状动脉粥样硬化性心脏病（冠心病）
+                    <span class="toggle-icon" id="cad-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="cad-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -336,10 +399,16 @@
                         <li><strong>二级预防：</strong>长期服用阿司匹林、他汀类药物</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>3. 心力衰竭</h3>
+                <h3 onclick="toggleTopicCard('heart-failure-content')" style="cursor: pointer;">
+                    3. 心力衰竭
+                    <span class="toggle-icon" id="heart-failure-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="heart-failure-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -385,6 +454,7 @@
                         <li><strong>洋地黄类：</strong>正性肌力，适用于房颤伴心衰（地高辛）</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
@@ -393,7 +463,12 @@
             <h2>消化系统疾病</h2>
             
             <div class="topic-card">
-                <h3>1. 消化性溃疡</h3>
+                <h3 onclick="toggleTopicCard('ulcer-content')" style="cursor: pointer;">
+                    1. 消化性溃疡
+                    <span class="toggle-icon" id="ulcer-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="ulcer-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -437,10 +512,16 @@
                         <li><strong>避免诱因：</strong>停用NSAIDs，戒烟限酒，避免辛辣刺激食物</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>2. 肝硬化</h3>
+                <h3 onclick="toggleTopicCard('cirrhosis-content')" style="cursor: pointer;">
+                    2. 肝硬化
+                    <span class="toggle-icon" id="cirrhosis-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="cirrhosis-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -488,6 +569,7 @@
                         <li><strong>晚期治疗：</strong>肝移植</li>
                     </ul>
                 </div>
+                </div>
             </div>
         </section>
 
@@ -496,7 +578,12 @@
             <h2>内分泌系统疾病</h2>
             
             <div class="topic-card">
-                <h3>1. 糖尿病</h3>
+                <h3 onclick="toggleTopicCard('diabetes-content')" style="cursor: pointer;">
+                    1. 糖尿病
+                    <span class="toggle-icon" id="diabetes-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="diabetes-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -542,10 +629,16 @@
                         <li><strong>并发症防治：</strong>控制血压、调脂、抗血小板（阿司匹林）</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>2. 甲状腺功能亢进症（甲亢）</h3>
+                <h3 onclick="toggleTopicCard('hyperthyroidism-content')" style="cursor: pointer;">
+                    2. 甲状腺功能亢进症（甲亢）
+                    <span class="toggle-icon" id="hyperthyroidism-content-icon">▶</span>
+                </h3>
+                
+                <div class="topic-content" id="hyperthyroidism-content">
                 
                 <div class="info-box">
                     <h4>疾病简介</h4>
@@ -586,6 +679,7 @@
                         <li><strong>手术治疗：</strong>甲状腺次全切除术、甲状腺切除术</li>
                         <li><strong>甲亢危象：</strong>大剂量抗甲状腺药、β受体阻滞剂、糖皮质激素、补液、降温</li>
                     </ul>
+                </div>
                 </div>
             </div>
         </section>
@@ -716,6 +810,24 @@
 
         .highlight-box li {
             color: #2c3e50;
+        }
+
+        .topic-card h3 {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-content {
+            display: block;
         }
     </style>
 </body>

@@ -8,6 +8,32 @@
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.system-content[id]');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -67,7 +93,25 @@
         .system-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .system-header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .system-content {
+            display: block;
         }
 
         .system-icon {
@@ -282,7 +326,9 @@
                 <li class="menu-category">实用指南</li>
                 <li><a href="check_up.html">体检指标</a></li>
                 <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">国内医院</a></li>
                 <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
             </ul>
         </nav>
 
@@ -300,11 +346,14 @@
 
             <!-- 循环系统 -->
             <div class="system-card">
-                <div class="system-header">
-                    <div class="system-icon">❤️</div>
-                    <h2 class="system-title">循环系统 <span class="system-number">1</span></h2>
+                <div class="system-header" onclick="toggleTopicCard('circulatory-content')" style="cursor: pointer;">
+                    <div class="system-header-left">
+                        <div class="system-icon">❤️</div>
+                        <h2 class="system-title">循环系统 <span class="system-number">1</span></h2>
+                    </div>
+                    <span class="toggle-icon" id="circulatory-content-icon">▶</span>
                 </div>
-                <div class="system-content">
+                <div class="system-content" id="circulatory-content">
                     <p class="system-description">
                         不仅是物质运输，更兼具免疫防御（白细胞、抗体运输）、体温调节功能，通过体循环、肺循环双回路，维持全身细胞的营养供应与代谢平衡。
                     </p>
@@ -346,11 +395,14 @@
 
             <!-- 呼吸系统 -->
             <div class="system-card">
-                <div class="system-header">
-                    <div class="system-icon">🫁</div>
-                    <h2 class="system-title">呼吸系统 <span class="system-number">2</span></h2>
+                <div class="system-header" onclick="toggleTopicCard('respiratory-content')" style="cursor: pointer;">
+                    <div class="system-header-left">
+                        <div class="system-icon">🫁</div>
+                        <h2 class="system-title">呼吸系统 <span class="system-number">2</span></h2>
+                    </div>
+                    <span class="toggle-icon" id="respiratory-content-icon">▶</span>
                 </div>
-                <div class="system-content">
+                <div class="system-content" id="respiratory-content">
                     <p class="system-description">
                         除气体交换外，还能调节体内酸碱平衡、过滤吸入气体、同时发声，是机体与外界沟通的"气体桥梁"。
                     </p>
@@ -392,11 +444,14 @@
 
             <!-- 消化系统 -->
             <div class="system-card">
-                <div class="system-header">
-                    <div class="system-icon">🍔</div>
-                    <h2 class="system-title">消化系统 <span class="system-number">3</span></h2>
+                <div class="system-header" onclick="toggleTopicCard('digestive-content')" style="cursor: pointer;">
+                    <div class="system-header-left">
+                        <div class="system-icon">🍔</div>
+                        <h2 class="system-title">消化系统 <span class="system-number">3</span></h2>
+                    </div>
+                    <span class="toggle-icon" id="digestive-content-icon">▶</span>
                 </div>
-                <div class="system-content">
+                <div class="system-content" id="digestive-content">
                     <p class="system-description">
                         分机械消化（物理研磨）和化学消化（酶解分解），将大分子食物分解为小分子可吸收物质，为机体供能、供原料。
                     </p>
@@ -437,11 +492,14 @@
 
             <!-- 泌尿系统 -->
             <div class="system-card">
-                <div class="system-header">
-                    <div class="system-icon">💧</div>
-                    <h2 class="system-title">泌尿系统 <span class="system-number">4</span></h2>
+                <div class="system-header" onclick="toggleTopicCard('urinary-content')" style="cursor: pointer;">
+                    <div class="system-header-left">
+                        <div class="system-icon">💧</div>
+                        <h2 class="system-title">泌尿系统 <span class="system-number">4</span></h2>
+                    </div>
+                    <span class="toggle-icon" id="urinary-content-icon">▶</span>
                 </div>
-                <div class="system-content">
+                <div class="system-content" id="urinary-content">
                     <p class="system-description">
                         精准过滤血液中废物、多余水分及电解质，通过尿液排出，同时重吸收有用物质，维持体内水、电解质、酸碱平衡。
                     </p>
@@ -482,11 +540,14 @@
 
             <!-- 神经系统 -->
             <div class="system-card">
-                <div class="system-header">
-                    <div class="system-icon">🧠</div>
-                    <h2 class="system-title">神经系统 <span class="system-number">5</span></h2>
+                <div class="system-header" onclick="toggleTopicCard('nervous-content')" style="cursor: pointer;">
+                    <div class="system-header-left">
+                        <div class="system-icon">🧠</div>
+                        <h2 class="system-title">神经系统 <span class="system-number">5</span></h2>
+                    </div>
+                    <span class="toggle-icon" id="nervous-content-icon">▶</span>
                 </div>
-                <div class="system-content">
+                <div class="system-content" id="nervous-content">
                     <p class="system-description">
                         作为机体"指挥调控中心"，接收内、外环境刺激，整合分析后发出指令，调节运动、内分泌、内脏活动等，实现意识、思维、记忆、情感等高级功能。
                     </p>
@@ -526,11 +587,14 @@
 
             <!-- 内分泌系统 -->
             <div class="system-card">
-                <div class="system-header">
-                    <div class="system-icon">🧬</div>
-                    <h2 class="system-title">内分泌系统 <span class="system-number">6</span></h2>
+                <div class="system-header" onclick="toggleTopicCard('endocrine-content')" style="cursor: pointer;">
+                    <div class="system-header-left">
+                        <div class="system-icon">🧬</div>
+                        <h2 class="system-title">内分泌系统 <span class="system-number">6</span></h2>
+                    </div>
+                    <span class="toggle-icon" id="endocrine-content-icon">▶</span>
                 </div>
-                <div class="system-content">
+                <div class="system-content" id="endocrine-content">
                     <p class="system-description">
                         与神经系统协同（神经-体液调节），通过分泌激素（微量、高效），精准调控机体生长发育、新陈代谢、生殖功能、免疫反应等，维持内环境稳态。
                     </p>
@@ -574,11 +638,14 @@
 
             <!-- 运动系统 -->
             <div class="system-card">
-                <div class="system-header">
-                    <div class="system-icon">💪</div>
-                    <h2 class="system-title">运动系统 <span class="system-number">7</span></h2>
+                <div class="system-header" onclick="toggleTopicCard('movement-content')" style="cursor: pointer;">
+                    <div class="system-header-left">
+                        <div class="system-icon">💪</div>
+                        <h2 class="system-title">运动系统 <span class="system-number">7</span></h2>
+                    </div>
+                    <span class="toggle-icon" id="movement-content-icon">▶</span>
                 </div>
-                <div class="system-content">
+                <div class="system-content" id="movement-content">
                     <p class="system-description">
                         构成人体支架、保护内脏、完成躯体运动（屈伸、旋转、行走等），同时骨骼是钙、磷储存库，为机体提供结构支撑和运动能力。
                     </p>
@@ -620,11 +687,14 @@
 
             <!-- 生殖系统 -->
             <div class="system-card">
-                <div class="system-header">
-                    <div class="system-icon">👶</div>
-                    <h2 class="system-title">生殖系统 <span class="system-number">8</span></h2>
+                <div class="system-header" onclick="toggleTopicCard('reproductive-content')" style="cursor: pointer;">
+                    <div class="system-header-left">
+                        <div class="system-icon">👶</div>
+                        <h2 class="system-title">生殖系统 <span class="system-number">8</span></h2>
+                    </div>
+                    <span class="toggle-icon" id="reproductive-content-icon">▶</span>
                 </div>
-                <div class="system-content">
+                <div class="system-content" id="reproductive-content">
                     <p class="system-description">
                         产生生殖细胞（精子/卵子）、分泌性激素（调节生殖发育与第二性征）、完成受精与孕育（女性），实现物种繁衍。
                     </p>

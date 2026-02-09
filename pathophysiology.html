@@ -8,6 +8,32 @@
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.topic-content[id]');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -64,9 +90,27 @@
         .topic-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 3px solid #e8f4f8;
+            cursor: pointer;
+        }
+
+        .topic-header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-content {
+            display: block;
         }
 
         .topic-icon {
@@ -256,7 +300,9 @@
                 <li class="menu-category">实用指南</li>
                 <li><a href="check_up.html">体检指标</a></li>
                 <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">国内医院</a></li>
                 <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
             </ul>
         </nav>
 
@@ -274,13 +320,18 @@
 
             <!-- 疾病概论 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">📚</div>
-                    <h2 class="topic-title">疾病概论</h2>
+                <div class="topic-header" onclick="toggleTopicCard('disease-overview-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">📚</div>
+                        <h2 class="topic-title">疾病概论</h2>
+                    </div>
+                    <span class="toggle-icon" id="disease-overview-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     研究疾病发生发展的一般规律，是病理生理学的基础理论部分
                 </div>
+
+                <div class="topic-content" id="disease-overview-content">
 
                 <div class="info-section">
                     <div class="info-title">健康与疾病</div>
@@ -319,17 +370,23 @@
                         <div class="flow-step">转归：康复/死亡</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 水、电解质代谢紊乱 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">💧</div>
-                    <h2 class="topic-title">水、电解质代谢紊乱</h2>
+                <div class="topic-header" onclick="toggleTopicCard('electrolyte-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">💧</div>
+                        <h2 class="topic-title">水、电解质代谢紊乱</h2>
+                    </div>
+                    <span class="toggle-icon" id="electrolyte-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     水和电解质代谢紊乱是临床常见的病理过程，严重影响机体功能
                 </div>
+
+                <div class="topic-content" id="electrolyte-content">
 
                 <div class="info-section">
                     <div class="info-title">脱水类型</div>
@@ -370,17 +427,23 @@
                         <div class="flow-step">临床表现与治疗</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 酸碱平衡紊乱 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">⚖️</div>
-                    <h2 class="topic-title">酸碱平衡紊乱</h2>
+                <div class="topic-header" onclick="toggleTopicCard('acid-base-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">⚖️</div>
+                        <h2 class="topic-title">酸碱平衡紊乱</h2>
+                    </div>
+                    <span class="toggle-icon" id="acid-base-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     血液pH值偏离正常范围，是临床重要的病理生理过程
                 </div>
+
+                <div class="topic-content" id="acid-base-content">
 
                 <div class="info-section">
                     <div class="info-title">酸碱平衡调节</div>
@@ -419,17 +482,23 @@
                         <div class="flow-step">pH恢复正常或代偿状态</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 缺氧 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🫁</div>
-                    <h2 class="topic-title">缺氧</h2>
+                <div class="topic-header" onclick="toggleTopicCard('hypoxia-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🫁</div>
+                        <h2 class="topic-title">缺氧</h2>
+                    </div>
+                    <span class="toggle-icon" id="hypoxia-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     组织供氧不足或利用氧障碍，引起机体功能代谢异常
                 </div>
+
+                <div class="topic-content" id="hypoxia-content">
 
                 <div class="info-section">
                     <div class="info-title">缺氧类型</div>
@@ -459,17 +528,23 @@
                         <div class="flow-step">严重缺氧：脑水肿、细胞损伤</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 发热 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🌡️</div>
-                    <h2 class="topic-title">发热</h2>
+                <div class="topic-header" onclick="toggleTopicCard('fever-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🌡️</div>
+                        <h2 class="topic-title">发热</h2>
+                    </div>
+                    <span class="toggle-icon" id="fever-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     致热原作用于体温调节中枢，使体温调定点上移引起的体温升高
                 </div>
+
+                <div class="topic-content" id="fever-content">
 
                 <div class="info-section">
                     <div class="info-title">发热发生机制</div>
@@ -511,17 +586,23 @@
                         <div class="flow-step">产热增加、散热减少→发热</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 应激 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">😰</div>
-                    <h2 class="topic-title">应激</h2>
+                <div class="topic-header" onclick="toggleTopicCard('stress-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">😰</div>
+                        <h2 class="topic-title">应激</h2>
+                    </div>
+                    <span class="toggle-icon" id="stress-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     机体在受到各种内外环境因素刺激时出现的全身性非特异性适应反应
                 </div>
+
+                <div class="topic-content" id="stress-content">
 
                 <div class="info-section">
                     <div class="info-title">神经内分泌反应</div>
@@ -562,17 +643,23 @@
                         <div class="flow-step">适应或应激相关疾病</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 凝血与抗凝血平衡紊乱 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🩸</div>
-                    <h2 class="topic-title">凝血与抗凝血平衡紊乱（DIC）</h2>
+                <div class="topic-header" onclick="toggleTopicCard('coagulation-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🩸</div>
+                        <h2 class="topic-title">凝血与抗凝血平衡紊乱（DIC）</h2>
+                    </div>
+                    <span class="toggle-icon" id="coagulation-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     凝血与抗凝血平衡紊乱可导致血栓形成或出血倾向，严重者可引起弥散性血管内凝血
                 </div>
+
+                <div class="topic-content" id="coagulation-content">
 
                 <div class="info-section">
                     <div class="info-title">DIC分期</div>
@@ -603,17 +690,23 @@
                         <div class="flow-step">出血、休克、器官功能衰竭</div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- 休克 -->
             <div class="topic-card">
-                <div class="topic-header">
-                    <div class="topic-icon">🚨</div>
-                    <h2 class="topic-title">休克</h2>
+                <div class="topic-header" onclick="toggleTopicCard('shock-content')" style="cursor: pointer;">
+                    <div class="topic-header-left">
+                        <div class="topic-icon">🚨</div>
+                        <h2 class="topic-title">休克</h2>
+                    </div>
+                    <span class="toggle-icon" id="shock-content-icon">▶</span>
                 </div>
                 <div class="topic-intro">
                     有效循环血量急剧减少，导致组织微循环灌流严重不足的危急状态
                 </div>
+
+                <div class="topic-content" id="shock-content">
 
                 <div class="info-section">
                     <div class="info-title">休克分期</div>
@@ -641,6 +734,7 @@
                         <div class="flow-arrow">↓</div>
                         <div class="flow-step">死亡（未及时治疗）</div>
                     </div>
+                </div>
                 </div>
             </div>
 

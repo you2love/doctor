@@ -6,8 +6,34 @@
     <title>家庭用药 - 医学学习平台</title>
     <script>
         function toggleSidebar() {
-            document.querySelector(.sidebar).classList.toggle(open);
+            document.querySelector('.sidebar').classList.toggle('open');
         }
+
+        function toggleTopicCard(cardId) {
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggleIcon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggleIcon.textContent = '▶';
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            const topicContents = document.querySelectorAll('.topic-content');
+            topicContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -34,7 +60,9 @@
                 <li class="menu-category">实用指南</li>
                 <li><a href="check_up.html">体检指标</a></li>
                 <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">国内医院</a></li>
  <li><a href="medicine.html" class="active">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
             </ul>
         </nav>
     
@@ -56,7 +84,11 @@
             <h2>一、核心药品分类对比（一看就懂）</h2>
             
             <div class="topic-card">
-                <h3>（一）处方药（Rx）vs 非处方药（OTC）</h3>
+                <h3 onclick="toggleTopicCard('rx-otc-content')" style="cursor: pointer;">
+                    （一）处方药（Rx）vs 非处方药（OTC）
+                    <span class="toggle-icon" id="rx-otc-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="rx-otc-content">
                 <div class="table-responsive">
                     <table class="reference-table">
                         <thead>
@@ -100,10 +132,15 @@
                         </tbody>
                     </table>
                 </div>
+                </div>
             </div>
 
             <div class="topic-card">
-                <h3>（二）原研药 vs 仿制药</h3>
+                <h3 onclick="toggleTopicCard('originator-generic-content')" style="cursor: pointer;">
+                    （二）原研药 vs 仿制药
+                    <span class="toggle-icon" id="originator-generic-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="originator-generic-content">
                 <div class="table-responsive">
                     <table class="reference-table">
                         <thead>
@@ -212,8 +249,13 @@
             </div>
             
             <div class="highlight-box">
-                <h3>剂型选择核心原则</h3>
+                <h3 onclick="toggleTopicCard('dosage-form-principle-content')" style="cursor: pointer;">
+                    剂型选择核心原则
+                    <span class="toggle-icon" id="dosage-form-principle-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="dosage-form-principle-content">
                 <p><strong>有效成分一样！剂型只影响怎么吃，不影响效果！能选片剂/胶囊，就不买口服液/糖浆，能省50%以上的钱。</strong></p>
+                </div>
             </div>
         </section>
 
@@ -223,8 +265,11 @@
             <div class="medicine-categories">
                 <div class="category-card">
                     <div class="category-icon">🌡️</div>
-                    <h3>感冒退烧类</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('cold-fever-content')" style="cursor: pointer;">
+                        感冒退烧类
+                        <span class="toggle-icon" id="cold-fever-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="cold-fever-content">
                         <li><strong>对乙酰氨基酚片</strong> - 退烧、止轻中度痛（5-15元/100片）</li>
                         <li><strong>布洛芬混悬液（儿童）</strong> - 儿童退烧（10-20元/100ml）</li>
                         <li><strong>复方氨酚烷胺片</strong> - 缓解感冒多种症状（8-15元/20片）</li>
@@ -234,8 +279,11 @@
 
                 <div class="category-card">
                     <div class="category-icon">🤢</div>
-                    <h3>消化不适类</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('digestion-content')" style="cursor: pointer;">
+                        消化不适类
+                        <span class="toggle-icon" id="digestion-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="digestion-content">
                         <li><strong>健胃消食片</strong> - 助消化、开胃口（5-10元/36片）</li>
                         <li><strong>蒙脱石散</strong> - 止泻、保护肠黏膜（8-15元/10袋）</li>
                         <li><strong>多潘立酮片</strong> - 促胃动力（10-20元/30片）</li>
@@ -245,8 +293,11 @@
 
                 <div class="category-card">
                     <div class="category-icon">🤧</div>
-                    <h3>皮肤问题类</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('skin-content')" style="cursor: pointer;">
+                        皮肤问题类
+                        <span class="toggle-icon" id="skin-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="skin-content">
                         <li><strong>炉甘石洗剂</strong> - 止痒、收敛（5-10元/100ml）</li>
                         <li><strong>红霉素软膏</strong> - 外用消炎杀菌（3-8元/10g）</li>
                         <li><strong>氯雷他定片</strong> - 抗过敏（10-20元/14片）</li>
@@ -256,8 +307,11 @@
 
                 <div class="category-card">
                     <div class="category-icon">🩹</div>
-                    <h3>外伤处理类</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('injury-content')" style="cursor: pointer;">
+                        外伤处理类
+                        <span class="toggle-icon" id="injury-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="injury-content">
                         <li><strong>碘伏</strong> - 皮肤消毒（3-5元/60ml）</li>
                         <li><strong>创可贴（普通款）</strong> - 止血、护伤口（2-5元/20片）</li>
                         <li><strong>云南白药气雾剂</strong> - 消肿止痛、散瘀（20-30元/60ml）</li>
@@ -266,8 +320,11 @@
 
                 <div class="category-card">
                     <div class="category-icon">🫁</div>
-                    <h3>呼吸道不适类</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('respiratory-content')" style="cursor: pointer;">
+                        呼吸道不适类
+                        <span class="toggle-icon" id="respiratory-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="respiratory-content">
                         <li><strong>川贝枇杷膏（普通款）</strong> - 润肺、止咳、化痰（10-18元/150ml）</li>
                         <li><strong>西瓜霜含片</strong> - 清热、消肿、止痛（5-10元/24片）</li>
                         <li><strong>盐酸氨溴索口服溶液</strong> - 稀释痰液、帮着排痰（10-15元/100ml）</li>
@@ -276,8 +333,11 @@
 
                 <div class="category-card">
                     <div class="category-icon">👁️</div>
-                    <h3>眼部问题类</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('eye-content')" style="cursor: pointer;">
+                        眼部问题类
+                        <span class="toggle-icon" id="eye-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="eye-content">
                         <li><strong>左氧氟沙星滴眼液</strong> - 眼部消炎杀菌（10-20元/5ml）</li>
                         <li><strong>玻璃酸钠滴眼液（无防腐剂）</strong> - 滋润眼球、缓解干涩（15-25元/10支）</li>
                         <li><strong>红霉素眼膏</strong> - 眼部外用消炎（3-8元/2g）</li>
@@ -292,8 +352,11 @@
             <div class="warning-boxes">
                 <div class="warning-card">
                     <div class="warning-icon">💰</div>
-                    <h3>省钱核心技巧</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('money-saving-tips-content')" style="cursor: pointer;">
+                        省钱核心技巧
+                        <span class="toggle-icon" id="money-saving-tips-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="money-saving-tips-content">
                         <li>优先选通用名+片剂/胶囊，同款药仿制药比原研药便宜30%-70%</li>
                         <li>非处方药选绿色OTC（乙类），比红色OTC（甲类）更安全、更便宜</li>
                         <li>长期吃药主动问药师："有没有效果和原研药一样的仿制药？"</li>
@@ -302,8 +365,11 @@
 
                 <div class="warning-card danger">
                     <div class="warning-icon">⚠️</div>
-                    <h3>安全用药重点（一句话避坑）</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('safety-tips-content')" style="cursor: pointer;">
+                        安全用药重点（一句话避坑）
+                        <span class="toggle-icon" id="safety-tips-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="safety-tips-content">
                         <li>处方药必须听医生的，别自己买着吃（比如头孢、左氧氟沙星），怕过敏或耐药</li>
                         <li>孩子用药：0-28天新生儿所有药要医生开方；3岁以下选颗粒/混悬液</li>
                         <li>别叠加吃药（比如吃了复方感冒药，别再单独吃退烧药），避免成分过量</li>
@@ -314,8 +380,11 @@
 
                 <div class="warning-card">
                     <div class="warning-icon">🚫</div>
-                    <h3>特殊人群禁忌（❌明确禁用）</h3>
-                    <ul>
+                    <h3 onclick="toggleTopicCard('contraindications-content')" style="cursor: pointer;">
+                        特殊人群禁忌（❌明确禁用）
+                        <span class="toggle-icon" id="contraindications-content-icon">▶</span>
+                    </h3>
+                    <ul class="topic-content" id="contraindications-content">
                         <li><strong>孕妇/哺乳期：</strong>禁用甲硝唑类（口服/外用）、含伪麻黄碱的感冒药</li>
                         <li><strong>18岁以下：</strong>禁用左氧氟沙星（影响骨骼发育）</li>
                         <li><strong>糖尿病患者：</strong>慎用含糖的药（比如川贝枇杷膏、糖浆）</li>
@@ -326,12 +395,451 @@
         </section>
 
         <section class="content-section">
-            <h2 class="highlight-title">五、医保 & 集采药终极省钱攻略（省最多）</h2>
+            <h2>六、国内外公认经典药品清单</h2>
+            
+            <div class="medicine-intro">
+                <p>以下整理了国内外医学界公认的经典药物，包括原研药、仿制药及其价格对比，帮助您在保证疗效的前提下合理选择。</p>
+            </div>
+
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('medicine-selection-principle-content')" style="cursor: pointer;">
+                    💡 选药核心原则
+                    <span class="toggle-icon" id="medicine-selection-principle-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="medicine-selection-principle-content">
+
+            <div class="medicine-table-container">
+                <table class="reference-table medicine-table">
+                    <thead>
+                        <tr>
+                            <th>药物类别</th>
+                            <th>药品名称</th>
+                            <th>主要作用</th>
+                            <th>原研药价格</th>
+                            <th>仿制药价格</th>
+                            <th>机制原理</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 退烧止痛类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">退烧止痛</td>
+                            <td><strong>对乙酰氨基酚</strong><br><small>Tylenol/泰诺林</small></td>
+                            <td>退烧、止轻中度疼痛（头痛、牙痛、痛经）</td>
+                            <td>30-50元/100片</td>
+                            <td>5-15元/100片</td>
+                            <td>抑制中枢前列腺素合成，通过调节下丘脑体温调节中枢发挥退热作用，对外周疼痛受体也有一定抑制作用</td>
+                        </tr>
+                        <tr>
+                            <td><strong>布洛芬</strong><br><small>Advil/芬必得</small></td>
+                            <td>退烧、消炎止痛（关节炎、肌肉痛）</td>
+                            <td>40-60元/100片</td>
+                            <td>10-20元/100片</td>
+                            <td>非甾体抗炎药，抑制环氧化酶（COX），减少前列腺素合成，具有抗炎、镇痛、解热作用</td>
+                        </tr>
+
+                        <!-- 抗生素类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">抗生素</td>
+                            <td><strong>阿莫西林</strong><br><small>Amoxil/阿莫仙</small></td>
+                            <td>细菌感染（咽炎、扁桃体炎、尿路感染）</td>
+                            <td>50-80元/24片</td>
+                            <td>15-30元/24片</td>
+                            <td>β-内酰胺类抗生素，抑制细菌细胞壁合成，使细菌溶解死亡，对革兰氏阳性菌和阴性菌有效</td>
+                        </tr>
+                        <tr>
+                            <td><strong>头孢克洛</strong><br><small>Ceclor/希刻劳</small></td>
+                            <td>细菌感染（肺炎、支气管炎、皮肤感染）</td>
+                            <td>80-120元/24片</td>
+                            <td>25-40元/24片</td>
+                            <td>第二代头孢菌素，抑制细菌细胞壁合成，抗菌谱广，对呼吸道感染疗效显著</td>
+                        </tr>
+
+                        <!-- 心血管类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">心血管</td>
+                            <td><strong>阿司匹林</strong><br><small>Bayer/拜阿司匹林</small></td>
+                            <td>抗血小板、预防血栓（心梗、脑梗预防）</td>
+                            <td>30-50元/100片</td>
+                            <td>5-15元/100片</td>
+                            <td>不可逆抑制血小板环氧化酶-1（COX-1），阻断血栓素A2合成，抑制血小板聚集，预防血栓形成</td>
+                        </tr>
+                        <tr>
+                            <td><strong>氨氯地平</strong><br><small>Norvasc/络活喜</small></td>
+                            <td>降压药（高血压、心绞痛）</td>
+                            <td>80-120元/30片</td>
+                            <td>15-35元/30片</td>
+                            <td>钙通道阻滞剂（CCB），阻断血管平滑肌细胞上的钙离子通道，扩张血管，降低血压</td>
+                        </tr>
+
+                        <!-- 降糖类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">降糖药</td>
+                            <td><strong>二甲双胍</strong><br><small>Glucophage/格华止</small></td>
+                            <td>降糖药（2型糖尿病一线用药）</td>
+                            <td>50-80元/60片</td>
+                            <td>10-25元/60片</td>
+                            <td>双胍类降糖药，抑制肝脏葡萄糖输出，改善外周组织对胰岛素的敏感性，促进葡萄糖利用</td>
+                        </tr>
+                        <tr>
+                            <td><strong>格列美脲</strong><br><small>Amaryl/亚莫利</small></td>
+                            <td>降糖药（2型糖尿病，促胰岛素分泌）</td>
+                            <td>40-60元/30片</td>
+                            <td>10-20元/30片</td>
+                            <td>磺酰脲类降糖药，刺激胰岛β细胞分泌胰岛素，增强外周组织对胰岛素的敏感性</td>
+                        </tr>
+
+                        <!-- 降脂类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">降脂药</td>
+                            <td><strong>阿托伐他汀</strong><br><small>Lipitor/立普妥</small></td>
+                            <td>降脂药（降低胆固醇、预防心血管疾病）</td>
+                            <td>80-150元/30片</td>
+                            <td>15-40元/30片</td>
+                            <td>HMG-CoA还原酶抑制剂（他汀类），抑制胆固醇合成，降低低密度脂蛋白胆固醇（LDL-C）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>瑞舒伐他汀</strong><br><small>Crestor/可定</small></td>
+                            <td>降脂药（降低胆固醇、预防心血管疾病）</td>
+                            <td>90-160元/30片</td>
+                            <td>20-45元/30片</td>
+                            <td>强效他汀类，选择性抑制HMG-CoA还原酶，强力降低LDL-C和甘油三酯</td>
+                        </tr>
+
+                        <!-- 抗过敏类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">抗过敏</td>
+                            <td><strong>氯雷他定</strong><br><small>Claritin/开瑞坦</small></td>
+                            <td>抗过敏（过敏性鼻炎、荨麻疹、皮肤瘙痒）</td>
+                            <td>30-50元/14片</td>
+                            <td>10-20元/14片</td>
+                            <td>第二代组胺H1受体拮抗剂，选择性阻断组胺H1受体，抑制组胺引起的过敏反应，无嗜睡副作用</td>
+                        </tr>
+                        <tr>
+                            <td><strong>西替利嗪</strong><br><small>Zyrtec/仙特明</small></td>
+                            <td>抗过敏（过敏性鼻炎、荨麻疹、皮肤瘙痒）</td>
+                            <td>25-45元/14片</td>
+                            <td>8-18元/14片</td>
+                            <td>第二代组胺H1受体拮抗剂，选择性阻断组胺H1受体，抑制过敏反应，轻微嗜睡</td>
+                        </tr>
+
+                        <!-- 胃肠道类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">胃肠道</td>
+                            <td><strong>奥美拉唑</strong><br><small>Losec/洛赛克</small></td>
+                            <td>抑酸药（胃溃疡、反流性食管炎、胃炎）</td>
+                            <td>40-70元/28片</td>
+                            <td>10-25元/28片</td>
+                            <td>质子泵抑制剂（PPI），不可逆抑制胃壁细胞H+-K+-ATP酶，阻断胃酸分泌的最后步骤</td>
+                        </tr>
+                        <tr>
+                            <td><strong>蒙脱石散</strong><br><small>Smecta/思密达</small></td>
+                            <td>止泻、保护肠黏膜（腹泻、肠炎）</td>
+                            <td>25-40元/10袋</td>
+                            <td>8-15元/10袋</td>
+                            <td>天然硅铝酸盐，覆盖消化道黏膜，吸附病原体和毒素，增强黏膜屏障功能</td>
+                        </tr>
+
+                        <!-- 抗抑郁类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">抗抑郁</td>
+                            <td><strong>氟西汀</strong><br><small>Prozac/百忧解</small></td>
+                            <td>抗抑郁药（抑郁症、强迫症、暴食症）</td>
+                            <td>80-120元/28片</td>
+                            <td>20-40元/28片</td>
+                            <td>选择性5-羟色胺再摄取抑制剂（SSRI），抑制中枢神经系统对5-HT的再摄取，增加突触间隙5-HT浓度</td>
+                        </tr>
+                        <tr>
+                            <td><strong>舍曲林</strong><br><small>Zoloft/左洛复</small></td>
+                            <td>抗抑郁药（抑郁症、焦虑症、强迫症）</td>
+                            <td>90-130元/28片</td>
+                            <td>25-45元/28片</td>
+                            <td>选择性5-羟色胺再摄取抑制剂（SSRI），抑制5-HT再摄取，抗抑郁、抗焦虑、抗强迫</td>
+                        </tr>
+
+                        <!-- 甲状腺类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">甲状腺</td>
+                            <td><strong>左甲状腺素</strong><br><small>Synthroid/优甲乐</small></td>
+                            <td>甲状腺激素替代（甲减、甲状腺切除后）</td>
+                            <td>50-80元/100片</td>
+                            <td>15-30元/100片</td>
+                            <td>合成甲状腺激素（T4），在体内转化为活性形式三碘甲状腺原氨酸（T3），调节新陈代谢和生长发育</td>
+                        </tr>
+                        <tr>
+                            <td><strong>甲巯咪唑</strong><br><small>Tapazole/赛治</small></td>
+                            <td>抗甲状腺药（甲亢、甲状腺肿）</td>
+                            <td>40-60元/50片</td>
+                            <td>12-25元/50片</td>
+                            <td>硫脲类抗甲状腺药，抑制甲状腺过氧化物酶，阻断甲状腺激素合成，减少甲状腺激素产生</td>
+                        </tr>
+
+                        <!-- 骨质疏松类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">骨质疏松</td>
+                            <td><strong>阿仑膦酸钠</strong><br><small>Fosamax/福善美</small></td>
+                            <td>抗骨质疏松（绝经后骨质疏松、骨折预防）</td>
+                            <td>100-150元/4片</td>
+                            <td>30-60元/4片</td>
+                            <td>双膦酸盐类，抑制破骨细胞活性，减少骨吸收，增加骨密度，降低骨折风险</td>
+                        </tr>
+                        <tr>
+                            <td><strong>钙尔奇D</strong><br><small>Caltrate/钙尔奇</small></td>
+                            <td>补钙、预防骨质疏松（钙+维生素D）</td>
+                            <td>80-120元/60片</td>
+                            <td>20-40元/60片</td>
+                            <td>碳酸钙+维生素D3，补充钙质，维生素D促进钙吸收，维持骨骼健康</td>
+                        </tr>
+
+                        <!-- 降压类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">降压药</td>
+                            <td><strong>厄贝沙坦</strong><br><small>Avapro/安博维</small></td>
+                            <td>降压药（高血压、糖尿病肾病）</td>
+                            <td>60-90元/30片</td>
+                            <td>15-30元/30片</td>
+                            <td>血管紧张素II受体拮抗剂（ARB），阻断血管紧张素II与AT1受体结合，扩张血管，降低血压</td>
+                        </tr>
+                        <tr>
+                            <td><strong>缬沙坦</strong><br><small>Diovan/代文</small></td>
+                            <td>降压药（高血压、心力衰竭）</td>
+                            <td>70-100元/30片</td>
+                            <td>18-35元/30片</td>
+                            <td>血管紧张素II受体拮抗剂（ARB），选择性阻断AT1受体，降压效果平稳，保护靶器官</td>
+                        </tr>
+
+                        <!-- 镇咳祛痰类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">镇咳祛痰</td>
+                            <td><strong>氨溴索</strong><br><small>Mucosolvan/沐舒坦</small></td>
+                            <td>祛痰药（支气管炎、肺炎、痰液粘稠）</td>
+                            <td>20-35元/30片</td>
+                            <td>5-12元/30片</td>
+                            <td>黏液溶解剂，增加呼吸道黏膜浆液腺分泌，降低痰液粘度，促进痰液排出</td>
+                        </tr>
+                        <tr>
+                            <td><strong>右美沙芬</strong><br><small>Robitussin/右美沙芬</small></td>
+                            <td>镇咳药（干咳、无痰咳嗽）</td>
+                            <td>15-25元/20片</td>
+                            <td>4-10元/20片</td>
+                            <td>中枢性镇咳药，抑制延髓咳嗽中枢，缓解干咳症状，无成瘾性</td>
+                        </tr>
+
+                        <!-- 抗病毒类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">抗病毒</td>
+                            <td><strong>奥司他韦</strong><br><small>Tamiflu/达菲</small></td>
+                            <td>抗流感药（甲型流感、乙型流感）</td>
+                            <td>200-300元/10粒</td>
+                            <td>50-80元/10粒</td>
+                            <td>神经氨酸酶抑制剂，抑制流感病毒从被感染细胞中释放，阻止病毒传播</td>
+                        </tr>
+                        <tr>
+                            <td><strong>阿昔洛韦</strong><br><small>Zovirax/阿昔洛韦</small></td>
+                            <td>抗病毒药（带状疱疹、单纯疱疹）</td>
+                            <td>30-50元/24片</td>
+                            <td>8-15元/24片</td>
+                            <td>核苷类抗病毒药，抑制病毒DNA聚合酶，阻断病毒DNA合成，对疱疹病毒有效</td>
+                        </tr>
+
+                        <!-- 解痉止痛类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">解痉止痛</td>
+                            <td><strong>山莨菪碱</strong><br><small>654-2/山莨菪碱</small></td>
+                            <td>解痉药（胃肠痉挛、胆绞痛）</td>
+                            <td>15-25元/20片</td>
+                            <td>3-8元/20片</td>
+                            <td>M胆碱受体阻断剂，解除平滑肌痉挛，缓解胃肠绞痛、胆绞痛</td>
+                        </tr>
+                        <tr>
+                            <td><strong>双氯芬酸钠</strong><br><small>Voltaren/扶他林</small></td>
+                            <td>消炎止痛（关节炎、扭伤、风湿痛）</td>
+                            <td>30-50元/30片</td>
+                            <td>8-18元/30片</td>
+                            <td>非甾体抗炎药，抑制环氧化酶（COX），减少前列腺素合成，具有强效抗炎镇痛作用</td>
+                        </tr>
+
+                        <!-- 助眠类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">助眠药</td>
+                            <td><strong>唑吡坦</strong><br><small>Ambien/思诺思</small></td>
+                            <td>助眠药（失眠、入睡困难）</td>
+                            <td>80-120元/14片</td>
+                            <td>20-40元/14片</td>
+                            <td>非苯二氮卓类镇静催眠药，选择性激活GABA-A受体，缩短入睡时间，延长睡眠时间</td>
+                        </tr>
+                        <tr>
+                            <td><strong>佐匹克隆</strong><br><small>Imovane/佐匹克隆</small></td>
+                            <td>助眠药（失眠、睡眠维持困难）</td>
+                            <td>60-90元/14片</td>
+                            <td>15-30元/14片</td>
+                            <td>环吡咯酮类催眠药，激活GABA受体，改善睡眠质量，次日无宿醉感</td>
+                        </tr>
+
+                        <!-- 维生素类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">维生素</td>
+                            <td><strong>维生素C</strong><br><small>施贵宝/维C</small></td>
+                            <td>抗氧化、增强免疫力（坏血病预防）</td>
+                            <td>20-40元/100片</td>
+                            <td>5-15元/100片</td>
+                            <td>水溶性维生素，参与胶原蛋白合成、抗氧化反应，增强免疫力和铁吸收</td>
+                        </tr>
+                        <tr>
+                            <td><strong>维生素D3</strong><br><small>钙尔奇D/维D3</small></td>
+                            <td>促进钙吸收、骨骼健康（佝偻病预防）</td>
+                            <td>40-60元/60片</td>
+                            <td>10-25元/60片</td>
+                            <td>脂溶性维生素，促进肠道钙磷吸收，调节血钙平衡，维持骨骼健康</td>
+                        </tr>
+
+                        <!-- 利尿类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">利尿药</td>
+                            <td><strong>氢氯噻嗪</strong><br><small>HydroDIURIL/氢氯噻嗪</small></td>
+                            <td>利尿降压（高血压、水肿）</td>
+                            <td>15-25元/30片</td>
+                            <td>4-10元/30片</td>
+                            <td>噻嗪类利尿剂，抑制肾小管对钠离子的重吸收，增加尿量，降低血压</td>
+                        </tr>
+                        <tr>
+                            <td><strong>呋塞米</strong><br><small>Lasix/速尿</small></td>
+                            <td>强效利尿药（心力衰竭、肾性水肿）</td>
+                            <td>10-20元/20片</td>
+                            <td>3-8元/20片</td>
+                            <td>袢利尿剂，抑制肾小管髓袢升支对钠钾的重吸收，快速利尿，降低心脏负荷</td>
+                        </tr>
+
+                        <!-- 消化酶类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">消化酶</td>
+                            <td><strong>多潘立酮</strong><br><small>Motilium/吗丁啉</small></td>
+                            <td>促胃动力药（消化不良、胃胀、恶心）</td>
+                            <td>20-35元/30片</td>
+                            <td>6-15元/30片</td>
+                            <td>多巴胺受体拮抗剂，促进胃肠蠕动，加速胃排空，缓解消化不良症状</td>
+                        </tr>
+                        <tr>
+                            <td><strong>复方消化酶</strong><br><small>达吉/复方消化酶</small></td>
+                            <td>助消化药（消化不良、食欲不振）</td>
+                            <td>30-50元/30片</td>
+                            <td>8-20元/30片</td>
+                            <td>多种消化酶复合制剂，补充胰酶、胃蛋白酶等，促进食物消化吸收</td>
+                        </tr>
+
+                        <!-- 皮肤外用类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">皮肤外用</td>
+                            <td><strong>莫匹罗星软膏</strong><br><small>Bactroban/百多邦</small></td>
+                            <td>外用抗生素（皮肤感染、脓疱疮）</td>
+                            <td>25-40元/10g</td>
+                            <td>8-18元/10g</td>
+                            <td>外用抗生素，抑制细菌蛋白质合成，对金黄色葡萄球菌等革兰氏阳性菌有效</td>
+                        </tr>
+                        <tr>
+                            <td><strong>曲安奈德益康唑乳膏</strong><br><small>派瑞松/曲安奈德</small></td>
+                            <td>抗真菌抗炎（湿疹、皮炎、手足癣）</td>
+                            <td>20-35元/15g</td>
+                            <td>6-15元/15g</td>
+                            <td>糖皮质激素+抗真菌药复方制剂，抗炎、抗过敏、抗真菌三重作用</td>
+                        </tr>
+
+                        <!-- 抗凝血类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">抗凝血</td>
+                            <td><strong>华法林</strong><br><small>Coumadin/华法林</small></td>
+                            <td>抗凝药（房颤、深静脉血栓、肺栓塞）</td>
+                            <td>40-60元/30片</td>
+                            <td>10-25元/30片</td>
+                            <td>维生素K拮抗剂，抑制维生素K依赖的凝血因子合成，防止血栓形成</td>
+                        </tr>
+                        <tr>
+                            <td><strong>利伐沙班</strong><br><small>Xarelto/拜瑞妥</small></td>
+                            <td>新型口服抗凝药（房颤、深静脉血栓）</td>
+                            <td>200-300元/30片</td>
+                            <td>60-120元/30片</td>
+                            <td>直接Xa因子抑制剂，选择性抑制凝血因子Xa，阻断凝血级联反应</td>
+                        </tr>
+
+                        <!-- 平喘类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">平喘药</td>
+                            <td><strong>孟鲁司特钠</strong><br><small>Singulair/顺尔宁</small></td>
+                            <td>平喘药（哮喘、过敏性鼻炎）</td>
+                            <td>80-120元/30片</td>
+                            <td>20-45元/30片</td>
+                            <td>白三烯受体拮抗剂，阻断白三烯与受体结合，抑制气道炎症和痉挛</td>
+                        </tr>
+                        <tr>
+                            <td><strong>布地奈德</strong><br><small>Pulmicort/普米克</small></td>
+                            <td>吸入性糖皮质激素（哮喘、COPD）</td>
+                            <td>60-90元/200吸</td>
+                            <td>15-35元/200吸</td>
+                            <td>吸入性糖皮质激素，局部抗炎作用强，抑制气道炎症，减少哮喘发作</td>
+                        </tr>
+
+                        <!-- 肝脏保护类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">护肝药</td>
+                            <td><strong>水飞蓟宾</strong><br><small>利加隆/水飞蓟宾</small></td>
+                            <td>护肝药（慢性肝炎、脂肪肝、肝损伤）</td>
+                            <td>80-120元/30片</td>
+                            <td>20-40元/30片</td>
+                            <td>黄酮类化合物，稳定肝细胞膜，促进肝细胞再生，抗氧化，保护肝脏</td>
+                        </tr>
+                        <tr>
+                            <td><strong>甘草酸二铵</strong><br><small>甘利欣/甘草酸</small></td>
+                            <td>护肝药（肝炎、肝功能异常）</td>
+                            <td>50-80元/30片</td>
+                            <td>12-30元/30片</td>
+                            <td>甘草提取物，抗炎、保肝、抗过敏，降低转氨酶，保护肝细胞</td>
+                        </tr>
+
+                        <!-- 泌尿系统类 -->
+                        <tr>
+                            <td rowspan="2" class="category-cell">泌尿系统</td>
+                            <td><strong>坦索罗辛</strong><br><small>Harnal/哈乐</small></td>
+                            <td>前列腺增生药（排尿困难、尿频）</td>
+                            <td>60-90元/30片</td>
+                            <td>15-35元/30片</td>
+                            <td>α1受体阻滞剂，松弛前列腺平滑肌，改善排尿困难，缓解前列腺增生症状</td>
+                        </tr>
+                        <tr>
+                            <td><strong>非那雄胺</strong><br><small>Proscar/保列治</small></td>
+                            <td>前列腺增生药（缩小前列腺）</td>
+                            <td>70-100元/30片</td>
+                            <td>18-40元/30片</td>
+                            <td>5α-还原酶抑制剂，抑制睾酮转化为二氢睾酮，缩小前列腺体积</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('medicine-selection-principle-content-2')" style="cursor: pointer;">
+                    💡 选药核心原则
+                    <span class="toggle-icon" id="medicine-selection-principle-content-2-icon">▶</span>
+                </h3>
+                <ul class="topic-content" id="medicine-selection-principle-content-2">
+                    <li><strong>优先仿制药：</strong>通过一致性评价的仿制药与原研药疗效基本一致，价格便宜60%-80%</li>
+                    <li><strong>看包装标识：</strong>通过一致性评价的药品包装上有"通过一致性评价"标识</li>
+                    <li><strong>咨询药师：</strong>不确定时咨询药师："有没有效果和原研药一样的仿制药？"</li>
+                    <li><strong>长期用药：</strong>慢性病患者长期用药选择仿制药，每年可节省数千元</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="highlight-title">七、医保 & 集采药终极省钱攻略（省最多）</h2>
             
             <div class="strategy-cards">
                 <div class="strategy-card">
-                    <h3>医保省钱技巧（直接减钱，必用！）</h3>
-                    <ol>
+                    <h3 onclick="toggleTopicCard('medical-insurance-tips-content')" style="cursor: pointer;">
+                        医保省钱技巧（直接减钱，必用！）
+                        <span class="toggle-icon" id="medical-insurance-tips-content-icon">▶</span>
+                    </h3>
+                    <ol class="topic-content" id="medical-insurance-tips-content">
                         <li><strong>慢特病备案（关键！）</strong>：高血压、糖尿病等62种慢性病，备案后门诊买药报销70%-95%</li>
                         <li><strong>定点机构买药</strong>：去医保定点药店/医院买，能刷医保卡，处方药报销比例更高</li>
                         <li><strong>异地就医先备案</strong>：异地看病买药，提前备案后能直接刷社保卡结算</li>
@@ -340,8 +848,11 @@
                 </div>
 
                 <div class="strategy-card">
-                    <h3>集采药省钱技巧（价格腰斩，闭眼冲！）</h3>
-                    <ol>
+                    <h3 onclick="toggleTopicCard('centralized-procurement-tips-content')" style="cursor: pointer;">
+                        集采药省钱技巧（价格腰斩，闭眼冲！）
+                        <span class="toggle-icon" id="centralized-procurement-tips-content-icon">▶</span>
+                    </h3>
+                    <ol class="topic-content" id="centralized-procurement-tips-content">
                         <li><strong>啥是集采药</strong>：国家"团购"药品，砍掉中间加价，价格平均降50%以上</li>
                         <li><strong>怎么认集采药</strong>：药店有"集采药品"专区/标识，同款药比普通仿制药便宜30%-50%</li>
                         <li><strong>购买渠道</strong>：医院/医保定点药店、线上医保定点平台</li>
@@ -525,6 +1036,118 @@
         
         .reference-table tbody tr:hover {
             background-color: #f8f9fa;
+        }
+
+        .medicine-table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .medicine-table {
+            font-size: 0.9em;
+        }
+
+        .medicine-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .medicine-table th {
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: white;
+            font-size: 0.85em;
+        }
+
+        .medicine-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 0.85em;
+            line-height: 1.5;
+            vertical-align: top;
+        }
+
+        .medicine-table tbody tr:hover {
+            background-color: #f0f7ff;
+        }
+
+        .medicine-table .category-cell {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle !important;
+        }
+
+        .medicine-table small {
+            display: block;
+            color: #7f8c8d;
+            font-size: 0.85em;
+            margin-top: 3px;
+        }
+
+        .medicine-intro {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 25px;
+        }
+
+        .medicine-intro p {
+            margin: 0;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        .medicine-summary {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #27ae60;
+            margin-top: 25px;
+        }
+
+        .medicine-summary h3 {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+        }
+
+        .medicine-summary ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .medicine-summary li {
+            padding: 8px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .medicine-summary strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .topic-card h3 {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-content {
+            display: block;
         }
     </style>
 </body>

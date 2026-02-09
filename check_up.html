@@ -6,8 +6,51 @@
     <title>体检指标 - 医学学习平台</title>
     <script>
         function toggleSidebar() {
-            document.querySelector(.sidebar).classList.toggle(open);
+            const sidebar = document.querySelector('.sidebar');
+            if (sidebar) {
+                sidebar.classList.toggle('open');
+            }
         }
+
+        function toggleExamContent(cardId) {
+            console.log('toggleExamContent called with:', cardId);
+            const content = document.getElementById(cardId);
+            const toggleIcon = document.getElementById(cardId + '-icon');
+            
+            console.log('content:', content);
+            console.log('toggleIcon:', toggleIcon);
+            
+            if (content && toggleIcon) {
+                if (content.style.display === 'none' || content.style.display === '') {
+                    content.style.display = 'grid';
+                    toggleIcon.textContent = '▼';
+                    console.log('Expanded');
+                } else {
+                    content.style.display = 'none';
+                    toggleIcon.textContent = '▶';
+                    console.log('Collapsed');
+                }
+            } else {
+                console.error('Content or icon not found for:', cardId);
+            }
+        }
+
+        // 页面加载时，默认折叠所有内容
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            const examContents = document.querySelectorAll('.exam-content[id]');
+            console.log('Found exam contents:', examContents.length);
+            
+            examContents.forEach(function(content) {
+                content.style.display = 'none';
+                const iconId = content.id + '-icon';
+                const icon = document.getElementById(iconId);
+                if (icon) {
+                    icon.textContent = '▶';
+                }
+                console.log('Collapsed:', content.id);
+            });
+        });
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -34,15 +77,17 @@
                 <li class="menu-category">实用指南</li>
                 <li><a href="check_up.html" class="active">体检指标</a></li>
                 <li><a href="doctor.html">省钱就医</a></li>
- <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="hospitals.html">国内医院</a></li>
+                <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
             </ul>
         </nav>
-    
+
     <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
     </div>
 
     <main class="main-content">
-    
+
     <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
     <main class="container">
@@ -55,7 +100,7 @@
         <!-- 一般体格检查 -->
         <section class="content-section">
             <h2>一般体格检查</h2>
-            
+
             <div class="table-responsive">
                 <table class="reference-table">
                     <thead>
@@ -99,7 +144,7 @@
         <!-- 血液常规检查 -->
         <section class="content-section">
             <h2>血液常规检查</h2>
-            
+
             <div class="table-responsive">
                 <table class="reference-table">
                     <thead>
@@ -143,7 +188,7 @@
         <!-- 生化指标 -->
         <section class="content-section">
             <h2>生化指标</h2>
-            
+
             <div class="table-responsive">
                 <table class="reference-table">
                     <thead>
@@ -235,7 +280,7 @@
         <!-- 甲状腺功能 -->
         <section class="content-section">
             <h2>甲状腺功能</h2>
-            
+
             <div class="table-responsive">
                 <table class="reference-table">
                     <thead>
@@ -267,7 +312,7 @@
         <!-- 尿常规核心指标 -->
         <section class="content-section">
             <h2>尿常规核心指标</h2>
-            
+
             <div class="table-responsive">
                 <table class="reference-table">
                     <thead>
@@ -305,7 +350,7 @@
         <!-- 辅助检查 -->
         <section class="content-section">
             <h2>辅助检查</h2>
-            
+
             <div class="table-responsive">
                 <table class="reference-table">
                     <thead>
@@ -347,8 +392,1271 @@
         </section>
 
         <section class="content-section">
-            <h2>体检建议</h2>
+            <h2>检查手段</h2>
+
+            <!-- B超 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('b-ultrasound-content')" style="cursor: pointer;">
+                    <h3>🔍 B超（B型超声）</h3>
+                    <span class="exam-badge">无辐射</span>
+                    <span class="exam-badge cost-badge">100-300元</span>
+                    <span class="toggle-icon" id="b-ultrasound-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="b-ultrasound-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>利用高频超声波（2-15MHz）在人体组织中的传播特性。超声波探头向体内发射声波，声波在不同组织界面产生反射、散射，探头接收回声信号，经计算机处理后形成二维灰度图像。不同组织对声波的反射强度不同，脂肪、液体、肌肉、骨骼等呈现不同灰度，从而显示体内器官结构。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>腹部器官：</strong>肝脏、胆囊、胰腺、脾脏、肾脏检查（脂肪肝、胆结石、肾结石、囊肿、肿瘤）</li>
+                            <li><strong>妇科检查：</strong>子宫、卵巢、输卵管（子宫肌瘤、卵巢囊肿、宫外孕、妇科肿瘤）</li>
+                            <li><strong>产科检查：</strong>胎儿发育监测、胎盘位置、羊水情况（孕期常规检查）</li>
+                            <li><strong>甲状腺检查：</strong>甲状腺结节、肿大（甲状腺癌筛查首选）</li>
+                            <li><strong>乳腺检查：</strong>乳腺结节、囊肿、肿瘤（乳腺增生、乳腺癌筛查）</li>
+                            <li><strong>心脏检查：</strong>心脏结构、功能（心肌病、心脏瓣膜病、心包积液）</li>
+                            <li><strong>血管检查：</strong>颈动脉、下肢静脉（动脉硬化、血栓、血管瘤）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>正常表现：</strong>器官形态规则，回声均匀，无占位性病变，血流信号正常</li>
+                            <li><strong>回声增强：</strong>脂肪肝、肝硬化（肝脏回声密集增强）、钙化灶（甲状腺钙化、前列腺钙化）</li>
+                            <li><strong>回声减低：</strong>囊肿（无回声）、实性占位（稍低回声，需警惕恶性肿瘤）</li>
+                            <li><strong>结节：</strong>需关注大小、形态、边界、血流。TI-RADS分级用于评估甲状腺结节恶性风险，3级以下多为良性，4级及以上需进一步检查</li>
+                            <li><strong>血流信号：</strong>丰富的血流信号提示肿瘤可能性大（需结合其他检查）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>腹部B超：</strong>80-150元</li>
+                            <li><strong>妇科B超：</strong>100-200元</li>
+                            <li><strong>产科B超：</strong>150-300元</li>
+                            <li><strong>甲状腺B超：</strong>100-150元</li>
+                            <li><strong>乳腺B超：</strong>120-200元</li>
+                            <li><strong>心脏彩超：</strong>200-400元</li>
+                            <li><strong>血管彩超：</strong>150-300元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>腹部B超需空腹8小时以上（避免气体干扰）</li>
+                            <li>妇科B超需憋尿（充盈膀胱作为透声窗）</li>
+                            <li>无辐射，孕妇、儿童可放心检查</li>
+                            <li>对气体、骨骼显示效果差（不适用于肺部、骨骼检查）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>受气体干扰严重，含气器官（肺、胃肠道）显示效果差</li>
+                            <li>对骨骼无法穿透，骨骼后方结构无法显示</li>
+                            <li>图像质量受操作者技术影响较大，依赖医生经验</li>
+                            <li>对微小病变的检出率低于CT和MRI</li>
+                            <li>深部或肥胖患者图像清晰度下降</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用器官</h4>
+                        <ul>
+                            <li><strong>首选器官：</strong>肝脏、胆囊、胰腺、脾脏、肾脏（腹部器官）</li>
+                            <li><strong>妇科首选：</strong>子宫、卵巢、输卵管</li>
+                            <li><strong>产科首选：</strong>胎儿（孕期监测）</li>
+                            <li><strong>甲状腺首选：</strong>甲状腺结节筛查</li>
+                            <li><strong>乳腺首选：</strong>乳腺结节、囊肿检查</li>
+                            <li><strong>血管首选：</strong>颈动脉、下肢静脉血栓筛查</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CT -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('ct-content')" style="cursor: pointer;">
+                    <h3>📡 CT（计算机断层扫描）</h3>
+                    <span class="exam-badge radiation-badge">有辐射</span>
+                    <span class="exam-badge cost-badge">200-800元</span>
+                    <span class="toggle-icon" id="ct-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="ct-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>X射线束对人体某部位进行断层扫描，探测器接收穿过人体后的X射线强度，经计算机处理后重建横断面图像。不同组织对X射线的吸收能力不同（高密度组织吸收多，低密度组织吸收少），从而形成灰度图像。多层螺旋CT可进行快速连续扫描，重建三维图像。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>肺部检查：</strong>肺癌筛查（肺结节、肿块）、肺炎、肺结核、气胸、肺栓塞</li>
+                            <li><strong>头部检查：</strong>脑出血、脑梗死、脑肿瘤、脑外伤、脑动脉瘤</li>
+                            <li><strong>腹部检查：</strong>肝脏、胰腺、肾脏肿瘤、胆结石、肾结石、阑尾炎、胰腺炎</li>
+                            <li><strong>骨骼检查：</strong>骨折、骨肿瘤、骨质疏松、关节炎</li>
+                            <li><strong>血管检查：</strong>CTA（CT血管造影）- 血管狭窄、动脉瘤、血栓</li>
+                            <li><strong>急诊检查：</strong>外伤、急腹症、脑血管意外（快速诊断）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>正常表现：</strong>组织密度均匀，无异常高密度或低密度病灶，器官形态正常</li>
+                            <li><strong>高密度：</strong>钙化（陈旧性病变）、出血（新鲜出血）、骨骼、造影剂强化（血供丰富的肿瘤）</li>
+                            <li><strong>低密度：</strong>囊肿、坏死、水肿、脂肪、气体、缺血灶（脑梗死）</li>
+                            <li><strong>结节/肿块：</strong>需关注大小、密度、形态、边界、强化特征。恶性结节常表现为边缘毛刺、分叶、强化不均匀</li>
+                            <li><strong>CT值（HU）：</strong>不同组织的CT值范围：水=0HU，脂肪=-100~-50HU，软组织=30~50HU，骨骼=1000HU以上</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>平扫CT：</strong>200-400元</li>
+                            <li><strong>增强CT（含造影剂）：</strong>500-800元</li>
+                            <li><strong>低剂量CT（肺癌筛查）：</strong>300-500元</li>
+                            <li><strong>CTA（血管造影）：</strong>800-1500元</li>
+                            <li><strong>双源CT（心脏CT）：</strong>1000-2000元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>有辐射，孕妇、儿童应避免，必要时应权衡利弊</li>
+                            <li>增强CT需注射碘造影剂，对碘过敏者禁用</li>
+                            <li>肾功能不全者慎用增强CT（造影剂肾损伤风险）</li>
+                            <li>检查前需去除金属物品（影响成像质量）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>存在电离辐射，长期多次检查增加致癌风险</li>
+                            <li>对软组织的分辨率低于MRI，对脊髓、关节韧带显示不佳</li>
+                            <li>增强CT有造影剂过敏风险（过敏性休克、肾损伤）</li>
+                            <li>对早期微小病变（如早期脑梗死、小肿瘤）检出率低</li>
+                            <li>检查费用相对较高</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用器官</h4>
+                        <ul>
+                            <li><strong>肺部首选：</strong>肺癌筛查、肺炎、肺结核、肺栓塞</li>
+                            <li><strong>头部首选：</strong>脑出血、脑外伤、脑肿瘤急性期</li>
+                            <li><strong>骨骼首选：</strong>骨折、骨肿瘤</li>
+                            <li><strong>急诊首选：</strong>急腹症、外伤快速诊断</li>
+                            <li><strong>血管检查：</strong>CTA（血管造影）检查血管狭窄、动脉瘤</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MRI -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('mri-content')" style="cursor: pointer;">
+                    <h3>🧲 MRI（磁共振成像）</h3>
+                    <span class="exam-badge">无辐射</span>
+                    <span class="exam-badge cost-badge">500-1500元</span>
+                    <span class="toggle-icon" id="mri-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="mri-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>利用强磁场和无线电波使人体内的氢原子核发生共振，接收氢原子核释放的电磁信号，经计算机处理后形成图像。不同组织中氢原子含量不同，且氢原子在不同组织中的弛豫时间不同，从而形成不同灰度的图像。MRI可进行多序列成像（T1加权、T2加权、DWI等），提供丰富的组织信息。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>脑部检查：</strong>脑肿瘤、脑梗死（早期诊断）、脑出血、脑炎、多发性硬化</li>
+                            <li><strong>脊柱检查：</strong>椎间盘突出、椎管狭窄、脊髓病变、脊柱肿瘤</li>
+                            <li><strong>关节检查：</strong>半月板损伤、韧带撕裂、软骨损伤、关节炎</li>
+                            <li><strong>软组织检查：</strong>肌肉、肌腱、韧带损伤，软组织肿瘤</li>
+                            <li><strong>腹部检查：</strong>肝脏、胰腺、肾脏肿瘤（增强MRI优于CT）</li>
+                            <li><strong>乳腺检查：</strong>乳腺MRI（乳腺癌筛查、术前评估）</li>
+                            <li><strong>前列腺检查：</strong>前列腺癌（MRI+穿刺活检）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>T1加权像：</strong>脂肪呈高信号（白色），水呈低信号（黑色），正常脑灰质信号低于白质</li>
+                            <li><strong>T2加权像：</strong>水呈高信号（白色），脂肪呈中等信号，脑灰质信号高于白质</li>
+                            <li><strong>高信号：</strong>水肿、炎症、肿瘤、囊变、脂肪、出血（亚急性期）</li>
+                            <li><strong>低信号：</strong>钙化、纤维化、出血（急性/慢性期）、铁沉积</li>
+                            <li><strong>强化：</strong>注射造影剂后，血供丰富的病变明显强化（肿瘤、炎症）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>平扫MRI：</strong>500-1000元</li>
+                            <li><strong>增强MRI（含造影剂）：</strong>800-1500元</li>
+                            <li><strong>功能MRI（fMRI）：</strong>1000-2000元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>无辐射，孕妇（尤其是中晚期）可安全检查</li>
+                            <li>体内有金属植入物（心脏起搏器、金属人工关节）者禁用</li>
+                            <li>幽闭恐惧症患者可能无法耐受</li>
+                            <li>检查时间较长（15-60分钟），需保持静止</li>
+                            <li>增强MRI需注射钆造影剂，肾功能不全者慎用（肾源性系统性纤维化风险）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>检查费用昂贵，检查时间较长</li>
+                            <li>对体内金属植入物（起搏器、钢板）禁忌</li>
+                            <li>幽闭恐惧症患者难以耐受</li>
+                            <li>对肺部检查效果差（含气器官信号弱）</li>
+                            <li>对钙化病变检出不如CT敏感</li>
+                            <li>噪声较大，可能影响患者舒适度</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用器官</h4>
+                        <ul>
+                            <li><strong>脑部首选：</strong>脑肿瘤、早期脑梗死、脑炎、多发性硬化</li>
+                            <li><strong>脊柱首选：</strong>椎间盘突出、脊髓病变、脊柱肿瘤</li>
+                            <li><strong>关节首选：</strong>半月板损伤、韧带撕裂、软骨损伤</li>
+                            <li><strong>软组织首选：</strong>肌肉、肌腱、韧带损伤，软组织肿瘤</li>
+                            <li><strong>前列腺首选：</strong>前列腺癌筛查（MRI+穿刺）</li>
+                            <li><strong>乳腺：</strong>乳腺癌术前评估、高危人群筛查</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- X线 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('xray-content')" style="cursor: pointer;">
+                    <h3>📷 X线（X光片）</h3>
+                    <span class="exam-badge radiation-badge">有辐射</span>
+                    <span class="exam-badge cost-badge">50-200元</span>
+                    <span class="toggle-icon" id="xray-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="xray-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>X射线穿透人体，不同组织对X射线的吸收能力不同（骨骼吸收多，肺部吸收少），在胶片或数字探测器上形成黑白图像。骨骼显示为白色，肺部显示为黑色，软组织显示为灰色。数字化X线（DR）成像质量更好，辐射剂量更低。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>胸部X线：</strong>肺炎、肺结核、肺癌（筛查）、气胸、胸腔积液、心脏增大</li>
+                            <li><strong>骨骼X线：</strong>骨折、骨肿瘤、关节炎、骨质疏松</li>
+                            <li><strong>腹部X线：</strong>肠梗阻、消化道穿孔（膈下游离气体）、结石（泌尿系结石）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>正常胸片：</strong>肺纹理清晰，心脏大小正常，膈肌光滑，无异常阴影</li>
+                            <li><strong>肺部阴影：</strong>肺炎（片状阴影）、肺结核（上肺斑片状阴影）、肺癌（结节/肿块）</li>
+                            <li><strong>骨折线：</strong>骨皮质连续性中断，可见透亮线</li>
+                            <li><strong>膈下游离气体：</strong>提示消化道穿孔（急腹症）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>胸部X线：</strong>50-100元</li>
+                            <li><strong>四肢骨骼X线：</strong>80-150元</li>
+                            <li><strong>腹部立位X线：</strong>100-200元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>有辐射，孕妇、儿童应避免</li>
+                            <li>胸部X线检查时需深吸气后屏气</li>
+                            <li>对软组织分辨率低，微小病变可能漏诊</li>
+                            <li>肺部筛查建议低剂量CT（优于X线）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>存在电离辐射</li>
+                            <li>软组织分辨率低，微小病变容易漏诊</li>
+                            <li>图像重叠，三维结构显示受限</li>
+                            <li>对早期肺癌、微小骨折检出率低</li>
+                            <li>诊断价值有限，常需进一步CT或MRI检查</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用器官</h4>
+                        <ul>
+                            <li><strong>骨骼首选：</strong>骨折、骨肿瘤、关节炎初步筛查</li>
+                            <li><strong>胸部：</strong>肺炎、肺结核初筛、心脏增大评估</li>
+                            <li><strong>腹部：</strong>肠梗阻、消化道穿孔（膈下游离气体）</li>
+                            <li><strong>牙齿：</strong>龋齿、根尖周病变</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 心电图 -->
+
+                        <div class="exam-detail-card">
+
+                            <div class="exam-header" onclick="toggleExamContent('ecg-content')" style="cursor: pointer;">
+
+                                <h3>💓 心电图（ECG）</h3>
+
+                                <span class="exam-badge">无创</span>
+
+                                <span class="exam-badge cost-badge">20-50元</span>
+
+                                <span class="toggle-icon" id="ecg-content-icon">▶</span>
+
+                            </div>
+
             
+
+                            <div class="exam-content" id="ecg-content">
+
+                                <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>通过体表电极记录心脏兴奋过程中的电活动变化。心脏兴奋时产生微弱电流，传导至体表，电极接收信号后经放大、记录形成心电图波形。心电图反映心脏的兴奋起源、传导途径和心肌状态，是诊断心律失常、心肌缺血的重要工具。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>心律失常：</strong>房颤、室上性心动过速、室性心动过速、早搏、传导阻滞</li>
+                            <li><strong>心肌缺血：</strong>冠心病、心绞痛、心肌梗死（ST-T改变）</li>
+                            <li><strong>心肌病变：</strong>心肌病、心肌炎</li>
+                            <li><strong>电解质紊乱：</strong>高钾血症、低钾血症（T波、U波改变）</li>
+                            <li><strong>药物影响：</strong>洋地黄中毒、抗心律失常药物作用</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>正常心电图：</strong>窦性心律，P波、QRS波、T波形态正常，ST段无偏移</li>
+                            <li><strong>窦性心动过速：</strong>心率>100次/分，P波形态正常</li>
+                            <li><strong>窦性心动过缓：</strong>心率<60次/分，P波形态正常</li>
+                            <li><strong>房颤：</strong>P波消失，代之以f波，R-R间期绝对不等</li>
+                            <li><strong>早搏：</strong>提前出现的QRS波，代偿间歇</li>
+                            <li><strong>心肌缺血：</strong>ST段压低、T波倒置</li>
+                            <li><strong>心肌梗死：</strong>病理性Q波、ST段抬高、T波倒置</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>常规心电图：</strong>20-50元</li>
+                            <li><strong>动态心电图（24小时）：</strong>300-600元</li>
+                            <li><strong>运动心电图：</strong>200-400元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>检查时保持安静，放松肌肉</li>
+                            <li>避免运动后立即检查</li>
+                            <li>胸部皮肤需清洁，确保电极接触良好</li>
+                            <li>常规心电图只能记录短暂时间，阵发性心律失常可能漏诊，需动态心电图监测</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>只能记录短暂时间，阵发性心律失常可能漏诊</li>
+                            <li>无法定位病灶，仅能反映电活动异常</li>
+                            <li>对心肌病变的结构性改变显示有限</li>
+                            <li>易受干扰（肌肉震颤、电极接触不良）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用器官</h4>
+                        <ul>
+                            <li><strong>心脏唯一首选：</strong>心律失常、心肌缺血、心肌梗死</li>
+                            <li><strong>心脏疾病：</strong>心肌病、心肌炎、电解质紊乱</li>
+                            <li><strong>术前评估：</strong>麻醉前心脏功能评估</li>
+                            <li><strong>体检筛查：</strong>心脏疾病基础筛查</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 血常规 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('blood-count-content')" style="cursor: pointer;">
+                    <h3>🩸 血常规</h3>
+                    <span class="exam-badge">基础检查</span>
+                    <span class="exam-badge cost-badge">20-50元</span>
+                    <span class="toggle-icon" id="blood-count-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="blood-count-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>采集静脉血或指尖血，使用全自动血细胞分析仪检测血液中各种细胞的数量和形态。通过电阻抗法、激光散射法等原理，计数白细胞、红细胞、血小板，并测量细胞大小、血红蛋白浓度等参数。血涂片镜检可观察细胞形态，识别异常细胞。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>感染筛查：</strong>细菌感染（白细胞升高）、病毒感染（淋巴细胞升高）</li>
+                            <li><strong>贫血诊断：</strong>缺铁性贫血、地中海贫血、巨幼红细胞性贫血、溶血性贫血</li>
+                            <li><strong>血液病筛查：</strong>白血病、再生障碍性贫血、血小板减少症</li>
+                            <li><strong>炎症评估：</strong>CRP结合白细胞评估感染程度</li>
+                            <li><strong>健康体检：</strong>基础筛查项目</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>血常规（五分类）：</strong>20-30元</li>
+                            <li><strong>血常规（三分类）：</strong>15-25元</li>
+                            <li><strong>血涂片镜检：</strong>10-20元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>需空腹（避免饮食影响某些参数）</li>
+                            <li>采血部位应清洁干燥</li>
+                            <li>采血后按压针眼5-10分钟</li>
+                            <li>剧烈运动后可能影响白细胞计数</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>无法明确异常细胞的具体来源（如白细胞升高但无法确定感染部位）</li>
+                            <li>对疾病特异性低，需结合临床症状和其他检查综合判断</li>
+                            <li>受多种因素影响（运动、饮食、情绪、时间）</li>
+                            <li>仅能反映血液细胞数量，无法显示器官结构异常</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用器官</h4>
+                        <ul>
+                            <li><strong>全身性检查：</strong>感染筛查、贫血诊断、血液病筛查</li>
+                            <li><strong>炎症评估：</strong>感染程度、炎症反应评估</li>
+                            <li><strong>骨髓功能：</strong>造血功能评估</li>
+                            <li><strong>基础筛查：</strong>健康体检必查项目</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 肿瘤标志物 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('tumor-marker-content')" style="cursor: pointer;">
+                    <h3>🧪 肿瘤标志物</h3>
+                    <span class="exam-badge">筛查检查</span>
+                    <span class="exam-badge cost-badge">50-300元/项</span>
+                    <span class="toggle-icon" id="tumor-marker-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="tumor-marker-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>检测血液中由肿瘤细胞产生或正常细胞在肿瘤刺激下产生的物质。这些物质包括蛋白质、激素、酶等，其浓度升高可能提示肿瘤存在。通过免疫学方法（如ELISA、化学发光法）定量检测肿瘤标志物浓度。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 常见项目</h4>
+                        <ul>
+                            <li><strong>CEA（癌胚抗原）：</strong>广谱肿瘤标志物，用于结直肠癌、肺癌、胃癌筛查</li>
+                            <li><strong>AFP（甲胎蛋白）：</strong>原发性肝癌、生殖细胞肿瘤</li>
+                            <li><strong>PSA（前列腺特异性抗原）：</strong>前列腺癌筛查</li>
+                            <li><strong>CA125：</strong>卵巢癌、子宫内膜癌</li>
+                            <li><strong>CA19-9：</strong>胰腺癌、胆管癌</li>
+                            <li><strong>CA15-3：</strong>乳腺癌</li>
+                            <li><strong>NSE（神经元特异性烯醇化酶）：</strong>小细胞肺癌</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>单项肿瘤标志物：</strong>50-100元</li>
+                            <li><strong>肿瘤标志物组合（5-10项）：</strong>200-500元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>肿瘤标志物升高≠癌症，需结合影像学检查综合判断</li>
+                            <li>良性肿瘤、炎症也可能导致标志物升高</li>
+                            <li>部分癌症早期标志物不升高（阴性不能排除癌症）</li>
+                            <li>体检建议：40岁以上每年检测，有肿瘤家族史者建议更早开始</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>特异性低，良性病变也可能导致升高（假阳性率高）</li>
+                            <li>敏感度有限，早期癌症可能不升高（假阴性率高）</li>
+                            <li>无法定位病灶，仅提示肿瘤可能存在</li>
+                            <li>易受炎症、感染、药物等因素影响</li>
+                            <li>单一标志物价值有限，需多项标志物联合检测</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用器官</h4>
+                        <ul>
+                            <li><strong>肝癌：</strong>AFP（甲胎蛋白）</li>
+                            <li><strong>前列腺癌：</strong>PSA（前列腺特异性抗原）</li>
+                            <li><strong>卵巢癌：</strong>CA125</li>
+                            <li><strong>胰腺癌：</strong>CA19-9</li>
+                            <li><strong>乳腺癌：</strong>CA15-3</li>
+                            <li><strong>结直肠癌：</strong>CEA（癌胚抗原）</li>
+                            <li><strong>肺癌：</strong>NSE（小细胞肺癌）、CEA（腺癌）</li>
+                            <li><strong>广谱筛查：</strong>CEA（多种癌症）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 凝血功能 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('coagulation-content')" style="cursor: pointer;">
+                    <h3>🩸 凝血功能</h3>
+                    <span class="exam-badge">血液检查</span>
+                    <span class="exam-badge cost-badge">30-80元</span>
+                    <span class="toggle-icon" id="coagulation-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="coagulation-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>检测血液凝固系统功能，评估出血和血栓风险。包括凝血酶原时间（PT）、活化部分凝血活酶时间（APTT）、纤维蛋白原（FIB）、凝血酶时间（TT）等指标。通过向血浆中加入不同试剂，观察血液凝固所需时间，评估内源性、外源性凝血途径是否正常。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>术前评估：</strong>手术前评估出血风险</li>
+                            <li><strong>出血性疾病：</strong>血友病、血小板减少症、DIC</li>
+                            <li><strong>血栓性疾病：</strong>深静脉血栓、肺栓塞</li>
+                            <li><strong>抗凝监测：</strong>服用华法林、肝素等抗凝药物的患者监测</li>
+                            <li><strong>肝脏疾病：</strong>肝功能异常导致的凝血障碍</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>PT（凝血酶原时间）：</strong>11-13秒，延长提示外源性凝血途径异常（维生素K缺乏、肝病、服用华法林）</li>
+                            <li><strong>APTT（活化部分凝血活酶时间）：</strong>25-35秒，延长提示内源性凝血途径异常（血友病、肝素使用）</li>
+                            <li><strong>FIB（纤维蛋白原）：</strong>2-4g/L，降低提示出血风险（DIC、重症肝病），升高提示血栓风险（炎症、肿瘤）</li>
+                            <li><strong>TT（凝血酶时间）：</strong>16-18秒，延长提示纤溶亢进（DIC、溶栓治疗）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>凝血四项：</strong>30-50元</li>
+                            <li><strong>D-二聚体：</strong>30-60元</li>
+                            <li><strong>凝血全套：</strong>80-150元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>需空腹采血</li>
+                            <li>采血时避免反复穿刺（影响结果）</li>
+                            <li>服用抗凝药物需告知医生</li>
+                            <li>月经期女性结果可能受影响</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>仅反映凝血功能状态，无法定位出血部位</li>
+                            <li>受多种因素影响（药物、饮食、运动）</li>
+                            <li>对轻微凝血功能异常可能不敏感</li>
+                            <li>需要结合临床表现和其他检查综合判断</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用场景</h4>
+                        <ul>
+                            <li><strong>术前必查：</strong>手术前出血风险评估</li>
+                            <li><strong>抗凝监测：</strong>服用华法林、肝素患者定期监测</li>
+                            <li><strong>出血筛查：</strong>不明原因出血、瘀斑检查</li>
+                            <li><strong>血栓筛查：</strong>深静脉血栓、肺栓塞辅助诊断</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 肝功能 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('liver-function-content')" style="cursor: pointer;">
+                    <h3>🫀 肝功能</h3>
+                    <span class="exam-badge">血液检查</span>
+                    <span class="exam-badge cost-badge">50-100元</span>
+                    <span class="toggle-icon" id="liver-function-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="liver-function-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>检测血液中反映肝脏合成、代谢、排泄功能的指标。包括谷丙转氨酶（ALT）、谷草转氨酶（AST）、总胆红素（TBIL）、直接胆红素（DBIL）、白蛋白（ALB）、球蛋白（GLB）等。通过检测这些指标评估肝脏细胞损伤程度、胆汁淤积情况、肝脏合成功能。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>肝脏疾病筛查：</strong>病毒性肝炎、脂肪肝、肝硬化</li>
+                            <li><strong>药物监测：</strong>服用伤肝药物（抗生素、抗结核药）的患者监测</li>
+                            <li><strong>黄疸诊断：</strong>溶血性黄疸、肝细胞性黄疸、梗阻性黄疸鉴别</li>
+                            <li><strong>术前评估：</strong>评估肝脏储备功能</li>
+                            <li><strong>健康体检：</strong>基础筛查项目</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>ALT/AST升高：</strong>肝细胞损伤（肝炎、肝硬化、药物性肝损伤）</li>
+                            <li><strong>AST/ALT>1：</strong>酒精性肝病、肝硬化</li>
+                            <li><strong>胆红素升高：</strong>黄疸（需鉴别原因）</li>
+                            <li><strong>白蛋白降低：</strong>肝脏合成功能下降（肝硬化、慢性肝病）</li>
+                            <li><strong>GGT升高：</strong>胆汁淤积、酒精性肝病</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>肝功能六项：</strong>40-70元</li>
+                            <li><strong>肝功能七项：</strong>50-90元</li>
+                            <li><strong>肝功能十项：</strong>70-120元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>需空腹采血（避免饮食影响）</li>
+                            <li>剧烈运动、饮酒后结果可能异常</li>
+                            <li>服用药物需告知医生</li>
+                            <li>异常结果需结合影像学检查综合判断</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>仅反映肝功能状态，无法明确病因</li>
+                            <li>受多种因素影响（饮食、运动、药物）</li>
+                            <li>早期肝病可能不敏感</li>
+                            <li>需要结合B超、CT等影像学检查</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用场景</h4>
+                        <ul>
+                            <li><strong>体检必查：</strong>肝脏健康筛查</li>
+                            <li><strong>药物监测：</strong>服用伤肝药物患者定期监测</li>
+                            <li><strong>黄疸诊断：</strong>黄疸病因鉴别</li>
+                            <li><strong>术前评估：</strong>评估肝脏储备功能</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 肾功能 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('kidney-function-content')" style="cursor: pointer;">
+                    <h3>🫀 肾功能</h3>
+                    <span class="exam-badge">血液检查</span>
+                    <span class="exam-badge cost-badge">40-80元</span>
+                    <span class="toggle-icon" id="kidney-function-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="kidney-function-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>检测血液中反映肾脏滤过、排泄功能的指标。包括血肌酐（Cr）、血尿素氮（BUN）、尿酸（UA）、胱抑素C等。通过检测这些指标评估肾小球滤过率，判断肾脏功能状态和损伤程度。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>肾脏疾病筛查：</strong>肾炎、肾病综合征、慢性肾病</li>
+                            <li><strong>高血压、糖尿病并发症：</strong>评估肾损伤程度</li>
+                            <li><strong>药物监测：</strong>服用肾毒性药物（庆大霉素、造影剂）的患者监测</li>
+                            <li><strong>术前评估：</strong>评估肾功能状态</li>
+                            <li><strong>痛风筛查：</strong>尿酸检测</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>血肌酐升高：</strong>肾功能受损（急性肾损伤、慢性肾病）</li>
+                            <li><strong>血尿素氮升高：</strong>肾功能受损、脱水、高蛋白饮食</li>
+                            <li><strong>尿酸升高：</strong>痛风、高尿酸血症</li>
+                            <li><strong>胱抑素C升高：</strong>早期肾损伤（比肌酐更敏感）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>肾功能三项：</strong>30-50元</li>
+                            <li><strong>肾功能四项：</strong>40-70元</li>
+                            <li><strong>肾功能五项：</strong>50-80元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>需空腹采血</li>
+                            <li>高蛋白饮食可能影响尿素氮</li>
+                            <li>肌肉量多者肌酐可能偏高（生理性差异）</li>
+                            <li>异常结果需结合尿常规、B超综合判断</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>早期肾损伤可能不敏感</li>
+                            <li>受肌肉量、饮食、药物影响</li>
+                            <li>仅反映功能状态，无法明确病因</li>
+                            <li>需要结合尿常规、影像学检查</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用场景</h4>
+                        <ul>
+                            <li><strong>体检必查：</strong>肾脏健康筛查</li>
+                            <li><strong>高危人群：</strong>高血压、糖尿病患者定期监测</li>
+                            <li><strong>药物监测：</strong>服用肾毒性药物患者监测</li>
+                            <li><strong>痛风诊断：</strong>尿酸检测</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 糖化血红蛋白 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('hba1c-content')" style="cursor: pointer;">
+                    <h3>🍬 糖化血红蛋白（HbA1c）</h3>
+                    <span class="exam-badge">血糖监测</span>
+                    <span class="exam-badge cost-badge">30-60元</span>
+                    <span class="toggle-icon" id="hba1c-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="hba1c-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>检测血液中与葡萄糖结合的血红蛋白比例。红细胞寿命约120天，HbA1c反映了过去2-3个月的平均血糖水平，不受短期血糖波动影响。通过高效液相色谱法、免疫分析法等检测HbA1c百分比，评估长期血糖控制情况。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>糖尿病筛查：</strong>糖尿病诊断和筛查</li>
+                            <li><strong>血糖控制监测：</strong>糖尿病患者长期血糖控制评估</li>
+                            <li><strong>糖尿病并发症风险评估：</strong>并发症风险预测</li>
+                            <li><strong>健康体检：</strong>糖尿病风险筛查</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>&lt;5.7%：</strong>正常</li>
+                            <li><strong>5.7%-6.4%：</strong>糖尿病前期（需生活方式干预）</li>
+                            <li><strong>&ge;6.5%：</strong>糖尿病（需进一步确诊）</li>
+                            <li><strong>糖尿病患者：</strong>控制在&lt;7%为理想目标</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>糖化血红蛋白：</strong>30-50元</li>
+                            <li><strong>快速检测：</strong>40-60元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>无需空腹，随时可检测</li>
+                            <li>贫血、血红蛋白异常可能影响结果</li>
+                            <li>近期大量失血或输血可能影响结果</li>
+                            <li>不能替代空腹血糖和餐后血糖检测</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>不能反映短期血糖波动（低血糖、高血糖）</li>
+                            <li>贫血、血红蛋白病可能影响结果</li>
+                            <li>近期失血或输血会影响准确性</li>
+                            <li>不能替代日常血糖监测</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用场景</h4>
+                        <ul>
+                            <li><strong>糖尿病管理：</strong>糖尿病患者长期血糖控制评估</li>
+                            <li><strong>糖尿病筛查：</strong>糖尿病前期和糖尿病筛查</li>
+                            <li><strong>并发症风险评估：</strong>并发症风险预测</li>
+                            <li><strong>健康体检：</strong>糖尿病风险筛查</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 尿常规 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('urine-routine-content')" style="cursor: pointer;">
+                    <h3>💧 尿常规</h3>
+                    <span class="exam-badge">基础检查</span>
+                    <span class="exam-badge cost-badge">10-30元</span>
+                    <span class="toggle-icon" id="urine-routine-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="urine-routine-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>通过检测尿液的外观、化学成分和有形成分，评估泌尿系统功能和全身性疾病。包括尿液颜色、透明度、酸碱度（pH）、比重、尿蛋白、尿糖、尿酮体、尿潜血、白细胞等指标。使用尿干化学分析仪和尿沉渣镜检进行检测。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>泌尿系统疾病筛查：</strong>肾炎、肾病综合征、尿路感染</li>
+                            <li><strong>糖尿病筛查：</strong>尿糖检测</li>
+                            <li><strong>肾脏疾病监测：</strong>尿蛋白、尿潜血检测</li>
+                            <li><strong>泌尿系统感染诊断：</strong>白细胞、亚硝酸盐检测</li>
+                            <li><strong>健康体检：</strong>基础筛查项目</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>尿蛋白阳性：</strong>肾小球损伤（肾炎、肾病综合征）</li>
+                            <li><strong>尿糖阳性：</strong>糖尿病或肾性糖尿</li>
+                            <li><strong>尿潜血阳性：</strong>泌尿系统出血或溶血</li>
+                            <li><strong>白细胞阳性：</strong>尿路感染</li>
+                            <li><strong>亚硝酸盐阳性：</strong>细菌感染（大肠杆菌）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>尿常规（10-11项）：</strong>10-20元</li>
+                            <li><strong>尿常规+沉渣：</strong>15-30元</li>
+                            <li><strong>尿微量白蛋白：</strong>20-40元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>留取中段尿（避免污染）</li>
+                            <li>女性需避开月经期</li>
+                            <li>清洁外阴后留尿</li>
+                            <li>尿液应新鲜（2小时内送检）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>容易污染（影响结果准确性）</li>
+                            <li>定性检查，无法定量</li>
+                            <li>受饮水、饮食、运动影响</li>
+                            <li>需要结合其他检查综合判断</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用场景</h4>
+                        <ul>
+                            <li><strong>体检必查：</strong>泌尿系统健康筛查</li>
+                            <li><strong>尿路感染诊断：</strong>尿路感染辅助诊断</li>
+                            <li><strong>肾脏疾病监测：</strong>肾脏疾病监测</li>
+                            <li><strong>糖尿病筛查：</strong>尿糖检测</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 便常规 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('stool-routine-content')" style="cursor: pointer;">
+                    <h3>💩 便常规</h3>
+                    <span class="exam-badge">基础检查</span>
+                    <span class="exam-badge cost-badge">10-30元</span>
+                    <span class="toggle-icon" id="stool-routine-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="stool-routine-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>通过检测粪便的外观、性状、显微镜下检查，评估消化系统功能和疾病。包括粪便颜色、性状、红细胞、白细胞、寄生虫卵、脂肪滴等指标。使用肉眼观察、显微镜镜检、隐血试验等方法进行检测。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>消化道出血筛查：</strong>消化道肿瘤、溃疡、出血</li>
+                            <li><strong>寄生虫感染诊断：</strong>蛔虫、钩虫、绦虫等</li>
+                            <li><strong>消化吸收不良评估：</strong>脂肪泻、消化不良</li>
+                            <li><strong>肠道感染诊断：</strong>细菌性肠炎、寄生虫感染</li>
+                            <li><strong>健康体检：</strong>消化道肿瘤筛查</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>隐血阳性：</strong>消化道出血（溃疡、肿瘤、息肉）</li>
+                            <li><strong>红细胞阳性：</strong>消化道出血</li>
+                            <li><strong>白细胞阳性：</strong>肠道感染</li>
+                            <li><strong>寄生虫卵阳性：</strong>寄生虫感染</li>
+                            <li><strong>脂肪滴阳性：</strong>消化吸收不良、胰腺疾病</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>便常规：</strong>10-20元</li>
+                            <li><strong>便常规+隐血：</strong>15-30元</li>
+                            <li><strong>粪便培养：</strong>50-100元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>留取新鲜粪便（1小时内送检）</li>
+                            <li>避免混入尿液、水、消毒液</li>
+                            <li>检查前3天避免食用动物血、肝脏</li>
+                            <li>女性需避开月经期</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>容易污染（影响结果准确性）</li>
+                            <li>定性检查，无法定量</li>
+                            <li>受饮食、药物影响</li>
+                            <li>需要结合肠镜等检查综合判断</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用场景</h4>
+                        <ul>
+                            <li><strong>体检必查：</strong>消化道肿瘤筛查</li>
+                            <li><strong>消化道出血诊断：</strong>消化道出血辅助诊断</li>
+                            <li><strong>寄生虫感染诊断：</strong>寄生虫感染诊断</li>
+                            <li><strong>消化吸收不良评估：</strong>消化吸收功能评估</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 乳腺钼靶 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('mammography-content')" style="cursor: pointer;">
+                    <h3>🎀 乳腺钼靶</h3>
+                    <span class="exam-badge radiation-badge">有辐射</span>
+                    <span class="exam-badge cost-badge">150-300元</span>
+                    <span class="toggle-icon" id="mammography-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="mammography-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>利用低剂量X线对乳腺进行投照成像。乳腺钼靶机使用软X线（钼靶或铑靶），能够清晰显示乳腺内的钙化灶、肿块等结构异常。通过数字化成像技术，提高图像质量和诊断准确性。是乳腺癌筛查的金标准之一。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>乳腺癌筛查：</strong>40岁以上女性乳腺癌筛查</li>
+                            <li><strong>乳腺肿块诊断：</strong>乳腺肿块良恶性鉴别</li>
+                            <li><strong>乳腺钙化灶评估：</strong>乳腺钙化灶性质判断</li>
+                            <li><strong>乳腺癌术前评估：</strong>肿瘤范围、多发病灶评估</li>
+                            <li><strong>高危人群筛查：</strong>有乳腺癌家族史者</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>BI-RADS分级：</strong>评估乳腺病变恶性风险</li>
+                            <li><strong>1-2级：</strong>良性，定期随访</li>
+                            <li><strong>3级：</strong>良性可能大，短期随访（6个月）</li>
+                            <li><strong>4级：</strong>恶性可能，需穿刺活检</li>
+                            <li><strong>5级：</strong>高度恶性，需立即活检</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>双侧乳腺钼靶：</strong>150-250元</li>
+                            <li><strong>数字化乳腺钼靶：</strong>200-300元</li>
+                            <li><strong>3D乳腺钼靶：</strong>300-500元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>有辐射，孕妇禁用</li>
+                            <li>40岁以下女性首选乳腺超声</li>
+                            <li>检查时需按压乳腺（有轻微疼痛）</li>
+                            <li>月经后1-2周检查最佳</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>有辐射</li>
+                            <li>对致密型乳腺显示效果差</li>
+                            <li>检查时有一定疼痛感</li>
+                            <li>对年轻女性（40岁以下）不作为首选</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用人群</h4>
+                        <ul>
+                            <li><strong>40岁以上女性：</strong>乳腺癌筛查首选</li>
+                            <li><strong>高危人群：</strong>有乳腺癌家族史者</li>
+                            <li><strong>乳腺肿块：</strong>肿块良恶性鉴别</li>
+                            <li><strong>乳腺钙化：</strong>钙化灶性质评估</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 胃镜 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('gastroscopy-content')" style="cursor: pointer;">
+                    <h3>🔬 胃镜</h3>
+                    <span class="exam-badge">侵入性检查</span>
+                    <span class="exam-badge cost-badge">300-800元</span>
+                    <span class="toggle-icon" id="gastroscopy-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="gastroscopy-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>将带有摄像头的软管（胃镜）经口腔插入食管、胃、十二指肠，直接观察消化道黏膜情况。通过胃镜可发现炎症、溃疡、肿瘤、息肉等病变，并可进行活检、治疗（如息肉切除、止血）。是上消化道疾病诊断的金标准。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>上消化道症状：</strong>胃痛、反酸、嗳气、吞咽困难</li>
+                            <li><strong>消化道出血：</strong>呕血、黑便</li>
+                            <li><strong>胃癌筛查：</strong>胃癌高危人群筛查</li>
+                            <li><strong>幽门螺杆菌检测：</strong>幽门螺杆菌感染诊断</li>
+                            <li><strong>治疗性操作：</strong>息肉切除、止血、异物取出</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>正常：</strong>黏膜光滑，色泽正常，无溃疡、肿块</li>
+                            <li><strong>胃炎：</strong>黏膜充血、水肿、糜烂</li>
+                            <li><strong>胃溃疡：</strong>黏膜缺损，边界整齐</li>
+                            <li><strong>胃癌：</strong>不规则肿块、溃疡、质脆易出血</li>
+                            <li><strong>息肉：</strong>黏膜隆起，可切除送检</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>普通胃镜：</strong>200-400元</li>
+                            <li><strong>无痛胃镜（含麻醉）：</strong>500-800元</li>
+                            <li><strong>胃镜+活检：</strong>300-500元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>需空腹6-8小时</li>
+                            <li>检查前需做心电图、凝血功能检查</li>
+                            <li>无痛胃镜需麻醉评估</li>
+                            <li>检查后2小时方可进食</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>侵入性检查，有一定不适感</li>
+                            <li>无痛胃镜需麻醉，有麻醉风险</li>
+                            <li>检查费用较高</li>
+                            <li>有穿孔、出血等并发症风险（极低）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用人群</h4>
+                        <ul>
+                            <li><strong>上消化道症状：</strong>胃痛、反酸、吞咽困难者</li>
+                            <li><strong>消化道出血：</strong>呕血、黑便者</li>
+                            <li><strong>胃癌筛查：</strong>40岁以上、有胃癌家族史者</li>
+                            <li><strong>幽门螺杆菌检测：</strong>需要确诊者</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 肠镜 -->
+            <div class="exam-detail-card">
+                <div class="exam-header" onclick="toggleExamContent('colonoscopy-content')" style="cursor: pointer;">
+                    <h3>🔬 肠镜</h3>
+                    <span class="exam-badge">侵入性检查</span>
+                    <span class="exam-badge cost-badge">400-1000元</span>
+                    <span class="toggle-icon" id="colonoscopy-content-icon">▶</span>
+                </div>
+
+                <div class="exam-content" id="colonoscopy-content">
+                    <div class="exam-section">
+                        <h4>📖 检查原理</h4>
+                        <p>将带有摄像头的软管（肠镜）经肛门插入直肠、结肠、回肠末端，直接观察肠道黏膜情况。通过肠镜可发现炎症、溃疡、肿瘤、息肉等病变，并可进行活检、治疗（如息肉切除、止血）。是结直肠癌筛查的金标准。</p>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 适用范围</h4>
+                        <ul>
+                            <li><strong>结直肠癌筛查：</strong>40岁以上结直肠癌筛查</li>
+                            <li><strong>肠道症状：</strong>便血、腹痛、腹泻、便秘</li>
+                            <li><strong>结肠息肉切除：</strong>结肠息肉预防癌变</li>
+                            <li><strong>炎症性肠病：</strong>溃疡性结肠炎、克罗恩病诊断</li>
+                            <li><strong>肠道出血诊断：</strong>下消化道出血病因诊断</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>📊 结果解读</h4>
+                        <ul>
+                            <li><strong>正常：</strong>黏膜光滑，色泽正常，无溃疡、肿块</li>
+                            <li><strong>炎症：</strong>黏膜充血、水肿、糜烂</li>
+                            <li><strong>溃疡：</strong>黏膜缺损，边界整齐或不整齐</li>
+                            <li><strong>息肉：</strong>黏膜隆起，可切除送检</li>
+                            <li><strong>结肠癌：</strong>不规则肿块、溃疡、质脆易出血</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>💰 费用成本</h4>
+                        <ul>
+                            <li><strong>普通肠镜：</strong>300-500元</li>
+                            <li><strong>无痛肠镜（含麻醉）：</strong>600-1000元</li>
+                            <li><strong>肠镜+息肉切除：</strong>500-1500元</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>需严格肠道准备（清肠）</li>
+                            <li>检查前需做心电图、凝血功能检查</li>
+                            <li>无痛肠镜需麻醉评估</li>
+                            <li>检查后1-2天饮食清淡</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>❌ 缺点</h4>
+                        <ul>
+                            <li>侵入性检查，有一定不适感</li>
+                            <li>肠道准备繁琐，患者体验差</li>
+                            <li>无痛肠镜需麻醉，有麻醉风险</li>
+                            <li>检查费用较高</li>
+                            <li>有穿孔、出血等并发症风险（极低）</li>
+                        </ul>
+                    </div>
+
+                    <div class="exam-section">
+                        <h4>🎯 最佳适用人群</h4>
+                        <ul>
+                            <li><strong>40岁以上：</strong>结直肠癌筛查</li>
+                            <li><strong>高危人群：</strong>有结直肠癌家族史、息肉史者</li>
+                            <li><strong>肠道症状：</strong>便血、腹痛、腹泻、便秘者</li>
+                            <li><strong>息肉切除：</strong>结肠息肉切除</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>体检建议</h2>
+
             <div class="highlight-box">
                 <h3>不同年龄段体检重点</h3>
                 <ul>
@@ -358,7 +1666,7 @@
                     <li><strong>50岁以上：</strong>全面体检，重点关注心脑血管疾病、肿瘤筛查</li>
                 </ul>
             </div>
-            
+
             <div class="highlight-box">
                 <h3>体检注意事项</h3>
                 <ul>
@@ -398,7 +1706,7 @@
             overflow-x: auto;
             margin: 20px 0;
         }
-        
+
         .reference-table {
             width: 100%;
             border-collapse: collapse;
@@ -407,43 +1715,166 @@
             border-radius: 8px;
             overflow: hidden;
         }
-        
+
         .reference-table thead {
             background: white;
             color: #2c3e50;
             border-bottom: 2px solid #667eea;
         }
-        
+
         .reference-table th {
             padding: 15px;
             text-align: left;
             font-weight: 600;
             font-size: 0.95em;
         }
-        
+
         .reference-table td {
             padding: 12px 15px;
             border-bottom: 1px solid #ecf0f1;
             font-size: 0.9em;
             line-height: 1.6;
         }
-        
+
         .reference-table tbody tr:hover {
             background-color: #f8f9fa;
         }
-        
+
         .reference-table tbody tr:last-child td {
             border-bottom: none;
         }
-        
+
+        .exam-detail-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e8f4f8;
+        }
+
+        .exam-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f7ff;
+            position: relative;
+        }
+
+        .exam-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #2c3e50;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .toggle-icon {
+            font-size: 0.8em;
+            color: #3498db;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            padding: 5px 10px;
+            background: #f0f7ff;
+            border-radius: 5px;
+        }
+
+        .toggle-icon:hover {
+            background: #e3f2fd;
+        }
+
+        .exam-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .exam-badge:first-of-type {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .radiation-badge {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .cost-badge {
+            background: #27ae60;
+            color: white;
+        }
+
+        .exam-content {
+            display: grid;
+            gap: 20px;
+        }
+
+        .exam-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .exam-section h4 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .exam-section p {
+            color: #555;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .exam-section ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .exam-section li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .exam-section li strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             .reference-table {
                 font-size: 0.8em;
             }
-            
+
             .reference-table th,
             .reference-table td {
                 padding: 8px 10px;
+            }
+
+            .exam-header {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .exam-header h3 {
+                width: 100%;
+                font-size: 1.2em;
+            }
+
+            .exam-detail-card {
+                padding: 20px;
+            }
+
+            .exam-section {
+                padding: 15px;
             }
         }
     </style>

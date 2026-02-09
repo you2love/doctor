@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康生活实践 - 医学学习平台</title>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        .living-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .living-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .living-card ul {
+            margin-left: 20px;
+        }
+
+        .living-card li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .living-card li strong {
+            color: #2c3e50;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .tips-box h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .tips-box ul {
+            margin-left: 20px;
+        }
+
+        .tips-box li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .routine-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .routine-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .routine-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .routine-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .routine-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .routine-table {
+                font-size: 0.85em;
+            }
+
+            .routine-table th,
+            .routine-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>医学学习平台</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li class="menu-category">基础学科</li>
+                <li><a href="anatomy.html">解剖学</a></li>
+                <li><a href="pathology.html">病理学</a></li>
+                <li><a href="physiology.html">生理学</a></li>
+                <li><a href="pathophysiology.html">病理生理学</a></li>
+                <li><a href="system.html">人体系统</a></li>
+                <li class="menu-category">临床学科</li>
+                <li><a href="internal-medicine.html">内科学</a></li>
+                <li><a href="diagnostics.html">诊断学</a></li>
+                <li><a href="common_disease.html">常见病</a></li>
+                <li><a href="symptoms.html">常见症状</a></li>
+                <li class="menu-category">实用指南</li>
+                <li><a href="check_up.html">体检指标</a></li>
+                <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">国内医院</a></li>
+                <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html" class="active">健康生活</a></li>
+            </ul>
+        </nav>
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    </div>
+
+    <main class="main-content">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+        <main class="container">
+            <section class="subject-header">
+                <div class="subject-icon">🌿</div>
+                <h1>健康生活实践指南</h1>
+                <p class="subject-description">科学养生，预防疾病，提升生活质量</p>
+            </section>
+
+            <section class="content-section">
+                <h2>一、科学饮食实践</h2>
+
+                <div class="living-card">
+                    <h3>🥗 均衡饮食原则</h3>
+                    <ul>
+                        <li><strong>食物多样性：</strong>每天摄入12种以上食物，每周25种以上（谷薯类、蔬菜水果、畜禽鱼蛋、奶类、大豆坚果）</li>
+                        <li><strong>主食搭配：</strong>粗细搭配，全谷物和杂豆占主食1/3-1/2（减少精米白面）</li>
+                        <li><strong>蔬果充足：</strong>每天蔬菜300-500克，水果200-350克（深色蔬菜占1/2）</li>
+                        <li><strong>优质蛋白：</strong>每天摄入鱼、禽、蛋、瘦肉120-200克，奶及奶制品300克</li>
+                        <li><strong>控油限盐：</strong>每天烹调油25-30克，食盐<5克（减少高血压风险）</li>
+                        <li><strong>控糖限酒：</strong>每天添加糖<25克，成年男性酒精<25克，女性<15克</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>⏰ 科学进食时间</h3>
+                    <ul>
+                        <li><strong>早餐：</strong>7:00-8:00（必须吃，占全天能量25-30%）</li>
+                        <li><strong>午餐：</strong>11:30-12:30（占全天能量40%）</li>
+                        <li><strong>晚餐：</strong>18:00-19:00（占全天能量30-35%，清淡少油）</li>
+                        <li><strong>加餐：</strong>上午10点、下午3点可选（水果、酸奶、坚果）</li>
+                        <li><strong>睡前3小时：</strong>不再进食（避免影响睡眠和消化）</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>💧 科学饮水指南</h3>
+                    <ul>
+                        <li><strong>每日饮水量：</strong>成人1500-1700毫升（约7-8杯）</li>
+                        <li><strong>饮水时间：</strong>早起一杯水，餐前半小时饮水，睡前1小时避免大量饮水</li>
+                        <li><strong>饮水种类：</strong>首选白开水或淡茶水，少喝含糖饮料</li>
+                        <li><strong>主动饮水：</strong>不要等到口渴再喝水，定时定量</li>
+                        <li><strong>运动补水：</strong>运动前、中、后适量补水，避免脱水</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>二、规律运动实践</h2>
+
+                <div class="living-card">
+                    <h3>🏃 运动类型与时长</h3>
+                    <ul>
+                        <li><strong>有氧运动：</strong>每周150-300分钟中等强度（快走、慢跑、游泳、骑自行车）</li>
+                        <li><strong>力量训练：</strong>每周2-3次，每次20-30分钟（哑铃、弹力带、自重训练）</li>
+                        <li><strong>柔韧性训练：</strong>每周2-3次，每次10-15分钟（拉伸、瑜伽）</li>
+                        <li><strong>平衡训练：</strong>每周2-3次（太极、单脚站立，预防跌倒）</li>
+                        <li><strong>日常活动：</strong>每天步行8000-10000步，减少久坐时间</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>⚡ 运动强度判断</h3>
+                    <ul>
+                        <li><strong>低强度：</strong>能轻松唱歌（散步、家务）</li>
+                        <li><strong>中等强度：</strong>能说话但不能唱歌（快走、慢跑、骑自行车）</li>
+                        <li><strong>高强度：</strong>只能说几个字（跑步、游泳、跳绳）</li>
+                        <li><strong>心率监测：</strong>中等强度心率=（220-年龄）×60%-70%</li>
+                        <li><strong>体感判断：</strong>运动后微汗、呼吸加快但能正常交流</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>🚫 运动注意事项</h3>
+                    <ul>
+                        <li><strong>运动前：</strong>热身5-10分钟，预防运动损伤</li>
+                        <li><strong>运动中：</strong>循序渐进，避免突然增加强度</li>
+                        <li><strong>运动后：</strong>拉伸放松，促进恢复</li>
+                        <li><strong>特殊人群：</strong>慢性病患者、老年人运动前咨询医生</li>
+                        <li><strong>运动环境：</strong>选择空气良好、安全的环境运动</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>三、优质睡眠实践</h2>
+
+                <div class="living-card">
+                    <h3>😴 睡眠时间建议</h3>
+                    <ul>
+                        <li><strong>成年人：</strong>每天7-9小时</li>
+                        <li><strong>老年人：</strong>每天7-8小时</li>
+                        <li><strong>青少年：</strong>每天8-10小时</li>
+                        <li><strong>儿童：</strong>每天9-11小时</li>
+                        <li><strong>规律作息：</strong>每天同一时间睡觉和起床（包括周末）</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>🌙 睡眠环境优化</h3>
+                    <ul>
+                        <li><strong>卧室温度：</strong>18-22℃最适宜</li>
+                        <li><strong>卧室湿度：</strong>40%-60%</li>
+                        <li><strong>光线控制：</strong>使用遮光窗帘，避免强光</li>
+                        <li><strong>噪音控制：</strong>使用耳塞或白噪音机</li>
+                        <li><strong>寝具选择：</strong>舒适的枕头和床垫，定期更换</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>📱 睡前准备习惯</h3>
+                    <ul>
+                        <li><strong>远离电子设备：</strong>睡前1小时不看手机、电脑（蓝光影响褪黑素分泌）</li>
+                        <li><strong>放松活动：</strong>阅读、听轻音乐、冥想、深呼吸</li>
+                        <li><strong>避免刺激：</strong>睡前不喝咖啡、浓茶、酒精</li>
+                        <li><strong>规律运动：</strong>睡前2-3小时避免剧烈运动</li>
+                        <li><strong>热水泡脚：</strong>睡前泡脚15-20分钟，促进血液循环</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>四、心理健康管理</h2>
+
+                <div class="living-card">
+                    <h3>😊 压力管理技巧</h3>
+                    <ul>
+                        <li><strong>深呼吸：</strong>腹式呼吸，每次5-10分钟（降低应激反应）</li>
+                        <li><strong>正念冥想：</strong>每天10-15分钟（提高专注力，减轻焦虑）</li>
+                        <li><strong>运动减压：</strong>有氧运动释放内啡肽，改善情绪</li>
+                        <li><strong>时间管理：</strong>合理规划时间，避免过度压力</li>
+                        <li><strong>寻求支持：</strong>与家人朋友交流，必要时寻求专业帮助</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>🧠 情绪调节方法</h3>
+                    <ul>
+                        <li><strong>情绪识别：</strong>认识自己的情绪，接纳负面情绪</li>
+                        <li><strong>表达释放：</strong>通过倾诉、写日记、艺术创作释放情绪</li>
+                        <li><strong>认知重构：</strong>改变消极思维模式，培养积极心态</li>
+                        <li><strong>培养兴趣：</strong>发展爱好，增加生活乐趣</li>
+                        <li><strong>社交支持：</strong>建立良好的人际关系，获得情感支持</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>🌱 心理健康维护</h3>
+                    <ul>
+                        <li><strong>保持学习：</strong>不断学习新知识，保持大脑活力</li>
+                        <li><strong>培养感恩：</strong>每天记录3件感恩的事</li>
+                        <li><strong>志愿服务：</strong>帮助他人，获得成就感和价值感</li>
+                        <li><strong>规律作息：</strong>稳定的生活节奏有利于心理健康</li>
+                        <li><strong>专业求助：</strong>出现持续抑郁、焦虑症状时及时就医</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>五、健康管理工具</h2>
+
+                <div class="table-responsive">
+                    <table class="routine-table">
+                        <thead>
+                            <tr>
+                                <th>健康管理项目</th>
+                                <th>实施频率</th>
+                                <th>关键指标</th>
+                                <th>注意事项</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>体重监测</strong></td>
+                                <td>每周1-2次</td>
+                                <td>BMI 18.5-23.9</td>
+                                <td>固定时间测量，避免饭后测量</td>
+                            </tr>
+                            <tr>
+                                <td><strong>血压监测</strong></td>
+                                <td>每周2-3次</td>
+                                <td><120/80 mmHg</td>
+                                <td>安静状态下测量，避免运动后测量</td>
+                            </tr>
+                            <tr>
+                                <td><strong>血糖监测</strong></td>
+                                <td>糖尿病患者每天，高危人群每月</td>
+                                <td>空腹血糖 3.9-6.1 mmol/L</td>
+                                <td>空腹8小时以上测量</td>
+                            </tr>
+                            <tr>
+                                <td><strong>运动记录</strong></td>
+                                <td>每天</td>
+                                <td>每周运动150分钟以上</td>
+                                <td>记录运动类型、时长、强度</td>
+                            </tr>
+                            <tr>
+                                <td><strong>睡眠记录</strong></td>
+                                <td>每天</td>
+                                <td>每天睡眠7-9小时</td>
+                                <td>记录入睡时间、醒来时间、睡眠质量</td>
+                            </tr>
+                            <tr>
+                                <td><strong>饮食记录</strong></td>
+                                <td>每周至少3天</td>
+                                <td>均衡饮食，热量适中</td>
+                                <td>记录每餐食物种类和分量</td>
+                            </tr>
+                            <tr>
+                                <td><strong>定期体检</strong></td>
+                                <td>每年1次</td>
+                                <td>各项指标正常范围</td>
+                                <td>40岁以上增加肿瘤筛查</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>六、健康生活习惯养成</h2>
+
+                <div class="tips-box">
+                    <h3>💡 核心健康原则</h3>
+                    <ul>
+                        <li><strong>循序渐进：</strong>不要一次性改变太多习惯，从小处开始</li>
+                        <li><strong>持续坚持：</strong>21天养成习惯，90天巩固习惯</li>
+                        <li><strong>正面激励：</strong>给自己设定小目标和奖励</li>
+                        <li><strong>记录追踪：</strong>使用APP或日记记录健康行为</li>
+                        <li><strong>寻求支持：</strong>与家人朋友一起建立健康习惯</li>
+                        <li><strong>灵活调整：</strong>根据实际情况调整计划，保持灵活性</li>
+                        <li><strong>长期主义：</strong>健康是终身事业，不要追求短期效果</li>
+                    </ul>
+                </div>
+
+                <div class="living-card">
+                    <h3>📅 一日健康作息建议</h3>
+                    <ul>
+                        <li><strong>6:30-7:00：</strong>起床，喝一杯温水</li>
+                        <li><strong>7:00-8:00：</strong>早餐（营养均衡）</li>
+                        <li><strong>8:00-9:00：</strong>上班/上学途中步行或骑行</li>
+                        <li><strong>10:00-10:30：</strong>休息，做伸展运动</li>
+                        <li><strong>12:00-13:00：</strong>午餐，午休20-30分钟</li>
+                        <li><strong>15:00-15:30：</strong>下午茶，喝水或吃水果</li>
+                        <li><strong>17:00-18:00：</strong>下班/放学，进行有氧运动30分钟</li>
+                        <li><strong>18:00-19:00：</strong>晚餐（清淡少油）</li>
+                        <li><strong>19:00-21:00：</strong>家庭时间，散步或轻度运动</li>
+                        <li><strong>21:00-22:00：</strong>放松时间，阅读、听音乐、冥想</li>
+                        <li><strong>22:00-22:30：</strong>洗漱，准备睡觉</li>
+                        <li><strong>22:30-23:00：</strong>睡觉（保证7-9小时睡眠）</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </main>
+</body>
+</html>
