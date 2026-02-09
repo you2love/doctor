@@ -562,6 +562,368 @@
             </div>
         </section>
 
+        <!-- 内分泌系统疾病 -->
+        <section class="content-section">
+            <h2>内分泌系统疾病</h2>
+            
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('diabetes-content')" style="cursor: pointer;">
+                    糖尿病（2型糖尿病）
+                    <span class="toggle-icon" id="diabetes-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="diabetes-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>"三多一少"（多饮、多尿、多食、体重减轻），乏力、视物模糊、皮肤瘙痒、伤口愈合慢。早期可无明显症状。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">环境因素<br><small>肥胖/缺乏运动</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">胰岛素抵抗<br><small>细胞敏感性↓</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">胰岛素相对不足<br><small>胰岛β细胞功能↓</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">血糖升高<br><small>空腹/餐后血糖↑</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>以控制血糖、预防并发症为核心。</p>
+                    <ul>
+                        <li><strong>生活方式干预：</strong>糖尿病饮食、控制体重、规律运动</li>
+                        <li><strong>口服降糖药：</strong>二甲双胍（首选）、磺脲类、α-糖苷酶抑制剂、DPP-4抑制剂、SGLT2抑制剂</li>
+                        <li><strong>胰岛素治疗：</strong>口服药无效或血糖过高时使用</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('hyperthyroidism-content')" style="cursor: pointer;">
+                    甲状腺功能亢进症（甲亢）
+                    <span class="toggle-icon" id="hyperthyroidism-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="hyperthyroidism-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>高代谢症状（怕热、多汗、消瘦）、心悸、手抖、眼球突出、情绪易激动、食欲亢进但体重下降、月经紊乱（女性）。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-node start">格雷夫斯病<br><small>自身免疫性疾病</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">TSH受体抗体<br><small>刺激甲状腺</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">甲状腺激素↑<br><small>T3、T4升高</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">甲亢症状<br><small>怕热/多汗/消瘦/心悸</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>抑制甲状腺激素合成、减少甲状腺激素释放。</p>
+                    <ul>
+                        <li><strong>抗甲状腺药物：</strong>甲巯咪唑、丙硫氧嘧啶（首选）</li>
+                        <li><strong>β受体阻滞剂：</strong>普萘洛尔控制心率</li>
+                        <li><strong>放射性碘治疗：</strong>¹³¹I治疗</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 代谢性疾病 -->
+        <section class="content-section">
+            <h2>代谢性疾病</h2>
+            
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('hyperlipidemia-content')" style="cursor: pointer;">
+                    高脂血症
+                    <span class="toggle-icon" id="hyperlipidemia-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="hyperlipidemia-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>早期多无症状，长期可出现黄色瘤（眼睑）、角膜老年环，增加冠心病、脑梗死风险。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">不良生活方式<br><small>高脂饮食/缺乏运动</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">脂质代谢紊乱<br><small>LDL-C升高</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">动脉粥样硬化<br><small>血管狭窄</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">心血管事件风险↑<br><small>心梗/脑梗</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>降低血脂，预防心血管疾病。</p>
+                    <ul>
+                        <li><strong>生活方式干预：</strong>低脂低胆固醇饮食、规律运动、控制体重</li>
+                        <li><strong>调脂药物：</strong>他汀类（降低LDL-C，首选）、贝特类（降低TG）、胆固醇吸收抑制剂</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('gout-content')" style="cursor: pointer;">
+                    痛风
+                    <span class="toggle-icon" id="gout-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="gout-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>急性发作：夜间突然发作的关节剧烈疼痛、红肿、热痛，多见于第一跖趾关节（大脚趾）。慢性期：痛风石形成、关节畸形、肾功能损害。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">高嘌呤饮食<br><small>海鲜/动物内脏/啤酒</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">遗传因素<br><small>尿酸代谢异常</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">血尿酸升高<br><small>>420μmol/L</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">尿酸盐结晶沉积<br><small>关节/肾脏</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">痛风发作<br><small>关节疼痛/痛风石</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>降低血尿酸、缓解疼痛、预防复发。</p>
+                    <ul>
+                        <li><strong>急性期：</strong>非甾体抗炎药（布洛芬）、秋水仙碱、糖皮质激素</li>
+                        <li><strong>缓解期：</strong>别嘌醇、非布司他（抑制尿酸生成）、苯溴马隆（促进尿酸排泄）</li>
+                        <li><strong>生活方式：</strong>低嘌呤饮食、多饮水、戒酒</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 皮肤科疾病 -->
+        <section class="content-section">
+            <h2>皮肤科疾病</h2>
+            
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('acne-content')" style="cursor: pointer;">
+                    痤疮（青春痘）
+                    <span class="toggle-icon" id="acne-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="acne-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>面部、胸部、背部出现粉刺、丘疹、脓疱、结节、囊肿，可留痘印、痘疤。青春期多见，女性可月经前加重。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">雄激素水平↑</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">皮脂分泌过多</div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">毛囊角化异常</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">痤疮丙酸杆菌<br><small>感染</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">炎症反应<br><small>红肿、化脓</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">痤疮形成<br><small>粉刺/脓疱/结节</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>抑制皮脂分泌、抗菌消炎、改善毛囊角化。</p>
+                    <ul>
+                        <li><strong>外用药物：</strong>过氧化苯甲酰、维A酸类药物、抗生素软膏</li>
+                        <li><strong>口服药物：</strong>抗生素（多西环素）、异维A酸（重度痤疮）、激素（女性）</li>
+                        <li><strong>日常护理：</strong>温和洁面、避免挤压、清淡饮食</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('eczema-content')" style="cursor: pointer;">
+                    湿疹
+                    <span class="toggle-icon" id="eczema-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="eczema-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>皮肤红斑、丘疹、水疱、渗出、结痂、脱屑，剧烈瘙痒，反复发作。多见于面部、手部、肘窝、腘窝。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素<br><small>过敏体质</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">环境因素<br><small>干燥/刺激物/过敏原</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">皮肤屏障受损<br><small>保水能力↓</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">免疫反应<br><small>炎症介质释放</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">湿疹症状<br><small>红斑/水疱/瘙痒</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>修复皮肤屏障、抗炎、止痒。</p>
+                    <ul>
+                        <li><strong>外用药物：</strong>糖皮质激素软膏（急性期）、钙调神经磷酸酶抑制剂、保湿剂</li>
+                        <li><strong>口服药物：</strong>抗组胺药（止痒）、抗生素（感染时）、免疫抑制剂（重度）</li>
+                        <li><strong>日常护理：</strong>保湿、避免刺激、穿着宽松衣物</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 五官科疾病 -->
+        <section class="content-section">
+            <h2>五官科疾病</h2>
+            
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('conjunctivitis-content')" style="cursor: pointer;">
+                    结膜炎（红眼病）
+                    <span class="toggle-icon" id="conjunctivitis-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="conjunctivitis-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>眼红、眼痒、分泌物增多（细菌性：黄色脓性；病毒性：水样；过敏性：黏稠）、畏光、流泪。单眼或双眼发病。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">细菌感染</div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">病毒感染</div>
+                            <div class="flow-divider">或</div>
+                            <div class="flow-node small">过敏原<br><small>花粉/尘螨</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">结膜炎症<br><small>血管扩张</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">分泌物增多<br><small>眼屎</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">结膜炎症状<br><small>眼红/眼痒/分泌物</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>抗感染、抗过敏、缓解症状。</p>
+                    <ul>
+                        <li><strong>细菌性：</strong>抗生素眼药水（左氧氟沙星、妥布霉素）</li>
+                        <li><strong>病毒性：</strong>抗病毒眼药水（阿昔洛韦）、人工泪液</li>
+                        <li><strong>过敏性：</strong>抗过敏眼药水（奥洛他定）、冷敷</li>
+                        <li><strong>注意事项：</strong>勤洗手、避免揉眼、不共用毛巾</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('otitis-media-content')" style="cursor: pointer;">
+                    中耳炎
+                    <span class="toggle-icon" id="otitis-media-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="otitis-media-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>耳痛（剧烈）、听力下降、耳鸣、耳闷、发热（儿童多见）、鼓膜穿孔后耳流脓。婴幼儿表现为哭闹、抓耳、发热。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">上呼吸道感染<br><small>咽鼓管功能障碍</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">细菌/病毒<br><small>进入中耳</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">中耳炎症<br><small>积液/化脓</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">鼓膜受压<br><small>耳痛</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">中耳炎症状<br><small>耳痛/听力下降/流脓</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>抗感染、缓解疼痛、改善咽鼓管功能。</p>
+                    <ul>
+                        <li><strong>药物治疗：</strong>抗生素（阿莫西林、头孢类）、止痛药（布洛芬）、滴鼻液（通咽鼓管）</li>
+                        <li><strong>手术治疗：</strong>鼓膜穿刺抽液（积液多时）、鼓膜置管术（反复发作）</li>
+                        <li><strong>注意事项：</strong>避免用力擤鼻、保持鼻腔通畅</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h3 onclick="toggleTopicCard('rhinitis-content')" style="cursor: pointer;">
+                    过敏性鼻炎
+                    <span class="toggle-icon" id="rhinitis-content-icon">▶</span>
+                </h3>
+                <div class="topic-content" id="rhinitis-content">
+                <div class="symptom-box">
+                    <h4>核心症状</h4>
+                    <p>阵发性喷嚏（连续多个）、流清水样鼻涕、鼻塞、鼻痒、眼痒、流泪。接触过敏原后发作，季节性或常年性。</p>
+                </div>
+                <div class="detail-box">
+                    <h4>详细原因</h4>
+                    <div class="disease-flowchart">
+                        <div class="flow-branch">
+                            <div class="flow-node small">遗传因素<br><small>过敏体质</small></div>
+                            <div class="flow-divider">+</div>
+                            <div class="flow-node small">过敏原<br><small>花粉/尘螨/宠物皮屑</small></div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node warning">鼻黏膜过敏反应<br><small>组胺释放</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node">血管扩张<br><small>鼻塞/流涕</small></div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-node end">鼻炎症状<br><small>喷嚏/流涕/鼻痒</small></div>
+                    </div>
+                </div>
+                <div class="treatment-box">
+                    <h4>治疗原理</h4>
+                    <p>避免过敏原、抗过敏、缓解症状。</p>
+                    <ul>
+                        <li><strong>避免过敏原：</strong>戴口罩、清洁环境、避免接触宠物</li>
+                        <li><strong>药物治疗：</strong>抗组胺药（氯雷他定、西替利嗪）、鼻喷激素（氟替卡松）、减充血剂</li>
+                        <li><strong>免疫治疗：</strong>脱敏治疗（适用于特定过敏原）</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </section>
+
 
     </main>
 
