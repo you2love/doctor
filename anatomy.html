@@ -6,7 +6,14 @@
     <title>解剖学 - 医学学习平台</title>
     <script>
         function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('open');
+            const sidebar = document.querySelector(".sidebar");
+            const mainContent = document.querySelector(".main-content") || document.querySelector(".index-container") || document.querySelector(".body-systems-content") || document.querySelector(".anatomy-container") || document.querySelector(".pathology-container") || document.querySelector(".physiology-container") || document.querySelector(".pathophysiology-container") || document.querySelector(".system-container") || document.querySelector(".internal-medicine-container") || document.querySelector(".diagnostics-container") || document.querySelector(".common-disease-container") || document.querySelector(".symptoms-container") || document.querySelector(".check-up-container") || document.querySelector(".doctor-container") || document.querySelector(".medicine-container") || document.querySelector(".healthy-living-container") || document.querySelector(".hospitals-container");
+            
+            sidebar.classList.toggle("collapsed");
+            
+            if (mainContent) {
+                mainContent.classList.toggle("sidebar-collapsed");
+            }
         }
 
         function toggleTopicCard(cardId) {
@@ -291,7 +298,8 @@
                 <li><a href="pathology.html">病理学</a></li>
                 <li><a href="physiology.html">生理学</a></li>
                 <li><a href="pathophysiology.html">病理生理学</a></li>
-                <li><a href="system.html">人体系统</a></li>
+                <li><a href="body-systems.html">系统动画</a></li>
+                <li><a href="system.html">系统图示</a></li>
                 <li class="menu-category">临床学科</li>
                 <li><a href="internal-medicine.html">内科学</a></li>
                 <li><a href="diagnostics.html">诊断学</a></li>

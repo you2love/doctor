@@ -1,0 +1,737 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    animation: fadeInDown 1s ease-in;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 导航菜单样式 */
+.system-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-in 0.3s both;
+}
+
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 100px;
+}
+
+.nav-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background: white;
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+.nav-btn .icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.nav-btn span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 主内容区域 */
+.main-content {
+    animation: fadeIn 1s ease-in 0.6s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 系统展示容器 */
+.system-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.system-display {
+    padding: 30px;
+}
+
+.system-display h2 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 动画包装器 */
+.animation-wrapper {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+}
+
+.system-svg {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* 系统信息区域 */
+.system-info {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.system-info h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.system-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #495057;
+}
+
+.system-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.system-info li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.system-info li:last-child {
+    border-bottom: none;
+}
+
+.system-info li:before {
+    content: "▸";
+    position: absolute;
+    left: 10px;
+    color: #667eea;
+    font-size: 1.2rem;
+}
+
+.system-info strong {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* SVG动画效果 */
+
+/* 循环系统 */
+.heart-group {
+    animation: heartbeat 1.5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.blood-dot {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.artery {
+    stroke-dasharray: 200;
+    animation: pulse-flow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-flow {
+    0%, 100% { stroke-width: 8; }
+    50% { stroke-width: 10; }
+}
+
+/* 呼吸系统 */
+.lung-outer {
+    animation: breathe 4s ease-in-out infinite;
+    transform-origin: bottom;
+}
+
+.lung-inner {
+    animation: breathe 4s ease-in-out infinite;
+    transform-origin: bottom;
+}
+
+.diaphragm {
+    animation: diaphragm-move 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.1);
+    }
+}
+
+@keyframes diaphragm-move {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.oxygen {
+    animation: oxygen-move 2s ease-in-out infinite;
+}
+
+@keyframes oxygen-move {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(30px);
+    }
+}
+
+.airflow line {
+    animation: airflow-move 2s ease-in-out infinite;
+}
+
+@keyframes airflow-move {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(10px);
+        opacity: 0.5;
+    }
+}
+
+/* 消化系统 */
+.food-particle {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.digestion-fluid {
+    animation: fluid-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes fluid-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.4;
+    }
+}
+
+/* 神经系统 */
+.nerve-signal {
+    filter: drop-shadow(0 0 8px #f1c40f);
+    animation: signal-pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes signal-pulse {
+    0%, 100% {
+        r: 6;
+        opacity: 1;
+    }
+    50% {
+        r: 8;
+        opacity: 0.7;
+    }
+}
+
+.brain {
+    animation: brain-pulse 3s ease-in-out infinite;
+}
+
+@keyframes brain-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* 骨骼系统 */
+.skull {
+    animation: skull-tilt 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes skull-tilt {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+/* 肌肉系统 */
+.contract {
+    animation: muscle-contract 2s ease-in-out infinite;
+}
+
+@keyframes muscle-contract {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.1);
+    }
+}
+
+.biceps {
+    animation: bicep-flex 3s ease-in-out infinite;
+}
+
+@keyframes bicep-flex {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.1);
+    }
+}
+
+/* 内分泌系统 */
+.pulse-small {
+    animation: gland-pulse 2s ease-in-out infinite;
+}
+
+@keyframes gland-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+.hormone-dot {
+    filter: drop-shadow(0 0 4px rgba(231, 76, 60, 0.5));
+}
+
+.hormone-dot-small {
+    filter: drop-shadow(0 0 4px rgba(155, 89, 182, 0.5));
+}
+
+/* 免疫系统 */
+.white-blood-cell {
+    filter: drop-shadow(0 0 8px rgba(155, 89, 182, 0.5));
+}
+
+.macrophage {
+    filter: drop-shadow(0 0 8px rgba(243, 156, 18, 0.5));
+}
+
+.lymphocyte {
+    filter: drop-shadow(0 0 8px rgba(26, 188, 156, 0.5));
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .system-nav {
+        gap: 10px;
+    }
+
+    .nav-btn {
+        padding: 12px 15px;
+        min-width: 80px;
+    }
+
+    .nav-btn .icon {
+        font-size: 1.5rem;
+    }
+
+    .nav-btn span {
+        font-size: 0.8rem;
+    }
+
+    .system-display h2 {
+        font-size: 1.5rem;
+    }
+
+    .animation-wrapper {
+        min-height: 280px;
+    }
+
+    .system-info {
+        padding: 20px;
+    }
+
+    .system-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .system-info p {
+        font-size: 1rem;
+    }
+
+    .system-info li {
+        font-size: 0.9rem;
+        padding: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-btn {
+        padding: 10px 12px;
+        min-width: 70px;
+    }
+
+    .nav-btn .icon {
+        font-size: 1.2rem;
+    }
+
+    .animation-wrapper {
+        min-height: 240px;
+        padding: 10px;
+    }
+
+    .system-display {
+        padding: 20px;
+    }
+}
+
+/* 加载动画 */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.loading::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 4px solid #667eea;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 悬浮效果 */
+.system-display {
+    transition: transform 0.3s ease;
+}
+
+.system-display:hover {
+    transform: scale(1.01);
+}
+
+/* 平滑过渡 */
+.system-display {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.system-display.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.system-display.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #2c3e50;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.sidebar-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 700;
+}
+
+.sidebar-nav {
+    padding: 10px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 12px 25px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-nav a::before {
+    content: '-';
+    margin-right: 8px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background-color: #34495e;
+    color: #3498db;
+    border-left-color: #3498db;
+}
+
+.menu-category {
+    padding: 15px 25px 8px 25px;
+    color: #95a5a6;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+}
+
+.menu-category::before {
+    content: '+';
+    margin-right: 8px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.menu-category:first-of-type {
+    margin-top: 10px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 40px;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1001;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background: #2980b9;
+}
+
+/* Body Systems Content Adjustment */
+.body-systems-content {
+    margin-left: 250px; /* 为侧边栏留出空间 */
+    width: calc(100% - 250px); /* 减去侧边栏宽度 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.body-systems-content > header,
+.body-systems-content > nav,
+.body-systems-content > main {
+    width: 100%;
+    max-width: 1200px; /* 设置最大宽度以保持居中 */
+    margin: 0 auto; /* 居中对齐 */
+}
+
+/* 专门针对 main-content 的样式调整 */
+.body-systems-content .main-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .body-systems-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .sidebar-toggle {
+        display: block;
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        z-index: 1001;
+    }
+}
