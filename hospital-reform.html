@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医院改革 - 医学学习平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            const mainContent = document.querySelector(".main-content") || document.querySelector(".index-container") || document.querySelector(".body-systems-content") || document.querySelector(".anatomy-container") || document.querySelector(".pathology-container") || document.querySelector(".physiology-container") || document.querySelector(".pathophysiology-container") || document.querySelector(".system-container") || document.querySelector(".internal-medicine-container") || document.querySelector(".diagnostics-container") || document.querySelector(".common-disease-container") || document.querySelector(".symptoms-container") || document.querySelector(".check-up-container") || document.querySelector(".doctor-container") || document.querySelector(".medicine-container") || document.querySelector(".healthy-living-container") || document.querySelector(".hospitals-container") || document.querySelector(".health-insurance-container");
+
+            sidebar.classList.toggle("collapsed");
+
+            if (mainContent) {
+                mainContent.classList.toggle("sidebar-collapsed");
+            }
+        }
+    </script>
+    <style>
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #667eea;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 4px solid #667eea;
+            background-color: white;
+            border-radius: 50%;
+            top: 15px;
+            left: 50%;
+            margin-left: -12px;
+            z-index: 1;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .flow-step {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 300px;
+            font-size: 0.95em;
+            color: #34495e;
+            line-height: 1.5;
+            border-left: 4px solid #667eea;
+            margin: 10px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-step.problem {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .flow-step.solution {
+            border-left-color: #2ecc71;
+            background: #f2fdf5;
+        }
+
+        .flow-step.practical {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .flow-arrow {
+            color: #667eea;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .statistic-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .statistic-card.problem {
+            border-left-color: #e74c3c;
+        }
+
+        .statistic-card.solution {
+            border-left-color: #2ecc71;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .chart-bar {
+            height: 30px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 10px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        .chart-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .problem-details {
+            background: #fdf2f2;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .problem-details h4 {
+            margin-top: 0;
+            color: #c0392b;
+        }
+
+        .problem-details ul {
+            padding-left: 20px;
+        }
+
+        .problem-details li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .solution-details {
+            background: #f2fdf5;
+            border-left: 4px solid #2ecc71;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .solution-details h4 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+
+        .solution-details ul {
+            padding-left: 20px;
+        }
+
+        .solution-details li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .practical-steps {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .practical-steps h4 {
+            margin-top: 0;
+            color: #d35400;
+        }
+
+        .practical-steps ol {
+            padding-left: 20px;
+        }
+
+        .practical-steps li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                left: 0 !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>医学学习平台</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li class="menu-category">基础学科</li>
+                <li><a href="anatomy.html">解剖学</a></li>
+                <li><a href="pathology.html">病理学</a></li>
+                <li><a href="physiology.html">生理学</a></li>
+                <li><a href="pathophysiology.html">病理生理学</a></li>
+                <li><a href="body-systems.html">系统动画</a></li>
+                <li><a href="system.html">系统图示</a></li>
+                <li class="menu-category">临床学科</li>
+                <li><a href="internal-medicine.html">内科学</a></li>
+                <li><a href="diagnostics.html">诊断学</a></li>
+                <li><a href="common_disease.html">常见病</a></li>
+                <li><a href="symptoms.html">常见症状</a></li>
+                <li class="menu-category">实用指南</li>
+                <li><a href="check_up.html">体检指标</a></li>
+                <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">医院选择</a></li>
+                <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
+                <li><a href="health-insurance-reform.html">医保改革</a></li>
+                <li><a href="hospital-reform.html" class="active">医院改革</a></li>
+            </ul>
+        </nav>
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    </div>
+
+    <main class="main-content health-insurance-container">
+        <div class="content-section">
+            <h1>医院改革</h1>
+            <p class="section-desc">深入了解中国医院管理制度改革的历史、现状与未来发展方向</p>
+            
+            <div class="topic-card">
+                <h2>医院改革历程时间轴</h2>
+                <p>中国医院管理制度经历了从计划经济到市场经济的转变历程，以下是关键节点：</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1949年</h3>
+                            <p><strong>公立医疗体系建立</strong><br>主管单位：卫生部；医院全部国有化，实行免费医疗制度<br>受益方：全体人民</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1978年</h3>
+                            <p><strong>改革开放初期</strong><br>主管单位：卫生部；开始引入市场机制，允许医院收取部分费用<br>受益方：医院（增加收入来源）、患者（更多医疗服务选择）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1997年</h3>
+                            <p><strong>《关于卫生改革与发展的决定》</strong><br>主管单位：卫生部；推行"管办分离"，鼓励社会资本办医<br>受益方：患者（更多就医选择）、社会资本（投资机会）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2009年</h3>
+                            <p><strong>新医改启动</strong><br>主管单位：卫生部（后改为卫计委）；公立医院回归公益性，取消药品加成<br>受益方：患者（降低就医成本）、医保基金（减少支出）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2012年</h3>
+                            <p><strong>县级公立医院改革</strong><br>主管单位：卫计委；推进管办分开、医药分开、营利性和非营利性分开<br>受益方：基层患者（就近享受优质医疗）、医保基金</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2015年</h3>
+                            <p><strong>城市公立医院综合改革</strong><br>主管单位：卫计委；建立现代医院管理制度，取消药品加成<br>受益方：患者（降低就医成本）、医院（建立现代管理制度）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2017年</h3>
+                            <p><strong>全面取消药品加成</strong><br>主管单位：卫计委（后改为卫健委）；通过调整医疗服务价格补偿医院收入<br>受益方：患者（药品价格下降）、医保基金（减少支出）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2019年</h3>
+                            <p><strong>现代医院管理制度建设</strong><br>主管单位：卫健委；建立权责清晰的治理结构，强化绩效考核<br>受益方：医院（管理效率提升）、患者（服务质量改善）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2021年</h3>
+                            <p><strong>公立医院高质量发展</strong><br>主管单位：卫健委；强调公益性导向，提升医疗服务质量和效率<br>受益方：患者（更高质量服务）、医院（可持续发展）</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2022年至今</h3>
+                            <p><strong>DRG/DIP支付改革</strong><br>主管单位：卫健委、医保局；推进按病种付费，控制医疗费用不合理增长<br>受益方：医保基金（费用控制）、患者（降低费用）、医院（提升效率）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医院评级体系演变</h2>
+                <p>医院等级评定标准的改革历程：</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>时期</th>
+                            <th>评级标准</th>
+                            <th>主要指标</th>
+                            <th>评定机构</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1989年以前</strong></td>
+                            <td>按床位规模分级</td>
+                            <td>床位数量、设备配置</td>
+                            <td>卫生行政部门</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1989-2009年</strong></td>
+                            <td>三级六等体系</td>
+                            <td>技术水平、服务质量、设施条件</td>
+                            <td>卫生部评审委员会</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2009-2016年</strong></td>
+                            <td>等级评审与评价结合</td>
+                            <td>医疗质量、安全、服务、管理、绩效</td>
+                            <td>卫计委评审专家组</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2017年至今</strong></td>
+                            <td>动态评价体系</td>
+                            <td>医疗质量、运营效率、持续发展、满意度</td>
+                            <td>卫健委+第三方评估</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医院费用结算方式改革</h2>
+                <p>医院费用结算方式的演变历程：</p>
+                
+                <div class="problem-details">
+                    <h4>1. 传统按项目付费阶段（1949-2009年）</h4>
+                    <ul>
+                        <li><strong>结算方式</strong>：医院按提供的每一项服务收费，患者或医保按项目结算</li>
+                        <li><strong>特点</strong>：医院收入与服务项目数量直接挂钩，容易导致过度医疗</li>
+                        <li><strong>问题</strong>：医疗费用增长过快，医保基金压力增大</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>2. 按病种付费试点阶段（2009-2017年）</h4>
+                    <ul>
+                        <li><strong>结算方式</strong>：按病种设定固定收费标准，超支不补、结余归医院</li>
+                        <li><strong>特点</strong>：激励医院控制成本，提高效率</li>
+                        <li><strong>问题</h4>：部分医院可能推诿重症患者，影响医疗质量</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>3. 多元复合支付方式阶段（2017年至今）</h4>
+                    <ul>
+                        <li><strong>结算方式</strong>：DRG/DIP按病种付费+按床日付费+按人头付费等多种方式结合</li>
+                        <li><strong>特点</strong>：根据不同疾病和治疗方式采用适宜的支付方式</li>
+                        <li><strong>优势</strong>：既能控制费用，又能保证医疗质量</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医院收入来源结构变化</h2>
+                <p>医院收入构成的改革历程：</p>
+                
+                <div class="flowchart">
+                    <div class="flow-step">
+                        <strong>1980年代以前</strong><br>
+                        财政拨款：100%
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <strong>1990-2008年</strong><br>
+                        财政拨款：20-30%<br>
+                        医疗收入：60-70%<br>
+                        药品加成：10-15%
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <strong>2009-2016年</strong><br>
+                        财政拨款：10-20%<br>
+                        医疗收入：70-80%<br>
+                        药品加成：取消
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <strong>2017年至今</strong><br>
+                        财政拨款：15-25%<br>
+                        医疗收入：65-75%<br>
+                        科研教学收入：5-10%
+                    </div>
+                </div>
+                
+                <div class="statistic-card solution">
+                    <h3>当前医院收入结构</h3>
+                    <div class="chart-container">
+                        <div class="chart-label">
+                            <span>医疗服务收入</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="chart-bar" style="width: 70%;"></div>
+                        
+                        <div class="chart-label">
+                            <span>财政补助</span>
+                            <span>20%</span>
+                        </div>
+                        <div class="chart-bar" style="width: 20%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                        
+                        <div class="chart-label">
+                            <span>科研教学及其他</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="chart-bar" style="width: 10%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医院支出结构分析</h2>
+                <p>医院主要支出项目的构成：</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>支出项目</th>
+                            <th>占比</th>
+                            <th>具体内容</th>
+                            <th>改革方向</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>人员经费</strong></td>
+                            <td>40-50%</td>
+                            <td>医务人员工资、奖金、社保等</td>
+                            <td>建立符合医疗行业特点的薪酬制度</td>
+                        </tr>
+                        <tr>
+                            <td><strong>药品耗材</strong></td>
+                            <td>25-30%（改革前）→ 15-20%（改革后）</td>
+                            <td>药品、医用耗材采购费用</td>
+                            <td>零加成销售，集中采购降成本</td>
+                        </tr>
+                        <tr>
+                            <td><strong>设备折旧</strong></td>
+                            <td>8-12%</td>
+                            <td>医疗设备、基础设施折旧</td>
+                            <td>合理配置，避免重复建设</td>
+                        </tr>
+                        <tr>
+                            <td><strong>管理费用</strong></td>
+                            <td>5-8%</td>
+                            <td>行政管理、后勤保障费用</td>
+                            <td>精简管理，提高效率</td>
+                        </tr>
+                        <tr>
+                            <td><strong>其他支出</strong></td>
+                            <td>10-15%</td>
+                            <td>科研、教学、培训等费用</td>
+                            <td>加大投入，提升能力</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="topic-card">
+                <h2>医院人员来源</h2>
+                <p>医院各类人员的来源渠道和构成：</p>
+                
+                <div class="problem-details">
+                    <h4>1. 医生来源</h4>
+                    <ul>
+                        <li><strong>医学院校毕业生</strong>：临床医学、中医学、口腔医学等专业毕业生，需通过执业医师资格考试 (占比约60%)</li>
+                        <li><strong>规培生</strong>：完成住院医师规范化培训的医生，具备独立执业能力 (占比约25%)</li>
+                        <li><strong>进修医生</strong>：来自基层医疗机构或其他医院的进修医师 (占比约8%)</li>
+                        <li><strong>海外归国人员</strong>：具有海外医学教育背景的医生 (占比约5%)</li>
+                        <li><strong>转岗医生</strong>：从其他岗位转至医疗岗位的人员 (占比约2%)</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>2. 护理人员来源</h4>
+                    <ul>
+                        <li><strong>护理院校毕业生</strong>：护理学专业专科、本科、研究生毕业生 (占比约70%)</li>
+                        <li><strong>执业护士</strong>：通过护士执业资格考试的专业人员 (占比约85%)</li>
+                        <li><strong>专科护士</strong>：完成专科护理培训的护士，如ICU、手术室、急诊等 (占比约30%)</li>
+                        <li><strong>助产士</strong>：专门从事助产工作的专业人员 (占比约10%)</li>
+                        <li><strong>护理员</strong>：协助护士完成基础护理工作的辅助人员 (占比约15%)</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>3. 医技人员来源</h4>
+                    <ul>
+                        <li><strong>检验技师</strong>：医学检验、卫生检验等专业毕业生 (占比约25%)</li>
+                        <li><strong>影像技师</strong>：医学影像、放射技术等专业毕业生 (占比约20%)</li>
+                        <li><strong>药剂师</strong>：药学、临床药学等专业毕业生，需通过药师资格考试 (占比约20%)</li>
+                        <li><strong>康复治疗师</strong>：康复治疗学专业毕业生 (占比约15%)</li>
+                        <li><strong>营养师</strong>：营养与食品卫生学专业毕业生 (占比约5%)</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>4. 管理人员来源</h4>
+                    <ul>
+                        <li><strong>医疗管理人员</strong>：卫生事业管理、医院管理等专业背景 (占比约35%)</li>
+                        <li><strong>行政管理人员</strong>：公共管理、行政管理等专业背景 (占比约25%)</li>
+                        <li><strong>财务管理人员</strong>：会计学、财务管理等专业背景 (占比约15%)</li>
+                        <li><strong>后勤管理人员</strong>：工程管理、物业管理等专业背景 (占比约15%)</li>
+                        <li><strong>信息管理人员</strong>：计算机科学、信息管理等专业背景 (占比约10%)</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>5. 人员招聘方式</h4>
+                    <ul>
+                        <li><strong>公开招聘</strong>：面向社会公开招考，择优录取 (占比约70%)</li>
+                        <li><strong>校园招聘</strong>：直接到医学院校招聘优秀毕业生 (占比约20%)</li>
+                        <li><strong>人才引进</strong>：针对高层次人才的特殊引进政策 (占比约8%)</li>
+                        <li><strong>劳务派遣</strong>：部分辅助性岗位通过劳务派遣公司招聘 (占比约15%)</li>
+                        <li><strong>合同聘用</strong>：签订劳动合同的聘用方式 (占比约85%)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医院改革面临的挑战</h2>
+                <p>当前医院改革中的主要问题：</p>
+                
+                <div class="problem-details">
+                    <h4>1. 公益性与经营性平衡</h4>
+                    <ul>
+                        <li><strong>问题</strong>：如何在保证公益性的前提下，维持医院正常运营</li>
+                        <li><strong>挑战</strong>：财政投入不足，医疗服务价格偏低</li>
+                        <li><strong>影响</strong>：可能导致医疗服务质量下降</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>2. 人才流失问题</h4>
+                    <ul>
+                        <li><strong>问题</strong>：医务人员工作强度大、收入相对较低</li>
+                        <li><strong>挑战</strong>：优秀人才流向私立医院或出国</li>
+                        <li><strong>影响</strong>：公立医院技术水平可能下降</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>3. 医疗资源配置</h4>
+                    <ul>
+                        <li><strong>问题</strong>：优质医疗资源集中在大城市大医院</li>
+                        <li><strong>挑战</strong>：基层医疗机构能力不足</li>
+                        <li><strong>影响</strong>：患者集中到大医院，加剧看病难</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="related-subjects">
+            <h2>相关主题</h2>
+            <div class="subject-links">
+                <a href="doctor.html" class="related-link">省钱就医</a>
+                <a href="medicine.html" class="related-link">家庭用药</a>
+                <a href="healthy-living.html" class="related-link">健康生活</a>
+                <a href="hospitals.html" class="related-link">医院选择</a>
+                <a href="health-insurance-reform.html" class="related-link">医保改革</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

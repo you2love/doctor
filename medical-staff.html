@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医护人员 - 医学学习平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            const mainContent = document.querySelector(".main-content") || document.querySelector(".index-container") || document.querySelector(".body-systems-content") || document.querySelector(".anatomy-container") || document.querySelector(".pathology-container") || document.querySelector(".physiology-container") || document.querySelector(".pathophysiology-container") || document.querySelector(".system-container") || document.querySelector(".internal-medicine-container") || document.querySelector(".diagnostics-container") || document.querySelector(".common-disease-container") || document.querySelector(".symptoms-container") || document.querySelector(".check-up-container") || document.querySelector(".doctor-container") || document.querySelector(".medicine-container") || document.querySelector(".healthy-living-container") || document.querySelector(".hospitals-container") || document.querySelector(".health-insurance-container") || document.querySelector(".hospital-reform-container");
+
+            sidebar.classList.toggle("collapsed");
+
+            if (mainContent) {
+                mainContent.classList.toggle("sidebar-collapsed");
+            }
+        }
+    </script>
+    <style>
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #667eea;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 4px solid #667eea;
+            background-color: white;
+            border-radius: 50%;
+            top: 15px;
+            left: 50%;
+            margin-left: -12px;
+            z-index: 1;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .flow-step {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 300px;
+            font-size: 0.95em;
+            color: #34495e;
+            line-height: 1.5;
+            border-left: 4px solid #667eea;
+            margin: 10px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-step.problem {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .flow-step.solution {
+            border-left-color: #2ecc71;
+            background: #f2fdf5;
+        }
+
+        .flow-step.practical {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .flow-arrow {
+            color: #667eea;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .statistic-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .statistic-card.problem {
+            border-left-color: #e74c3c;
+        }
+
+        .statistic-card.solution {
+            border-left-color: #2ecc71;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .chart-bar {
+            height: 30px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 10px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        .chart-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .problem-details {
+            background: #fdf2f2;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .problem-details h4 {
+            margin-top: 0;
+            color: #c0392b;
+        }
+
+        .problem-details ul {
+            padding-left: 20px;
+        }
+
+        .problem-details li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .solution-details {
+            background: #f2fdf5;
+            border-left: 4px solid #2ecc71;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .solution-details h4 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+
+        .solution-details ul {
+            padding-left: 20px;
+        }
+
+        .solution-details li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .practical-steps {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .practical-steps h4 {
+            margin-top: 0;
+            color: #d35400;
+        }
+
+        .practical-steps ol {
+            padding-left: 20px;
+        }
+
+        .practical-steps li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                left: 0 !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>医学学习平台</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li class="menu-category">基础学科</li>
+                <li><a href="anatomy.html">解剖学</a></li>
+                <li><a href="pathology.html">病理学</a></li>
+                <li><a href="physiology.html">生理学</a></li>
+                <li><a href="pathophysiology.html">病理生理学</a></li>
+                <li><a href="body-systems.html">系统动画</a></li>
+                <li><a href="system.html">系统图示</a></li>
+                <li class="menu-category">临床学科</li>
+                <li><a href="internal-medicine.html">内科学</a></li>
+                <li><a href="diagnostics.html">诊断学</a></li>
+                <li><a href="common_disease.html">常见病</a></li>
+                <li><a href="symptoms.html">常见症状</a></li>
+                <li class="menu-category">实用指南</li>
+                <li><a href="check_up.html">体检指标</a></li>
+                <li><a href="doctor.html">省钱就医</a></li>
+                <li><a href="hospitals.html">医院选择</a></li>
+                <li><a href="medicine.html">家庭用药</a></li>
+                <li><a href="healthy-living.html">健康生活</a></li>
+                <li><a href="health-insurance-reform.html">医保改革</a></li>
+                <li><a href="hospital-reform.html">医院改革</a></li>
+                <li><a href="medical-staff.html" class="active">医护人员</a></li>
+            </ul>
+        </nav>
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    </div>
+
+    <main class="main-content health-insurance-container">
+        <div class="content-section">
+            <h1>医护人员</h1>
+            <p class="section-desc">深入了解医护人员的培养体系、职称评定、管理体系及权利义务</p>
+            
+            <div class="topic-card">
+                <h2>医护人员培养体系</h2>
+                <p>医生与护士的教育培养路径：</p>
+                
+                <div class="problem-details">
+                    <h4>医生培养路径</h4>
+                    <ul>
+                        <li><strong>学历教育</strong>：临床医学本科（5年）→硕士（3年）→博士（3年）</li>
+                        <li><strong>住院医师规范化培训</strong>：毕业后需完成3年规培，通过结业考核获得合格证书</li>
+                        <li><strong>专科医师培训</strong>：在规培基础上，再进行2-4年专科培训</li>
+                        <li><strong>继续医学教育</strong>：执业期间每年需完成规定学分的继续教育</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>护士培养路径</h4>
+                    <ul>
+                        <li><strong>学历教育</strong>：护理学专科（3年）或本科（4年）</li>
+                        <li><strong>实习培训</strong>：在校期间需完成不少于8个月的临床实习</li>
+                        <li><strong>护士执业资格考试</strong>：毕业后需通过全国护士执业资格考试</li>
+                        <li><strong>在职培训</strong>：工作后需参加科室轮转培训和专科护理培训</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医护人员职称评定体系</h2>
+                <p>医生与护士的职称晋升路径：</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>职业类别</th>
+                            <th>初级职称</th>
+                            <th>中级职称</th>
+                            <th>高级职称</th>
+                            <th>评定条件</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>医生</strong></td>
+                            <td>医师、住院医师</td>
+                            <td>主治医师</td>
+                            <td>副主任医师、主任医师</td>
+                            <td>学历、工作年限、专业能力、论文发表等综合评定</td>
+                        </tr>
+                        <tr>
+                            <td><strong>护士</strong></td>
+                            <td>护士、护师</td>
+                            <td>主管护师</td>
+                            <td>副主任护师、主任护师</td>
+                            <td>学历、工作年限、专业技能、继续教育学分等</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="topic-card">
+                <h2>主管单位与管理体系</h2>
+                <p>医护人员的行政管理架构：</p>
+                
+                <div class="problem-details">
+                    <h4>主管单位</h4>
+                    <ul>
+                        <li><strong>国家卫生健康委员会</strong>：负责全国医护人员的宏观管理政策制定</li>
+                        <li><strong>人力资源和社会保障部</strong>：负责职称评定、薪酬制度等相关政策</li>
+                        <li><strong>教育部</strong>：负责医学院校教育标准制定</li>
+                        <li><strong>国家中医药管理局</strong>：负责中医类医护人员管理</li>
+                        <li><strong>各省卫健委</strong>：负责辖区内医护人员的具体管理</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>医院内部管理体系</h4>
+                    <ul>
+                        <li><strong>院长</strong>：医院最高管理者，负责整体运营</li>
+                        <li><strong>医务部/处</strong>：负责医生执业管理、医疗质量控制</li>
+                        <li><strong>护理部</strong>：负责护士执业管理、护理质量控制</li>
+                        <li><strong>人事科</strong>：负责人员招聘、考核、薪酬管理</li>
+                        <li><strong>科教科</strong>：负责继续教育、科研管理</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医护人员评级体系</h2>
+                <p>医护人员的绩效考核与评价标准：</p>
+                
+                <div class="problem-details">
+                    <h4>医生评级标准</h4>
+                    <ul>
+                        <li><strong>医疗质量</strong>：诊断准确率、治疗成功率、并发症发生率</li>
+                        <li><strong>医疗安全</strong>：医疗事故发生率、患者安全指标</li>
+                        <li><strong>服务态度</strong>：患者满意度、医德医风</li>
+                        <li><strong>学术水平</strong>：科研成果、论文发表、新技术应用</li>
+                        <li><strong>教学能力</strong>：带教能力、培训贡献</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>护士评级标准</h4>
+                    <ul>
+                        <li><strong>护理质量</strong>：基础护理合格率、专科护理技能</li>
+                        <li><strong>患者安全</strong>：护理不良事件发生率</li>
+                        <li><strong>服务态度</strong>：患者满意度、沟通能力</li>
+                        <li><strong>专业技能</strong>：操作技能、应急处理能力</li>
+                        <li><strong>团队协作</strong>：与医生、同事的合作能力</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医护人员收入来源</h2>
+                <p>医护人员的薪酬构成与来源：</p>
+                
+                <div class="flowchart">
+                    <div class="flow-step">
+                        <strong>基本工资</strong><br>
+                        岗位工资+薪级工资
+                    </div>
+                    <div class="flow-arrow">+</div>
+                    <div class="flow-step">
+                        <strong>绩效工资</strong><br>
+                        医疗服务绩效+科研绩效
+                    </div>
+                    <div class="flow-arrow">+</div>
+                    <div class="flow-step">
+                        <strong>津贴补贴</strong><br>
+                        护士津贴+夜班费+值班费
+                    </div>
+                    <div class="flow-arrow">+</div>
+                    <div class="flow-step">
+                        <strong>奖金</strong><br>
+                        年终奖+专项奖励
+                    </div>
+                </div>
+                
+                <div class="statistic-card solution">
+                    <h3>医护人员收入结构</h3>
+                    <div class="chart-container">
+                        <div class="chart-label">
+                            <span>基本工资</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="chart-bar" style="width: 40%;"></div>
+                        
+                        <div class="chart-label">
+                            <span>绩效工资</span>
+                            <span>35%</span>
+                        </div>
+                        <div class="chart-bar" style="width: 35%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                        
+                        <div class="chart-label">
+                            <span>津贴补贴</span>
+                            <span>15%</span>
+                        </div>
+                        <div class="chart-bar" style="width: 15%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                        
+                        <div class="chart-label">
+                            <span>奖金</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="chart-bar" style="width: 10%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医护人员支出列表</h2>
+                <p>医护人员的职业相关支出：</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>支出项目</th>
+                            <th>医生年均支出</th>
+                            <th>护士年均支出</th>
+                            <th>支出说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>继续教育</strong></td>
+                            <td>3000-8000元</td>
+                            <td>2000-5000元</td>
+                            <td>参加学术会议、培训班、进修学习</td>
+                        </tr>
+                        <tr>
+                            <td><strong>专业书籍</strong></td>
+                            <td>1000-3000元</td>
+                            <td>500-1500元</td>
+                            <td>购买专业书籍、期刊订阅</td>
+                        </tr>
+                        <tr>
+                            <td><strong>职称考试</strong></td>
+                            <td>500-2000元</td>
+                            <td>500-1500元</td>
+                            <td>报名费、培训费</td>
+                        </tr>
+                        <tr>
+                            <td><strong>职业防护</strong></td>
+                            <td>1000-2000元</td>
+                            <td>2000-4000元</td>
+                            <td>防护用品、体检费用</td>
+                        </tr>
+                        <tr>
+                            <td><strong>服装鞋帽</strong></td>
+                            <td>500-1500元</td>
+                            <td>1000-3000元</td>
+                            <td>工作服、护士鞋等</td>
+                        </tr>
+                        <tr>
+                            <td><strong>其他支出</strong></td>
+                            <td>1000-3000元</td>
+                            <td>800-2000元</td>
+                            <td>科研费用、学术交流等</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="topic-card">
+                <h2>行政法律约束</h2>
+                <p>医护人员需遵守的法律法规：</p>
+                
+                <div class="problem-details">
+                    <h4>主要法律法规</h4>
+                    <ul>
+                        <li><strong>《中华人民共和国执业医师法》</strong>：规范医师执业行为，保障医师合法权益</li>
+                        <li><strong>《护士条例》</strong>：规范护理活动，保障护士合法权益</li>
+                        <li><strong>《医疗机构管理条例》</strong>：规范医疗机构执业行为</li>
+                        <li><strong>《医疗事故处理条例》</strong>：规范医疗事故处理程序</li>
+                        <li><strong>《民法典》侵权责任编</strong>：医疗损害责任相关规定</li>
+                        <li><strong>《刑法》</strong>：医疗事故罪、非法行医罪等相关条款</li>
+                    </ul>
+                </div>
+                
+                <div class="problem-details">
+                    <h4>主要约束内容</h4>
+                    <ul>
+                        <li><strong>执业注册</strong>：必须取得相应执业资格证书并在注册地点执业</li>
+                        <li><strong>诊疗规范</strong>：必须按照诊疗规范和临床路径进行诊疗</li>
+                        <li><strong>知情同意</strong>：必须履行告知义务，取得患者知情同意</li>
+                        <li><strong>病历书写</strong>：必须及时、准确、完整地书写病历</li>
+                        <li><strong>保密义务</strong>：必须保护患者隐私，不得泄露患者信息</li>
+                        <li><strong>禁止商业行为</strong>：不得收受红包、回扣等不当利益</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医护人员权利</h2>
+                <p>医护人员依法享有的权利：</p>
+                
+                <div class="solution-details">
+                    <h4>职业权利</h4>
+                    <ul>
+                        <li><strong>执业权</strong>：在注册的执业范围内，进行医学诊查、疾病调查、医学处置等</li>
+                        <li><strong>人格尊严权</strong>：人格尊严不受侵犯，人身安全不受威胁</li>
+                        <li><strong>薪酬权</strong>：获得工资报酬和津贴，享受国家规定的福利待遇</li>
+                        <li><strong>培训权</strong>：参加专业培训、继续医学教育的权利</li>
+                        <li><strong>学术自由权</strong>：从事医学研究、学术交流的权利</li>
+                        <li><strong>民主管理权</strong>：参与民主管理和监督的权利</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-details">
+                    <h4>社会保障权利</h4>
+                    <ul>
+                        <li><strong>社会保险权</strong>：享受养老、失业、医疗等社会保险待遇</li>
+                        <li><strong>休息休假权</strong>：享有国家规定的带薪休假权利</li>
+                        <li><strong>职业防护权</strong>：获得与其所从事职业相关的卫生防护、医疗保健服务</li>
+                        <li><strong>工伤保障权</strong>：因职业危害造成的伤害享受工伤保险待遇</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <h2>医护人员义务</h2>
+                <p>医护人员应履行的职责和义务：</p>
+                
+                <div class="practical-steps">
+                    <h4>职业道德义务</h4>
+                    <ol>
+                        <li><strong>救死扶伤</strong>：践行社会主义核心价值观，履行防病治病、救死扶伤、保护人民健康的神圣职责</li>
+                        <li><strong>尊重患者</strong>：遵守医学伦理道德，尊重患者的自主权和知情同意权</li>
+                        <li><strong>廉洁从业</strong>：遵守法律法规，遵守技术操作规范，不收受红包、回扣</li>
+                        <li><strong>精益求精</strong>：努力钻研业务，更新知识，提高专业技术水平</li>
+                    </ol>
+                </div>
+                
+                <div class="practical-steps">
+                    <h4>法律责任义务</h4>
+                    <ol>
+                        <li><strong>依法执业</strong>：遵守法律、法规，按照技术操作规范执业</li>
+                        <li><strong>如实告知</strong>：如实向患者或者其家属介绍病情，但应当注意避免对患者产生不利后果</li>
+                        <li><strong>紧急救治</strong>：遇有自然灾害、传染病流行、突发重大伤亡事故及其他严重威胁人民生命健康的紧急情况时，应当服从卫生行政部门的调遣</li>
+                        <li><strong>报告义务</strong>：发生医疗事故或者发现传染病疫情、疑似职业病等按规定报告</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="related-subjects">
+            <h2>相关主题</h2>
+            <div class="subject-links">
+                <a href="doctor.html" class="related-link">省钱就医</a>
+                <a href="medicine.html" class="related-link">家庭用药</a>
+                <a href="healthy-living.html" class="related-link">健康生活</a>
+                <a href="hospitals.html" class="related-link">医院选择</a>
+                <a href="health-insurance-reform.html" class="related-link">医保改革</a>
+                <a href="hospital-reform.html" class="related-link">医院改革</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
