@@ -274,6 +274,139 @@
             line-height: 1.5;
         }
 
+        .training-flowchart {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .flow-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .flow-column h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid;
+            width: 100%;
+            text-align: center;
+        }
+
+        .flow-column.doctor h3 {
+            border-color: #3498db;
+        }
+
+        .flow-column.nurse h3 {
+            border-color: #2ecc71;
+        }
+
+        .flow-node {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 280px;
+            margin-bottom: 15px;
+            position: relative;
+            border: 2px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flow-node:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .flow-node.doctor {
+            border-color: #3498db;
+            background: linear-gradient(135deg, #ebf5fb 0%, #d6eaf8 100%);
+        }
+
+        .flow-node.nurse {
+            border-color: #2ecc71;
+            background: linear-gradient(135deg, #eafaf1 0%, #d5f5e3 100%);
+        }
+
+        .flow-node .stage {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .flow-node .duration {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .flow-node .detail {
+            color: #34495e;
+            font-size: 0.85em;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        .flow-connector {
+            width: 40px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .flow-divider {
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            margin: 0 10px;
+        }
+
+        .flow-start, .flow-end {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .flow-end {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+        }
+
+        @media screen and (max-width: 768px) {
+            .training-flowchart {
+                flex-direction: column;
+            }
+
+            .flow-divider {
+                width: 100%;
+                height: 2px;
+                margin: 20px 0;
+            }
+
+            .flow-column {
+                width: 100%;
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .timeline::after {
                 left: 31px;
@@ -292,6 +425,1416 @@
 
             .timeline-item:nth-child(even) {
                 left: 0;
+            }
+        }
+
+        .org-tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .tree-node {
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 180px;
+            max-width: 250px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tree-node:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .tree-node.national {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .tree-node.provincial {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+
+        .tree-node.hospital {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+        }
+
+        .tree-node.department {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+        }
+
+        .tree-node .title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .tree-node .desc {
+            font-size: 0.85em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .tree-connector {
+            width: 2px;
+            height: 20px;
+            background: #667eea;
+            margin: 0 auto;
+        }
+
+        .tree-horizontal {
+            height: 2px;
+            background: #667eea;
+            position: absolute;
+            top: -10px;
+        }
+
+        .tree-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tree-branches {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            position: relative;
+            padding-top: 15px;
+        }
+
+        .tree-branches::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 2px;
+            background: #667eea;
+        }
+
+        .branch-connector {
+            width: 2px;
+            height: 15px;
+            background: #667eea;
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width: 768px) {
+            .tree-level {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .tree-branches {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .tree-branches::before {
+                display: none;
+            }
+
+            .branch-connector {
+                display: none;
+            }
+        }
+
+        .rating-flowchart {
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .rating-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .rating-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rating-column h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        .rating-column.doctor h3 {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+
+        .rating-column.nurse h3 {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+        }
+
+        .rating-level {
+            background: white;
+            border: 2px solid;
+            border-radius: 10px;
+            padding: 15px;
+            width: 100%;
+            max-width: 280px;
+            margin-bottom: 15px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .rating-level:hover {
+            transform: translateY(-3px);
+        }
+
+        .rating-level.level-1 { border-color: #95a5a6; background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%); }
+        .rating-level.level-2 { border-color: #3498db; background: linear-gradient(135deg, #ebf5fb 0%, #d6eaf8 100%); }
+        .rating-level.level-3 { border-color: #9b59b6; background: linear-gradient(135deg, #f5eef8 0%, #ebdef0 100%); }
+        .rating-level.level-4 { border-color: #e67e22; background: linear-gradient(135deg, #fef5e7 0%, #fad7a0 100%); }
+        .rating-level.level-5 { border-color: #e74c3c; background: linear-gradient(135deg, #fdedec 0%, #fadbd8 100%); }
+
+        .rating-level .level-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .rating-level .level-req {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+        }
+
+        .rating-level .level-pay {
+            font-size: 0.9em;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .rating-arrow {
+            font-size: 1.5em;
+            color: #667eea;
+            font-weight: bold;
+            padding-top: 50px;
+        }
+
+        .criteria-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .criteria-box h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .criteria-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .criteria-item {
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .criteria-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .criteria-item span {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        @media screen and (max-width: 768px) {
+            .rating-row {
+                flex-direction: column;
+            }
+
+            .rating-arrow {
+                transform: rotate(90deg);
+                padding-top: 0;
+            }
+
+            .criteria-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .continuing-education {
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .ce-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .ce-phase {
+            display: flex;
+            align-items: stretch;
+            gap: 20px;
+        }
+
+        .ce-phase-content {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid;
+        }
+
+        .ce-phase:nth-child(1) .ce-phase-content { border-left-color: #667eea; }
+        .ce-phase:nth-child(2) .ce-phase-content { border-left-color: #3498db; }
+        .ce-phase:nth-child(3) .ce-phase-content { border-left-color: #2ecc71; }
+        .ce-phase:nth-child(4) .ce-phase-content { border-left-color: #f39c12; }
+        .ce-phase:nth-child(5) .ce-phase-content { border-left-color: #e74c3c; }
+
+        .ce-phase-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .ce-phase:nth-child(1) .ce-phase-icon { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .ce-phase:nth-child(2) .ce-phase-icon { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
+        .ce-phase:nth-child(3) .ce-phase-icon { background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); }
+        .ce-phase:nth-child(4) .ce-phase-icon { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); }
+        .ce-phase:nth-child(5) .ce-phase-icon { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+
+        .ce-phase-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .ce-phase-desc {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .ce-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .ce-method {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ce-org-chart {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .ce-org-item {
+            text-align: center;
+            flex: 1;
+            padding: 15px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .ce-org-item .org-name {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .ce-org-item .org-role {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .ce-org-arrow {
+            font-size: 1.5em;
+            opacity: 0.8;
+        }
+
+        .ce-fail-solution {
+            background: #fdf2f2;
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+
+        .ce-fail-solution h4 {
+            color: #c0392b;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .ce-fail-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .ce-fail-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .ce-fail-item .fail-title {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 8px;
+        }
+
+        .ce-fail-item .fail-desc {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .ce-summary-box {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+        }
+
+        .ce-summary-box h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .ce-summary-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .ce-summary-item {
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .ce-phase {
+                flex-direction: column;
+            }
+
+            .ce-phase-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+
+            .ce-org-chart {
+                flex-direction: column;
+            }
+
+            .ce-org-arrow {
+                transform: rotate(90deg);
+            }
+
+            .ce-fail-list {
+                grid-template-columns: 1fr;
+            }
+
+            .ce-summary-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .misconception-section {
+            margin: 30px 0;
+        }
+
+        .misconception-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .misconception-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .misconception-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .misconception-header {
+            padding: 15px 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .misconception-card:nth-child(6n+1) .misconception-header { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+        .misconception-card:nth-child(6n+2) .misconception-header { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
+        .misconception-card:nth-child(6n+3) .misconception-header { background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); }
+        .misconception-card:nth-child(6n+4) .misconception-header { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); }
+        .misconception-card:nth-child(5) .misconception-header { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); }
+        .misconception-card:nth-child(6) .misconception-header { background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); }
+
+        .misconception-icon {
+            font-size: 1.5em;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .misconception-title {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .misconception-body {
+            padding: 20px;
+        }
+
+        .misconception-wrong {
+            background: #fdf2f2;
+            border-left: 4px solid #e74c3c;
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 15px;
+        }
+
+        .misconception-wrong-label {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .misconception-wrong-text {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .misconception-right {
+            background: #f2fdf5;
+            border-left: 4px solid #2ecc71;
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .misconception-right-label {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .misconception-right-text {
+            color: #2c3e50;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .misconception-fact {
+            background: #fef9e7;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 12px;
+            font-size: 0.85em;
+            color: #d35400;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .misconception-fact-icon {
+            flex-shrink: 0;
+        }
+
+        .misconception-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .misconception-summary h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .summary-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .summary-point {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .summary-point strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        @media screen and (max-width: 768px) {
+            .misconception-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-points {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .doctor-category {
+            margin: 30px 0;
+        }
+
+        .category-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .category-overview h4 {
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-header {
+            padding: 15px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-card:nth-child(1) .category-header { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
+        .category-card:nth-child(2) .category-header { background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); }
+        .category-card:nth-child(3) .category-header { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+        .category-card:nth-child(4) .category-header { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); }
+        .category-card:nth-child(5) .category-header { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); }
+        .category-card:nth-child(6) .category-header { background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); }
+        .category-card:nth-child(7) .category-header { background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); }
+        .category-card:nth-child(8) .category-header { background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); }
+
+        .category-name {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .category-percent {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .category-body {
+            padding: 20px;
+        }
+
+        .category-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cat-stat {
+            text-align: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .cat-stat-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .cat-stat-label {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin-top: 3px;
+        }
+
+        .category-desc {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .salary-bar {
+            background: #ecf0f1;
+            border-radius: 4px;
+            height: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .salary-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .salary-fill.high { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+        .salary-fill.medium { background: linear-gradient(90deg, #f39c12, #f1c40f); }
+        .salary-fill.low { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+
+        .salary-range {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+
+        .category-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .feature-tag {
+            background: #e8f4f8;
+            color: #3498db;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+
+        .category-summary {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .summary-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .summary-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .summary-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .salary-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .salary-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .salary-dot.high { background: #27ae60; }
+        .salary-dot.medium { background: #f39c12; }
+        .salary-dot.low { background: #e74c3c; }
+
+        @media screen and (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .category-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-table {
+                font-size: 0.85em;
+            }
+
+            .summary-table th,
+            .summary-table td {
+                padding: 8px;
+            }
+        }
+
+        .nurse-category {
+            margin: 30px 0;
+        }
+
+        .nurse-overview {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+        }
+
+        .nurse-overview h4 {
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+        }
+
+        .nurse-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .nurse-stat-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .nurse-stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .nurse-stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .nurse-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .nurse-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .nurse-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nurse-header {
+            padding: 15px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nurse-card:nth-child(1) .nurse-header { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
+        .nurse-card:nth-child(2) .nurse-header { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+        .nurse-card:nth-child(3) .nurse-header { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); }
+        .nurse-card:nth-child(4) .nurse-header { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); }
+        .nurse-card:nth-child(5) .nurse-header { background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); }
+        .nurse-card:nth-child(6) .nurse-header { background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); }
+        .nurse-card:nth-child(7) .nurse-header { background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); }
+        .nurse-card:nth-child(8) .nurse-header { background: linear-gradient(135deg, #27ae60 0%, #229954 100%); }
+
+        .nurse-name {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .nurse-percent {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .nurse-body {
+            padding: 20px;
+        }
+
+        .nurse-stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .nurse-stat {
+            text-align: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .nurse-stat-num {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nurse-stat-text {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin-top: 3px;
+        }
+
+        .nurse-desc {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .nurse-salary-bar {
+            background: #ecf0f1;
+            border-radius: 4px;
+            height: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .nurse-salary-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .nurse-salary-fill.high { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+        .nurse-salary-fill.medium { background: linear-gradient(90deg, #f39c12, #f1c40f); }
+        .nurse-salary-fill.low { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+
+        .nurse-salary-range {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+
+        .nurse-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .nurse-tag {
+            background: #e8f4f8;
+            color: #3498db;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+
+        .nurse-summary {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .nurse-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .nurse-table th {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .nurse-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .nurse-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .nurse-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nurse-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .nurse-dot.high { background: #27ae60; }
+        .nurse-dot.medium { background: #f39c12; }
+        .nurse-dot.low { background: #e74c3c; }
+
+        .nurse-intensity {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nurse-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nurse-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nurse-stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .nurse-table {
+                font-size: 0.85em;
+            }
+
+            .nurse-table th,
+            .nurse-table td {
+                padding: 8px;
+            }
+        }
+
+        .income-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .income-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .income-box {
+            padding: 18px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .income-box.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .income-box.secondary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+
+        .income-box.accent {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+        }
+
+        .income-box.warning {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        .box-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .box-percent {
+            background: rgba(255,255,255,0.2);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
+        .box-detail {
+            font-size: 0.9em;
+        }
+
+        .detail-item {
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .income-summary {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .income-summary h4 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .summary-icon {
+            font-size: 1.5em;
+        }
+
+        .summary-text strong {
+            display: block;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .summary-text small {
+            color: #7f8c8d;
+            font-size: 0.85em;
+        }
+
+        @media screen and (max-width: 992px) {
+            .income-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .income-column {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .income-column .income-box {
+                flex: 1;
+                min-width: 200px;
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .income-column .income-box {
+                min-width: 100%;
+            }
+        }
+
+        .pie-chart-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .pie-chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .pie-chart {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #667eea 0deg 144deg,
+                #3498db 144deg 270deg,
+                #2ecc71 270deg 324deg,
+                #f39c12 324deg 360deg
+            );
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .pie-chart::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .pie-legend {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .legend-item:hover {
+            transform: translateX(5px);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .legend-info {
+            flex: 1;
+        }
+
+        .legend-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .legend-desc {
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+
+        .legend-percent {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .expense-summary {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+        }
+
+        .expense-summary h4 {
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+
+        .expense-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .expense-card {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .expense-card .amount {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .expense-card .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        @media screen and (max-width: 768px) {
+            .tree-horizontal {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tree-horizontal::before {
+                display: none;
+            }
+
+            .branch-node::before {
+                display: none;
+            }
+
+            .pie-chart-container {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -341,25 +1884,99 @@
             <div class="topic-card">
                 <h2>医护人员培养体系</h2>
                 <p>医生与护士的教育培养路径：</p>
-                
-                <div class="problem-details">
-                    <h4>医生培养路径</h4>
-                    <ul>
-                        <li><strong>学历教育</strong>：临床医学本科（5年）→硕士（3年）→博士（3年）</li>
-                        <li><strong>住院医师规范化培训</strong>：毕业后需完成3年规培，通过结业考核获得合格证书</li>
-                        <li><strong>专科医师培训</strong>：在规培基础上，再进行2-4年专科培训</li>
-                        <li><strong>继续医学教育</strong>：执业期间每年需完成规定学分的继续教育</li>
-                    </ul>
-                </div>
-                
-                <div class="problem-details">
-                    <h4>护士培养路径</h4>
-                    <ul>
-                        <li><strong>学历教育</strong>：护理学专科（3年）或本科（4年）</li>
-                        <li><strong>实习培训</strong>：在校期间需完成不少于8个月的临床实习</li>
-                        <li><strong>护士执业资格考试</strong>：毕业后需通过全国护士执业资格考试</li>
-                        <li><strong>在职培训</strong>：工作后需参加科室轮转培训和专科护理培训</li>
-                    </ul>
+
+                <div class="training-flowchart">
+                    <div class="flow-column doctor">
+                        <h3>👨‍⚕️ 医生培养路径</h3>
+                        <div class="flow-start">高中毕业</div>
+
+                        <div class="flow-node doctor">
+                            <div class="stage">学历教育</div>
+                            <div class="duration">5年</div>
+                            <div class="detail">临床医学本科<br>基础医学+临床理论</div>
+                        </div>
+
+                        <div class="flow-connector">↓</div>
+
+                        <div class="flow-node doctor">
+                            <div class="stage">住院医师规培</div>
+                            <div class="duration">3年</div>
+                            <div class="detail">临床轮转培训<br>各科室实践锻炼</div>
+                        </div>
+
+                        <div class="flow-connector">↓</div>
+
+                        <div class="flow-node doctor">
+                            <div class="stage">学历深造（可选）</div>
+                            <div class="duration">3-6年</div>
+                            <div class="detail">硕士/博士研究生<br>专业方向深化</div>
+                        </div>
+
+                        <div class="flow-connector">↓</div>
+
+                        <div class="flow-node doctor">
+                            <div class="stage">专科医师培训</div>
+                            <div class="duration">2-4年</div>
+                            <div class="detail">专科方向深入培训<br>专科技能提升</div>
+                        </div>
+
+                        <div class="flow-connector">↓</div>
+
+                        <div class="flow-node doctor">
+                            <div class="stage">继续医学教育</div>
+                            <div class="duration">执业期间持续</div>
+                            <div class="detail">每年25学分以上<br>学术会议/进修学习</div>
+                        </div>
+
+                        <div class="flow-end">主任医师/教授</div>
+                    </div>
+
+                    <div class="flow-divider"></div>
+
+                    <div class="flow-column nurse">
+                        <h3>👩‍⚕️ 护士培养路径</h3>
+                        <div class="flow-start">高中毕业</div>
+
+                        <div class="flow-node nurse">
+                            <div class="stage">学历教育</div>
+                            <div class="duration">3-4年</div>
+                            <div class="detail">护理学专科/本科<br>理论基础学习</div>
+                        </div>
+
+                        <div class="flow-connector">↓</div>
+
+                        <div class="flow-node nurse">
+                            <div class="stage">临床实习</div>
+                            <div class="duration">8个月以上</div>
+                            <div class="detail">医院各科室轮转<br>实操技能培训</div>
+                        </div>
+
+                        <div class="flow-connector">↓</div>
+
+                        <div class="flow-node nurse">
+                            <div class="stage">执业资格考试</div>
+                            <div class="duration">1次/年</div>
+                            <div class="detail">全国护士执业资格考试<br>理论+技能考核</div>
+                        </div>
+
+                        <div class="flow-connector">↓</div>
+
+                        <div class="flow-node nurse">
+                            <div class="stage">入职与轮岗</div>
+                            <div class="duration">1-2年</div>
+                            <div class="detail">科室轮转培训<br>岗位适应锻炼</div>
+                        </div>
+
+                        <div class="flow-connector">↓</div>
+
+                        <div class="flow-node nurse">
+                            <div class="stage">在职继续教育</div>
+                            <div class="duration">执业期间持续</div>
+                            <div class="detail">专科护士培训<br>技能提升学习</div>
+                        </div>
+
+                        <div class="flow-end">主任护师/教授</div>
+                    </div>
                 </div>
             </div>
             
@@ -399,117 +2016,534 @@
             <div class="topic-card">
                 <h2>主管单位与管理体系</h2>
                 <p>医护人员的行政管理架构：</p>
-                
-                <div class="problem-details">
-                    <h4>主管单位</h4>
-                    <ul>
-                        <li><strong>国家卫生健康委员会</strong>：负责全国医护人员的宏观管理政策制定</li>
-                        <li><strong>人力资源和社会保障部</strong>：负责职称评定、薪酬制度等相关政策</li>
-                        <li><strong>教育部</strong>：负责医学院校教育标准制定</li>
-                        <li><strong>国家中医药管理局</strong>：负责中医类医护人员管理</li>
-                        <li><strong>各省卫健委</strong>：负责辖区内医护人员的具体管理</li>
-                    </ul>
-                </div>
-                
-                <div class="problem-details">
-                    <h4>医院内部管理体系</h4>
-                    <ul>
-                        <li><strong>院长</strong>：医院最高管理者，负责整体运营</li>
-                        <li><strong>医务部/处</strong>：负责医生执业管理、医疗质量控制</li>
-                        <li><strong>护理部</strong>：负责护士执业管理、护理质量控制</li>
-                        <li><strong>人事科</strong>：负责人员招聘、考核、薪酬管理</li>
-                        <li><strong>科教科</strong>：负责继续教育、科研管理</li>
-                    </ul>
+
+                <div class="org-tree">
+                    <div class="tree-group">
+                        <div class="tree-level">
+                            <div class="tree-node national">
+                                <div class="title">国家卫生健康委员会</div>
+                                <div class="desc">宏观管理政策制定</div>
+                            </div>
+                        </div>
+                        <div class="branch-connector"></div>
+                        <div class="tree-branches">
+                            <div class="tree-node national">
+                                <div class="title">人力资源和社会保障部</div>
+                                <div class="desc">职称评定、薪酬制度</div>
+                            </div>
+                            <div class="tree-node national">
+                                <div class="title">教育部</div>
+                                <div class="desc">医学院校教育标准</div>
+                            </div>
+                            <div class="tree-node national">
+                                <div class="title">国家中医药管理局</div>
+                                <div class="desc">中医类医护人员管理</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tree-connector"></div>
+                    <div class="tree-level">
+                        <div class="tree-node provincial">
+                            <div class="title">各省卫健委</div>
+                            <div class="desc">辖区内医护人员具体管理</div>
+                        </div>
+                    </div>
+
+                    <div class="tree-connector"></div>
+                    <div class="tree-group">
+                        <div class="tree-level">
+                            <div class="tree-node hospital">
+                                <div class="title">🏥 医院</div>
+                                <div class="desc">医疗服务提供机构</div>
+                            </div>
+                        </div>
+                        <div class="branch-connector"></div>
+                        <div class="tree-branches">
+                            <div class="tree-node department">
+                                <div class="title">院长</div>
+                                <div class="desc">医院最高管理者<br>负责整体运营</div>
+                            </div>
+                            <div class="tree-node department">
+                                <div class="title">医务部/处</div>
+                                <div class="desc">医生执业管理<br>医疗质量控制</div>
+                            </div>
+                            <div class="tree-node department">
+                                <div class="title">护理部</div>
+                                <div class="desc">护士执业管理<br>护理质量控制</div>
+                            </div>
+                            <div class="tree-node department">
+                                <div class="title">人事科</div>
+                                <div class="desc">人员招聘<br>考核、薪酬管理</div>
+                            </div>
+                            <div class="tree-node department">
+                                <div class="title">科教科</div>
+                                <div class="desc">继续教育<br>科研管理</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <div class="topic-card">
                 <h2>医护人员评级体系</h2>
-                <p>医护人员的绩效考核与评价标准：</p>
-                
-                <div class="problem-details">
-                    <h4>医生评级标准</h4>
-                    <ul>
-                        <li><strong>医疗质量</strong>：诊断准确率、治疗成功率、并发症发生率</li>
-                        <li><strong>医疗安全</strong>：医疗事故发生率、患者安全指标</li>
-                        <li><strong>服务态度</strong>：患者满意度、医德医风</li>
-                        <li><strong>学术水平</strong>：科研成果、论文发表、新技术应用</li>
-                        <li><strong>教学能力</strong>：带教能力、培训贡献</li>
-                    </ul>
+                <p>医护人员的职称晋升路径、评定标准及待遇：</p>
+
+                <div class="criteria-box">
+                    <h4>📋 评级由谁决定？评上靠什么？</h4>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <strong>🏛️ 评定机构</strong>
+                            <span>医院职称评审委员会初审 → 省级卫健委/人社厅终审</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>📚 学历资历</strong>
+                            <span>学历层次、工作年限、任职年限</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>⚡ 专业能力</strong>
+                            <span>临床技能、手术/操作能力、疑难病例处理</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>📝 科研成果</strong>
+                            <span>论文发表（核心期刊/SCI）、科研课题、成果获奖</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>🎓 继续教育</strong>
+                            <span>继续教育学分达标、专科培训证书</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>⭐ 医德医风</strong>
+                            <span>患者满意度、医疗投诉情况、职业道德考核</span>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="problem-details">
-                    <h4>护士评级标准</h4>
-                    <ul>
-                        <li><strong>护理质量</strong>：基础护理合格率、专科护理技能</li>
-                        <li><strong>患者安全</strong>：护理不良事件发生率</li>
-                        <li><strong>服务态度</strong>：患者满意度、沟通能力</li>
-                        <li><strong>专业技能</strong>：操作技能、应急处理能力</li>
-                        <li><strong>团队协作</strong>：与医生、同事的合作能力</li>
-                    </ul>
+
+                <div class="rating-flowchart">
+                    <div class="rating-row">
+                        <div class="rating-column doctor">
+                            <h3>👨‍⚕️ 医生职称晋升</h3>
+
+                            <div class="rating-level level-1">
+                                <div class="level-title">1. 医师 / 住院医师</div>
+                                <div class="level-req">条件：本科毕业 → 通过执业医师考试</div>
+                                <div class="level-pay">待遇：基本工资 + 科室绩效</div>
+                            </div>
+
+                            <div class="rating-level level-2">
+                                <div class="level-title">2. 主治医师</div>
+                                <div class="level-req">条件：执业4年 + 论文/学分达标</div>
+                                <div class="level-pay">待遇：基本工资↑15-20% + 绩效系数↑</div>
+                            </div>
+
+                            <div class="rating-level level-3">
+                                <div class="level-title">3. 副主任医师</div>
+                                <div class="level-req">条件：主治5年 + 省市课题 + 核心论文</div>
+                                <div class="level-pay">待遇：副高工资 + 专家门诊资格 + 硕导资格</div>
+                            </div>
+
+                            <div class="rating-level level-4">
+                                <div class="level-title">4. 主任医师</div>
+                                <div class="level-req">条件：副高5年 + SCI/专著 + 省级以上课题</div>
+                                <div class="level-pay">待遇：正高工资 + 特需门诊 + 博导资格 + 科室副主任</div>
+                            </div>
+                        </div>
+
+                        <div class="rating-arrow">→</div>
+
+                        <div class="rating-column nurse">
+                            <h3>👩‍⚕️ 护士职称晋升</h3>
+
+                            <div class="rating-level level-1">
+                                <div class="level-title">1. 护士</div>
+                                <div class="level-req">条件：毕业 → 通过护士执业资格考试</div>
+                                <div class="level-pay">待遇：基本工资 + 夜班费</div>
+                            </div>
+
+                            <div class="rating-level level-2">
+                                <div class="level-title">2. 护师</div>
+                                <div class="level-req">条件：护士工作5年 + 继续教育学分</div>
+                                <div class="level-pay">待遇：基本工资↑10-15% + 护师绩效</div>
+                            </div>
+
+                            <div class="rating-level level-3">
+                                <div class="level-title">3. 主管护师</div>
+                                <div class="level-req">条件：护师5-7年 + 论文/培训证书</div>
+                                <div class="level-pay">待遇：中级工资 + 科室带教资格 + 护理组长</div>
+                            </div>
+
+                            <div class="rating-level level-4">
+                                <div class="level-title">4. 副主任护师</div>
+                                <div class="level-req">条件：主管5年 + 科研/专利 + 省级以上论文</div>
+                                <div class="level-pay">待遇：副高工资 + 护理部质控岗位 + 硕士生导师</div>
+                            </div>
+
+                            <div class="rating-level level-5">
+                                <div class="level-title">5. 主任护师</div>
+                                <div class="level-req">条件：副高5年 + SCI/专著 + 主持课题</div>
+                                <div class="level-pay">待遇：正高工资 + 护理部主任/副主任 + 学科带头人</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="criteria-box">
+                    <h4>💰 评上后的待遇变化</h4>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <strong>💵 工资待遇</strong>
+                            <span>初级→中级基本工资↑20-30%<br>中级→高级基本工资↑30-50%</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>📊 绩效系数</strong>
+                            <span>职称越高，绩效奖金系数越高<br>主任医师系数通常是住院医师的2-3倍</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>🏢 岗位晋升</strong>
+                            <span>高级职称有资格担任科室副主任、主任<br>护理部管理岗位要求副高以上</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>🎓 学术地位</strong>
+                            <span>硕导/博导资格，招收研究生<br>参与学术委员会、职称评审</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>🏥 执业范围</strong>
+                            <span>高级职称可开设专家门诊、特需门诊<br>有资格参与疑难病例会诊、多学科诊疗</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>📈 职业发展</strong>
+                            <span>优先获得进修、出国学习机会<br>科研项目申报、成果转化主导权</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="topic-card">
-                <h2>医护人员收入来源</h2>
+                <h2>📚 医护人员继续教育</h2>
+                <p>执业期间的持续学习要求与管理办法：</p>
+
+                <div class="ce-summary-box">
+                    <h4>📌 继续教育核心要点</h4>
+                    <div class="ce-summary-content">
+                        <div class="ce-summary-item">
+                            <strong>📊 学分要求</strong>
+                            <div>医生 ≥ 25分/年<br>护士 ≥ 24分/年</div>
+                        </div>
+                        <div class="ce-summary-item">
+                            <strong>⏰ 周期计算</strong>
+                            <div>每年1月1日-12月31日<br>任期内累计达标</div>
+                        </div>
+                        <div class="ce-summary-item">
+                            <strong>⚠️ 不通后果</strong>
+                            <div>年度考核不合格<br>晋升/注册受影响</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🔄 如何继续？（继续教育方式）</h3>
+                <div class="ce-flow">
+                    <div class="ce-phase">
+                        <div class="ce-phase-icon">1</div>
+                        <div class="ce-phase-content">
+                            <div class="ce-phase-title">📖 参加学术会议</div>
+                            <div class="ce-phase-desc">参加中华医学会/护理学会等组织的学术年会、专题研讨会，获取相应学分</div>
+                            <div class="ce-methods">
+                                <div class="ce-method">✓ 学术年会（国家级）- 10分/次</div>
+                                <div class="ce-method">✓ 专题培训班 - 5-8分/期</div>
+                                <div class="ce-method">✓ 学术论坛/沙龙 - 2-3分/次</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ce-phase">
+                        <div class="ce-phase-icon">2</div>
+                        <div class="ce-phase-content">
+                            <div class="ce-phase-title">📚 在线学习</div>
+                            <div class="ce-phase-desc">通过官方继续医学教育平台进行网络课程学习，方便灵活</div>
+                            <div class="ce-methods">
+                                <div class="ce-method">✓ 华医网、好医生网等</div>
+                                <div class="ce-method">✓ 国家卫健委官方平台</div>
+                                <div class="ce-method">✓ 医院内部网络课程</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ce-phase">
+                        <div class="ce-phase-icon">3</div>
+                        <div class="ce-phase-content">
+                            <div class="ce-phase-title">🏥 进修学习</div>
+                            <div class="ce-phase-desc">到上级医院或专科机构进行进修培训，提升专业技能</div>
+                            <div class="ce-methods">
+                                <div class="ce-method">✓ 三甲医院进修（3-6月）</div>
+                                <div class="ce-method">✓ 专科护士培训基地</div>
+                                <div class="ce-method">✓ 国内外访问学者</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ce-phase">
+                        <div class="ce-phase-icon">4</div>
+                        <div class="ce-phase-content">
+                            <div class="ce-phase-title">📝 成果产出</div>
+                            <div class="ce-phase-desc">发表论文、获得专利、参与课题研究等可折算学分</div>
+                            <div class="ce-methods">
+                                <div class="ce-method">✓ 发表核心期刊论文 - 5-10分</div>
+                                <div class="ce-method">✓ 获得实用新型专利 - 3-5分</div>
+                                <div class="ce-method">✓ 参与省级以上课题 - 5-10分</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ce-phase">
+                        <div class="ce-phase-icon">5</div>
+                        <div class="ce-phase-content">
+                            <div class="ce-phase-title">👨‍🏫 教学带教</div>
+                            <div class="ce-phase-desc">承担教学任务、参与规培带教可获得相应学分</div>
+                            <div class="ce-methods">
+                                <div class="ce-method">✓ 承担医学院教学 - 5-10分/年</div>
+                                <div class="ce-method">✓ 规培基地带教老师</div>
+                                <div class="ce-method">✓ 科室业务学习主讲</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🏛️ 谁来继续？（继续教育管理体系）</h3>
+                <div class="ce-org-chart">
+                    <div class="ce-org-item">
+                        <div class="org-name">国家卫健委</div>
+                        <div class="org-role">政策制定<br>学分标准制定</div>
+                    </div>
+                    <div class="ce-org-arrow">→</div>
+                    <div class="ce-org-item">
+                        <div class="org-name">省级卫健委</div>
+                        <div class="org-role">监督管理<br>学分审核认定</div>
+                    </div>
+                    <div class="ce-org-arrow">→</div>
+                    <div class="ce-org-item">
+                        <div class="org-name">医院科教科</div>
+                        <div class="org-role">组织实施<br>学分登记管理</div>
+                    </div>
+                    <div class="ce-org-arrow">→</div>
+                    <div class="ce-org-item">
+                        <div class="org-name">医学会/护理学会</div>
+                        <div class="org-role">继续教育项目<br>学分授予</div>
+                    </div>
+                </div>
+
+                <h3>⚠️ 如果通不过怎么办？（未达标处理）</h3>
+                <div class="ce-fail-solution">
+                    <h4>🚨 继续教育未达标的补救措施</h4>
+                    <div class="ce-fail-list">
+                        <div class="ce-fail-item">
+                            <div class="fail-title">📅 年度内补学</div>
+                            <div class="fail-desc">当年12月31日前通过线上学习补齐学分，部分省份开放补学通道</div>
+                        </div>
+                        <div class="ce-fail-item">
+                            <div class="fail-title">📋 申请延期</div>
+                            <div class="fail-desc">因公出国/援疆援藏/重大疾病等特殊原因，可向卫健委申请延期补学</div>
+                        </div>
+                        <div class="ce-fail-item">
+                            <div class="fail-title">🔄 跨年度累计</div>
+                            <div class="fail-desc">部分地区允许任期内（如5年）累计达标，但需提前报备</div>
+                        </div>
+                        <div class="ce-fail-item">
+                            <div class="fail-title">⚠️ 影响执业注册</div>
+                            <div class="fail-desc">连续2年未达标的，可能影响执业证延续注册，需重新参加培训</div>
+                        </div>
+                        <div class="ce-fail-item">
+                            <div class="fail-title">💼 影响职称晋升</div>
+                            <div class="fail-desc">继续教育学分是职称评审必要条件，未达标当年不可申报晋升</div>
+                        </div>
+                        <div class="ce-fail-item">
+                            <div class="fail-title">📊 年度考核</div>
+                            <div class="fail-desc">继续教育学分纳入年度考核，不合格者影响绩效评定和评优评先</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="criteria-box">
+                    <h4>💡 实用建议</h4>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <strong>📱 提前规划</strong>
+                            <span>年初制定年度学习计划，避免年底突击</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>📊 分批积累</strong>
+                            <span>分散完成学习任务，每月积累2-3分</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>📁 留存凭证</strong>
+                            <span>保存好学分证书、电子记录等证明材料</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>🔍 核实信息</strong>
+                            <span>确认学习项目是否被卫健委认可，防止无效学习</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <h2>💰 医护人员收入来源</h2>
                 <p>医护人员的薪酬构成与来源：</p>
-                
-                <div class="flowchart">
-                    <div class="flow-step">
-                        <strong>基本工资</strong><br>
-                        岗位工资+薪级工资
+
+                <div class="income-grid">
+                    <div class="income-column">
+                        <div class="income-box primary">
+                            <div class="box-title">💰 基本工资 <span class="box-percent">约40%</span></div>
+                            <div class="box-detail">
+                                <div class="detail-item">📌 岗位工资：按职称/岗位定级</div>
+                                <div class="detail-item">📌 薪级工资：按工作年限调整</div>
+                            </div>
+                        </div>
+                        <div class="income-box secondary">
+                            <div class="box-title">💵 绩效工资 <span class="box-percent">约35%</span></div>
+                            <div class="box-detail">
+                                <div class="detail-item">📌 门诊/住院绩效：诊疗工作量</div>
+                                <div class="detail-item">📌 手术/操作绩效：技术性收入</div>
+                                <div class="detail-item">📌 科研绩效：课题/论文奖励</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flow-arrow">+</div>
-                    <div class="flow-step">
-                        <strong>绩效工资</strong><br>
-                        医疗服务绩效+科研绩效
-                    </div>
-                    <div class="flow-arrow">+</div>
-                    <div class="flow-step">
-                        <strong>津贴补贴</strong><br>
-                        护士津贴+夜班费+值班费
-                    </div>
-                    <div class="flow-arrow">+</div>
-                    <div class="flow-step">
-                        <strong>奖金</strong><br>
-                        年终奖+专项奖励
+                    <div class="income-column">
+                        <div class="income-box accent">
+                            <div class="box-title">🏷️ 津贴补贴 <span class="box-percent">约15%</span></div>
+                            <div class="box-detail">
+                                <div class="detail-item">📌 夜班费：按次数计算</div>
+                                <div class="detail-item">📌 特殊岗位津贴：放射/传染等</div>
+                                <div class="detail-item">📌 护士津贴：护龄津贴等</div>
+                            </div>
+                        </div>
+                        <div class="income-box warning">
+                            <div class="box-title">🎁 奖金 <span class="box-percent">约10%</span></div>
+                            <div class="box-detail">
+                                <div class="detail-item">📌 年终奖：13薪/14薪</div>
+                                <div class="detail-item">📌 专项奖励：先进/优秀奖励</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+
+                <div class="income-summary">
+                    <h4>💡 影响收入的主要因素</h4>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="summary-icon">📈</span>
+                            <div class="summary-text">
+                                <strong>职称级别</strong>
+                                <small>正高 > 副高 > 中级 > 初级</small>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-icon">🏥</span>
+                            <div class="summary-text">
+                                <strong>医院等级</strong>
+                                <small>三甲 > 二甲 > 社区</small>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-icon">⚡</span>
+                            <div class="summary-text">
+                                <strong>工作量</strong>
+                                <small>门诊量/手术量/值班次数</small>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-icon">🎓</span>
+                            <div class="summary-text">
+                                <strong>学历科研</strong>
+                                <small>硕士/博士学位加成</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="statistic-card solution">
-                    <h3>医护人员收入结构</h3>
+                    <h3>📊 医护人员收入结构</h3>
                     <div class="chart-container">
-                        <div class="chart-label">
-                            <span>基本工资</span>
-                            <span>40%</span>
+                        <div class="chart-bar" style="width: 40%;">
+                            <span>基本工资 40%</span>
                         </div>
-                        <div class="chart-bar" style="width: 40%;"></div>
-                        
-                        <div class="chart-label">
-                            <span>绩效工资</span>
-                            <span>35%</span>
+                        <div class="chart-bar" style="width: 35%; background: linear-gradient(90deg, #3498db, #2980b9);">
+                            <span>绩效工资 35%</span>
                         </div>
-                        <div class="chart-bar" style="width: 35%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
-                        
-                        <div class="chart-label">
-                            <span>津贴补贴</span>
-                            <span>15%</span>
+                        <div class="chart-bar" style="width: 15%; background: linear-gradient(90deg, #2ecc71, #27ae60);">
+                            <span>津贴补贴 15%</span>
                         </div>
-                        <div class="chart-bar" style="width: 15%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
-                        
-                        <div class="chart-label">
-                            <span>奖金</span>
-                            <span>10%</span>
+                        <div class="chart-bar" style="width: 10%; background: linear-gradient(90deg, #f39c12, #e67e22);">
+                            <span>奖金 10%</span>
                         </div>
-                        <div class="chart-bar" style="width: 10%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="topic-card">
-                <h2>医护人员支出列表</h2>
-                <p>医护人员的职业相关支出：</p>
-                
+                <h2>💸 医护人员支出列表</h2>
+
+                <div class="pie-chart-section">
+                    <h3 class="tree-title">📊 医生年均支出结构（按占比）</h3>
+
+                    <div class="pie-chart-container">
+                        <div class="pie-chart"></div>
+
+                        <div class="pie-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #667eea;"></div>
+                                <div class="legend-info">
+                                    <div class="legend-title">继续教育</div>
+                                    <div class="legend-desc">学术会议、培训班、进修学习</div>
+                                </div>
+                                <div class="legend-percent">40%</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #3498db;"></div>
+                                <div class="legend-info">
+                                    <div class="legend-title">其他支出</div>
+                                    <div class="legend-desc">科研费用、学术交流等</div>
+                                </div>
+                                <div class="legend-percent">35%</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #2ecc71;"></div>
+                                <div class="legend-info">
+                                    <div class="legend-title">职业防护</div>
+                                    <div class="legend-desc">防护用品、体检费用</div>
+                                </div>
+                                <div class="legend-percent">15%</div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #f39c12;"></div>
+                                <div class="legend-info">
+                                    <div class="legend-title">专业书籍/职称考试</div>
+                                    <div class="legend-desc">书籍、期刊、报名费</div>
+                                </div>
+                                <div class="legend-percent">10%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="expense-summary">
+                        <h4>📊 年均支出总额</h4>
+                        <div class="expense-cards">
+                            <div class="expense-card">
+                                <div class="amount">7000-23000元</div>
+                                <div class="label">医生年均总支出</div>
+                            </div>
+                            <div class="expense-card">
+                                <div class="amount">5500-15000元</div>
+                                <div class="label">护士年均总支出</div>
+                            </div>
+                            <div class="expense-card">
+                                <div class="amount">≈30%</div>
+                                <div class="label">占年收入比例</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-card">
                 <table class="comparison-table">
                     <thead>
                         <tr>
@@ -558,86 +2592,1039 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>          
+            </div>
+            
+            
+            
+            <div class="topic-card">
+                <h2>💭 常见误解</h2>
+                <p>普通人对医护人员的常见误解与事实真相：</p>
+
+                <div class="misconception-summary">
+                    <h4>📌 关于医护人员的常见误解</h4>
+                    <div class="summary-points">
+                        <div class="summary-point">
+                            <strong>💰 收入高</strong>
+                            <span>医护人员收入与付出不成正比，基层医护人员收入偏低</span>
+                        </div>
+                        <div class="summary-point">
+                            <strong>⏰ 工作轻松</strong>
+                            <span>医护人员长期加班、值夜班，工作强度大、压力大</span>
+                        </div>
+                        <div class="summary-point">
+                            <strong>🏥 收红包</strong>
+                            <span>绝大多数医护人员廉洁从业，收红包是违规违法行为</span>
+                        </div>
+                        <div class="summary-point">
+                            <strong>😷 态度差</strong>
+                            <span>工作压力大导致沟通不足，但绝大多数医护人员尽职尽责</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="misconception-grid">
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">💰</div>
+                            <div class="misconception-title">医生都很赚钱</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">医生工资高、灰色收入多，看病贵都是医生赚去了</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">医生收入与教育投入、工作强度不成正比。基层医生月薪5000-8000元居多，主任医师也就1-2万。灰色收入是极少数，且国家严厉打击</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">📊</span>
+                                <span>一名医生从入学到独立执业需10-15年，前期投入巨大</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">😴</div>
+                            <div class="misconception-title">医生工作很轻松</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">医生就是坐诊开药，每天朝九晚五，周末双休</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">医生经常连轴转，手术站一天、夜班熬通宵是常态。三甲医院医生年均门诊量超1万人次，工作强度远超一般职业</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">⏰</span>
+                                <span>调查显示医生年均加班超500小时，相当于多工作60多天</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">❤️</div>
+                            <div class="misconception-title">护士就是打针发药</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">护士工作简单，就是打针、换药、跑腿</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">护士需掌握复杂技能：急救、用药、管道护理、心理疏导等。ICU护士需同时监控多台设备，专科护士专业能力极强</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">🎓</span>
+                                <span>护理学已是独立的一级学科，硕士、博士护士越来越多</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">📱</div>
+                            <div class="misconception-title">医生只顾赚钱</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">医生故意多开检查、多开药，就是为了提成</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">医保控费、药占比考核等制度约束下，医生开药开检查有严格限制。绝大多数医生基于临床需要做出判断</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">⚖️</span>
+                                <span>过度医疗是系统性问题，不能简单归咎于个别医生</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">😤</div>
+                            <div class="misconception-title">医护态度都很差</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">去医院看病，医生护士态度冷漠、爱答不理</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">医护人员日均接诊量大、工作压力大，难免沟通不充分。但绝大多数医护人员对患者是负责的，只是不善表达</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">🤝</span>
+                                <span>医患沟通是双向的，患者理解也很重要</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">🏥</div>
+                            <div class="misconception-title">看病贵是医院的问题</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">医院收费贵、检查多，都是医院在赚钱</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">医疗服务定价、医保政策、药品定价等由政府制定，医院执行。医疗成本本身就在不断提高</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">📋</span>
+                                <span>国家已通过集采、医保谈判等手段大幅降低药价和耗材费用</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">🔪</div>
+                            <div class="misconception-title">手术必送红包</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">做手术必须给医生送红包，否则医生不会认真做</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">收红包是严重违规违法行为，医院有严格监管。医生手术是职责所在，不会因红包而区别对待</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">🚫</span>
+                                <span>国家严厉打击收受红包、回扣，情节严重者吊销执业资格</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">😷</div>
+                            <div class="misconception-title">医护不会生病</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">医护人员自己懂健康，肯定身体很好</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">医护人员职业病发病率高于常人：颈椎病、腰椎间盘突出、胃病、静脉曲张等，长期精神压力也导致心理健康问题</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">💪</span>
+                                <span>医护人员也是普通人，需要被理解和关爱</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">💉</div>
+                            <div class="misconception-title">医护关系暧昧</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">医院里医生护士关系复杂，经常有暧昧关系</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">医护团队协作是工作需要，职业关系明确。绝大多数医护人员恪守职业道德，工作氛围严肃专业</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">🏆</span>
+                                <span>医疗团队合作是为了患者得到更好的治疗</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="misconception-card">
+                        <div class="misconception-header">
+                            <div class="misconception-icon">📖</div>
+                            <div class="misconception-title">学医就能当医生</div>
+                        </div>
+                        <div class="misconception-body">
+                            <div class="misconception-wrong">
+                                <div class="misconception-wrong-label">❌ 误解</div>
+                                <div class="misconception-wrong-text">医学院毕业就能当医生，门槛不高</div>
+                            </div>
+                            <div class="misconception-right">
+                                <div class="misconception-right-label">✅ 事实</div>
+                                <div class="misconception-right-text">需通过执业医师考试、住院医师规培、专科培训等层层关卡，通过率仅30-40%。行医资格需严格审核</div>
+                            </div>
+                            <div class="misconception-fact">
+                                <span class="misconception-fact-icon">🎯</span>
+                                <span>从入学到独立执业，平均需要10-15年</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="criteria-box">
+                    <h4>💡 理性看待医患关系</h4>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <strong>🤝 相互理解</strong>
+                            <span>医护人员工作压力大，患者求医心切，双方都需要换位思考</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>⚖️ 依法维权</strong>
+                            <span>有医疗纠纷通过正规渠道解决，医闹伤医是违法行为</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>💕 尊重医护</strong>
+                            <span>医护人员是健康守护者，理性看待才能营造良好就医环境</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>📚 了解医疗</strong>
+                            <span>增加对医疗行业的了解，减少因信息不对称产生的误解</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="topic-card">
-                <h2>行政法律约束</h2>
-                <p>医护人员需遵守的法律法规：</p>
-                
-                <div class="problem-details">
-                    <h4>主要法律法规</h4>
-                    <ul>
-                        <li><strong>《中华人民共和国执业医师法》</strong>：规范医师执业行为，保障医师合法权益</li>
-                        <li><strong>《护士条例》</strong>：规范护理活动，保障护士合法权益</li>
-                        <li><strong>《医疗机构管理条例》</strong>：规范医疗机构执业行为</li>
-                        <li><strong>《医疗事故处理条例》</strong>：规范医疗事故处理程序</li>
-                        <li><strong>《民法典》侵权责任编</strong>：医疗损害责任相关规定</li>
-                        <li><strong>《刑法》</strong>：医疗事故罪、非法行医罪等相关条款</li>
-                    </ul>
+                <h2>👨‍⚕️ 医生分类</h2>
+                <p>中国医生按岗位分类、从业人数、占比及待遇对比：</p>
+
+                <div class="category-overview">
+                    <h4>📊 中国医生总体概况</h4>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">428万+</div>
+                            <div class="stat-label">全国执业(助理)医师总数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">3.2‰</div>
+                            <div class="stat-label">每千人口医师数量</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">428万</div>
+                            <div class="stat-label">临床医生占比最高</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">65%</div>
+                            <div class="stat-label">二级以上医院</div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="problem-details">
-                    <h4>主要约束内容</h4>
-                    <ul>
-                        <li><strong>执业注册</strong>：必须取得相应执业资格证书并在注册地点执业</li>
-                        <li><strong>诊疗规范</strong>：必须按照诊疗规范和临床路径进行诊疗</li>
-                        <li><strong>知情同意</strong>：必须履行告知义务，取得患者知情同意</li>
-                        <li><strong>病历书写</strong>：必须及时、准确、完整地书写病历</li>
-                        <li><strong>保密义务</strong>：必须保护患者隐私，不得泄露患者信息</li>
-                        <li><strong>禁止商业行为</strong>：不得收受红包、回扣等不当利益</li>
-                    </ul>
+
+                <h3>🔍 医生岗位分类详情（按收入从高到低）</h3>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <div class="category-name">🦷 口腔医生</div>
+                            <div class="category-percent">约8%</div>
+                        </div>
+                        <div class="category-body">
+                            <div class="category-stats">
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">30万+</div>
+                                    <div class="cat-stat-label">从业人数</div>
+                                </div>
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">很高</div>
+                                    <div class="cat-stat-label">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="category-desc">口腔疾病诊疗、口腔预防保健、牙齿矫正、种植牙等，民营诊所占比高</div>
+                            <div class="salary-range">
+                                <span>收入区间</span>
+                                <span>1.5万-5万+/月</span>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="salary-fill high" style="width: 90%;"></div>
+                            </div>
+                            <div class="category-features">
+                                <span class="feature-tag">医患关系简单</span>
+                                <span class="feature-tag">创业容易</span>
+                                <span class="feature-tag">风险较低</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <div class="category-name">💊 专科医生</div>
+                            <div class="category-percent">约2%</div>
+                        </div>
+                        <div class="category-body">
+                            <div class="category-stats">
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">8万+</div>
+                                    <div class="cat-stat-label">从业人数</div>
+                                </div>
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">很高</div>
+                                    <div class="cat-stat-label">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="category-desc">精神科、皮肤科、眼科、耳鼻喉科、康复科等某一领域的专科诊疗</div>
+                            <div class="salary-range">
+                                <span>收入区间</span>
+                                <span>1.2万-4万+/月</span>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="salary-fill high" style="width: 85%;"></div>
+                            </div>
+                            <div class="category-features">
+                                <span class="feature-tag">专业性强</span>
+                                <span class="feature-tag">医患沟通多</span>
+                                <span class="feature-tag">市场热门</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <div class="category-name">🏥 临床医生</div>
+                            <div class="category-percent">约70%</div>
+                        </div>
+                        <div class="category-body">
+                            <div class="category-stats">
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">300万+</div>
+                                    <div class="cat-stat-label">从业人数</div>
+                                </div>
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">高</div>
+                                    <div class="cat-stat-label">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="category-desc">直接参与患者诊疗，包括内科、外科、妇产科、儿科、急诊科等，是医生队伍的主体</div>
+                            <div class="salary-range">
+                                <span>收入区间</span>
+                                <span>8千-3万/月</span>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="salary-fill medium" style="width: 70%;"></div>
+                            </div>
+                            <div class="category-features">
+                                <span class="feature-tag">工作强度大</span>
+                                <span class="feature-tag">夜班轮值</span>
+                                <span class="feature-tag">风险较高</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <div class="category-name">📡 医技医生</div>
+                            <div class="category-percent">约5%</div>
+                        </div>
+                        <div class="category-body">
+                            <div class="category-stats">
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">20万+</div>
+                                    <div class="cat-stat-label">从业人数</div>
+                                </div>
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">中</div>
+                                    <div class="cat-stat-label">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="category-desc">影像科、检验科、病理诊断、营养科、超声科等，为临床提供诊断支持</div>
+                            <div class="salary-range">
+                                <span>收入区间</span>
+                                <span>6千-1.5万/月</span>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="salary-fill medium" style="width: 55%;"></div>
+                            </div>
+                            <div class="category-features">
+                                <span class="feature-tag">夜班较少</span>
+                                <span class="feature-tag">医患接触少</span>
+                                <span class="feature-tag">技术性强</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <div class="category-name">🌿 中医医生</div>
+                            <div class="category-percent">约10%</div>
+                        </div>
+                        <div class="category-body">
+                            <div class="category-stats">
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">40万+</div>
+                                    <div class="cat-stat-label">从业人数</div>
+                                </div>
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">中</div>
+                                    <div class="cat-stat-label">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="category-desc">运用中医药诊疗疾病，包括中医内科、外科、针灸推拿、中西医结合等</div>
+                            <div class="salary-range">
+                                <span>收入区间</span>
+                                <span>6千-2万/月</span>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="salary-fill medium" style="width: 50%;"></div>
+                            </div>
+                            <div class="category-features">
+                                <span class="feature-tag">经验重要</span>
+                                <span class="feature-tag">越老越值钱</span>
+                                <span class="feature-tag">养生热门</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header">
+                            <div class="category-name">🔬 公共卫生医生</div>
+                            <div class="category-percent">约5%</div>
+                        </div>
+                        <div class="category-body">
+                            <div class="category-stats">
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">20万+</div>
+                                    <div class="cat-stat-label">从业人数</div>
+                                </div>
+                                <div class="cat-stat">
+                                    <div class="cat-stat-value">中低</div>
+                                    <div class="cat-stat-label">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="category-desc">疾病预防控制、健康促进、流行病学调查、卫生监督等，在疾控中心、卫生院等机构</div>
+                            <div class="salary-range">
+                                <span>收入区间</span>
+                                <span>5千-1.2万/月</span>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="salary-fill low" style="width: 40%;"></div>
+                            </div>
+                            <div class="category-features">
+                                <span class="feature-tag">编制稳定</span>
+                                <span class="feature-tag">疫情冲前线</span>
+                                <span class="feature-tag">晋升难</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>📊 医生分类对比一览表（按收入从高到低）</h3>
+                <div class="category-summary">
+                    <table class="summary-table">
+                        <thead>
+                            <tr>
+                                <th>岗位类型</th>
+                                <th>从业人数</th>
+                                <th>占比</th>
+                                <th>收入水平</th>
+                                <th>工作强度</th>
+                                <th>职业前景</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>🦷 口腔医生</strong></td>
+                                <td>30万+</td>
+                                <td>约8%</td>
+                                <td>
+                                    <span class="salary-indicator">
+                                        <span class="salary-dot high"></span>
+                                        很高
+                                    </span>
+                                </td>
+                                <td>⭐⭐⭐</td>
+                                <td>前景广阔</td>
+                            </tr>
+                            <tr>
+                                <td><strong>💊 专科医生</strong></td>
+                                <td>8万+</td>
+                                <td>约2%</td>
+                                <td>
+                                    <span class="salary-indicator">
+                                        <span class="salary-dot high"></span>
+                                        很高
+                                    </span>
+                                </td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>高端发展</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🏥 临床医生</strong></td>
+                                <td>300万+</td>
+                                <td>约70%</td>
+                                <td>
+                                    <span class="salary-indicator">
+                                        <span class="salary-dot medium"></span>
+                                        中等偏高
+                                    </span>
+                                </td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>稳定晋升</td>
+                            </tr>
+                            <tr>
+                                <td><strong>📡 医技医生</strong></td>
+                                <td>20万+</td>
+                                <td>约5%</td>
+                                <td>
+                                    <span class="salary-indicator">
+                                        <span class="salary-dot medium"></span>
+                                        中等
+                                    </span>
+                                </td>
+                                <td>⭐⭐</td>
+                                <td>技术路线</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🌿 中医医生</strong></td>
+                                <td>40万+</td>
+                                <td>约10%</td>
+                                <td>
+                                    <span class="salary-indicator">
+                                        <span class="salary-dot medium"></span>
+                                        中等
+                                    </span>
+                                </td>
+                                <td>⭐⭐⭐</td>
+                                <td>越老越香</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🔬 公共卫生医生</strong></td>
+                                <td>20万+</td>
+                                <td>约5%</td>
+                                <td>
+                                    <span class="salary-indicator">
+                                        <span class="salary-dot low"></span>
+                                        中低
+                                    </span>
+                                </td>
+                                <td>⭐⭐</td>
+                                <td>稳步发展</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="criteria-box">
+                    <h4>💡 选择科室/岗位的建议</h4>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <strong>💰 追求高收入</strong>
+                            <span>口腔、整形、眼科等专科，收入高、工作强度相对较低</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>⚖️ 追求稳定</strong>
+                            <span>公共卫生、社区医生，编制稳定、压力较小</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>🏆 追求发展</strong>
+                            <span>三甲医院临床医生，科研教学资源丰富，晋升通道明确</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>😊 追求平衡</strong>
+                            <span>医技科室（影像、病理），夜班少、医患矛盾少</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <div class="topic-card">
-                <h2>医护人员权利</h2>
-                <p>医护人员依法享有的权利：</p>
-                
-                <div class="solution-details">
-                    <h4>职业权利</h4>
-                    <ul>
-                        <li><strong>执业权</strong>：在注册的执业范围内，进行医学诊查、疾病调查、医学处置等</li>
-                        <li><strong>人格尊严权</strong>：人格尊严不受侵犯，人身安全不受威胁</li>
-                        <li><strong>薪酬权</strong>：获得工资报酬和津贴，享受国家规定的福利待遇</li>
-                        <li><strong>培训权</strong>：参加专业培训、继续医学教育的权利</li>
-                        <li><strong>学术自由权</strong>：从事医学研究、学术交流的权利</li>
-                        <li><strong>民主管理权</strong>：参与民主管理和监督的权利</li>
-                    </ul>
+                <h2>👩‍⚕️ 护士分类</h2>
+                <p>护士按岗位分类、从业人数、占比及待遇对比：</p>
+
+                <div class="nurse-overview">
+                    <h4>📊 中国护士总体概况</h4>
+                    <div class="nurse-stats">
+                        <div class="nurse-stat-item">
+                            <div class="nurse-stat-value">520万+</div>
+                            <div class="nurse-stat-label">全国注册护士总数</div>
+                        </div>
+                        <div class="nurse-stat-item">
+                            <div class="nurse-stat-value">3.7‰</div>
+                            <div class="nurse-stat-label">每千人口护士数量</div>
+                        </div>
+                        <div class="nurse-stat-item">
+                            <div class="nurse-stat-value">70%</div>
+                            <div class="nurse-stat-label">女性护士占比</div>
+                        </div>
+                        <div class="nurse-stat-item">
+                            <div class="nurse-stat-value">1:1.2</div>
+                            <div class="nurse-stat-label">医护比目标</div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="solution-details">
-                    <h4>社会保障权利</h4>
-                    <ul>
-                        <li><strong>社会保险权</strong>：享受养老、失业、医疗等社会保险待遇</li>
-                        <li><strong>休息休假权</strong>：享有国家规定的带薪休假权利</li>
-                        <li><strong>职业防护权</strong>：获得与其所从事职业相关的卫生防护、医疗保健服务</li>
-                        <li><strong>工伤保障权</strong>：因职业危害造成的伤害享受工伤保险待遇</li>
-                    </ul>
+
+                <h3>🔍 护士岗位分类详情（按收入从高到低）</h3>
+                <div class="nurse-grid">
+                    <div class="nurse-card">
+                        <div class="nurse-header">
+                            <div class="nurse-name">💉 专科护士</div>
+                            <div class="nurse-percent">约5%</div>
+                        </div>
+                        <div class="nurse-body">
+                            <div class="nurse-stats-row">
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">25万+</div>
+                                    <div class="nurse-stat-text">从业人数</div>
+                                </div>
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">很高</div>
+                                    <div class="nurse-stat-text">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="nurse-desc">ICU护士、PICC护士、造口护士、疼痛护士等，需要专科培训认证</div>
+                            <div class="nurse-salary-range">
+                                <span>收入区间</span>
+                                <span>7千-1.5万+/月</span>
+                            </div>
+                            <div class="nurse-salary-bar">
+                                <div class="nurse-salary-fill high" style="width: 85%;"></div>
+                            </div>
+                            <div class="nurse-tags">
+                                <span class="nurse-tag">专业性强</span>
+                                <span class="nurse-tag">证书要求</span>
+                                <span class="nurse-tag">不可替代</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nurse-card">
+                        <div class="nurse-header">
+                            <div class="nurse-name">🏫 护理管理/教育</div>
+                            <div class="nurse-percent">约5%</div>
+                        </div>
+                        <div class="nurse-body">
+                            <div class="nurse-stats-row">
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">25万+</div>
+                                    <div class="nurse-stat-text">从业人数</div>
+                                </div>
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">高</div>
+                                    <div class="nurse-stat-text">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="nurse-desc">护士长、护理部主任、护理院校教师、护理培训师等管理教育岗位</div>
+                            <div class="nurse-salary-range">
+                                <span>收入区间</span>
+                                <span>6千-1.5万+/月</span>
+                            </div>
+                            <div class="nurse-salary-bar">
+                                <div class="nurse-salary-fill high" style="width: 75%;"></div>
+                            </div>
+                            <div class="nurse-tags">
+                                <span class="nurse-tag">管理岗位</span>
+                                <span class="nurse-tag">学历要求</span>
+                                <span class="nurse-tag">发展前景</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nurse-card">
+                        <div class="nurse-header">
+                            <div class="nurse-name">🚑 急诊护士</div>
+                            <div class="nurse-percent">约8%</div>
+                        </div>
+                        <div class="nurse-body">
+                            <div class="nurse-stats-row">
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">40万+</div>
+                                    <div class="nurse-stat-text">从业人数</div>
+                                </div>
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">较高</div>
+                                    <div class="nurse-stat-text">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="nurse-desc">急诊科抢救、危重患者护理、紧急处置等，工作节奏快、压力大、风险高</div>
+                            <div class="nurse-salary-range">
+                                <span>收入区间</span>
+                                <span>5千-1万/月</span>
+                            </div>
+                            <div class="nurse-salary-bar">
+                                <div class="nurse-salary-fill medium" style="width: 65%;"></div>
+                            </div>
+                            <div class="nurse-tags">
+                                <span class="nurse-tag">压力大</span>
+                                <span class="nurse-tag">风险高</span>
+                                <span class="nurse-tag">津贴高</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nurse-card">
+                        <div class="nurse-header">
+                            <div class="nurse-name">🏥 手术室护士</div>
+                            <div class="nurse-percent">约6%</div>
+                        </div>
+                        <div class="nurse-body">
+                            <div class="nurse-stats-row">
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">30万+</div>
+                                    <div class="nurse-stat-text">从业人数</div>
+                                </div>
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">较高</div>
+                                    <div class="nurse-stat-text">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="nurse-desc">配合手术医生完成手术，包括器械护士（传递器械）和巡回护士（台下配合）</div>
+                            <div class="nurse-salary-range">
+                                <span>收入区间</span>
+                                <span>5千-1万/月</span>
+                            </div>
+                            <div class="nurse-salary-bar">
+                                <div class="nurse-salary-fill medium" style="width: 65%;"></div>
+                            </div>
+                            <div class="nurse-tags">
+                                <span class="nurse-tag">技术性强</span>
+                                <span class="nurse-tag">站功好</span>
+                                <span class="nurse-tag">无夜班</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nurse-card">
+                        <div class="nurse-header">
+                            <div class="nurse-name">🧠 精神科护士</div>
+                            <div class="nurse-percent">约4%</div>
+                        </div>
+                        <div class="nurse-body">
+                            <div class="nurse-stats-row">
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">20万+</div>
+                                    <div class="nurse-stat-text">从业人数</div>
+                                </div>
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">较高</div>
+                                    <div class="nurse-stat-text">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="nurse-desc">精神科/心理科护理工作，需要特殊的沟通技巧和安全管理能力</div>
+                            <div class="nurse-salary-range">
+                                <span>收入区间</span>
+                                <span>5千-9千/月</span>
+                            </div>
+                            <div class="nurse-salary-bar">
+                                <div class="nurse-salary-fill medium" style="width: 60%;"></div>
+                            </div>
+                            <div class="nurse-tags">
+                                <span class="nurse-tag">风险高</span>
+                                <span class="nurse-tag">沟通特殊</span>
+                                <span class="nurse-tag">津贴多</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nurse-card">
+                        <div class="nurse-header">
+                            <div class="nurse-name">🏥 病房护士</div>
+                            <div class="nurse-percent">约50%</div>
+                        </div>
+                        <div class="nurse-body">
+                            <div class="nurse-stats-row">
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">260万+</div>
+                                    <div class="nurse-stat-text">从业人数</div>
+                                </div>
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">中等</div>
+                                    <div class="nurse-stat-text">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="nurse-desc">综合医院各临床科室的日常护理工作，包括内科、外科、妇产科、儿科等病房护理</div>
+                            <div class="nurse-salary-range">
+                                <span>收入区间</span>
+                                <span>4千-8千/月</span>
+                            </div>
+                            <div class="nurse-salary-bar">
+                                <div class="nurse-salary-fill medium" style="width: 50%;"></div>
+                            </div>
+                            <div class="nurse-tags">
+                                <span class="nurse-tag">三班倒</span>
+                                <span class="nurse-tag">夜班多</span>
+                                <span class="nurse-tag">最辛苦</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nurse-card">
+                        <div class="nurse-header">
+                            <div class="nurse-name">👶 产科/儿科护士</div>
+                            <div class="nurse-percent">约10%</div>
+                        </div>
+                        <div class="nurse-body">
+                            <div class="nurse-stats-row">
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">50万+</div>
+                                    <div class="nurse-stat-text">从业人数</div>
+                                </div>
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">中等</div>
+                                    <div class="nurse-stat-text">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="nurse-desc">孕产妇护理、新生儿护理、儿童护理等，需要特别的耐心和沟通技巧</div>
+                            <div class="nurse-salary-range">
+                                <span>收入区间</span>
+                                <span>4千-8千/月</span>
+                            </div>
+                            <div class="nurse-salary-bar">
+                                <div class="nurse-salary-fill medium" style="width: 50%;"></div>
+                            </div>
+                            <div class="nurse-tags">
+                                <span class="nurse-tag">沟通多</span>
+                                <span class="nurse-tag">耐心足</span>
+                                <span class="nurse-tag">家属关注高</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nurse-card">
+                        <div class="nurse-header">
+                            <div class="nurse-name">🏠 社区护士</div>
+                            <div class="nurse-percent">约12%</div>
+                        </div>
+                        <div class="nurse-body">
+                            <div class="nurse-stats-row">
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">60万+</div>
+                                    <div class="nurse-stat-text">从业人数</div>
+                                </div>
+                                <div class="nurse-stat">
+                                    <div class="nurse-stat-num">中等</div>
+                                    <div class="nurse-stat-text">收入水平</div>
+                                </div>
+                            </div>
+                            <div class="nurse-desc">社区卫生服务中心的护理工作，包括慢病管理、健康宣教、家庭签约服务等</div>
+                            <div class="nurse-salary-range">
+                                <span>收入区间</span>
+                                <span>4千-7千/月</span>
+                            </div>
+                            <div class="nurse-salary-bar">
+                                <div class="nurse-salary-fill medium" style="width: 45%;"></div>
+                            </div>
+                            <div class="nurse-tags">
+                                <span class="nurse-tag">稳定</span>
+                                <span class="nurse-tag">编制多</span>
+                                <span class="nurse-tag">压力小</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="topic-card">
-                <h2>医护人员义务</h2>
-                <p>医护人员应履行的职责和义务：</p>
-                
-                <div class="practical-steps">
-                    <h4>职业道德义务</h4>
-                    <ol>
-                        <li><strong>救死扶伤</strong>：践行社会主义核心价值观，履行防病治病、救死扶伤、保护人民健康的神圣职责</li>
-                        <li><strong>尊重患者</strong>：遵守医学伦理道德，尊重患者的自主权和知情同意权</li>
-                        <li><strong>廉洁从业</strong>：遵守法律法规，遵守技术操作规范，不收受红包、回扣</li>
-                        <li><strong>精益求精</strong>：努力钻研业务，更新知识，提高专业技术水平</li>
-                    </ol>
+
+                <h3>📊 护士分类对比一览表（按收入从高到低）</h3>
+                <div class="nurse-summary">
+                    <table class="nurse-table">
+                        <thead>
+                            <tr>
+                                <th>岗位类型</th>
+                                <th>从业人数</th>
+                                <th>占比</th>
+                                <th>收入水平</th>
+                                <th>工作强度</th>
+                                <th>职业特点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>💉 专科护士</strong></td>
+                                <td>25万+</td>
+                                <td>约5%</td>
+                                <td>
+                                    <span class="nurse-indicator">
+                                        <span class="nurse-dot high"></span>
+                                        很高
+                                    </span>
+                                </td>
+                                <td class="nurse-intensity">⭐⭐⭐</td>
+                                <td>专业性强/需考证</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🏫 护理管理/教育</strong></td>
+                                <td>25万+</td>
+                                <td>约5%</td>
+                                <td>
+                                    <span class="nurse-indicator">
+                                        <span class="nurse-dot high"></span>
+                                        高
+                                    </span>
+                                </td>
+                                <td class="nurse-intensity">⭐⭐</td>
+                                <td>管理岗/需学历</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🚑 急诊护士</strong></td>
+                                <td>40万+</td>
+                                <td>约8%</td>
+                                <td>
+                                    <span class="nurse-indicator">
+                                        <span class="nurse-dot medium"></span>
+                                        较高
+                                    </span>
+                                </td>
+                                <td class="nurse-intensity">⭐⭐⭐⭐⭐</td>
+                                <td>压力大/风险高</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🏥 手术室护士</strong></td>
+                                <td>30万+</td>
+                                <td>约6%</td>
+                                <td>
+                                    <span class="nurse-indicator">
+                                        <span class="nurse-dot medium"></span>
+                                        较高
+                                    </span>
+                                </td>
+                                <td class="nurse-intensity">⭐⭐⭐⭐</td>
+                                <td>无夜班/技术活</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🧠 精神科护士</strong></td>
+                                <td>20万+</td>
+                                <td>约4%</td>
+                                <td>
+                                    <span class="nurse-indicator">
+                                        <span class="nurse-dot medium"></span>
+                                        较高
+                                    </span>
+                                </td>
+                                <td class="nurse-intensity">⭐⭐⭐⭐</td>
+                                <td>风险高/津贴多</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🏥 病房护士</strong></td>
+                                <td>260万+</td>
+                                <td>约50%</td>
+                                <td>
+                                    <span class="nurse-indicator">
+                                        <span class="nurse-dot medium"></span>
+                                        中等
+                                    </span>
+                                </td>
+                                <td class="nurse-intensity">⭐⭐⭐⭐⭐</td>
+                                <td>三班倒/夜班多</td>
+                            </tr>
+                            <tr>
+                                <td><strong>👶 产科/儿科护士</strong></td>
+                                <td>50万+</td>
+                                <td>约10%</td>
+                                <td>
+                                    <span class="nurse-indicator">
+                                        <span class="nurse-dot medium"></span>
+                                        中等
+                                    </span>
+                                </td>
+                                <td class="nurse-intensity">⭐⭐⭐</td>
+                                <td>沟通多/耐心足</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🏠 社区护士</strong></td>
+                                <td>60万+</td>
+                                <td>约12%</td>
+                                <td>
+                                    <span class="nurse-indicator">
+                                        <span class="nurse-dot medium"></span>
+                                        中等
+                                    </span>
+                                </td>
+                                <td class="nurse-intensity">⭐⭐</td>
+                                <td>稳定/编制多</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                
-                <div class="practical-steps">
-                    <h4>法律责任义务</h4>
-                    <ol>
-                        <li><strong>依法执业</strong>：遵守法律、法规，按照技术操作规范执业</li>
-                        <li><strong>如实告知</strong>：如实向患者或者其家属介绍病情，但应当注意避免对患者产生不利后果</li>
-                        <li><strong>紧急救治</strong>：遇有自然灾害、传染病流行、突发重大伤亡事故及其他严重威胁人民生命健康的紧急情况时，应当服从卫生行政部门的调遣</li>
-                        <li><strong>报告义务</strong>：发生医疗事故或者发现传染病疫情、疑似职业病等按规定报告</li>
-                    </ol>
+
+                <div class="criteria-box">
+                    <h4>💡 选择护理岗位的建议</h4>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <strong>💰 追求高收入</strong>
+                            <span>专科护士（ICU、PICC等）、护理管理岗位，收入高且稳定</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>⚖️ 追求稳定</strong>
+                            <span>社区护士、编制内护士，工作稳定、压力相对较小</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>🏆 追求技术</strong>
+                            <span>手术室护士、专科护士，技术含量高，职业门槛高</span>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>😊 追求平衡</strong>
+                            <span>手术室护士无夜班、产科护士工作节奏相对规律</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
