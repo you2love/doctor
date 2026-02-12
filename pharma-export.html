@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>国药外销 - 医学学习平台</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <script>
+            function toggleSidebar() {
+                const sidebar = document.querySelector(".sidebar");
+                const mainContent = document.querySelector(".pharma-export-container");
+                
+                sidebar.classList.toggle("collapsed");
+                
+                if (mainContent) {
+                    mainContent.classList.toggle("sidebar-collapsed");
+                }
+            }
+        </script>
+        <style>
+            .pharma-export-container {
+                max-width: 1400px;
+                margin: 0 auto;
+                margin-left: 250px;
+                padding: 30px 40px 80px 40px;
+            }
+
+            .pharma-export-header {
+                text-align: center;
+                margin-bottom: 40px;
+                padding-bottom: 25px;
+                border-bottom: 3px solid #e8f4f8;
+            }
+
+            .pharma-export-header h1 {
+                font-size: 2.5em;
+                color: #c0392b;
+                margin-bottom: 10px;
+            }
+
+            .pharma-export-header p {
+                color: #7f8c8d;
+                font-size: 1.1em;
+            }
+
+            .pharma-section {
+                background: white;
+                border-radius: 15px;
+                padding: 25px;
+                margin-bottom: 25px;
+                box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+            }
+
+            .pharma-section h2 {
+                font-size: 1.5em;
+                color: #c0392b;
+                margin-bottom: 20px;
+                padding-bottom: 12px;
+                border-bottom: 2px solid #fdeaea;
+            }
+
+            .drug-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .drug-table th {
+                background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+                color: white;
+                padding: 14px 12px;
+                text-align: left;
+                font-weight: 600;
+                font-size: 0.95em;
+            }
+
+            .drug-table th:nth-child(1) { width: 15%; }
+            .drug-table th:nth-child(2) { width: 12%; }
+            .drug-table th:nth-child(3) { width: 18%; }
+            .drug-table th:nth-child(4) { width: 25%; }
+            .drug-table th:nth-child(5) { width: 8%; }
+
+            .drug-table td {
+                padding: 14px 12px;
+                border-bottom: 1px solid #eee;
+                vertical-align: top;
+                line-height: 1.6;
+                color: #2c3e50;
+            }
+
+            .drug-table tr:hover td {
+                background: #fef9f9;
+            }
+
+            .drug-name {
+                font-weight: 600;
+                color: #c0392b;
+                font-size: 1.05em;
+            }
+
+            .drug-year {
+                color: #e74c3c;
+                font-weight: 600;
+            }
+
+            .company {
+                color: #27ae60;
+                font-weight: 500;
+            }
+
+            .region-tag {
+                display: inline-block;
+                background: #fef0ef;
+                color: #c0392b;
+                padding: 3px 10px;
+                border-radius: 12px;
+                font-size: 0.85em;
+                margin: 2px;
+            }
+
+            @media (max-width: 768px) {
+                .pharma-export-container {
+                    margin-left: 0;
+                    padding: 20px;
+                }
+
+                .drug-table {
+                    font-size: 0.9em;
+                }
+
+                .drug-table th, .drug-table td {
+                    padding: 10px 8px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>医学学习平台</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li class="menu-category">基础学科</li>
+                    <li><a href="anatomy.html">解剖学</a></li>
+                    <li><a href="pathology.html">病理学</a></li>
+                    <li><a href="physiology.html">生理学</a></li>
+                    <li><a href="pathophysiology.html">病理生理学</a></li>
+                    <li><a href="body-systems.html">系统动画</a></li>
+                    <li><a href="system.html">系统图示</a></li>
+                    <li class="menu-category">临床学科</li>
+                    <li><a href="internal-medicine.html">内科学</a></li>
+                    <li><a href="diagnostics.html">诊断学</a></li>
+                    <li><a href="common_disease.html">常见病</a></li>
+                    <li><a href="symptoms.html">常见症状</a></li>
+                    <li class="menu-category">实用指南</li>
+                    <li><a href="check_up.html">体检指标</a></li>
+                    <li><a href="doctor.html">省钱就医</a></li>
+                    <li><a href="medicine.html">家庭用药</a></li>
+                    <li><a href="healthy-living.html">健康生活</a></li>
+                    <li><a href="hospitals.html">医院选择</a></li>
+                    <li><a href="health-insurance-reform.html">医保改革</a></li>
+                    <li><a href="hospital-reform.html">医院改革</a></li>
+                    <li><a href="medical-staff.html">医护人员</a></li>
+                    <li class="menu-category">医药动态</li>
+                    <li><a href="pharma-export.html" class="active">国药外销</a></li>
+                </ul>
+            </nav>
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        </div>
+
+        <main class="pharma-export-container">
+            <div class="pharma-export-header">
+                <h1>🇨🇳 国药外销</h1>
+                <p>中国原研药出口全球，服务世界各国患者</p>
+            </div>
+
+            <div class="pharma-section">
+                <h2>🏆 抗癌药物</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th>药品名称</th>
+                            <th>出口国家</th>
+                            <th>生产厂商</th>
+                            <th>适应症</th>
+                            <th>年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">阿帕替尼</td>
+                            <td>中国、韩国、泰国</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>胃癌、肝癌、肺癌</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">卡瑞利珠单抗</td>
+                            <td>日本、韩国</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>肺癌、肝癌、食管癌</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">氟唑帕利</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>卵巢癌、乳腺癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">瑞波西利</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>乳腺癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">伊立替康脂质体</td>
+                            <td>日本</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>胰腺癌、结直肠癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">泽布替尼</td>
+                            <td>美国、欧盟、日本、中国</td>
+                            <td class="company">百济神州</td>
+                            <td>套细胞淋巴瘤、慢性淋巴细胞白血病、华氏巨球蛋白血症</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">替雷利珠单抗</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">百济神州</td>
+                            <td>肺癌、食管癌、尿路上皮癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">迪妥昔单抗</td>
+                            <td>中国、欧盟</td>
+                            <td class="company">百济神州</td>
+                            <td>神经母细胞瘤</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">瑞格非尼</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">和黄医药</td>
+                            <td>肝癌、结直肠癌、胃肠道间质瘤</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">索凡替尼</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">和黄医药</td>
+                            <td>神经内分泌肿瘤、胰腺癌</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">派安普利单抗</td>
+                            <td>东南亚</td>
+                            <td class="company">康方生物</td>
+                            <td>肺癌、淋巴瘤</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">卡度尼利单抗</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">康方生物</td>
+                            <td>宫颈癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">西达基奥仑赛</td>
+                            <td>美国、欧盟、日本</td>
+                            <td class="company">传奇生物</td>
+                            <td>多发性骨髓瘤</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">多柔比星脂质体</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">复旦张江</td>
+                            <td>卵巢癌、乳腺癌、淋巴瘤</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">斯鲁利单抗</td>
+                            <td>印尼、泰国</td>
+                            <td class="company">复宏汉霖</td>
+                            <td>肺癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">呋喹替尼</td>
+                            <td>美国、欧盟、日本</td>
+                            <td class="company">和记黄埔医药</td>
+                            <td>结直肠癌、胃癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">舒格利单抗</td>
+                            <td>英国、欧盟</td>
+                            <td class="company">基石药业</td>
+                            <td>肺癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">特瑞普利单抗</td>
+                            <td>美国</td>
+                            <td class="company">君实生物</td>
+                            <td>黑色素瘤、鼻咽癌、尿路上皮癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">米托蒽醌脂质体</td>
+                            <td>日本、韩国</td>
+                            <td class="company">石药集团</td>
+                            <td>白血病、淋巴瘤</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">多纳非尼</td>
+                            <td>中国</td>
+                            <td class="company">泽璟制药</td>
+                            <td>肝癌</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">仑伐替尼</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">正大天晴</td>
+                            <td>肝癌、甲状腺癌、肾癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">信迪利单抗</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">信达生物</td>
+                            <td>肺癌、霍奇金淋巴瘤</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">维迪西妥单抗</td>
+                            <td>美国</td>
+                            <td class="company">荣昌生物</td>
+                            <td>胃癌、尿路上皮癌、乳腺癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>💉 细胞治疗</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">药品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">适应症</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">BCMA CAR-T</td>
+                            <td>美国</td>
+                            <td class="company">科济药业</td>
+                            <td>多发性骨髓瘤</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">CLDN18.2 CAR-T</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">科济药业</td>
+                            <td>胃癌、胰腺癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">GPC3 CAR-T</td>
+                            <td>日本、新加坡</td>
+                            <td class="company">科济药业</td>
+                            <td>肝癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">NK细胞产品</td>
+                            <td>欧盟</td>
+                            <td class="company">国健呈诺</td>
+                            <td>多种实体瘤</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">瑞基奥仑赛</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">药明巨诺</td>
+                            <td>弥漫大B细胞淋巴瘤</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">TCR-T细胞治疗</td>
+                            <td>美国</td>
+                            <td class="company">香雪制药</td>
+                            <td>软组织肉瘤</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">伊基奥仑赛</td>
+                            <td>美国</td>
+                            <td class="company">驯鹿生物</td>
+                            <td>多发性骨髓瘤</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">纳基奥仑赛</td>
+                            <td>美国</td>
+                            <td class="company">合源生物</td>
+                            <td>B细胞白血病</td>
+                            <td class="drug-year">2024</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>🧬 生物类似药</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">药品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">适应症</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">阿达木单抗</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">百奥泰</td>
+                            <td>类风湿关节炎、强直性脊柱炎</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">司库奇尤单抗</td>
+                            <td>欧盟</td>
+                            <td class="company">百奥泰</td>
+                            <td>银屑病、强直性脊柱炎</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">戈利木单抗</td>
+                            <td>日本</td>
+                            <td class="company">百奥泰</td>
+                            <td>类风湿关节炎</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">利妥昔单抗(汉利康)</td>
+                            <td>欧盟、泰国、菲律宾</td>
+                            <td class="company">复宏汉霖</td>
+                            <td>淋巴瘤、白血病</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">贝伐珠单抗</td>
+                            <td>欧盟、加拿大</td>
+                            <td class="company">复宏汉霖</td>
+                            <td>结直肠癌、肺癌</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">曲妥珠单抗</td>
+                            <td>欧盟、澳大利亚</td>
+                            <td class="company">复宏汉霖</td>
+                            <td>乳腺癌、胃癌</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">阿达木单抗</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">海正药业</td>
+                            <td>类风湿关节炎、强直性脊柱炎</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">奥马珠单抗</td>
+                            <td>日本</td>
+                            <td class="company">海正药业</td>
+                            <td>哮喘、荨麻疹</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">英夫利昔单抗</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">海正药业</td>
+                            <td>克罗恩病、类风湿关节炎</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">贝伐珠单抗</td>
+                            <td>美国</td>
+                            <td class="company">齐鲁制药</td>
+                            <td>结直肠癌、肺癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">地舒单抗</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">齐鲁制药</td>
+                            <td>骨质疏松、肿瘤骨转移</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">雷珠单抗</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">齐鲁制药</td>
+                            <td>黄斑变性</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">恩美曲妥珠单抗</td>
+                            <td>欧盟</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>乳腺癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">帕妥珠单抗</td>
+                            <td>日本、韩国</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>乳腺癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">托珠单抗</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">丽珠医药</td>
+                            <td>类风湿关节炎</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">重组人凝血因子VIII</td>
+                            <td>印度、巴西</td>
+                            <td class="company">神州细胞</td>
+                            <td>甲型血友病</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">重组人凝血因子IX</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">神州细胞</td>
+                            <td>乙型血友病</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">曲妥珠单抗</td>
+                            <td>美国</td>
+                            <td class="company">三生国健</td>
+                            <td>乳腺癌、胃癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">依那西普</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">三生国健</td>
+                            <td>类风湿关节炎</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">贝伐珠单抗</td>
+                            <td>欧盟、美国、澳大利亚</td>
+                            <td class="company">信达生物</td>
+                            <td>结直肠癌、肺癌</td>
+                            <td class="drug-year">2021</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>💊 小分子药物</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">药品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">适应症</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">拉帕替尼</td>
+                            <td>东南亚</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>乳腺癌</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">吡咯替尼</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>乳腺癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">阿来替尼</td>
+                            <td>欧盟</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>肺癌</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">维罗非尼</td>
+                            <td>欧盟</td>
+                            <td class="company">恒瑞医药</td>
+                            <td>黑色素瘤</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">甲磺酸奥希替尼</td>
+                            <td>美国、欧盟、日本</td>
+                            <td class="company">艾力斯</td>
+                            <td>肺癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">阿卡替尼</td>
+                            <td>美国</td>
+                            <td class="company">艾力斯</td>
+                            <td>淋巴瘤</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">维奈托克</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">百济神州</td>
+                            <td>白血病</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">伊布替尼</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">百济神州</td>
+                            <td>淋巴瘤、白血病</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">恩曲替尼</td>
+                            <td>美国</td>
+                            <td class="company">和黄医药</td>
+                            <td>实体瘤</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">塞瑞替尼</td>
+                            <td>日本、韩国</td>
+                            <td class="company">贝达药业</td>
+                            <td>肺癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">达拉非尼</td>
+                            <td>美国</td>
+                            <td class="company">贝达药业</td>
+                            <td>黑色素瘤</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">克唑替尼</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">正大天晴</td>
+                            <td>肺癌</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">曲美替尼</td>
+                            <td>日本</td>
+                            <td class="company">正大天晴</td>
+                            <td>黑色素瘤</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">奈拉替尼</td>
+                            <td>日本</td>
+                            <td class="company">北海康成</td>
+                            <td>乳腺癌</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">恩沃利单抗</td>
+                            <td>美国</td>
+                            <td class="company">康宁杰瑞</td>
+                            <td>实体瘤</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">阿利西尤单抗</td>
+                            <td>美国</td>
+                            <td class="company">信达生物</td>
+                            <td>高胆固醇血症</td>
+                            <td class="drug-year">2023</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>💉 疫苗产品</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">药品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">适应症</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">新冠灭活疫苗</td>
+                            <td>100+国家</td>
+                            <td class="company">国药集团</td>
+                            <td>新冠病毒</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">甲型肝炎疫苗</td>
+                            <td>欧盟</td>
+                            <td class="company">国药集团</td>
+                            <td>甲型肝炎</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">新冠灭活疫苗</td>
+                            <td>100+国家</td>
+                            <td class="company">科兴生物</td>
+                            <td>新冠病毒</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">甲型肝炎疫苗</td>
+                            <td>东南亚、非洲</td>
+                            <td class="company">科兴生物</td>
+                            <td>甲型肝炎</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">HPV疫苗</td>
+                            <td>泰国、菲律宾</td>
+                            <td class="company">万泰生物</td>
+                            <td>人乳头瘤病毒感染</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">13价肺炎疫苗</td>
+                            <td>印尼、埃及</td>
+                            <td class="company">沃森生物</td>
+                            <td>肺炎球菌感染</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">HPV疫苗</td>
+                            <td>印尼、孟加拉</td>
+                            <td class="company">沃森生物</td>
+                            <td>人乳头瘤病毒感染</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">新冠mRNA疫苗</td>
+                            <td>印尼、尼泊尔</td>
+                            <td class="company">沃森生物</td>
+                            <td>新冠病毒</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">新冠重组蛋白疫苗</td>
+                            <td>30+国家</td>
+                            <td class="company">智飞生物</td>
+                            <td>新冠病毒</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">A群C群脑膜炎球菌多糖疫苗</td>
+                            <td>东南亚</td>
+                            <td class="company">智飞生物</td>
+                            <td>脑膜炎球菌感染</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">带状疱疹疫苗</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">百克生物</td>
+                            <td>带状疱疹</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">脊灰灭活疫苗</td>
+                            <td>印尼、巴基斯坦</td>
+                            <td class="company">北京生物制品所</td>
+                            <td>脊髓灰质炎</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">水痘疫苗</td>
+                            <td>印尼、巴西</td>
+                            <td class="company">长春百克</td>
+                            <td>水痘</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">乙型脑炎疫苗</td>
+                            <td>20+国家</td>
+                            <td class="company">成都生物制品所</td>
+                            <td>乙型脑炎</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">狂犬病疫苗(Vero细胞)</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">成大生物</td>
+                            <td>狂犬病</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">四价流感疫苗</td>
+                            <td>韩国、墨西哥</td>
+                            <td class="company">华兰生物</td>
+                            <td>流感</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">狂犬病疫苗(人二倍体)</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">康华生物</td>
+                            <td>狂犬病</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">23价肺炎疫苗</td>
+                            <td>东南亚</td>
+                            <td class="company">康泰生物</td>
+                            <td>肺炎球菌感染</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">破伤风疫苗</td>
+                            <td>非洲、中东</td>
+                            <td class="company">武汉生物制品所</td>
+                            <td>破伤风</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">EV71手足口病疫苗</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">医科院生物所</td>
+                            <td>EV71病毒引起的手足口病</td>
+                            <td class="drug-year">2021</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>🩺 血液制品</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">药品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">适应症</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">人血白蛋白</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">华兰生物</td>
+                            <td>低蛋白血症、休克</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">人凝血因子VIII</td>
+                            <td>印度、巴西</td>
+                            <td class="company">华兰生物</td>
+                            <td>甲型血友病</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">人血白蛋白</td>
+                            <td>东南亚、非洲</td>
+                            <td class="company">上海莱士</td>
+                            <td>低蛋白血症、休克</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">乙型肝炎人免疫球蛋白</td>
+                            <td>韩国、泰国</td>
+                            <td class="company">上海莱士</td>
+                            <td>乙肝暴露后预防</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">静注人免疫球蛋白</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">天坛生物</td>
+                            <td>免疫缺陷、感染性疾病</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">人纤维蛋白原</td>
+                            <td>欧盟</td>
+                            <td class="company">天坛生物</td>
+                            <td>纤维蛋白原缺乏</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">人凝血酶原复合物</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">山东泰邦</td>
+                            <td>凝血功能障碍</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">人凝血因子IX</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">山东泰邦</td>
+                            <td>乙型血友病</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">破伤风人免疫球蛋白</td>
+                            <td>中东、非洲</td>
+                            <td class="company">成都蓉生</td>
+                            <td>破伤风暴露后预防</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">人免疫球蛋白</td>
+                            <td>非洲、中东</td>
+                            <td class="company">郑州莱士</td>
+                            <td>免疫缺陷</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">狂犬病人免疫球蛋白</td>
+                            <td>东南亚</td>
+                            <td class="company">远大蜀阳</td>
+                            <td>狂犬病暴露后预防</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">静注人免疫球蛋白</td>
+                            <td>巴西、墨西哥</td>
+                            <td class="company">博雅生物</td>
+                            <td>免疫缺陷、感染性疾病</td>
+                            <td class="drug-year">2023</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>💉 胰岛素</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">药品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">适应症</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">甘精胰岛素</td>
+                            <td>欧美、东南亚</td>
+                            <td class="company">甘李药业</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">赖脯胰岛素</td>
+                            <td>欧美</td>
+                            <td class="company">甘李药业</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">地特胰岛素</td>
+                            <td>欧盟</td>
+                            <td class="company">甘李药业</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">超速效胰岛素</td>
+                            <td>欧美</td>
+                            <td class="company">甘李药业</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">重组人胰岛素</td>
+                            <td>东南亚、南美</td>
+                            <td class="company">通化东宝</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">门冬胰岛素30</td>
+                            <td>东南亚</td>
+                            <td class="company">通化东宝</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">门冬胰岛素</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">珠海联邦</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">长效胰岛素</td>
+                            <td>中东、东南亚</td>
+                            <td class="company">珠海联邦</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">人胰岛素</td>
+                            <td>非洲、中东</td>
+                            <td class="company">广东东阳光</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">德谷胰岛素</td>
+                            <td>美国</td>
+                            <td class="company">合肥天麦</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2024</td>
+                        </tr><tr>
+                            <td class="drug-name">胰岛素类似物</td>
+                            <td>东南亚、南美</td>
+                            <td class="company">江苏万邦</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">预混胰岛素</td>
+                            <td>南美、非洲</td>
+                            <td class="company">浙江海正</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">精蛋白锌胰岛素</td>
+                            <td>东南亚</td>
+                            <td class="company">深圳科兴</td>
+                            <td>糖尿病</td>
+                            <td class="drug-year">2022</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>💊 抗病毒药物</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">药品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">适应症</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">索磷布韦</td>
+                            <td>东南亚、非洲</td>
+                            <td class="company">歌礼药业</td>
+                            <td>丙型肝炎</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">多拉米替片</td>
+                            <td>非洲</td>
+                            <td class="company">歌礼药业</td>
+                            <td>艾滋病</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">法匹拉韦</td>
+                            <td>日本、土耳其</td>
+                            <td class="company">海正药业</td>
+                            <td>流感</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">来特莫韦</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">海正药业</td>
+                            <td>巨细胞病毒感染</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">艾考恩丙替片</td>
+                            <td>泰国、菲律宾</td>
+                            <td class="company">艾迪药业</td>
+                            <td>艾滋病</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">替诺福韦酯</td>
+                            <td>东南亚、非洲</td>
+                            <td class="company">成都倍特</td>
+                            <td>乙肝、艾滋病</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">来迪派韦索磷布韦</td>
+                            <td>东南亚</td>
+                            <td class="company">吉利德(仿制)</td>
+                            <td>丙型肝炎</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">比克替拉韦</td>
+                            <td>非洲</td>
+                            <td class="company">吉利德(仿制)</td>
+                            <td>艾滋病</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">多替拉韦钠</td>
+                            <td>非洲、东南亚</td>
+                            <td class="company">GSK(仿制)</td>
+                            <td>艾滋病</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">丙酚替诺福韦</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">GSK(仿制)</td>
+                            <td>乙肝</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">拉米夫定</td>
+                            <td>非洲、东南亚</td>
+                            <td class="company">安徽贝克</td>
+                            <td>乙肝、艾滋病</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">齐多夫定</td>
+                            <td>非洲</td>
+                            <td class="company">安徽贝克</td>
+                            <td>艾滋病</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">恩曲他滨</td>
+                            <td>东南亚</td>
+                            <td class="company">安徽贝克</td>
+                            <td>艾滋病</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">利托那韦</td>
+                            <td>东南亚、非洲</td>
+                            <td class="company">华海药业</td>
+                            <td>艾滋病</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">奈玛特韦</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">华海药业</td>
+                            <td>新冠病毒</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">阿兹夫定</td>
+                            <td>俄罗斯、巴西</td>
+                            <td class="company">真实生物</td>
+                            <td>艾滋病</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">来瑞特韦</td>
+                            <td>东南亚</td>
+                            <td class="company">众生药业</td>
+                            <td>新冠病毒</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">氢溴酸氘瑞米德韦</td>
+                            <td>东南亚</td>
+                            <td class="company">旺山旺水</td>
+                            <td>新冠病毒</td>
+                            <td class="drug-year">2023</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>🩹 医疗器械</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">产品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">产品类型</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">基因测序仪</td>
+                            <td>欧盟、美国、日本</td>
+                            <td class="company">华大基因</td>
+                            <td>基因检测设备</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">高通量测序仪</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">华大基因</td>
+                            <td>基因检测设备</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">质子治疗系统</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">上海联影</td>
+                            <td>放射治疗设备</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">PET-CT系统</td>
+                            <td>日本、韩国</td>
+                            <td class="company">上海联影</td>
+                            <td>影像诊断设备</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">MRI系统</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">上海联影</td>
+                            <td>影像诊断设备</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">CT扫描仪</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">上海联影</td>
+                            <td>影像诊断设备</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">X射线机</td>
+                            <td>东南亚、非洲</td>
+                            <td class="company">万东医疗</td>
+                            <td>影像诊断设备</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">彩色超声诊断仪</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">迈瑞医疗</td>
+                            <td>影像诊断设备</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">病人监护仪</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">迈瑞医疗</td>
+                            <td>监护设备</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">麻醉机</td>
+                            <td>欧盟、日本</td>
+                            <td class="company">迈瑞医疗</td>
+                            <td>手术设备</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">呼吸机</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">迈瑞医疗</td>
+                            <td>生命支持设备</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">体外诊断试剂</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">安图生物</td>
+                            <td>诊断试剂</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">化学发光试剂</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">安图生物</td>
+                            <td>诊断试剂</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">心脏支架</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">微创医疗</td>
+                            <td>介入耗材</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">骨科植入物</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">微创医疗</td>
+                            <td>植入材料</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">人工关节</td>
+                            <td>日本、韩国</td>
+                            <td class="company">爱康医疗</td>
+                            <td>植入材料</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">种植牙系统</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">创英医疗</td>
+                            <td>口腔器材</td>
+                            <td class="drug-year">2023</td>
+                        </tr><tr>
+                            <td class="drug-name">血液透析器</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">威高集团</td>
+                            <td>透析设备</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">注射器</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">威高集团</td>
+                            <td>耗材</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">输液泵</td>
+                            <td>欧盟、日本</td>
+                            <td class="company">科森药业</td>
+                            <td>输液设备</td>
+                            <td class="drug-year">2022</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>🌿 中药产品</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">产品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">适应症</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">连花清瘟胶囊</td>
+                            <td>美国、欧盟、东南亚</td>
+                            <td class="company">以岭药业</td>
+                            <td>流感、新冠病毒</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">参松养心胶囊</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">以岭药业</td>
+                            <td>心律失常</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">芪苈强心胶囊</td>
+                            <td>欧盟</td>
+                            <td class="company">以岭药业</td>
+                            <td>心力衰竭</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">复方丹参滴丸</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">天士力</td>
+                            <td>冠心病、心绞痛</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">养血清脑颗粒</td>
+                            <td>日本、韩国</td>
+                            <td class="company">天士力</td>
+                            <td>脑血管疾病</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">普佑克(注射用重组人尿激酶原)</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">天士力</td>
+                            <td>急性心肌梗死</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">血塞通注射液</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">昆药集团</td>
+                            <td>心脑血管疾病</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">血塞通软胶囊</td>
+                            <td>欧盟</td>
+                            <td class="company">昆药集团</td>
+                            <td>心脑血管疾病</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">络泰血塞通</td>
+                            <td>美国</td>
+                            <td class="company">昆药集团</td>
+                            <td>心脑血管疾病</td>
+                            <td class="drug-year">2022</td>
+                        </tr><tr>
+                            <td class="drug-name">复方丹参片</td>
+                            <td>东南亚、非洲</td>
+                            <td class="company">白云山</td>
+                            <td>冠心病</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">板蓝根颗粒</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">白云山</td>
+                            <td>感冒发热</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">安宫牛黄丸</td>
+                            <td>美国、欧盟、日本</td>
+                            <td class="company">同仁堂</td>
+                            <td>中风、热病</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">牛黄清心丸</td>
+                            <td>东南亚</td>
+                            <td class="company">同仁堂</td>
+                            <td>中风、神经衰弱</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">乌鸡白凤丸</td>
+                            <td>日本、韩国</td>
+                            <td class="company">同仁堂</td>
+                            <td>妇科疾病</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">六味地黄丸</td>
+                            <td>东南亚、欧盟</td>
+                            <td class="company">九芝堂</td>
+                            <td>肾阴虚</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">驴胶补血颗粒</td>
+                            <td>东南亚</td>
+                            <td class="company">九芝堂</td>
+                            <td>贫血</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">天王补心丹</td>
+                            <td>日本</td>
+                            <td class="company">九芝堂</td>
+                            <td>失眠、心悸</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">通心络胶囊</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">步长制药</td>
+                            <td>冠心病、脑梗死</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">稳心颗粒</td>
+                            <td>东南亚</td>
+                            <td class="company">步长制药</td>
+                            <td>心律失常</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">脑心通胶囊</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">步长制药</td>
+                            <td>心脑血管疾病</td>
+                            <td class="drug-year">2022</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>💊 原料药</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">产品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">产品类型</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">阿莫西林</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">联邦制药</td>
+                            <td>抗生素</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">头孢曲松</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">联邦制药</td>
+                            <td>抗生素</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">头孢克肟</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">联邦制药</td>
+                            <td>抗生素</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">青蒿素</td>
+                            <td>非洲、东南亚</td>
+                            <td class="company">复星医药</td>
+                            <td>抗疟药</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">蒿甲醚</td>
+                            <td>非洲</td>
+                            <td class="company">复星医药</td>
+                            <td>抗疟药</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">双氢青蒿素</td>
+                            <td>东南亚</td>
+                            <td class="company">复星医药</td>
+                            <td>抗疟药</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">对乙酰氨基酚</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">鲁安药业</td>
+                            <td>解热镇痛</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">布洛芬</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">鲁安药业</td>
+                            <td>解热镇痛</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">阿司匹林</td>
+                            <td>东南亚、中东</td>
+                            <td class="company">鲁安药业</td>
+                            <td>解热镇痛</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">二甲双胍</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">华润紫竹</td>
+                            <td>降糖药</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">格列美脲</td>
+                            <td>欧盟</td>
+                            <td class="company">华润紫竹</td>
+                            <td>降糖药</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">格列吡嗪</td>
+                            <td>东南亚</td>
+                            <td class="company">华润紫竹</td>
+                            <td>降糖药</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">缬沙坦</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">华海药业</td>
+                            <td>降压药</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">厄贝沙坦</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">华海药业</td>
+                            <td>降压药</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">氯沙坦</td>
+                            <td>欧盟</td>
+                            <td class="company">华海药业</td>
+                            <td>降压药</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">奥美拉唑</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">奥赛康</td>
+                            <td>胃肠道用药</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">埃索美拉唑</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">奥赛康</td>
+                            <td>胃肠道用药</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">泮托拉唑</td>
+                            <td>东南亚</td>
+                            <td class="company">奥赛康</td>
+                            <td>胃肠道用药</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">他汀类</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">京新药业</td>
+                            <td>降脂药</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">瑞舒伐他汀</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">京新药业</td>
+                            <td>降脂药</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">阿托伐他汀</td>
+                            <td>欧盟</td>
+                            <td class="company">京新药业</td>
+                            <td>降脂药</td>
+                            <td class="drug-year">2021</td>
+                        </tr></tbody>
+                </table>
+            </div>
+
+            <div class="pharma-section">
+                <h2>🧪 药用辅料</h2>
+                <table class="drug-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">产品名称</th>
+                            <th style="width: 12%;">出口国家</th>
+                            <th style="width: 20%;">生产厂商</th>
+                            <th style="width: 20%;">产品类型</th>
+                            <th style="width: 8%;">年份</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            <td class="drug-name">微晶纤维素</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">聊城阿华</td>
+                            <td>填充剂</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">预胶化淀粉</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">聊城阿华</td>
+                            <td>填充剂</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">乳糖</td>
+                            <td>欧盟</td>
+                            <td class="company">聊城阿华</td>
+                            <td>填充剂</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">硬脂酸镁</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">湖州展望</td>
+                            <td>润滑剂</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">滑石粉</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">湖州展望</td>
+                            <td>润滑剂</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">二氧化硅</td>
+                            <td>美国</td>
+                            <td class="company">湖州展望</td>
+                            <td>助流剂</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">羟丙基甲基纤维素</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">山东赫达</td>
+                            <td>包衣材料</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">聚乙烯吡咯烷酮</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">山东赫达</td>
+                            <td>粘合剂</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">羧甲基纤维素钠</td>
+                            <td>欧盟</td>
+                            <td class="company">山东赫达</td>
+                            <td>崩解剂</td>
+                            <td class="drug-year">2021</td>
+                        </tr><tr>
+                            <td class="drug-name">丙二醇</td>
+                            <td>欧盟、美国</td>
+                            <td class="company">浙江海德</td>
+                            <td>溶剂</td>
+                            <td class="drug-year">2019</td>
+                        </tr><tr>
+                            <td class="drug-name">聚乙二醇</td>
+                            <td>美国、欧盟</td>
+                            <td class="company">浙江海德</td>
+                            <td>溶剂</td>
+                            <td class="drug-year">2020</td>
+                        </tr><tr>
+                            <td class="drug-name">甘油</td>
+                            <td>欧盟</td>
+                            <td class="company">浙江海德</td>
+                            <td>保湿剂</td>
+                            <td class="drug-year">2021</td>
+                        </tr></tbody>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>
